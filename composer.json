@@ -1,0 +1,24 @@
+{
+    "name": "RhubarbPHP/website",
+    "description": "The website for Rhubarb PHP",
+    "minimum-stability": "stable",
+    "license": "Apache 2.0",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/acuthbert/rhubarb"
+        }
+    ],
+    "require":
+    {
+        "rhubarbphp/rhubarb": "dev-crown",
+        "geeks-dev/php-markdown-extra-extended-stylish": "dev-master"
+    },
+    "autoload":
+    {
+        "psr-4":
+        {
+            "Rhubarb\\Website\\": "src/"
+        }
+    }
+}
