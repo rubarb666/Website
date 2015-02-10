@@ -16,10 +16,24 @@ of framework features low reducing overall code paths to a minimum.
 presenters. And after inclusion any aspect of those features can be amended, retired or even completely
 supplanted to best fit with your application.
 
-3. MVP: Rhubarb showcases a Model-View-Presenter library that provides an excellent way to build
+3. MVP: Rhubarb showcases a Model-View-Presenter library (Leaf) that provides an excellent way to build
 unit tested, view abstracted user interfaces through reusable objects.
 
+## Switching on
 
-```php
+To get started with Rhubarb you'll need composer. Once you have it, you can create your first Rhubarb
+project by using composer's `create-project` command to bring down an application template. An application
+template is a simple scaffold which sets you up with some example project files to get started.
 
+```bash
+composer create-project rhubarbphp/application.blog myblog
 ```
+
+All of the application templates come with a Vagrantfile so if you have vagrant simply bring it up:
+
+```bash
+cd myblog
+vagrant up
+```
+
+Now visit `http://myblog.127.0.0.1.xip.io:8080/` and you're up and running.
