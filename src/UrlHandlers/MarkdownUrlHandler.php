@@ -28,8 +28,12 @@ class MarkdownUrlHandler extends UrlHandler
     {
         $url = $request->UrlPath;
 
+        if ($url[strlen($url) - 1] == "/") {
+            $url = $url . "index";
+        }
+
         // Look to see if there's a markdown file at this location.
-        if (file_exists($this->rootPath . "/" . $url . ".md")) {
+        if (file_exists($this->rootPath . $url . ".md")) {
             $markDownRaw = file_get_contents($this->rootPath . "/" . $url . ".md");
 
             return MarkdownExtended($markDownRaw);
