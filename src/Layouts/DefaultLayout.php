@@ -14,7 +14,7 @@ class DefaultLayout extends Layout
 <title>Rhubarb PHP</title>
 <head>
 <link href="/static/css/site.css" rel="stylesheet" type="text/css" />
-<link href="/static/css/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/shThemeEclipse.css" rel="stylesheet" type="text/css" />
 <script src="/static/js/shCore.js" type="text/javascript"></script>
 <script src="/static/js/shBrushPhp.js" type="text/javascript"></script>
 <script src="/static/js/shBrushBash.js" type="text/javascript"></script>

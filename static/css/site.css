@@ -80,3 +80,5 @@ blockquote {
 blockquote p {
     margin: 0;
 }
+
+.gutter { font-family: monospace }

@@ -29,7 +29,7 @@ markdown files in the "docs/" folder of each repository.
 ## How to make modifications to existing modules
 
 > Before you start please be aware **you cannot push to the official repositories**. You must make a fork of the relevant
-> module into your personal github account.
+> module into your personal github account and make a pull request from there.
 
 If you are a programming ninja and can trust your unit tests to guide you to completion then you simply need
 to clone your forked repos, make your changes, commit and do a PR to the develop branch in the original repos.
@@ -53,4 +53,51 @@ set the version number to the dev- branch you're working on.
     }
 }
 
+```
+
+## License
+
+Rhubarb and its modules subscribe to the Apache License 2.0. All contributed files should contain the standard
+header as found in any existing Rhubarb code file.
+
+## Style Guide
+
+Rhubarb and its modules use the [PSR-1](http://www.php-fig.org/psr/psr-1/) and [PSR-2](http://www.php-fig.org/psr/psr-2/)
+coding styles standardised by [php-fig.org](http://www.php-fig.org). All contributions should conform to this
+standard.
+
+## Namespaces
+
+* All official Rhubarb projects should start their namespace with Rhubarb.
+* All unofficial Rhubarb projects should start their namespace with their appropriate vendor
+* All modules should follow the first section of namespace with the module namespace name.
+
+  e.g.
+
+  Rhubarb\Leaf
+
+* All scaffold projects should follow the first section of namespace with "Scaffolds\" and then the module
+  namespace name.
+
+  e.g.
+
+  Rhurbarb\Scaffolds\Authentication
+
+## Folders
+
+Rhubarb follows the [PSR-4](http://www.php-fig.org/psr/psr-4/) namespacing and foldering conventions for class files.
+Code files should go into a folder called 'src' with further folder dictating the namespace of the class. Namespace
+roots should be registered in the project's composer.json file.
+
+Unit tests should go into a 'tests' folder at the same level as the 'src' folder. The sub foldering should mirror
+that of the class under test. The namespace root of the 'tests' folder should be the same as the 'src' folder but
+with '\Tests' appended to the root.
+
+e.g.
+```
+Class: src/Models/Model.php
+Namespace: Rhubarb\Stem\Models
+
+Test: tests/Models/ModelTest.php
+Namespace: Rhubarb\Stem\Tests\Models
 ```

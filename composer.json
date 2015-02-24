@@ -4,14 +4,11 @@
     "minimum-stability": "stable",
     "license": "Apache 2.0",
     "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/acuthbert/rhubarb"
-        }
     ],
     "require":
     {
-        "rhubarbphp/rhubarb": "dev-crown",
+        "rhubarbphp/rhubarb": "*",
+        "rhubarbphp/module-stem": "*",
         "geeks-dev/php-markdown-extra-extended-stylish": "dev-master"
     },
     "autoload":
