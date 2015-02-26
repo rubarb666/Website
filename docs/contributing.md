@@ -55,6 +55,18 @@ set the version number to the dev- branch you're working on.
 
 ```
 
+Now do a `composer update` and you're ready to make your changes.
+
+Once your changes are complete you need to commit your changes and then push to origin
+
+``` bash
+git commit -am "Refactored the pipeline filtering mechanism"
+git push origin
+```
+
+You must specifically mention origin in your push command as the default remote (called composer funny enough)
+is read only.
+
 ## License
 
 Rhubarb and its modules subscribe to the Apache License 2.0. All contributed files should contain the standard

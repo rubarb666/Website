@@ -36,6 +36,6 @@ can choose from. It requires [composer](https://getcomposer.org/) to download an
 so the best way to start your project is using composer.
 
 ```bash
-composer create-project rhubarbphp/rhubarb my-new-site 1.*
+composer create-project rhubarbphp/rhubarb my-uber-app
 ```
 
