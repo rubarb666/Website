@@ -9,6 +9,8 @@
     {
         "rhubarbphp/rhubarb": "*",
         "rhubarbphp/module-stem": "*",
+        "rhubarbphp/module-leaf": "*",
+        "rhubarbphp/module-patterns": "*",
         "geeks-dev/php-markdown-extra-extended-stylish": "dev-master"
     },
     "autoload":

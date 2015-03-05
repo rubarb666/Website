@@ -14,7 +14,7 @@ class WebsiteApp extends Module
 
         $this->addUrlHandlers(
             [
-                "/" => new MarkdownUrlHandler("docs")
+                "/" => new MarkdownUrlHandler()
             ]
         );
     }
