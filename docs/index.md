@@ -36,6 +36,10 @@ can choose from. It requires [composer](https://getcomposer.org/) to download an
 so the best way to start your project is using composer.
 
 ```bash
-composer create-project rhubarbphp/rhubarb my-uber-app
+composer create-project rhubarbphp/bootstrap-webapp myapp
+cd myapp
+vagrant up
 ```
+
+Now visit http://myapp.127.0.0.1.xip.io:8080/
 

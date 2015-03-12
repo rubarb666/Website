@@ -10,11 +10,10 @@ You can also manually create and edit a composer file if you wish but it's simpl
 initialise the project with the Rhubarb library.
 
 ``` bash
-composer create-project rhubarbphp/rhubarb blog
+composer create-project rhubarbphp/bootstrap-webapp blog
 ```
-
-As you might have spotted we're going to create a blog application. We'll build an engine to display blog
-articles and an admin to control it.
+The **bootstrap-webapp** project is a bootstrap project which will get us started. Also as you might have spotted
+we're going to create a blog application. We'll build an engine to display blog articles and an admin to control it.
 
 Once composer has finished you should have the following files and folders:
 
@@ -50,7 +49,7 @@ composer.json
 
 ## Starting the application
 
-Simply start the project with
+Simply start the project with:
 
 ``` bash
 vagrant up
