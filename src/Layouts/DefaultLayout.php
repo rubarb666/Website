@@ -23,22 +23,32 @@ class DefaultLayout extends Layout
 </html>
 <body>
 <div id="top">
-<h1>Rhubarb - a tasty PHP framework</h1>
-<img class="logo" src="/static/images/rhubarb.jpg" height="90" />
+    <div class="brace">
+        <h1>Rhubarb - a tasty PHP framework</h1>
+        <img class="logo" src="/static/images/rhubarb.jpg" height="90" />
+    </div>
 </div>
-<ul class="nav">
-    <li><a href="/">Home</a></li>
-    <li><a href="/about/index">About Rhubarb</a></li>
-    <li><a href="/tutorial/index">Get Started</a></li>
-    <li><a href="/manual/index">Manual</a></li>
-    <li><a href="/contributing">Contributing</a></li>
-</ul>
+<div class="nav">
+    <div class="brace">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about/index">About Rhubarb</a></li>
+            <li><a href="/tutorial/index">Get Started</a></li>
+            <li><a href="/manual/index">Manual</a></li>
+            <li><a href="/contributing">Contributing</a></li>
+        </ul>
+    </div>
+</div>
 <div id="content">
+    <div class="brace">
+        <div class="wrap">
 <?php
 
         parent::printLayout($content);
 
         ?>
+        </div>
+    </div>
 </div>
 <script type="text/javascript">
     SyntaxHighlighter.defaults['toolbar'] = false;

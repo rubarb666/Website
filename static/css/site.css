@@ -2,20 +2,25 @@ body {
     font-family: arial, helvetica, verdana, sans-serif;
     margin: 0;
     padding: 0;
-    line-height: 160%;
+    line-height: 175%;
     font-size: 95%;
+    background: #EEE;
 }
 
-ul.nav
+.nav
 {
     background: #990000;
     width: 100%;
-    margin: 0;
-    padding: 0;
     border-top: 1px solid #AA3333;
 }
 
-ul.nav li {
+.nav ul
+{
+    margin: 0;
+    padding: 0;
+}
+
+.nav ul li {
     width: 150px;
     display: inline-block;
     list-style: none;
@@ -25,16 +30,16 @@ ul.nav li {
     text-align: center;
 }
 
-ul.nav li a, ul.nav li a:visited {
+.nav ul li a, .nav ul li a:visited {
     color: white;
     text-decoration: none;
 }
 
-ul.nav li a:hover {
+.nav ul li a:hover {
     color: white;
 }
 
-ul.nav li:hover {
+.nav ul li:hover {
     background: #AA0000;
 }
 
@@ -64,21 +69,48 @@ ul.nav li:hover {
     padding: 0 10px;
 }
 
+#content h1
+{
+    margin: 0;
+}
+
+.brace
+{
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+#content .brace
+{
+    background: #fff;
+}
+
+#content .brace .wrap {
+    padding: 20px;
+}
+
 table td {
-    font-size: 95%;
+    font-size: 9pt;
     padding: 0;
+    line-height: 140%;
 }
 
 blockquote {
     border: 1px solid #990000;
-    border-radius: 3px;
+    border-radius: 5px;
     background: #FFEEEE;
-    margin: 0;
+    margin: 20px 20px 30px 20px;
     padding: 10px;
+    box-shadow: 3px 3px 15px #CCC;
 }
 
 blockquote p {
     margin: 0;
 }
 
-.gutter { font-family: monospace }
+.gutter { font-family: monospace; }
+
+.gutter div {
+    padding-right: 10px;
+    margin-right: 10px;
+}
