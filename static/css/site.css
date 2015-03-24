@@ -89,7 +89,22 @@ body {
     padding: 20px;
 }
 
-table td {
+table {
+    border-spacing: 10px;
+    border-collapse: separate;
+}
+
+table th {
+    text-align: left;
+    border-bottom: 1px solid #9F1313;
+}
+
+table th, table td {
+    line-height: 125%;
+    font-size: 95%;
+}
+
+.syntaxhighlighter table td {
     font-size: 9pt;
     padding: 0;
     line-height: 140%;
@@ -113,4 +128,16 @@ blockquote p {
 .gutter div {
     padding-right: 10px;
     margin-right: 10px;
+}
+
+dt {
+    color: white;
+    background: #9F1313;
+    padding-left: 5px;
+}
+
+dd {
+    background: rgba(214, 19, 19, 0.20);
+    padding: 5px;
+    margin-bottom: 15px;
 }
