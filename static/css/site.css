@@ -145,3 +145,8 @@ dd {
     padding: 5px;
     margin-bottom: 15px;
 }
+
+pre {
+    background: #F1F1F1;
+    padding: 5px 15px;
+}

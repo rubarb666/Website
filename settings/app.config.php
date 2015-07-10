@@ -4,6 +4,8 @@ namespace Rhubarb\Website\Settings;
 
 use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\Module;
+use Rhubarb\RestApi\UrlHandlers\RestCollectionHandler;
+use Rhubarb\Website\RestResources\DaysOfTheWeek;
 use Rhubarb\Website\UrlHandlers\MarkdownUrlHandler;
 
 class WebsiteApp extends Module
@@ -14,6 +16,7 @@ class WebsiteApp extends Module
 
         $this->addUrlHandlers(
             [
+                "/days-of-the-week" => new RestCollectionHandler( '\Rhubarb\Website\RestResources\DaysOfTheWeek' ),
                 "/" => new MarkdownUrlHandler()
             ]
         );

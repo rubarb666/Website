@@ -7,10 +7,11 @@
     ],
     "require":
     {
-        "rhubarbphp/rhubarb": "*",
+        "rhubarbphp/rhubarb": "dev-develop as dev-master",
         "rhubarbphp/module-stem": "dev-develop as 0.9.1",
         "rhubarbphp/module-leaf": "*",
         "rhubarbphp/module-patterns": "*",
+	"rhubarbphp/module-restapi": "*",
         "geeks-dev/php-markdown-extra-extended-stylish": "dev-master"
     },
     "autoload":
