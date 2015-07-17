@@ -4,8 +4,13 @@ namespace Rhubarb\Website\Settings;
 
 use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\Module;
+use Rhubarb\RestApi\Resources\ModelRestResource;
 use Rhubarb\RestApi\UrlHandlers\RestCollectionHandler;
+use Rhubarb\Stem\Schema\SolutionSchema;
+use Rhubarb\Website\Models\Contact;
+use Rhubarb\Website\Models\Organisation;
 use Rhubarb\Website\RestResources\DaysOfTheWeek;
+use Rhubarb\Website\RestResources\OrganisationResource;
 use Rhubarb\Website\UrlHandlers\MarkdownUrlHandler;
 
 class WebsiteApp extends Module
@@ -17,6 +22,7 @@ class WebsiteApp extends Module
         $this->addUrlHandlers(
             [
                 "/days-of-the-week" => new RestCollectionHandler( '\Rhubarb\Website\RestResources\DaysOfTheWeek' ),
+                "/contacts" => new RestCollectionHandler( '\Rhubarb\Website\RestResources\ContactResource' ),
                 "/" => new MarkdownUrlHandler()
             ]
         );
@@ -24,7 +30,29 @@ class WebsiteApp extends Module
 
     protected function initialise()
     {
+        $organisation = new Organisation();
+        $organisation->OrganisationName = "Acme Co. Ltd.";
+        $organisation->save();
 
+        $contact = new Contact();
+        $contact->Name = "John Smith";
+        $contact->DateOfBirth = "today";
+        $contact->save();
+
+        $contact = new Contact();
+        $contact->Name = "Peter Salmon";
+        $contact->DateOfBirth = "yesterday";
+        $contact->save();
+
+        $contact = new Contact();
+        $contact->Name = "Claire Blackwood";
+        $contact->DateOfBirth = "last week";
+        $contact->OrganisationID = $organisation->UniqueIdentifier;
+        $contact->save();
+
+        SolutionSchema::registerSchema( "Demo", '\Rhubarb\Website\Models\DemoSolutionSchema' );
+
+        ModelRestResource::registerModelToResourceMapping( "Organisation", OrganisationResource::class );
     }
 }
 
