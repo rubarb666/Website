@@ -4,7 +4,9 @@ namespace Rhubarb\Website\Settings;
 
 use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\Module;
+use Rhubarb\RestApi\Resources\ApiDescriptionResource;
 use Rhubarb\RestApi\Resources\ModelRestResource;
+use Rhubarb\RestApi\UrlHandlers\RestApiRootHandler;
 use Rhubarb\RestApi\UrlHandlers\RestCollectionHandler;
 use Rhubarb\Stem\Schema\SolutionSchema;
 use Rhubarb\Website\Models\Contact;
@@ -21,8 +23,12 @@ class WebsiteApp extends Module
 
         $this->addUrlHandlers(
             [
-                "/days-of-the-week" => new RestCollectionHandler( '\Rhubarb\Website\RestResources\DaysOfTheWeek' ),
-                "/contacts" => new RestCollectionHandler( '\Rhubarb\Website\RestResources\ContactResource' ),
+                "/api" => new RestApiRootHandler(
+                    ApiDescriptionResource::class,
+                    [
+                        "/days-of-the-week" => new RestCollectionHandler( '\Rhubarb\Website\RestResources\DaysOfTheWeek' ),
+                        "/contacts" => new RestCollectionHandler( '\Rhubarb\Website\RestResources\ContactResource' ),
+                    ] ),
                 "/" => new MarkdownUrlHandler()
             ]
         );
