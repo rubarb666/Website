@@ -15,7 +15,7 @@ class OrganisationResource extends ModelRestResource
     {
         return "Organisation";
     }
-
+/*
     protected function getHref()
     {
         if ( $this->model ){
@@ -23,5 +23,5 @@ class OrganisationResource extends ModelRestResource
         }
 
         return "/organisations";
-    }
+    }*/
 }
