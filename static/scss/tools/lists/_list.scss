@@ -1,0 +1,47 @@
+/*------------------------------------
+	LISTS
+*/
+
+@mixin list(
+$format:auto,
+$bullet-position:auto
+) {
+	@if $format == "clean" {
+		list-style:none;
+		margin-#{$main-start}:0;
+		dd, li {
+			margin-left:0;
+		}
+	}
+
+	@if $format == "numerical" {
+		list-style:decimal;
+	}
+
+	@if $format == "bullets" {
+		list-style: disc;
+	}
+
+	@if $format == "inline" {
+		margin-#{$main-start}:0;
+		li {
+			@include rem(margin-#{$main-end}, $base-space);
+			display:inline;
+		}
+		dd {
+			display: block;
+		}
+		dt {
+			@include vertical-spacing($vertical-space:$vertical-space/2);
+			@include rem(margin-#{$main-end}, $base-space/2);
+			clear: $main-start;
+			float: $main-start;
+			white-space: nowrap;
+		}
+	}
+
+	@if $bullet-position == "outside" {
+		list-style-position: outside;
+		margin-left:0;
+	}
+}

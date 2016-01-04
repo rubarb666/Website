@@ -1,0 +1,5 @@
+@mixin grid-item-padding() {
+	@include border-box(include);
+	@include rem(padding-left, $gutter/2);
+	@include rem(padding-right, $gutter/2);
+}

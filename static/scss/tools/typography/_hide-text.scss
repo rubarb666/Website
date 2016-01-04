@@ -1,0 +1,17 @@
+/*------------------------------------
+	# HIDE-TEXT
+
+	Hide-text is an image replacement mixin. It is based off the HTML5-Boilerplate image-replacement.
+*/
+
+@mixin hide-text() {
+	line-height: 1.5;
+	overflow: hidden;
+
+	&:before {
+		content: "";
+		display: block;
+		width: 0;
+		height: 100%;
+	}
+}

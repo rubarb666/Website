@@ -1,0 +1,17 @@
+/*------------------------------------
+	LEGACY
+
+	Target old versions of IE.
+
+	Examples
+
+		@include is-old-ie {
+			display:inline;
+		}
+
+		@include is-not-old-ie {
+			display:inline-block;
+		}
+*/
+
+@import "old-ie";

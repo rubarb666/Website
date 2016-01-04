@@ -1,0 +1,42 @@
+/*------------------------------------
+	LIST
+
+*/
+
+@mixin item-list(
+	$arrangement:vertical,
+	$box-padding:0
+) {
+	@include list(clean);
+	* > a:only-child {
+		display:block;
+	}
+	@if $box-padding != 0 {
+		> * {
+			@include padding($box-padding);
+			> *:only-child {
+				@if $arrangement == "horizontal" {
+					@include margin(0 -$box-padding);
+					@include padding(0 $box-padding);
+				} @else {
+					@include margin(-$box-padding);
+					@include padding($box-padding);
+				}
+			}
+			@if $arrangement == "horizontal" {
+				@include padding(0 $box-padding);
+			}
+		}
+	}
+	@if $arrangement == "horizontal" {
+		> * {
+			@include display(inline-block);
+		}
+	}
+	@if $arrangement == "grid" {
+		@include display(flex);
+		> * {
+			@include flex(1);
+		}
+	}
+}

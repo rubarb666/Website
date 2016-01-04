@@ -1,0 +1,20 @@
+/*------------------------------------
+	PERSPECTIVE
+
+	The perspective CSS property determines the distance between the z=0 plane and the user in order to give to the 3D-positioned element some perspective.
+
+	The perspective-origin CSS property determines the position the viewer is looking at. It is used as the vanishing point by the perspective property.
+
+		@include perspective(300px);
+		@include perspective-origin(30% 30%);
+
+*/
+
+@mixin perspective($depth: none) {
+// none | <length>
+	@include prefixer(perspective, $depth, webkit moz spec);
+}
+
+@mixin perspective-origin($value: 50% 50%) {
+	@include prefixer(perspective-origin, $value, webkit moz spec);
+}

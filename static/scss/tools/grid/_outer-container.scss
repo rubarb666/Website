@@ -1,0 +1,43 @@
+/**
+* Used as the main container when setting the fixed with of a page
+* Generally good practice to have one of these per main section e.g. header, footer, main
+*/
+
+@mixin outer-container( $container-gutter:$gutter, $container-width:$fixed-width ) {
+	@include padding(n $container-gutter);
+	margin-left:auto;
+	margin-right:auto;
+
+// Position the content of a fixed width site
+	@if $site-anchor != center {
+		margin-#{$site-anchor}:0;
+	}
+
+	text-align: $main-start;
+
+	@if $is-site-responsive {
+		@if $is-site-fluid == false {
+			@include rem(max-width, $container-width + $gutter*2);
+		} @else {
+			width: $fluid-width;
+			@include is-old-ie {
+				width: $fluid-width;
+			}
+		}
+	}
+	@else
+	{
+		@if $is-site-fluid == false {
+			width: $container-width;
+			@include rem(max-width, $container-width);
+			@include is-old-ie {
+				width:100%;
+			}
+		} @else {
+			width: $fluid-width;
+			@include is-old-ie {
+				width:100%;
+			}
+		}
+	}
+}

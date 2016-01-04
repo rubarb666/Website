@@ -1,0 +1,8 @@
+.c-global-footer {
+    @include background(linear-gradient(color(secondary), color(tertiary)));
+    @include font-size(font-size(beta));
+    color:color(site);
+    position:relative;
+    text-align:center;
+    z-index:0;
+}

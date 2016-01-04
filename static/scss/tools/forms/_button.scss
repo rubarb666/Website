@@ -1,0 +1,156 @@
+/*------------------------------------*\
+
+   	BUTTON
+
+	Button options and styles can be changed in _config.scss
+	under the *Buttons*.
+
+	Options include:
+
+	$button-font-family
+	$has-button-border
+	$has-button-gradient
+	$has-button-shadow
+	$is-button-rounded
+
+	/ref/patterns.php#buttons
+
+/*------------------------------------*/
+
+%hover-no-underline {
+	&:hover, &:active {
+		text-decoration: none;
+	}
+}
+
+%button {
+	@include appearance(none);
+	@include display(inline-block);
+	@include padding(0 $base-space);
+	@include rem(margin-bottom, $base-space/2);
+	cursor: pointer;
+	font-family: $button-font-family;
+	line-height: $touch-target;
+	min-height: $touch-target;
+	white-space: nowrap;
+
+	// Border Settings
+	@if $has-button-border == yes {
+		border: 1px solid;
+		border-color: darken($button-color, 5%);
+	} @else {
+		border: 1px solid;
+		border-color: $button-color;
+	}
+
+	// Border Radius Settings
+	@if $is-button-rounded == yes {
+		border-radius: $button-radius;
+	}
+	@if $has-button-shadow == yes {
+		@include box-shadow;
+		&:active {
+			@include box-shadow(0, 0, 0);
+			@include box-shadow-inset;
+		}
+	}
+
+	// Disabled Settings
+	&[disabled] {
+		@include box-shadow(0, 0, 0);
+		cursor:not-allowed;
+		opacity:0.5;
+	}
+
+	@extend %hover-no-underline;
+}
+
+@mixin button-color (
+$button-color:$button-color
+) {
+	background: $button-color;
+
+// Gradient Settings
+	@if $has-button-gradient == yes {
+		@include background-image(linear-gradient(top, lighten($button-color, 5%), darken($button-color, 5%)));
+	}
+
+// Border Settings
+	@if $has-button-border == yes {
+		border-color: darken($button-color, 5%);
+	} @else {
+		border-color: $button-color;
+	}
+
+// Text Color Settings
+	$lightness: lightness($button-color);
+	@if $lightness < 60 {
+		color: white;
+		&:visited {
+			color: white;
+		}
+	} @else {
+		color: darken($button-color, 50%);
+		&:visited {
+			color: darken($button-color, 50%);
+		}
+	}
+
+// Hover State
+	&:hover {
+		background:darken($button-color, 5%);
+		$lightness: lightness($button-color);
+		@if $lightness < 60 {
+			color: white;
+		} @else {
+			color: darken($button-color, 60%);
+		}
+	}
+
+// Active State
+	&:active {
+		background:darken($button-color, 10%);
+		$lightness: lightness($button-color);
+		@if $lightness < 60 {
+			color: white;
+		} @else {
+			color: darken($button-color, 70%);
+		}
+	}
+
+// Disabled Settings
+	&[disabled] {
+		background:$button-color;
+		&:hover, &:active {
+			background:$button-color;
+		}
+	}
+}
+
+@mixin button(
+$button-color:$button-color
+) {
+	@extend %button;
+	@include button-color($button-color);
+}
+
+%button-group {
+	input[type="submit"].button,
+	.button {
+		margin-#{$main-end}:-2px;
+	}
+	@if $is-button-rounded == "yes" {
+		input[type="submit"].button,
+		.button {
+			border-radius: 0 0 0 0;
+			&:first-child {
+				border-top-#{$main-start}-radius: $button-radius;
+				border-bottom-#{$main-start}-radius: $button-radius;
+			}
+			&:last-child {
+				border-top-#{$main-end}-radius: $button-radius;
+				border-bottom-#{$main-end}-radius: $button-radius;
+			}
+		}
+	}
+}

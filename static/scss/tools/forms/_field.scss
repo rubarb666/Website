@@ -1,0 +1,31 @@
+@mixin field (
+$width:auto
+) {
+	@include appearance(none);
+	@include border-box();
+	@include display(inline-block);
+	@include padding(0 ($base-space/2));
+	color:map-get($color, text);
+	background:$field-bg;
+	line-height: $touch-target;
+	max-width:100%;
+	min-height: $touch-target;
+	width:$width;
+
+	@if $field-font-family {
+		font-family: $field-font-family;
+	}
+
+	// Border Settings
+	@if $has-field-border == yes {
+		border: 1px solid $field-border;
+	} @else {
+		border: 1px solid $field-bg;
+	}
+	@if $has-field-rounded == yes {
+		border-radius: $field-radius;
+	} @else {
+		-webkit-border-radius:0;
+		border-radius:0;
+	}
+}

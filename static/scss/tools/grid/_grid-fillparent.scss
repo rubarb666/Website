@@ -1,0 +1,8 @@
+/**
+* Used when content is not divided up into fractions
+*/
+
+@mixin grid-fillparent() {
+	float:none;
+	width:auto;
+}

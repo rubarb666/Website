@@ -1,0 +1,5 @@
+@mixin grid-item {
+	@include collapse-fix;
+	clear:none;
+	float:$main-start;
+}

@@ -1,0 +1,8 @@
+@function screen-size($key) {
+	@if map-has-key($screen-size, $key) {
+		@return map-get($screen-size, $key);
+	} @else {
+		@warn "Unknown `#{$key}` in $screen-size.";
+		@return null;
+	}
+}

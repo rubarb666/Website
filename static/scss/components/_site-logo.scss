@@ -1,0 +1,8 @@
+.c-site-logo {
+    width:$base-space*24;
+    max-width:80%;
+    @include screen-size(sm-min) {
+        @include position(absolute, 50% 0 0 50%);
+        @include transform(translate(-50%, -50%));
+    }
+}

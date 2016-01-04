@@ -1,0 +1,92 @@
+/*------------------------------------
+	# ANIMATION
+
+	The animation mixins support comma separated lists of values, which allows different transitions for individual
+	properties to be described in a single style rule. Each value in the list corresponds to the value at that same
+	position in the other properties.
+
+		box:hover {
+		  @include animation-name(scale, slide);
+		  @include animation-duration(2s);
+		  @include animation-timing-function(ease);
+		  @include animation-iteration-count(infinite);
+
+		  // Animation shorthand works the same as the CSS3 animation shorthand
+		  @include animation(scale 1.0s ease-in, slide 2.0s ease);
+		}
+
+	http://www.w3.org/TR/css3-animations/#the-animation-name-property-
+	Each of these mixins support comma separated lists of values, which allows different transitions for individual
+	properties to be described in a single style rule. Each value in the list corresponds to the value at that same
+	position in the other properties.
+
+	-- From bourbon.io/docs/#animations
+*/
+
+// Official animation shorthand property.
+@mixin animation (
+$animations...
+) {
+	@include prefixer(animation, $animations, webkit moz spec);
+}
+
+// Individual Animation Properties
+@mixin animation-name (
+$names...
+) {
+	@include prefixer(animation-name, $names, webkit moz spec);
+}
+
+
+@mixin animation-duration (
+$times...
+) {
+	@include prefixer(animation-duration, $times, webkit moz spec);
+}
+
+
+@mixin animation-timing-function (
+$motions...
+) {
+// ease | linear | ease-in | ease-out | ease-in-out
+	@include prefixer(animation-timing-function, $motions, webkit moz spec);
+}
+
+
+@mixin animation-iteration-count (
+$values...
+) {
+// infinite | <number>
+	@include prefixer(animation-iteration-count, $values, webkit moz spec);
+}
+
+
+@mixin animation-direction (
+$directions...
+) {
+// normal | alternate
+	@include prefixer(animation-direction, $directions, webkit moz spec);
+}
+
+
+@mixin animation-play-state (
+$states...
+) {
+// running | paused
+	@include prefixer(animation-play-state, $states, webkit moz spec);
+}
+
+
+@mixin animation-delay (
+$times...
+) {
+	@include prefixer(animation-delay, $times, webkit moz spec);
+}
+
+
+@mixin animation-fill-mode (
+$modes...
+) {
+// none | forwards | backwards | both
+	@include prefixer(animation-fill-mode, $modes, webkit moz spec);
+}

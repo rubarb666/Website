@@ -13,7 +13,7 @@ class DefaultLayout extends Layout
         ?><html>
 <title>Rhubarb PHP</title>
 <head>
-<link href="/static/css/site.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/screen.css" rel="stylesheet" type="text/css" />
 <link href="/static/css/shThemeEclipse.css" rel="stylesheet" type="text/css" />
 <script src="/static/js/shCore.js" type="text/javascript"></script>
 <script src="/static/js/shBrushPhp.js" type="text/javascript"></script>
@@ -22,33 +22,40 @@ class DefaultLayout extends Layout
 </head>
 </html>
 <body>
-<div id="top">
-    <div class="brace">
-        <h1>Rhubarb - a tasty PHP framework</h1>
-        <img class="logo" src="/static/images/rhubarb.jpg" height="90" />
+<div class="c-page">
+    <div id="top" class="c-global-header">
+        <header>
+            <a href="/"><img class="c-site-logo" src="/static/images/rhubarb-logo.svg"></a>
+            <h1>Rhubarb</h1>
+        </header>
+        <nav class="c-global-nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about/index">About Rhubarb</a></li>
+                <li><a href="/tutorial/index">Get Started</a></li>
+                <li><a href="/manual/index">Manual</a></li>
+                <li><a href="/contributing">Contributing</a></li>
+            </ul>
+        </nav>
     </div>
-</div>
-<div class="nav">
-    <div class="brace">
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about/index">About Rhubarb</a></li>
-            <li><a href="/tutorial/index">Get Started</a></li>
-            <li><a href="/manual/index">Manual</a></li>
-            <li><a href="/contributing">Contributing</a></li>
-        </ul>
-    </div>
-</div>
-<div id="content">
-    <div class="brace">
-        <div class="wrap">
-<?php
+    <main>
+<!--    <div class="c-band u-fill--shade"></div>-->
+    <div id="content" class="c-band c-main">
+        <div class="c-main-content">
+    <?php
 
-        parent::printLayout($content);
+            parent::printLayout($content);
 
-        ?>
+            ?>
         </div>
     </div>
+    </main>
+
+<footer>
+    <div class="c-band c-global-footer">
+    a simple, all-round PHP framework.
+    </div>
+</footer>
 </div>
 <script type="text/javascript">
     SyntaxHighlighter.defaults['toolbar'] = false;

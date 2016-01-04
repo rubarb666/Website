@@ -1,0 +1,8 @@
+@function font-size($key) {
+	@if map-has-key($font-size, $key) {
+		@return map-get($font-size, $key);
+	} @else {
+		@warn "Unknown `#{$key}` in $font-size.";
+		@return null;
+	}
+}

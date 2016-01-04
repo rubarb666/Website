@@ -1,0 +1,121 @@
+/*------------------------------------
+	RESOLUTIONS
+	@include screen-size();
+*/
+
+
+@mixin screen-size (
+$ss
+) {
+	@if $is-site-responsive {
+		@if $ss == "sm-max" {
+			@media only screen and (max-width: screen-size(small) ) {
+				@content;
+			}
+			// Small screens
+		}
+		@if $ss == "sm-min" {
+			@media only screen and (min-width: screen-size(small) ) {
+				@content;
+			}
+			// Medium screens and bigger
+		}
+		@if $ss == "smh-min" {
+			@media only screen and (min-height: screen-size(small-height) ) {
+				@content;
+			}
+			// Large screen height and bigger
+		}
+		@if $ss == "sm-md" {
+			@media only screen and (min-width: screen-size(small) ) and (max-width: screen-size(medium) ) {
+				@content;
+			}
+			// Medium screens only
+		}
+		@if $ss == "sm-lg" {
+			@media only screen and (min-width: screen-size(small) ) and (max-width: screen-size(large) ) {
+				@content;
+			}
+			// Medium - Large screens only
+		}
+		@if $ss == "sm-min-smh-min" {
+			@media only screen and (min-width: screen-size(small) ) and (min-height: screen-size(small-height) ){
+				@content;
+			}
+			// Medium screens and bigger (width AND height)
+		}
+		@if $ss == "sm-min-mdh-min" {
+			@media only screen and (min-width: screen-size(small) ) and (min-height: screen-size(medium-height) ){
+				@content;
+			}
+			// Medium screens and bigger (width AND height)
+		}
+		@if $ss == "md-max" {
+			@media only screen and (max-width: screen-size(medium) ) {
+				@content;
+			}
+			// Medium screens and smaller
+		}
+		@if $ss == "md-min" {
+			@media only screen and (min-width: screen-size(medium) ) {
+				@content;
+			}
+			// Large screens and bigger
+		}
+		@if $ss == "md-min-mdh-min" {
+			@media only screen and (min-width: screen-size(medium) ) and (min-height: screen-size(medium-height) ){
+				@content;
+			}
+			// Large screens and bigger (width AND height)
+		}
+		@if $ss == "mdh-min" {
+			@media only screen and (min-height: screen-size(medium-height) ) {
+				@content;
+			}
+			// Large screen height and bigger
+		}
+		@if $ss == "md-lg" {
+			@media only screen and (min-width: screen-size(medium) ) and (max-width: screen-size(large) ) {
+				@content;
+			}
+			// Large screens only
+		}
+		@if $ss == "lg-max" {
+			@media only screen and (max-width: screen-size(large) ) {
+				@content;
+			}
+			// Large screens and smaller
+		}
+		@if $ss == "lg-min" {
+			@media only screen and (min-width: screen-size(large) ) {
+				@content;
+			}
+			// Extra-Large screens and bigger
+		}
+	}
+	@else {
+		@if $ss == "md-min" {
+			@media (min-width: screen-size(medium) ) {
+				@content;
+			}
+		}
+	}
+}
+
+@mixin screen($is-not-old-ie:is-old-ie) {
+	@if $old-ie == true {
+		@if $is-not-old-ie != "is-not-old-ie" {
+			@content;
+		}
+	} @else {
+		@media screen {
+			@content;
+		}
+	}
+}
+
+@mixin print {
+	@media print {
+		@content;
+	}
+}

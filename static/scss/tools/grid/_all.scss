@@ -1,0 +1,29 @@
+/*------------------------------------*\
+
+   	GRID SYSTEM
+
+	Provides various methods used to lay out a page.
+	All are based on fractional widths
+
+	@include grid-row();
+		// Use on the parent of grid items
+	@include grid-row-divs(n);
+		// Creates a container for your grid items that ensures flush vertical edges to the outer container, or whatever container it's in.
+		// Inserting a number (n) creates equal divisions of that amount
+	@include grid-fraction(n, d)
+		// A grid fraction. If you want to support old versions of IE, ensure you have an inner container with class .ie-inner
+
+	/ref/patterns.php#grid
+
+/*------------------------------------*/
+
+@import "collapse-fix";
+@import "divisions";
+@import "fraction";
+@import "grid-fillparent";
+@import "grid-fraction";
+@import "grid-item";
+@import "grid-item-padding";
+@import "grid-row";
+@import "grid-row-divs";
+@import "outer-container";

@@ -1,0 +1,20 @@
+/*------------------------------------
+	IMAGES
+
+	Consistent retina-display images
+
+	Examples:
+
+		@include hidpi {
+			background-image:url(/imagepath_retina.jpg);
+		}
+
+		@include image-rendering (optimize-contrast) // Useful for sharper logos, but heavy on performance.
+
+		@include retina-image(home-icon, 32px 20px)
+*/
+
+
+@import "hidpi";
+@import "image-rendering";
+@import "retina-image";

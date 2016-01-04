@@ -1,0 +1,21 @@
+/*------------------------------------
+	BACKGROUND
+*/
+
+@mixin background-color (
+$background-color: transparent
+) {
+	background-color: $background-color;
+	@if $background-color != transparent {
+		$lightness: lightness($background-color);
+		@if $lightness < 75 {
+			color: $white;
+			&:hover, &:visited, a, a:visited, a:hover, a.c-ArticleItem b {
+				color: $white;
+			}
+			h1, h2, h3, h4, h5 {
+				color: $white;
+			}
+		}
+	}
+}

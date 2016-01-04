@@ -1,0 +1,31 @@
+/*------------------------------------
+	# FONT FEATURES
+
+	Make the most of Opentype features
+	http://clagnut.com/sandbox/css3/
+*/
+
+
+@mixin font-features (
+$settings: $font-features
+) {
+	$setting-list: $settings;
+// Create an empty list for the standard syntax
+	$standard: ();
+// Create an empty list for the old Mozilla syntax
+	$old-moz: ();
+// Add each listed feature to the standard and old
+// Mozilla values
+	@each $setting in $setting-list {
+		$standard: append($standard, "#{$setting}" 1, comma);
+		$old-moz: append($old-moz, "#{$setting}=1", comma);
+	}
+// Finally, print out the prefixed and non-prefixed
+// code for all of the listed features
+	-moz-font-feature-settings: $standard;
+	-moz-font-feature-settings: $old-moz;
+	-ms-font-feature-settings: $standard;
+	-o-font-feature-settings: $standard;
+	-webkit-font-feature-settings: $standard;
+	font-feature-settings: $standard;
+}

@@ -1,0 +1,16 @@
+/*------------------------------------
+	ALIGN
+
+	Shorthand for aligning horizontally and vertically
+*/
+
+@mixin align($vertical-align:top, $text-align:start) {
+	@if $text-align == start {
+		text-align:$main-start;
+	} @else if $text-align == end {
+		text-align:$main-end;
+	} @else {
+		text-align:$text-align;
+	}
+	vertical-align:$vertical-align;
+}

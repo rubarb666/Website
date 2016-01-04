@@ -1,0 +1,154 @@
+/*------------------------------------
+	TABLES
+*/
+
+$odd-color:map-get($color, shade);
+$even-color:map-get($color, tint);
+
+@mixin table-borders (
+$type:grid, // grid | framed | ruled | lined
+$border-width:1px,
+$border-style:solid,
+$border-color:map-get($color, border)
+) {
+	border:0;
+	border-collapse:separate;
+	@if $type == "framed" {
+		tbody tr {
+			&:first-child {
+				td, th {
+					border-top:$border-width $border-style map-get($color, border);
+				}
+			}
+			&:last-child {
+				td, th {
+					border-bottom:$border-width $border-style map-get($color, border);
+				}
+			}
+			td, th {
+				&:first-child {
+					border-left:$border-width $border-style map-get($color, border)!important;
+				}
+				&:last-child {
+					border-right:$border-width $border-style map-get($color, border);
+				}
+			}
+		}
+	} @else if $type == "ruled" {
+		tbody {
+			tr {
+				td, th {
+					border-left:$border-width $border-style map-get($color, border);
+					&:first-child {
+						border-left:0;
+					}
+				}
+			}
+		}
+	} @else if $type == "lined" {
+		thead {
+			tr {
+				td, th {
+					border-bottom:$border-width $border-style map-get($color, border);
+				}
+			}
+		}
+		tbody {
+			tr {
+				td, th {
+					border-top:$border-width $border-style map-get($color, border);
+				}
+				&:first-child {
+					td, th {
+						border-top:0;
+					}
+				}
+			}
+		}
+	} @else {
+		tbody tr {
+			&:first-child {
+				td, th {
+					border-top:$border-width $border-style map-get($color, border);
+				}
+			}
+			td, th {
+				border-right:$border-width $border-style map-get($color, border);
+				border-bottom:$border-width $border-style map-get($color, border);
+				&:first-child {
+					border-left:$border-width $border-style map-get($color, border);
+				}
+			}
+		}
+	}
+}
+
+@mixin table-layout($layout:fixed) {
+	table-layout: $layout;
+}
+
+@mixin table-rounded (
+$corner-radius:$base-radius
+) {
+	border-collapse:separate;
+	tbody {
+		tr {
+			&:first-child {
+				td, th {
+					&:first-child {
+						border-top-left-radius:$corner-radius;
+					}
+					&:last-child {
+						border-top-right-radius:$corner-radius;
+					}
+				}
+			}
+			&:last-child {
+				td, th {
+					&:first-child {
+						border-bottom-left-radius:$corner-radius;
+					}
+					&:last-child {
+						border-bottom-right-radius:$corner-radius;
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin table-pattern (
+$pattern:stripes, // stripes | bars | chequered
+$odd-color:$odd-color,
+$even-color:$even-color
+) {
+	@if $pattern == "stripes" {
+		tr {
+			background-color: $even-color;
+		}
+		tr:nth-of-type(odd) {
+			background-color: $odd-color; /* Override this color in your theme stylesheet */
+		}
+	} @else if $pattern == "bars" {
+		td {
+			background-color: $even-color;
+		}
+		td:nth-of-type(odd) {
+			background-color: $odd-color; /* Override this color in your theme stylesheet */
+		}
+	} @else if $pattern == "chequered" {
+		tr td {
+			background-color: $even-color;
+		}
+		tr:nth-of-type(odd) {
+			td:nth-of-type(odd) {
+				background-color: $odd-color; /* Override this color in your theme stylesheet */
+			}
+		}
+		tr:nth-of-type(even) {
+			td:nth-of-type(even) {
+				background-color: $odd-color; /* Override this color in your theme stylesheet */
+			}
+		}
+	}
+}

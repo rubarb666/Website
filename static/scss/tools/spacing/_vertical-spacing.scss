@@ -1,0 +1,31 @@
+/*------------------------------------
+	VERTICAL-SPACING (Consistent spacing)
+*/
+
+@mixin vertical-spacing($force: not-forced, $vertical-space:$vertical-space) {
+	@if $force != "remove" {
+		@include rem(margin-bottom, $vertical-space);
+
+		@if size-ratio(medium) != 1 {
+			@include screen-size(md-max) {
+				@include rem(margin-bottom, $vertical-space * size-ratio(medium));
+			}
+		}
+		@if size-ratio(small) != 1 {
+			@include screen-size(sm-max) {
+				@include rem(margin-bottom, $vertical-space * size-ratio(small));
+			}
+		}
+		@if $force == "force" {
+			&:last-child {
+				@include rem(margin-bottom, $vertical-space);
+			}
+		} @else {
+			&:last-child {
+				margin-bottom:0;
+			}
+		}
+	} @else {
+		margin-bottom:0;
+	}
+}

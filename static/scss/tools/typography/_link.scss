@@ -1,0 +1,18 @@
+/*------------------------------------
+	LINK
+*/
+
+@mixin link ( $include: extend ) {
+	color: map-get($color, link);
+	cursor: pointer;
+	&:hover {
+		color: lighten(map-get($color, link), 20%);
+	}
+	&:visited {
+		color: desaturate(map-get($color, link), 10%);
+		opacity:0.8;
+	}
+	&:active {
+		color: complement(map-get($color, link));
+	}
+}

@@ -1,0 +1,181 @@
+/*------------------------------------*\
+
+   	UTILITIES
+
+	Utilities are low-level helper
+	classes which get commonly used
+	throughout the project. They can
+	be applied to any element with
+	reliable results
+
+	@namespace u-
+
+/*------------------------------------*/
+
+@include screen {
+	/* Borders */
+	.u-border {
+		border:2px solid color(shade, $shade-amount);
+		&Top {
+			border-top:2px solid color(shade, $shade-amount);
+		}
+	}
+
+	.u-caption {
+		@include font-features("smcp" "c2sc");
+		opacity:$fade;
+	}
+
+	.u-columns-2 { @include columns(2); }
+	.u-columns-2-lap {
+		@include screen-size(sm-lg) {
+			@include columns(2);
+		}
+	}
+
+	.u-fade { opacity:$fade; }
+	.u-fader { opacity:$fade/2; }
+
+	/* Backgrounds */
+	.u-fill--primary { @include background-color(color(primary)); }
+	.u-fill--secondary { @include background-color(color(secondary)); }
+	.u-fill--tertiary { @include background-color(color(tertiary)); }
+	.u-fill--quaternary { @include background-color(color(quaternary)); }
+	.u-fill--quinary { @include background-color(color(quinary)); }
+	.u-fill--senary { @include background-color(color(senary)); }
+	.u-fill--shade { background-color:color(shade, $shade-amount); }
+	.u-fill--site { background-color:color(site); }
+	.u-fill--footer { @include background-color(color(footer)); }
+	.u-fill--tint { background-color:color(tint, $tint-amount); }
+
+	/* Filters */
+	.u-filterBlur { @include filter(blur(4px)); }
+	.u-filterGS { @include filter(grayscale(1)); }
+	.u-filterDeSat { @include filter(grayscale(0.5)); }
+	.u-filterSat { @include filter(saturate(5)); }
+	.u-filterSep { @include filter(sepia(0.7)); }
+
+	/* Display */
+	.u-hidden { visibility: hidden; }
+	.u-hide { position: absolute; left:-9999px; }
+	.u-inline { display:inline; }
+	.u-noPre { white-space: normal; }
+
+	/* Padding */
+	.u-padding { @include padding($base-space);	}
+	.u-paddingHeavy {
+		@include padding($base-space);
+		@include screen-size(md-min) {
+			@include padding($base-space*2);
+		}
+		@include screen-size(sm-mid) {
+			@include padding($base-space*1.5);
+		}
+		&EW {
+			@include padding(n $base-space);
+			@include screen-size(md-min) {
+				@include padding(n $base-space*2);
+			}
+			@include screen-size(sm-mid) {
+				@include padding(n $base-space*1.5);
+			}
+		}
+		&NS {
+			@include padding($base-space n);
+			@include screen-size(md-min) {
+				@include padding($base-space*2 n);
+			}
+			@include screen-size(sm-mid) {
+				@include padding($base-space*1.5 n);
+			}
+		}
+	}
+	.u-paddingPortable {
+		@include screen-size(md-max) {
+			@include padding($base-space);
+		}
+	}
+	.u-paddingLap {
+		@include screen-size(lg-max) {
+			@include padding($base-space);
+		}
+	}
+
+	/* Containers */
+	.u-pill { @include pill; }
+	.u-round { @include round; }
+	.u-rounded { @include rounded; }
+	.u-square { @include media-box(aspect-ratio(square), '> *:onlychild'); }
+
+	/* Pull */
+	.u-pullLeft { float:left; }
+	.u-pullRight { float:right; }
+
+	/* Screen Sizes */
+	.u-ssPalmHide {
+		@include screen-size(sm-max) {
+			display:none;
+		}
+	}
+	.u-ssPortableHide {
+		@include screen-size(md-max) {
+			display: none;
+		}
+	}
+
+	/* Text Alignment */
+	.u-textCenter { text-align:center; }
+	.u-textStart { text-align:left; text-align:start; }
+	.u-textEnd { text-align:right; text-align:end; }
+
+	/* Text Size */
+	.u-textAlpha { @include font-size(font-size(alpha)); }
+	.u-textBeta { @include font-size(font-size(beta)); }
+
+	/* Text Color */
+	.u-textPositive { color:color(success); }
+	.u-textWarning { color:color(warning); }
+	.u-textNegative { color:color(error); }
+
+	/* Vertical Behaviour */
+	.u-vMiddle { @include vMiddle; }
+	.u-vSpace { @include vertical-spacing(); }
+	.u-vHSpaceHeavy {
+		@include vertical-spacing();
+		@include screen-size(md-min) {
+			@include vertical-spacing($vertical-space: $vertical-space*2);
+		}
+	}
+
+	.u-scrollTo {
+		@include position(absolute, 0 0 0px 0px);
+		@include rem(line-height, $global-header-height);
+		color:white;
+		opacity:$fade;
+		text-align: center;
+		width:100%;
+		z-index:20;
+		.c-SvgIcon {
+			@include animation(pulsate 1s linear infinite);
+			@include animation-delay(2s);
+		}
+		&:active, &:hover, &:focus {
+			text-decoration: none;
+		}
+		&:hover {
+			background-color:rgba(0, 0, 0, $fade/2);
+			opacity:1;
+		}
+		@include screen-size(mdh-min) {
+			@include animation(riseUp 2s $ease-in-out-cubic);
+			@include font-size(font-size(beta));
+			@include rem(line-height, $global-header-height*2);
+		}
+	}
+}
+
+@media print {
+	.u-textBeta {
+		font-size: 1.1em;
+	}
+}

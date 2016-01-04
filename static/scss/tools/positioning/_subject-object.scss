@@ -1,0 +1,33 @@
+/*------------------------------------
+	SUBJECT / OBJECT
+*/
+
+@mixin subject() {
+	float: $main-start;
+	padding-#{$main-end}: $gutter;
+	text-align:$main-end;
+	clear: both;
+	width: $subject-width;
+	@include border-box;
+	@include screen-size(sm-max) {
+		display:block;
+		float:none;
+		padding-#{$main-end}: 0;
+		width:auto;
+		text-align:$main-start;
+	}
+}
+
+@mixin object() {
+	float: $main-end;
+	text-align:$main-start;
+	margin: {
+		left: 0;
+		right: 0;
+	}
+	width: $object-width;
+	@include screen-size(sm-max) {
+		float:none;
+		width:auto;
+	}
+}

@@ -1,0 +1,13 @@
+.c-main {
+    @include box-shadow(0, 0, $base-space, rgba(0, 0, 0, 0.33));
+    position:relative;
+    z-index:1;
+}
+
+.c-main-content {
+    margin-left:auto;
+    margin-right:auto;
+    max-width:$content-unit*3;
+    text-align:left;
+    width:100%;
+}

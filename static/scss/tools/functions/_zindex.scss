@@ -1,0 +1,8 @@
+@function zindex($key) {
+	@if map-has-key($zindex, $key) {
+		@return map-get($zindex, $key);
+	} @else {
+		@warn "Unknown `#{$key}` in $zindex.";
+		@return null;
+	}
+}

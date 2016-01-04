@@ -1,0 +1,33 @@
+/*------------------------------------
+	BORDER BOX
+*/
+
+@mixin border-box (
+$force:not-forced
+) {
+	@if $global-border-box != true {
+		&,
+		&:before,
+		&:after{
+			@include prefixer(box-sizing, border-box, webkit moz spec);
+		}
+	}
+	@else if $force == "force" {
+		&,
+		&:before,
+		&:after{
+			@include prefixer(box-sizing, border-box, webkit moz spec);
+		}
+	}
+	@else if $force == "content" {
+		&,
+		&:before,
+		&:after{
+			@include prefixer(box-sizing, content-box, webkit moz spec);
+		}
+	}
+}
+
+%border-box {
+	@include border-box;
+}

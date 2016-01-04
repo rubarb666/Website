@@ -1,0 +1,55 @@
+/*------------------------------------
+	FONT-SIZE
+*/
+
+$font-size: (
+	micro				: ceil(modular-scale($base-font-size, -2, $fs-ratio)),
+	milli				: ceil(modular-scale($base-font-size, -1, $fs-ratio)),
+
+	alpha				: $base-font-size,
+	beta				: ceil(modular-scale($base-font-size, 1, $fs-ratio)),
+	gamma				: ceil(modular-scale($base-font-size, 2, $fs-ratio)),
+	delta				: ceil(modular-scale($base-font-size, 3, $fs-ratio)),
+	epsilon				: ceil(modular-scale($base-font-size, 4, $fs-ratio)),
+	zeta				: ceil(modular-scale($base-font-size, 5, $fs-ratio)),
+	eta					: ceil(modular-scale($base-font-size, 6, $fs-ratio)),
+	theta				: ceil(modular-scale($base-font-size, 7, $fs-ratio)),
+
+	kilo				: ceil(modular-scale($base-font-size, 8, $fs-ratio)),
+	mega				: ceil(modular-scale($base-font-size, 9, $fs-ratio)),
+	giga				: ceil(modular-scale($base-font-size, 10, $fs-ratio))
+);
+
+@mixin font-size(
+$value:font-size(alpha),
+$relative:relative,
+$scale:scale
+) {
+	@if $value != inherit {
+		@if $relative == absolute {
+			@include rem(font-size, $value);
+		} @else {
+			font-size:em($value);
+		}
+		@if $scale != "fixed" {
+			@if map-get($size-ratio, medium) != 1 {
+				@include screen-size(md-max) {
+					@if $relative == absolute {
+						@include rem(font-size, $value * map-get($size-ratio, medium));
+					} @else {
+						font-size: em($value * map-get($size-ratio, medium));
+					}
+				}
+			}
+			@if map-get($size-ratio, small) != 1 {
+				@include screen-size(sm-max) {
+					@if $relative == absolute {
+						@include rem(font-size, $value * map-get($size-ratio, small));
+					} @else {
+						font-size: em($value * map-get($size-ratio, small));
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,51 @@
+@include keyframes(animatedBackground) {
+	from { background-position: 0 0; }
+	to { background-position:100% 0; }
+}
+@include keyframes(borderPulse) {
+	0% { border-color:color(white, 0); }
+	50% { border-color:color(white, 0.8); }
+	100% { border-color:color(white, 0); }
+}
+@include keyframes(fadeZoomIn) {
+	0% { opacity: 0; @include transform(scale(0.9)); }
+	66% { opacity: 0; @include transform(scale(0.9)); }
+	100% { opacity: 1; @include transform(scale(1)); }
+}
+@include keyframes(fadeIn) {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+@include keyframes(fadeInSlow) {
+	0% { opacity: 0; }
+	66% { opacity: 0; }
+	100% { opacity: 1; }
+}
+@include keyframes(riseUp) {
+	0% { bottom: -$global-header-height*3; }
+	80% { bottom: $base-space; opacity:1; }
+	100% { bottom: 0px; opacity:0; }
+}
+
+@include keyframes(flyin) {
+	0% { left: -500px; }
+	50% { left: -500px; }
+	100% { left: 0; }
+}
+
+@include keyframes(pulsate) {
+	0% {
+		-webkit-transform: scale(0.1) translate(0, -$global-header-height);
+		-moz-transform: scale(0.1) translate(0, -$global-header-height);
+		transform: scale(0.1) translateY(-$global-header-height);
+		opacity: 0.0;
+	}
+	40% { opacity: 1.0; }
+	60% { opacity: 1.0; }
+	100% {
+		-webkit-transform: scale(1.2) translate(0, $global-header-height);
+		-moz-transform: scale(1.2) translate(0, $global-header-height);
+		transform: scale(1.2) translateY($global-header-height);
+		opacity: 0.0;
+	}
+}

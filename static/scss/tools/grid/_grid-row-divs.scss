@@ -1,0 +1,27 @@
+/**
+* Used when you want to create equal divisions of the children
+* in your container.
+
+* By adding a number ($n) when including this in your css you
+* can split it's content into equal sections in the grid.
+*/
+@mixin grid-row-divs(
+$n:1
+) {
+	@include grid-row;
+	@if $n > 1 {
+		@include divisions($n);
+
+		&> * {
+			@include is-old-ie {
+				.ie-inner {
+					@include grid-item-padding;
+				}
+			}
+			@include is-not-old-ie {
+				@include grid-item-padding;
+			}
+			@include grid-item;
+		}
+	}
+}

@@ -1,0 +1,11 @@
+/*------------------------------------
+	LEGIBILITY
+*/
+
+@mixin legibility (
+	$rendering: optimizeLegibility,
+	$smoothing: antialiased
+) {
+	text-rendering: $rendering;
+	-webkit-font-smoothing: $smoothing;
+}

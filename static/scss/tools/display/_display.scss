@@ -1,0 +1,49 @@
+/*------------------------------------
+	# DISPLAY
+
+	Use new display types with more broadly supported equivalents as fallbacks
+
+		@include display(flex)
+*/
+
+@mixin inline-block {
+	display: inline-block;
+	vertical-align: baseline;
+	@include is-old-ie {
+		vertical-align: auto;
+		zoom: 1;
+	}
+}
+
+@mixin display (
+$value //  flex | inline-flex
+) {
+	@if $value == "inline-block" {
+		@include inline-block;
+	} @else if $value == "flex" {
+		display: block;
+	// 2009
+		display: -webkit-box;
+		display: -moz-box;
+		display: box;
+
+	// 2012
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flexbox; // 2011 (IE 10)
+		display: flex;
+
+	} @else if $value == "inline-flex" {
+		@include inline-block;
+		display: -webkit-inline-box;
+		display: -moz-inline-box;
+		display: inline-box;
+
+		display: -webkit-inline-flex;
+		display: -moz-inline-flex;
+		display: -ms-inline-flexbox;
+		display: inline-flex;
+	} @else {
+		display: $value;
+	}
+}

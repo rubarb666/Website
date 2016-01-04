@@ -1,0 +1,14 @@
+/// Constant getter
+/// @param {String} $name - Name of constant to get
+/// @return {*} Constant value
+/// @require $CONSTANTS
+/// @throw 'Unknown constant `#{$name}`.'
+
+@function const($key) {
+	@if map-has-key($CONSTANT, $key) {
+		@return map-get($CONSTANT, $key);
+	} @else {
+		@warn "Unknown `#{$key}` in $font-family.";
+		@return null;
+	}
+}

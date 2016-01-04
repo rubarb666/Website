@@ -1,0 +1,37 @@
+/*------------------------------------*\
+
+	MEDIA BOX
+
+	Used to constrain the proportions of an element with a set width
+	like an iframe.
+
+	Should be applied to a parent container with the media element nested.
+
+	e.g. <div class="video-wrapper">
+			<iframe></iframe>
+		</div>
+
+	- landscape
+	- square
+	- portrait
+	- widescreen
+
+/*------------------------------------*/
+
+@mixin media-box (
+$ratio:aspect-ratio(widescreen),
+$element:iframe
+) {
+	height:0px;
+	overflow:hidden;
+	padding-bottom:$ratio;
+	position:relative;
+	width:100%;
+	#{$element} {
+		height:100%;
+		left:0px;
+		position:absolute;
+		top:0px;
+		width:100%;
+	}
+}

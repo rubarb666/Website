@@ -1,0 +1,19 @@
+/*------------------------------------
+	CALC
+
+	Performs calculations with a fallback if necessary
+
+		@include calc(width, 100% - 30px, 90%);
+*/
+
+@mixin calc(
+$property,
+$value,
+$fallback
+) {
+	@if $fallback {
+		#{$property}: $fallback;
+	}
+	#{$property}: -webkit-calc(#{$value});
+	#{$property}:         calc(#{$value});
+}

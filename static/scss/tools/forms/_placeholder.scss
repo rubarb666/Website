@@ -1,0 +1,22 @@
+/*------------------------------------
+	PLACEHOLDER
+
+	Outputs vendor-prefixed placeholders for styling. Must be nested in a rule-set.
+
+		input {
+			width: 300px;
+				@include placeholder {
+					color: red;
+				}
+		}
+
+*/
+
+@mixin placeholder {
+	$placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+	@each $placeholder in $placeholders {
+		&:#{$placeholder}-placeholder {
+			@content;
+		}
+	}
+}

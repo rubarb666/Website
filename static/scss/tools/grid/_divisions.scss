@@ -1,0 +1,17 @@
+/**
+* Creates equal divisions of any given amount of items
+* Should be applied to the parent, will affect the direct children
+*
+* NOTE: this isn't designed to be used on it's own, use @include grid_row_div(n) instead
+*/
+@mixin divisions (
+$n
+) {
+	&> * {
+		clear:none;
+		width:100%/$n;
+		&:nth-child(#{$n}n+1) {
+			clear:both;
+		}
+	}
+}

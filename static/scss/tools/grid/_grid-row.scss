@@ -1,0 +1,11 @@
+/**
+* Used to contain a number of grid items, adds negative margins to the left and right
+*/
+@mixin grid-row {
+	@include clear;
+	@include margin(n (-$gutter/2));
+	@include is-old-ie {
+		@include margin(n (-$gutter));
+		position:relative;
+	}
+}

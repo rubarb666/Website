@@ -1,0 +1,16 @@
+/*------------------------------------
+	# BORDER
+	http://davidtheclark.github.io/scut/#border
+
+	Examples:
+
+		@include border(1px solid red, y n);  // Quickly add border styles to particular sides.
+
+		@include border-image(url(/images/border.png) 27 repeat);
+
+		@include border-top-radius(20px);
+*/
+
+@import "border";
+@import "border-image";
+@import "border-radius";

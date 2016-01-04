@@ -1,0 +1,6 @@
+/**
+* See: http://css-tricks.com/make-sure-columns-dont-collapse-horizontally/
+*/
+@mixin collapse-fix() {
+	min-height:1px;
+}

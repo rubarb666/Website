@@ -1,0 +1,40 @@
+.l {
+	&-grid {				// l-grid
+		@if $is-site-fluid == false {
+			@include rem(max-width, $fixed-width);
+			margin-left:auto;
+			margin-right:auto;
+		}
+		&--narrow {
+			@include rem(max-width, $fixed-width/1.5);
+			margin-left:auto;
+			margin-right:auto;
+		}
+		&__row {			// l-grid__row
+			@include screen-size(md-min) {
+				@include grid-row;
+			}
+		}
+		&__item {			// l-grid__item
+			@include grid-fillparent();
+			&--primary {
+				@include grid-fillparent();
+				@include screen-size(md-min) {
+					@include grid-fraction(2, 3);
+				}
+			}
+			&--secondary {
+				@include grid-fillparent();
+				@include screen-size(md-min) {
+					@include grid-fraction(1, 3);
+				}
+			}
+			&--half {		// l-grid__item--half
+				@include grid-fraction(1, 2);
+			}
+			&--third {		// l-grid__item--half
+				@include grid-fraction(1, 3);
+			}
+		}
+	}
+}

@@ -1,0 +1,58 @@
+/*------------------------------------
+	RETINA IMAGE
+
+	The mixin is a helper to generate a retina background-image and non-retina background-image. The retina background-image will output to a hidpi media-query.
+
+	The mixin uses a _2x.png retina filename by default.
+	$filename will resolve a path to the image e.g. '../../home-icon'.
+	For rails, you can use the asset-pipeline by passing true to the argument.
+
+	@ retina-image($filename, $background-size, $extension*, $retina-filename*, $retina-suffix*, $asset-pipeline*)
+	* = optional
+
+	Argument Defaults
+
+	- $extension: png
+	- $retina-filename: null
+	- $retina-suffix: _2x
+	- $asset-pipeline: false
+*/
+
+@mixin retina-image (
+$filename,
+$background-size,
+$extension: png,
+$retina-filename: null,
+$retina-suffix: _2x,
+$asset-pipeline: false
+) {
+	@if $asset-pipeline {
+		background-image: image-url("#{unquote($filename)}.#{$extension}");
+	}
+	@else {
+		background-image:       url("#{unquote($filename)}.#{$extension}");
+	}
+
+	@include hidpi {
+		@if $asset-pipeline {
+			@if $retina-filename {
+				background-image: image-url("#{$retina-filename}.#{$extension}");
+			}
+			@else {
+				background-image: image-url("#{unquote($filename)}#{$retina-suffix}.#{$extension}");
+			}
+		}
+
+		@else {
+			@if $retina-filename {
+				background-image: url("#{unquote($retina-filename)}.#{$extension}");
+			}
+			@else {
+				background-image: url("#{unquote($filename)}#{$retina-suffix}.#{$extension}");
+			}
+		}
+
+		background-size: $background-size;
+
+	}
+}

@@ -1,0 +1,21 @@
+/*------------------------------------
+	# BACKGROUND
+
+	Examples:
+
+		@include background-color(red);
+		// Sets white text if it's darker than a certain amount
+
+		@include background(linear-gradient(red, green) left repeat);
+		@include background(linear-gradient(red, green) left repeat, radial-gradient(red, orange) left repeat);
+		@include background(url("/images/a.png"), linear-gradient(red, green), center no-repeat orange scroll);
+
+		@include background-image(url("/images/a.png"), linear-gradient(white 0, yellow 50%, transparent 50%));
+		// You can list up to ten background images.
+*/
+
+@import "background";
+@import "background-color";
+@import "background-image";
+@import "linear-gradient";
+@import "radial-gradient";

@@ -1,0 +1,7 @@
+// Creates fractional widths
+@mixin fraction (
+$n, // numerator
+$d // denominator
+) {
+	width:$n*(100%/$d);
+}

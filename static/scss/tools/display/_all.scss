@@ -1,0 +1,16 @@
+/*------------------------------------
+	DISPLAY
+
+	Display tools
+
+	Examples:
+
+		@include display(inline-block)
+			// In Old IE, this makes display:inline
+
+		@include appearance(none)
+			// Removes platform-native styling
+*/
+
+@import "appearance";
+@import "display";

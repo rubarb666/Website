@@ -1,0 +1,7 @@
+.c-band {
+    @include padding($base-space*4 $base-space*2);
+    @include screen-size(md-max) {
+        @include padding($base-space*2 $base-space);
+    }
+}
+

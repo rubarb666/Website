@@ -1,0 +1,35 @@
+/*------------------------------------
+	# BORDER RADIUS
+
+	Short hand for putting rounded corners on a side of an element
+
+		@include border-top-radius(20px);
+*/
+
+@mixin border-top-radius (
+$radii:$base-radius
+) {
+	@include prefixer(border-top-left-radius, $radii, spec);
+	@include prefixer(border-top-right-radius, $radii, spec);
+}
+
+@mixin border-bottom-radius (
+$radii:$base-radius
+) {
+	@include prefixer(border-bottom-left-radius, $radii, spec);
+	@include prefixer(border-bottom-right-radius, $radii, spec);
+}
+
+@mixin border-left-radius (
+$radii:$base-radius
+) {
+	@include prefixer(border-top-left-radius, $radii, spec);
+	@include prefixer(border-bottom-left-radius, $radii, spec);
+}
+
+@mixin border-right-radius (
+$radii:$base-radius
+) {
+	@include prefixer(border-top-right-radius, $radii, spec);
+	@include prefixer(border-bottom-right-radius, $radii, spec);
+}
