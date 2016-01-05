@@ -1,8 +1,11 @@
 .c-global-nav {
-    @include padding($base-space*2 n);
+    @include padding(n n $base-space*4 n);
     width:100%;
     @include screen-size(sm-min) {
         @include position(absolute, 0 0 0px 0px);
+    }
+    @include screen-size(md-max) {
+        @include padding(n n $base-space*2 n);
     }
     ul {
         list-style:none;
