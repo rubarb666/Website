@@ -225,21 +225,31 @@ h1 {
 }
 
 h2 {
+	@include padding($base-space*3 n n n);
 	color: $heading-color;
 	font-family: $heading-font-family;
 	font-weight: $heading-weight;
 	@include h(font-size(gamma));
 	@include screen-size(sm-max) {
 		@include h(font-size(beta));
+		@include padding($base-space*1.5 n n n);
+	}
+	&:first-child {
+		padding-top:0;
 	}
 }
 
 h3 {
+	@include padding($base-space*1.5 n n n);
 	color: $heading-color;
 	font-weight: $heading-weight;
 	@include h(font-size(beta));
 	@include screen-size(sm-max) {
 		@include h(font-size(alpha));
+		@include padding($base-space*.75 n n n);
+	}
+	&:first-child {
+		padding-top:0;
 	}
 }
 
