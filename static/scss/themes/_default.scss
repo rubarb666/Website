@@ -78,7 +78,7 @@ $base-font-family		: map-get($font-family, primary);
 
 $heading-font-family	: map-get($font-family, primary);
 $heading-color			: $brand-d!default;
-$heading-weight			: bold!default;
+$heading-weight			: normal!default;
 
 $brand-name-case		: $global-header-case;
 $brand-name-weight		: $global-header-weight;

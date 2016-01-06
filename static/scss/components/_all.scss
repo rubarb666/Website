@@ -6,3 +6,9 @@
 @import "page";
 @import "site-logo";
 @import "table";
+
+.syntaxhighlighter {
+    @include padding($base-space);
+    @include vertical-spacing(force);
+    border:2px solid color(shade, $shade-amount);
+}

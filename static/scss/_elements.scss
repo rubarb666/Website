@@ -218,7 +218,7 @@ h1 {
 	@include h(font-size(delta));
 	color: $heading-color;
 	font-family: $heading-font-family;
-	font-weight: $heading-weight;
+	font-weight: bold;
 	@include screen-size(sm-max) {
 		@include h(font-size(gamma));
 	}
@@ -491,6 +491,9 @@ q {
 }
 
 blockquote {
+	@include padding($base-space);
+	@include vertical-spacing(force);
+	background-color:color(shade, $shade-amount);
 	quotes: "#{$open-quote}" "#{$close-quote}";
 
 	p {
