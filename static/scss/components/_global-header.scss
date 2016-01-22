@@ -2,7 +2,6 @@
     @include padding($base-space*2);
     background:url("/static/images/poster.gif") color(quaternary);
     background-size:cover;
-    background-blend-mode: multiply;
     color:color(white);
     position: relative;
     min-height:50vh;
