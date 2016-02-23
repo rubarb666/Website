@@ -6,16 +6,15 @@
     "repositories": [
     ],
     "require-dev": {
-        "phpunit/phpunit": "3.*",
-        "rhubarbphp/scaffold-saas-landlord": "dev-develop"
+        "phpunit/phpunit": "3.*"
     },
     "require":
     {
-        "rhubarbphp/rhubarb": "dev-develop as dev-master",
-        "rhubarbphp/module-stem": "dev-develop as 0.9.1",
-        "rhubarbphp/module-leaf": "*",
+        "rhubarbphp/rhubarb": "1.0.x-dev",
+        "rhubarbphp/module-stem": "1.0.x-dev",
+        "rhubarbphp/module-leaf": "1.0.x-dev",
         "rhubarbphp/module-patterns": "*",
-	    "rhubarbphp/module-restapi": "dev-develop",
+	    "rhubarbphp/module-restapi": "1.0.x-dev",
         "geeks-dev/php-markdown-extra-extended-stylish": "dev-master"
     },
     "autoload":

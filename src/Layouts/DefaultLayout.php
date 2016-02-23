@@ -52,7 +52,7 @@ class DefaultLayout extends Layout
         <nav class="c-global-nav">
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/about/index">About Rhubarb</a></li>
+                <li><a href="/about">About Rhubarb</a></li>
                 <li><a href="/tutorial/index">Get Started</a></li>
                 <li><a href="/manual/index">Manual</a></li>
                 <li><a href="/contributing">Contributing</a></li>
@@ -74,7 +74,7 @@ class DefaultLayout extends Layout
 
 <footer>
     <div class="c-band c-global-footer">
-    a simple, all-round PHP framework.
+    the tasty PHP framework.
     </div>
 </footer>
 </div>

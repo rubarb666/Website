@@ -3,10 +3,10 @@
 namespace Rhubarb\Website\Models;
 
 use Rhubarb\Stem\Models\Model;
-use Rhubarb\Stem\Schema\Columns\AutoIncrement;
-use Rhubarb\Stem\Schema\Columns\Date;
-use Rhubarb\Stem\Schema\Columns\ForeignKey;
-use Rhubarb\Stem\Schema\Columns\String;
+use Rhubarb\Stem\Schema\Columns\AutoIncrementColumn;
+use Rhubarb\Stem\Schema\Columns\DateColumn;
+use Rhubarb\Stem\Schema\Columns\ForeignKeyColumn;
+use Rhubarb\Stem\Schema\Columns\StringColumn;
 use Rhubarb\Stem\Schema\ModelSchema;
 
 class Contact extends Model
@@ -21,10 +21,10 @@ class Contact extends Model
     {
         $schema = new ModelSchema("Contact");
         $schema->addColumn(
-            new AutoIncrement(3),
-            new String( "Name", 100 ),
-            new Date( "DateOfBirth" ),
-            new ForeignKey( "OrganisationID" )
+            new AutoIncrementColumn(3),
+            new StringColumn( "Name", 100 ),
+            new DateColumn( "DateOfBirth" ),
+            new ForeignKeyColumn( "OrganisationID" )
         );
 
         $schema->labelColumnName = "Name";

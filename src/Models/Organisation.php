@@ -3,8 +3,8 @@
 namespace Rhubarb\Website\Models;
 
 use Rhubarb\Stem\Models\Model;
-use Rhubarb\Stem\Schema\Columns\AutoIncrement;
-use Rhubarb\Stem\Schema\Columns\String;
+use Rhubarb\Stem\Schema\Columns\AutoIncrementColumn;
+use Rhubarb\Stem\Schema\Columns\StringColumn;
 use Rhubarb\Stem\Schema\ModelSchema;
 
 class Organisation extends Model
@@ -19,8 +19,8 @@ class Organisation extends Model
     {
         $schema = new ModelSchema("Organisation");
         $schema->addColumn(
-            new AutoIncrement( "OrganisationID" ),
-            new String( "OrganisationName", 100 )
+            new AutoIncrementColumn( "OrganisationID" ),
+            new StringColumn( "OrganisationName", 100 )
         );
         $schema->labelColumnName = "OrganisationName";
         return $schema;

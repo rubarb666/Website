@@ -23,13 +23,13 @@ class WebsiteApp extends Module
 
         $this->addUrlHandlers(
             [
+                "/" => new MarkdownUrlHandler(),
                 "/api" => new RestApiRootHandler(
                     ApiDescriptionResource::class,
                     [
                         "/days-of-the-week" => new RestCollectionHandler( '\Rhubarb\Website\RestResources\DaysOfTheWeek' ),
                         "/contacts" => new RestCollectionHandler( '\Rhubarb\Website\RestResources\ContactResource' ),
                     ] ),
-                "/" => new MarkdownUrlHandler()
             ]
         );
     }
