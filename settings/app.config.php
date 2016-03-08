@@ -2,6 +2,7 @@
 
 namespace Rhubarb\Website\Settings;
 
+use Rhubarb\Crown\Application;
 use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\Module;
 use Rhubarb\RestApi\Resources\ApiDescriptionResource;
@@ -11,7 +12,6 @@ use Rhubarb\RestApi\UrlHandlers\RestCollectionHandler;
 use Rhubarb\Stem\Schema\SolutionSchema;
 use Rhubarb\Website\Models\Contact;
 use Rhubarb\Website\Models\Organisation;
-use Rhubarb\Website\RestResources\DaysOfTheWeek;
 use Rhubarb\Website\RestResources\OrganisationResource;
 use Rhubarb\Website\UrlHandlers\MarkdownUrlHandler;
 
@@ -60,7 +60,14 @@ class WebsiteApp extends Module
 
         ModelRestResource::registerModelToResourceMapping( "Organisation", OrganisationResource::class );
     }
+
+    public function getModules()
+    {
+        return [
+            new LayoutModule('Rhubarb\\Website\\Layouts\\DefaultLayout'),
+            ];
+    }
 }
 
-Module::registerModule(new LayoutModule('Rhubarb\\Website\\Layouts\\DefaultLayout'));
-Module::registerModule(new WebsiteApp());
+$application = new Application();
+$application->registerModule(new WebsiteApp());
