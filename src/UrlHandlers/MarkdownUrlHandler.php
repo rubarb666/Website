@@ -17,7 +17,7 @@ class MarkdownUrlHandler extends UrlHandler
      */
     protected function generateResponseForRequest($request = null)
     {
-        $url = $request->UrlPath;
+        $url = $request->urlPath;
 
         if ($url[strlen($url) - 1] == "/") {
             $url = $url . "index";
