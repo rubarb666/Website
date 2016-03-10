@@ -2,10 +2,10 @@
 
 namespace Rhubarb\Website\UrlHandlers;
 
+use ParsedownExtra;
 use Rhubarb\Crown\UrlHandlers\UrlHandler;
 
 require_once "vendor/rhubarbphp/rhubarb/src/UrlHandlers/UrlHandler.php";
-require_once "vendor/geeks-dev/php-markdown-extra-extended-stylish/markdown_extended_stylish.php";
 
 class MarkdownUrlHandler extends UrlHandler
 {
@@ -36,7 +36,8 @@ class MarkdownUrlHandler extends UrlHandler
         if (file_exists($rootPath . $url . ".md")) {
             $markDownRaw = file_get_contents($rootPath . $url . ".md");
 
-            return MarkdownExtended($markDownRaw);
+            $parseDown = new ParsedownExtra();
+            return $parseDown->text($markDownRaw);
         }
     }
 }
