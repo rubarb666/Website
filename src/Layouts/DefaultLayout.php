@@ -79,6 +79,17 @@ class DefaultLayout extends Layout
 </footer>
 </div>
 <script type="text/javascript">
+
+    var codes = document.querySelectorAll("code");
+
+    for(var i = 0; i<codes.length; i++){
+        if (codes[i].classList.contains("language-php")){
+            codes[i].parentNode.className = "brush: php";
+
+            codes[i].parentNode.innerHTML = codes[i].innerHTML;
+        }
+    }
+
     SyntaxHighlighter.defaults['toolbar'] = false;
     SyntaxHighlighter.all()
 </script>
