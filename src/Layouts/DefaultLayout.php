@@ -4,7 +4,7 @@ namespace Rhubarb\Website\Layouts;
 
 require_once "vendor/rhubarbphp/rhubarb/src/Layout/Layout.php";
 
-use Rhubarb\Crown\Layout\Layout;
+use Rhubarb\Crown\Application;use Rhubarb\Crown\Layout\Layout;use Rhubarb\Website\Navigation\NavigationTools;
 
 class DefaultLayout extends Layout
 {
@@ -62,8 +62,23 @@ class DefaultLayout extends Layout
     <main>
 <!--    <div class="c-band u-fill--shade"></div>-->
     <div id="content" class="c-band c-main">
+        <div class="c-manual-entries">
+        <?php
+
+        $request = Application::current()->currentRequest();
+
+        if (stripos($request->uri, "/manual/") === 0){
+            $menu = NavigationTools::buildMenu([
+                "vendor/rhubarbphp/rhubarb/docs/toc.txt"
+]);
+
+            print_r($menu);
+        }
+
+        ?>
+        </div>
         <div class="c-main-content">
-    <?php
+        <?php
 
             parent::printLayout($content);
 
