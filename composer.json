@@ -15,7 +15,7 @@
         "rhubarbphp/module-leaf": "1.0.x-dev",
         "rhubarbphp/module-patterns": "*",
         "rhubarbphp/module-restapi": "1.0.x-dev",
-        "geeks-dev/php-markdown-extra-extended-stylish": "dev-master"
+        "erusev/parsedown-extra" : "*"
     },
     "autoload":
     {
