@@ -35,6 +35,10 @@ class NavigationTools
                 }
 
                 $parts = explode(":", trim($line));
+                if (sizeof($parts) == 1 ){
+                    $parts[1] = "";
+                }
+
                 $newEntry = self::makeEntry($toc->urlStub."/".$parts[1], $parts[0], $currentMenu);
                 $currentMenu->children[] = $newEntry;
 
@@ -54,10 +58,3 @@ class NavigationTools
         return $entry;
     }
 }
-
-include_once __DIR__."/TableOfContentsSource.php";
-
-$menu = NavigationTools::buildMenu([
-    new TableOfContentsSource( __DIR__."/../../vendor/rhubarbphp/rhubarb/docs/toc.txt", "The Basics", "/manual/rhubarb" )
-]);
-print "";

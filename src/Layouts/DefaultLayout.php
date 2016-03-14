@@ -4,7 +4,7 @@ namespace Rhubarb\Website\Layouts;
 
 require_once "vendor/rhubarbphp/rhubarb/src/Layout/Layout.php";
 
-use Rhubarb\Crown\Application;use Rhubarb\Crown\Layout\Layout;use Rhubarb\Website\Navigation\NavigationTools;
+use Rhubarb\Crown\Application;use Rhubarb\Crown\Layout\Layout;use Rhubarb\Website\Navigation\NavigationTools;use Rhubarb\Website\Navigation\TableOfContentsSource;
 
 class DefaultLayout extends Layout
 {
@@ -14,6 +14,7 @@ class DefaultLayout extends Layout
 <title>Rhubarb PHP</title>
 <head>
 <link href="/static/css/screen.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/dev.css" rel="stylesheet" type="text/css" />
 <link href="/static/css/shThemeEclipse.css" rel="stylesheet" type="text/css" />
 <script src="/static/js/shCore.js" type="text/javascript"></script>
 <script src="/static/js/shBrushPhp.js" type="text/javascript"></script>
@@ -68,11 +69,25 @@ class DefaultLayout extends Layout
         $request = Application::current()->currentRequest();
 
         if (stripos($request->uri, "/manual/") === 0){
-            $menu = NavigationTools::buildMenu([
-                "vendor/rhubarbphp/rhubarb/docs/toc.txt"
-]);
+            $menu = NavigationTools::buildMenu(
+            [
+                new TableOfContentsSource( __DIR__."/../../vendor/rhubarbphp/rhubarb/docs/toc.txt", "The Basics", "/manual/rhubarb" )
+            ]);
 
-            print_r($menu);
+            $printMenu = function($parent, $indent, $menuPrinter) use ($request){
+                foreach($parent->children as $child){
+
+                    $current = $request->uri == $child->url ? " current" : "";
+                    print "<li class=\"indent-".($indent+1)." $current\"><a href='".$child->url."'>".$child->name."</a></li>";
+
+                    $menuPrinter($child, $indent+1, $menuPrinter);
+                }
+            };
+
+            ?><ul class="c-menu"><?php
+            $printMenu($menu, 0, $printMenu);
+            ?></ul>
+            <?php
         }
 
         ?>
