@@ -10,7 +10,7 @@ $is-site-responsive		: true;		// yes | no
 $is-site-fluid			: false;		// yes | no
 	$fixed-width		: 1600px;	// [number]px
 	$fluid-width		: 100%;		// [number]%
-$base-space				: 18px;		// [number]px
+$base-space				: 15px;		// [number]px
 $rem-units				: true;
 $smoothness				: 0.2;		// [number] (in seconds)
 
@@ -33,7 +33,7 @@ $zindex: (
 
 
 $base-font-size			: $base-space!default;
-$base-line-height		: $base-space * 1.5!default;
+$base-line-height		: $base-space * 1.7!default;
 
 
 /* Font Weight and Style */
@@ -51,7 +51,7 @@ $color-shade			: black;
 
 /* UI colors */
 $color-mark				: #ffff00;
-$color-error			: FireBrick;
+$color-error			: #b22222;
 $color-warning			: DarkGoldenRod;
 $color-success			: ForestGreen;
 
@@ -100,7 +100,7 @@ $field-radius			: $base-radius/2; 				// yes | no
 
 /* Font Sizes */
 
-$fs-ratio				: $perfect-fourth; 	// [variable]
+$fs-ratio				: 1.4; 	// [variable]
 $font-features			: liga kern;
 
 /* Screen sizes */

@@ -16,24 +16,24 @@ development costs become big concerns.
 
 Here's some of Rhubarb's key features:
 
-#### 1. Scaffolds
+### 1. Scaffolds
 
 A Rhubarb scaffold can, just by including it, configure models, DB schemas, url handling and
 user interfaces. After inclusion any aspect of those features can be amended, retired or even
 completely replaced to best fit in your application.
 
-#### 2. Hierarchical MVP
+### 2. Hierarchical MVP
 
 Unique among PHP frameworks Rhubarb showcases a hierarchical Model-View-Presenter library for rapid
 development of unit tested, view abstracted user interfaces through reusable objects.
 
-#### 3. Performance
+### 3. Performance
 
 We've learned the hard way how applications grow over time and we don't believe the performance
 of your application should degrade as your application gets more complex. That's why we've made
 [important decisions](/performance) about how Rhubarb is configured.
 
-#### 4. Configuration over Convention
+### 4. Configuration over Convention
 
 Many frameworks have moved to 'convention over configuration' philosophies. If you name files
 correctly and put them in the right location the behaviour you want will automatically emerge.

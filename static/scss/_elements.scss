@@ -225,7 +225,7 @@ h1 {
 }
 
 h2 {
-	@include padding($base-space*3 n n n);
+	@include padding($base-space*1 n n n);
 	color: $heading-color;
 	font-family: $heading-font-family;
 	font-weight: $heading-weight;
@@ -240,7 +240,7 @@ h2 {
 }
 
 h3 {
-	@include padding($base-space*1.5 n n n);
+	@include padding($base-space*0.5 n n n);
 	color: $heading-color;
 	font-weight: $heading-weight;
 	@include h(font-size(beta));
@@ -283,6 +283,7 @@ ol {
 
 dt {
 	font-weight:$dt-weight;
+  	color: $heading-color;
 }
 
 /*------------------------------------
@@ -295,6 +296,11 @@ pre,
 samp {
 	font-size:1em;
 	font-family: font-family(mono);
+  	background: #eeeeee;
+}
+
+div.line code {
+  background: none;
 }
 
 pre {
