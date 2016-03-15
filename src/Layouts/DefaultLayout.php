@@ -71,7 +71,8 @@ class DefaultLayout extends Layout
         if (stripos($request->uri, "/manual/") === 0){
             $menu = NavigationTools::buildMenu(
             [
-                new TableOfContentsSource( __DIR__."/../../vendor/rhubarbphp/rhubarb/docs/toc.txt", "The Basics", "/manual/rhubarb" )
+                new TableOfContentsSource( __DIR__."/../../vendor/rhubarbphp/rhubarb/docs/toc.txt", "The Basics", "/manual/rhubarb" ),
+                new TableOfContentsSource( __DIR__."/../../vendor/rhubarbphp/module-stem/docs/toc.txt", "The Basics", "/manual/module-stem/" )
             ]);
 
             $first = true;
