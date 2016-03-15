@@ -884,7 +884,7 @@ a {
   a:active {
     color: #62fccd; }
   a:focus {
-    outline: thin dotted rgba(0, 0, 0, 0.06); }
+    outline: thin dotted rgba(252, 98, 145, 0.2); }
   a:active, a:hover {
     outline: 0; }
   a:hover, a:active, a:focus {
@@ -965,6 +965,9 @@ ol {
 dt {
   font-weight: bold;
   color: #484848; }
+
+dd {
+  margin-bottom: 15px; }
 
 /*------------------------------------
 	Code
@@ -1102,7 +1105,7 @@ dfn {
 
 mark {
   color: #6b6b6b;
-  background-color: rgba(0, 0, 0, 0.06); }
+  background-color: rgba(252, 98, 145, 0.2); }
 
 sub,
 sup {
@@ -1146,7 +1149,7 @@ blockquote {
   padding-left: 0.9375rem;
   margin-bottom: 15px;
   margin-bottom: 0.9375rem;
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: rgba(252, 98, 145, 0.2);
   quotes: "\\201C " "\\201D "; }
   @media only screen and (max-width: 50em) {
     blockquote {
@@ -1235,7 +1238,7 @@ hr {
   box-sizing: content-box;
   margin-bottom: 13px;
   margin-bottom: 0.8125rem;
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: rgba(252, 98, 145, 0.2);
   border: 0;
   height: 1px; }
   .c-Page-main--night hr {
@@ -1739,7 +1742,7 @@ table {
   padding-left: 0.9375rem;
   margin-bottom: 15px;
   margin-bottom: 0.9375rem;
-  border: 2px solid rgba(0, 0, 0, 0.06); }
+  border: 2px solid rgba(252, 98, 145, 0.2); }
   @media only screen and (max-width: 50em) {
     .syntaxhighlighter {
       margin-bottom: 14.25px;
@@ -1768,9 +1771,9 @@ table {
 @media screen {
   /* Borders */
   .u-border {
-    border: 2px solid rgba(0, 0, 0, 0.06); }
+    border: 2px solid rgba(252, 98, 145, 0.2); }
     .u-borderTop {
-      border-top: 2px solid rgba(0, 0, 0, 0.06); }
+      border-top: 2px solid rgba(252, 98, 145, 0.2); }
   .u-caption {
     -moz-font-feature-settings: "smcp" 1, "c2sc" 1;
     -moz-font-feature-settings: "smcp=1", "c2sc=1";
@@ -1839,7 +1842,7 @@ table {
     .u-fill--senary h1, .u-fill--senary h2, .u-fill--senary h3, .u-fill--senary h4, .u-fill--senary h5 {
       color: #ffffff; }
   .u-fill--shade {
-    background-color: rgba(0, 0, 0, 0.06); }
+    background-color: rgba(252, 98, 145, 0.2); }
   .u-fill--site {
     background-color: white; }
   .u-fill--footer {

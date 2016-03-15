@@ -1,4 +1,4 @@
-ul.c-menu { float: left; width: 300px; border-right: 1px dotted #CCC; }
+ul.c-menu { float: left; width: 300px; border-right: 1px dotted #CCC; margin-right: 20px; }
 ul.c-menu li { list-style: none; text-align: left; font-size: 10pt; padding: 3px;}
 ul.c-menu li.indent-1 { padding-left: 0; font-size: 140%; margin-top: 20px; margin-bottom: 8px}
 ul.c-menu li.indent-1.first { margin-top: 0;}
