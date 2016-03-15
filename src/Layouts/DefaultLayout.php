@@ -75,10 +75,15 @@ class DefaultLayout extends Layout
             ]);
 
             $printMenu = function($parent, $indent, $menuPrinter) use ($request){
+
+                if ( $indent == 2 && stripos($request->uri, $parent->url) === false ){
+                    return;
+                }
+
                 foreach($parent->children as $child){
 
                     $current = $request->uri == $child->url ? " current" : "";
-                    print "<li class=\"indent-".($indent+1)." $current\"><a href='".$child->url."'>".$child->name."</a></li>";
+                    print "<li class=\"indent-".($indent+1)." $current\"><a href='".$child->url."#content'>".$child->name."</a></li>";
 
                     $menuPrinter($child, $indent+1, $menuPrinter);
                 }
