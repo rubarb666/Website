@@ -1,7 +1,7 @@
 {
     "name": "RhubarbPHP/website",
     "description": "The website for Rhubarb PHP",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "license": "Apache 2.0",
     "repositories": [
     ],
@@ -15,7 +15,8 @@
         "rhubarbphp/module-leaf": "1.0.x-dev",
         "rhubarbphp/module-patterns": "*",
         "rhubarbphp/module-restapi": "1.0.x-dev",
-        "erusev/parsedown-extra" : "*"
+        "erusev/parsedown-extra" : "*",
+        "rhubarbphp/module-image-processing" : "1.0.x-dev"
     },
     "autoload":
     {
