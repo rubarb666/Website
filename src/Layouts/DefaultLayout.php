@@ -66,7 +66,7 @@ class DefaultLayout extends Layout
         <div class="c-manual-entries">
         <?php
 
-        $request = Application::current()->currentRequest();
+        $request = Application::current()->request();
 
         if (stripos($request->uri, "/manual/") === 0){
             $menu = NavigationTools::buildMenu(
@@ -74,7 +74,9 @@ class DefaultLayout extends Layout
                 new TableOfContentsSource( __DIR__."/../../vendor/rhubarbphp/rhubarb/docs/toc.txt", "The Basics", "/manual/rhubarb" )
             ]);
 
-            $printMenu = function($parent, $indent, $menuPrinter) use ($request){
+            $first = true;
+
+            $printMenu = function($parent, $indent, $menuPrinter) use ($request, &$first){
 
                 if ( $indent == 2 && stripos($request->uri, $parent->url) === false ){
                     return;
@@ -83,14 +85,27 @@ class DefaultLayout extends Layout
                 foreach($parent->children as $child){
 
                     $current = $request->uri == $child->url ? " current" : "";
-                    print "<li class=\"indent-".($indent+1)." $current\"><a href='".$child->url."#content'>".$child->name."</a></li>";
+                    $firstClass = ($first) ? " first" : "";
+                    $first = false;
+
+                    print "<li class=\"indent-".($indent+1)." $current $firstClass \">";
+
+                    if ($child->url != ""){
+                        print "<a href='".$child->url."#content'>".$child->name."</a>";
+                    } else {
+                        print $child->name;
+                    }
+
+                    print "</li>";
 
                     $menuPrinter($child, $indent+1, $menuPrinter);
                 }
             };
 
             ?><ul class="c-menu"><?php
-            $printMenu($menu, 0, $printMenu);
+            foreach($menu->children as $item){
+                $printMenu($item, 0, $printMenu);
+            }
             ?></ul>
             <?php
         }

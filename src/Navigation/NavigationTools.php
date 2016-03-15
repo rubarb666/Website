@@ -39,7 +39,8 @@ class NavigationTools
                     $parts[1] = "";
                 }
 
-                $newEntry = self::makeEntry($toc->urlStub."/".$parts[1], $parts[0], $currentMenu);
+                $url = $parts[1] ? $toc->urlStub."/".$parts[1] : "";
+                $newEntry = self::makeEntry($url, $parts[0], $currentMenu);
                 $currentMenu->children[] = $newEntry;
 
                 $lastMenu = $newEntry;
