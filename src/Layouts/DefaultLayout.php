@@ -43,7 +43,7 @@ class DefaultLayout extends Layout
 
 </head>
 </html>
-<body class="l-docs">
+<body>
 <div class="c-page">
     <div id="top" class="c-global-header">
         <header>
