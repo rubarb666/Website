@@ -11,8 +11,3 @@
 @include font-face(SSStandard, '/fonts/ss-standard/webfonts/ss-standard');				// Symbolset | www.symbolset.com | Copyright © 2012 Oak Studios LLC
 @include font-face(SSSocial, '/fonts/ss-social-regular/webfonts/ss-social-regular', normal);	// Symbolset | www.symbolset.com | Copyright © 2012 Oak Studios LLC
 @include font-face(SSSocial, '/fonts/ss-social-circle/webfonts/ss-social-circle', bold);	// Symbolset | www.symbolset.com | Copyright © 2012 Oak Studios LLC
-
-@include font-face(Metro, '/fonts/metro/Regular/MetroNovaPro-Regular', normal);
-@include font-face(Metro, '/fonts/metro/Italic/MetroNovaPro-Italic', normal, italic);
-@include font-face(Metro, '/fonts/metro/Bold/MetroNovaPro-Bold', bold);
-@include font-face(Metro, '/fonts/metro/BoldItalic/MetroNovaPro-BoldItalic', bold, italic);

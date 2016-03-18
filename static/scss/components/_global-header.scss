@@ -1,14 +1,28 @@
 .c-global-header {
     @include padding($base-space*2);
-    background:url("/static/images/poster.gif") color(quaternary);
-    background-size:cover;
+    background:color(quaternary);
     color:color(white);
     position: relative;
-    min-height:50vh;
+
     @include screen-size(md-max) {
         @include padding($base-space);
     }
+
     h1 {
         display: none;
+    }
+
+    // Documentation Layout
+    .l-docs & {
+        padding: $base-space;
+
+        .c-site-logo {
+            padding: 0;
+            float: left;
+            height: $touch-target;
+            width: auto;
+            max-width: 100%;
+        }
+
     }
 }

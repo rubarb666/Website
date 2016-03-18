@@ -2,6 +2,12 @@
     @include box-shadow(0, 0, $base-space, rgba(0, 0, 0, 0.33));
     position:relative;
     z-index:1;
+
+    .l-docs & {
+        padding: 0;
+        margin: 0;
+        @include display( flex );
+    }
 }
 
 .c-main-content {
@@ -10,4 +16,16 @@
     max-width:$content-unit*4;
     text-align:left;
     width:100%;
+
+    .l-docs & {
+        margin: 0;
+        width: 80%;
+        max-width:100%;
+
+        .c-main-content__inner {
+            max-width:$content-unit*4;
+            margin: 0 auto;
+            padding: $base-space*3 0;
+        }
+    }
 }

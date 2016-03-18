@@ -215,10 +215,12 @@ a {
 }
 
 h1 {
-	@include h(font-size(delta));
+	@include h(font-size(epsilon));
 	color: $heading-color;
 	font-family: $heading-font-family;
-	font-weight: bold;
+	font-weight: $heading-weight;
+	color: color( tertiary );
+
 	@include screen-size(sm-max) {
 		@include h(font-size(gamma));
 	}
@@ -300,7 +302,6 @@ pre,
 samp {
 	font-size:1em;
 	font-family: font-family(mono);
-  	background: #eeeeee;
 }
 
 div.line code {
@@ -309,6 +310,10 @@ div.line code {
 
 pre {
 	white-space: pre-wrap;
+	background: #eeeeee;
+	padding: $base-space;
+	border: 1px solid #ddd;
+	border-radius: 4px;
 }
 
 /*------------------------------------
@@ -515,6 +520,7 @@ blockquote {
 	@include vertical-spacing(force);
 	background-color:color(shade, $shade-amount);
 	quotes: "#{$open-quote}" "#{$close-quote}";
+	border-radius: 4px;
 
 	p {
 		@include vertical-spacing($vertical-space:$vertical-space/2);

@@ -43,7 +43,7 @@ class DefaultLayout extends Layout
 
 </head>
 </html>
-<body>
+<body class="l-docs">
 <div class="c-page">
     <div id="top" class="c-global-header">
         <header>
@@ -114,11 +114,11 @@ class DefaultLayout extends Layout
         ?>
         </div>
         <div class="c-main-content">
-        <?php
-
-            parent::printLayout($content);
-
-            ?>
+            <div class="c-main-content__inner">
+                <?php
+                parent::printLayout($content);
+                ?>
+            </div>
         </div>
     </div>
     </main>

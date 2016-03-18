@@ -6,7 +6,7 @@
 
 */
 
-$is-site-responsive		: true;		// yes | no
+$is-site-responsive		: false;		// yes | no
 $is-site-fluid			: false;		// yes | no
 	$fixed-width		: 1600px;	// [number]px
 	$fluid-width		: 100%;		// [number]%
@@ -47,7 +47,7 @@ $fade					: 0.7;
 
 /* Tint and Shade */
 $color-tint				: white;
-$color-shade			: rgba(252, 98, 145, 1);
+$color-shade			: #A7DF72;
 
 /* UI colors */
 $color-mark				: #ffff00;

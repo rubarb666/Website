@@ -1,12 +1,29 @@
 .c-global-nav {
     @include padding(n n $base-space*4 n);
     width:100%;
+
+    .l-docs & {
+        padding: 0;
+        width: auto;
+
+        ul {
+            text-align: right;
+        }
+    }
+
     @include screen-size(sm-min) {
         @include position(absolute, 0 0 0px 0px);
+
+        .l-docs & {
+            @include position(relative, 0 0 0px 0px);
+            text-align: right;
+        }
     }
+
     @include screen-size(md-max) {
         @include padding(n n $base-space*2 n);
     }
+
     ul {
         list-style:none;
         margin:0;
@@ -15,14 +32,17 @@
             display:inline-block;
         }
     }
+
     a {
         @include padding($base-space n);
         border-bottom:2px solid transparent;
-        color:color(tertiary);
+        color:white;
         display: block;
+
         &:hover {
             border-color:color(tertiary);
             text-decoration: none;
+            color: color( tertiary );
         }
     }
 }
