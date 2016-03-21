@@ -215,17 +215,19 @@ a {
 }
 
 h1 {
-	@include h(font-size(delta));
+	@include h(font-size(epsilon));
 	color: $heading-color;
 	font-family: $heading-font-family;
-	font-weight: bold;
+	font-weight: $heading-weight;
+	color: color( tertiary );
+
 	@include screen-size(sm-max) {
 		@include h(font-size(gamma));
 	}
 }
 
 h2 {
-	@include padding($base-space*3 n n n);
+	@include padding($base-space*1 n n n);
 	color: $heading-color;
 	font-family: $heading-font-family;
 	font-weight: $heading-weight;
@@ -240,7 +242,7 @@ h2 {
 }
 
 h3 {
-	@include padding($base-space*1.5 n n n);
+	@include padding($base-space*0.5 n n n);
 	color: $heading-color;
 	font-weight: $heading-weight;
 	@include h(font-size(beta));
@@ -283,6 +285,11 @@ ol {
 
 dt {
 	font-weight:$dt-weight;
+  	color: $heading-color;
+}
+
+dd {
+  margin-bottom: $vertical-space;
 }
 
 /*------------------------------------
@@ -297,8 +304,16 @@ samp {
 	font-family: font-family(mono);
 }
 
+div.line code {
+  background: none;
+}
+
 pre {
 	white-space: pre-wrap;
+	background: #eeeeee;
+	padding: $base-space;
+	border: 1px solid #ddd;
+	border-radius: 4px;
 }
 
 /*------------------------------------
@@ -505,6 +520,7 @@ blockquote {
 	@include vertical-spacing(force);
 	background-color:color(shade, $shade-amount);
 	quotes: "#{$open-quote}" "#{$close-quote}";
+	border-radius: 4px;
 
 	p {
 		@include vertical-spacing($vertical-space:$vertical-space/2);

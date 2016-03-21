@@ -5,4 +5,8 @@
     position:relative;
     text-align:center;
     z-index:0;
+
+    > .c-band  {
+        padding: $base-space*2 0
+    }
 }

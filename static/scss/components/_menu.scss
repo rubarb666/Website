@@ -1,0 +1,41 @@
+.c-manual-entries {
+	.l-docs & {
+		width: $base-space*25;
+		border-right: 1px solid color( border );
+		padding: $base-space 0;
+	}
+}
+
+.c-menu {
+	list-style: none;
+	text-align: left;
+	margin: 0;
+	padding: 0 0 0 $base-space;
+
+	li {
+
+		&.current {
+			background: lighten( color( link ), 30% );
+		}
+
+		&.indent-1 {
+			@include font-size( font-size( beta ) );
+			margin: $margin*2 0 $margin/2 0;
+			padding-left: $base-space/2;
+
+			&.first {
+				margin-top: 0;
+			}
+		}
+
+		&.indent-2 { padding-left: 0; }
+		&.indent-3 { padding-left: $base-space; }
+		&.indent-4 { padding-left: $base-space*2; }
+		&.indent-5 { padding-left: $base-space*3; }
+		&.indent-6 { padding-left: $base-space*4; }
+
+		a {
+			padding-left: $base-space/2;
+		}
+	}
+}

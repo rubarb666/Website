@@ -4,7 +4,7 @@ namespace Rhubarb\Website\Layouts;
 
 require_once "vendor/rhubarbphp/rhubarb/src/Layout/Layout.php";
 
-use Rhubarb\Crown\Layout\Layout;
+use Rhubarb\Crown\Application;use Rhubarb\Crown\Layout\Layout;use Rhubarb\Crown\Request\Request;use Rhubarb\Crown\String\StringTools;use Rhubarb\Website\Navigation\NavigationTools;use Rhubarb\Website\Navigation\TableOfContentsSource;
 
 class DefaultLayout extends Layout
 {
@@ -14,6 +14,7 @@ class DefaultLayout extends Layout
 <title>Rhubarb PHP</title>
 <head>
 <link href="/static/css/screen.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/dev.css" rel="stylesheet" type="text/css" />
 <link href="/static/css/shThemeEclipse.css" rel="stylesheet" type="text/css" />
 <script src="/static/js/shCore.js" type="text/javascript"></script>
 <script src="/static/js/shBrushPhp.js" type="text/javascript"></script>
@@ -39,12 +40,29 @@ class DefaultLayout extends Layout
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-TileImage" content="/static/mstile-144x144.png">
 <meta name="theme-color" content="#333333">
+<style type="text/css">
 
+@import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=b00cbac7-a878-4c08-9abc-c0d909f94713");
+    @font-face{
+    font-family:"Avenir Next LT W04 Bold";
+    src:url("/static/fonts/6ff8ab07-ccb4-4a91-8f0f-2bd4367902e8.eot?#iefix");
+    src:url("/static/fonts/6ff8ab07-ccb4-4a91-8f0f-2bd4367902e8.eot?#iefix") format("eot"),url("/static/fonts/91799b0e-0ef8-446e-b274-5509412e1242.woff2") format("woff2"),url("/static/fonts/97fb5311-bdbd-46bc-bf69-3bcf8c744cda.woff") format("woff"),url("/static/fonts/88093bd3-b377-4278-8abe-8460dd24d0e8.ttf") format("truetype"),url("/static/fonts/0fde1539-69df-4e3d-83ef-ae23d10dd2a5.svg#0fde1539-69df-4e3d-83ef-ae23d10dd2a5") format("svg");
+    }
+    @font-face{
+    font-family:"AvenirNextLTW01-Regular";
+    src:url("/static/fonts/e9167238-3b3f-4813-a04a-a384394eed42.eot?#iefix");
+    src:url("/static/fonts/e9167238-3b3f-4813-a04a-a384394eed42.eot?#iefix") format("eot"),url("/static/fonts/2cd55546-ec00-4af9-aeca-4a3cd186da53.woff2") format("woff2"),url("/static/fonts/1e9892c0-6927-4412-9874-1b82801ba47a.woff") format("woff"),url("/static/fonts/46cf1067-688d-4aab-b0f7-bd942af6efd8.ttf") format("truetype"),url("/static/fonts/52a192b1-bea5-4b48-879f-107f009b666f.svg#52a192b1-bea5-4b48-879f-107f009b666f") format("svg");
+    }
+
+    </style>
 </head>
 </html>
-<body>
+<?php
+$request = Request::current();
+?>
+<body <?=(StringTools::contains($request->uri, "manual")) ? 'class="l-docs"' : '';?>>
 <div class="c-page">
-    <div id="top" class="c-global-header">
+    <div id="top" class="c-global-header c-band">
         <header>
             <a href="/"><img class="c-site-logo" src="/static/images/rhubarb-logo.svg"></a>
             <h1>Rhubarb</h1>
@@ -59,21 +77,71 @@ class DefaultLayout extends Layout
             </ul>
         </nav>
     </div>
-    <main>
+    <main class="c-main">
 <!--    <div class="c-band u-fill--shade"></div>-->
-    <div id="content" class="c-band c-main">
+    <div id="content" class="c-band">
+        <div class="c-manual-entries">
+        <?php
+
+        $request = Application::current()->request();
+
+        if (stripos($request->uri, "/manual/") === 0){
+            $menu = NavigationTools::buildMenu(
+            [
+                new TableOfContentsSource( __DIR__."/../../vendor/rhubarbphp/rhubarb/docs/toc.txt", "The Basics", "/manual/rhubarb" ),
+                new TableOfContentsSource( __DIR__."/../../vendor/rhubarbphp/module-stem/docs/toc.txt", "The Basics", "/manual/module-stem/" )
+            ]);
+
+            $first = true;
+
+            $printMenu = function($parent, $indent, $menuPrinter) use ($request, &$first){
+
+                if ( $indent == 2 && stripos($request->uri, $parent->url) === false ){
+                    return;
+                }
+
+                foreach($parent->children as $child){
+
+                    $current = $request->uri == $child->url ? " current" : "";
+                    $firstClass = ($first) ? " first" : "";
+                    $first = false;
+
+                    print "<li class=\"indent-".($indent+1)." $current $firstClass \">";
+
+                    if ($child->url != ""){
+                        print "<a href='".$child->url."#content'>".$child->name."</a>";
+                    } else {
+                        print $child->name;
+                    }
+
+                    print "</li>";
+
+                    $menuPrinter($child, $indent+1, $menuPrinter);
+                }
+            };
+
+            ?><ul class="c-menu"><?php
+            foreach($menu->children as $item){
+                $printMenu($item, 0, $printMenu);
+            }
+            ?></ul>
+            <?php
+        }
+
+        ?>
+        </div>
         <div class="c-main-content">
-    <?php
-
-            parent::printLayout($content);
-
-            ?>
+            <div class="c-main-content__inner">
+                <?php
+                parent::printLayout($content);
+                ?>
+            </div>
         </div>
     </div>
     </main>
 
-<footer>
-    <div class="c-band c-global-footer">
+<footer class="c-global-footer">
+    <div class="c-band">
     the tasty PHP framework.
     </div>
 </footer>
@@ -92,6 +160,17 @@ class DefaultLayout extends Layout
 
     SyntaxHighlighter.defaults['toolbar'] = false;
     SyntaxHighlighter.all()
+
+    // Webfonts
+    var MTIProjectId='b00cbac7-a878-4c08-9abc-c0d909f94713';
+     (function() {
+            var mtiTracking = document.createElement('script');
+            mtiTracking.type='text/javascript';
+            mtiTracking.async='true';
+             mtiTracking.src='/static/js/mtiFontTrackingCode.js';
+            (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild( mtiTracking );
+       })();
+
 </script>
 </body>
 </html><?php

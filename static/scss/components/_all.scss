@@ -3,6 +3,7 @@
 @import "global-header";
 @import "global-nav";
 @import "main";
+@import "menu";
 @import "page";
 @import "site-logo";
 @import "table";
@@ -10,5 +11,7 @@
 .syntaxhighlighter {
     @include padding($base-space);
     @include vertical-spacing(force);
-    border:2px solid color(shade, $shade-amount);
+    border:1px solid color( border );
+    @include box-shadow();
+    border-radius: 4px;
 }

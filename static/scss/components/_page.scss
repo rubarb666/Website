@@ -2,4 +2,9 @@
     background-color:color(site);
     position:relative;
     text-align:center;
+    // By using a flexbox layout we can
+	// make the footer sticky
+	@include display( flex );
+	@include flex-direction( column );
+	min-height: 100vh;
 }

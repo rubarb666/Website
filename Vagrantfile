@@ -6,6 +6,8 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
+  config.ssh.password = "vagrant"
+  config.ssh.insert_key = true	  
   config.vm.box = "centos_php70.box"
   config.vm.box_url = "http://files.gcdtech.com/vagrant/centos_php70.box"
   config.vm.provision "shell", :path => "vagrant/provision.sh"
