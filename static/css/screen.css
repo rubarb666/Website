@@ -839,7 +839,7 @@ a {
 h1 {
   font-size: 3.625em;
   line-height: 1.36;
-  color: #383838;
+  color: #282828;
   font-family: "Avenir Next", "Avernir", sans-serif;
   font-weight: normal;
   color: #fd4565; }
@@ -847,7 +847,7 @@ h1 {
 h2 {
   padding-top: 15px;
   padding-top: 0.9375rem;
-  color: #383838;
+  color: #282828;
   font-family: "Avenir Next", "Avernir", sans-serif;
   font-weight: normal;
   font-size: 1.875em;
@@ -858,7 +858,7 @@ h2 {
 h3 {
   padding-top: 7.5px;
   padding-top: 0.46875rem;
-  color: #383838;
+  color: #282828;
   font-weight: normal;
   font-size: 1.3125em;
   line-height: 1.36; }
@@ -892,7 +892,7 @@ ol {
 
 dt {
   font-weight: bold;
-  color: #383838; }
+  color: #282828; }
 
 dd {
   margin-bottom: 15px; }
@@ -1500,7 +1500,7 @@ td {
   padding-bottom: 1.875rem;
   padding-left: 30px;
   padding-left: 1.875rem;
-  background: #383838;
+  background: #282828;
   color: white;
   position: relative; }
   .c-global-header h1 {
@@ -1711,7 +1711,7 @@ table {
     .u-fill--tertiary h1, .u-fill--tertiary h2, .u-fill--tertiary h3, .u-fill--tertiary h4, .u-fill--tertiary h5 {
       color: #ffffff; }
   .u-fill--quaternary {
-    background-color: #383838;
+    background-color: #282828;
     color: #ffffff; }
     .u-fill--quaternary:hover, .u-fill--quaternary:visited, .u-fill--quaternary a, .u-fill--quaternary a:visited, .u-fill--quaternary a:hover, .u-fill--quaternary a.c-ArticleItem b {
       color: #ffffff; }
@@ -1725,7 +1725,7 @@ table {
     .u-fill--quinary h1, .u-fill--quinary h2, .u-fill--quinary h3, .u-fill--quinary h4, .u-fill--quinary h5 {
       color: #ffffff; }
   .u-fill--senary {
-    background-color: #fd4565;
+    background-color: #84960e;
     color: #ffffff; }
     .u-fill--senary:hover, .u-fill--senary:visited, .u-fill--senary a, .u-fill--senary a:visited, .u-fill--senary a:hover, .u-fill--senary a.c-ArticleItem b {
       color: #ffffff; }
@@ -1868,7 +1868,7 @@ table {
     font-size: 1.3125em; }
   /* Text Color */
   .u-textPositive {
-    color: #fd4565; }
+    color: #84960e; }
   .u-textWarning {
     color: #fd4565; }
   .u-textNegative {

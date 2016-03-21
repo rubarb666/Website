@@ -4,7 +4,7 @@ namespace Rhubarb\Website\Layouts;
 
 require_once "vendor/rhubarbphp/rhubarb/src/Layout/Layout.php";
 
-use Rhubarb\Crown\Application;use Rhubarb\Crown\Layout\Layout;use Rhubarb\Website\Navigation\NavigationTools;use Rhubarb\Website\Navigation\TableOfContentsSource;
+use Rhubarb\Crown\Application;use Rhubarb\Crown\Layout\Layout;use Rhubarb\Crown\Request\Request;use Rhubarb\Crown\String\StringTools;use Rhubarb\Website\Navigation\NavigationTools;use Rhubarb\Website\Navigation\TableOfContentsSource;
 
 class DefaultLayout extends Layout
 {
@@ -43,7 +43,10 @@ class DefaultLayout extends Layout
 
 </head>
 </html>
-<body>
+<?php
+$request = Request::current();
+?>
+<body <?=(StringTools::contains($request->uri, "manual")) ? 'class="l-docs"' : '';?>>
 <div class="c-page">
     <div id="top" class="c-global-header">
         <header>
