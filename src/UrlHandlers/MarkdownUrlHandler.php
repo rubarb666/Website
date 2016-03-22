@@ -4,6 +4,8 @@ namespace Rhubarb\Website\UrlHandlers;
 
 use ParsedownExtra;
 use Rhubarb\Crown\UrlHandlers\UrlHandler;
+use Rhubarb\Website\Navigation\NavigationTools;
+use Rhubarb\Website\Navigation\TableOfContentsSource;
 
 require_once "vendor/rhubarbphp/rhubarb/src/UrlHandlers/UrlHandler.php";
 
@@ -36,8 +38,34 @@ class MarkdownUrlHandler extends UrlHandler
         if (file_exists($rootPath . $url . ".md")) {
             $markDownRaw = file_get_contents($rootPath . $url . ".md");
 
+            while(preg_match("/{menu:([^}]+)}/", $markDownRaw, $match)){
+
+                $menu = NavigationTools::buildMenu(
+                    [
+                        new TableOfContentsSource($match[1], "", "/manual/rhubarb/")
+                    ]
+                );
+
+                ob_start();
+
+                ?><ul class="c-menu"><?php
+
+                foreach($menu->children as $child) {
+                    NavigationTools::printMenu($menu->children[0], 0);
+                }
+
+                ?></ul><?php
+
+                $html = ob_get_clean();
+
+
+                $markDownRaw = str_replace($match[0],$html, $markDownRaw);
+            }
+
             $parseDown = new ParsedownExtra();
             return $parseDown->text($markDownRaw);
         }
+
+        return "";
     }
 }

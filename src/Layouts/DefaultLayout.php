@@ -88,41 +88,28 @@ $request = Request::current();
         if (stripos($request->uri, "/manual/") === 0){
             $menu = NavigationTools::buildMenu(
             [
-                new TableOfContentsSource( __DIR__."/../../vendor/rhubarbphp/rhubarb/docs/toc.txt", "The Basics", "/manual/rhubarb" ),
-                new TableOfContentsSource( __DIR__."/../../vendor/rhubarbphp/module-stem/docs/toc.txt", "The Basics", "/manual/module-stem/" )
+                new TableOfContentsSource( __DIR__."/../../vendor/rhubarbphp/rhubarb/docs/toc.txt", "Rhubarb Essentials", "/manual/rhubarb" ),
+                new TableOfContentsSource( __DIR__."/../../vendor/rhubarbphp/module-stem/docs/toc.txt", "Data Modelling", "/manual/module-stem/" )
             ]);
+
+            ?><ul class="c-menu"><?php
+            $x = 1;
 
             $first = true;
 
-            $printMenu = function($parent, $indent, $menuPrinter) use ($request, &$first){
-
-                if ( $indent == 2 && stripos($request->uri, $parent->url) === false ){
-                    return;
-                }
-
-                foreach($parent->children as $child){
-
-                    $current = $request->uri == $child->url ? " current" : "";
-                    $firstClass = ($first) ? " first" : "";
-                    $first = false;
-
-                    print "<li class=\"indent-".($indent+1)." $current $firstClass \">";
-
-                    if ($child->url != ""){
-                        print "<a href='".$child->url."#content'>".$child->name."</a>";
-                    } else {
-                        print $child->name;
-                    }
-
-                    print "</li>";
-
-                    $menuPrinter($child, $indent+1, $menuPrinter);
-                }
-            };
-
-            ?><ul class="c-menu"><?php
             foreach($menu->children as $item){
-                $printMenu($item, 0, $printMenu);
+
+                $firstClass = ($first) ? " first" : "";
+                $first = false;
+
+                if (StringTools::startsWith($request->uri, $item->url)){
+                    print '<li class="chapter open'.$firstClass.'"><a href="'.$item->url.'">'.$item->chapter.". ".$item->name.'</a></li>';
+                    NavigationTools::printMenu($item, 0);
+                } else {
+                    print '<li class="chapter closed'.$firstClass.'"><a href="'.$item->url.'">'.$item->chapter.". ".$item->name.'</a></li>';
+                }
+
+                $x++;
             }
             ?></ul>
             <?php

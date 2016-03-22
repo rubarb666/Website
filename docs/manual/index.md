@@ -13,10 +13,10 @@ handling common scenarios.
 
 ## Table of Contents
 
-### 1. [Rhubarb Basics](/manual/rhubarb/)
+### 1. [Rhubarb Essentials](/manual/rhubarb/)
 
 Looks at the essential concepts underpinning the Rhubarb framework and the classes that form them. We'll
-explore Modules, Layouts, UrlHandlers, Request and Response, common Exceptions, Date Time, Emailing, Data Streams,
+explore Modules, Layouts, UrlHandlers, Request and Response, exception handling, Date Time, Emailing, Record Streams,
 Encryption, Settings, Sessions and more.
 
 ### 2. [Modelling with Stem](/manual/module-stem/)
