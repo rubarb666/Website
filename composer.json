@@ -16,7 +16,8 @@
         "rhubarbphp/module-patterns": "*",
         "rhubarbphp/module-restapi": "1.0.x-dev",
         "erusev/parsedown-extra" : "*",
-        "rhubarbphp/module-image-processing" : "1.0.x-dev"
+        "rhubarbphp/module-image-processing" : "1.0.x-dev",
+        "monolog/monolog": "^1"
     },
     "autoload":
     {

@@ -4,7 +4,7 @@ namespace Rhubarb\Website\Layouts;
 
 require_once "vendor/rhubarbphp/rhubarb/src/Layout/Layout.php";
 
-use Rhubarb\Crown\Application;use Rhubarb\Crown\Layout\Layout;use Rhubarb\Crown\Request\Request;use Rhubarb\Crown\String\StringTools;use Rhubarb\Website\Navigation\NavigationTools;use Rhubarb\Website\Navigation\TableOfContentsSource;
+use Rhubarb\Crown\Application;use Rhubarb\Crown\Layout\Layout;use Rhubarb\Crown\Request\Request;use Rhubarb\Crown\String\StringTools;use Rhubarb\Website\Navigation\NavigationTools;use Rhubarb\Website\Navigation\TableOfContentsSource;use Rhubarb\Website\Settings\MenuSettings;
 
 class DefaultLayout extends Layout
 {
@@ -120,6 +120,12 @@ $request = Request::current();
         <div class="c-main-content">
             <div class="c-main-content__inner">
                 <?php
+
+                $settings = MenuSettings::singleton();
+                if ($settings->currentChapter){
+                    $content = str_replace("<h1>", "<h1>".$settings->currentChapter.". ", $content);
+                }
+
                 parent::printLayout($content);
                 ?>
             </div>

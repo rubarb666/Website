@@ -3,6 +3,7 @@
 namespace Rhubarb\Website\UrlHandlers;
 
 use ParsedownExtra;
+use Rhubarb\Crown\Logging\Log;
 use Rhubarb\Crown\UrlHandlers\UrlHandler;
 use Rhubarb\Website\Navigation\NavigationTools;
 use Rhubarb\Website\Navigation\TableOfContentsSource;

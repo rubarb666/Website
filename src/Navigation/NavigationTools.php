@@ -3,6 +3,7 @@
 namespace Rhubarb\Website\Navigation;
 
 use Rhubarb\Crown\Request\Request;
+use Rhubarb\Website\Settings\MenuSettings;
 
 class NavigationTools
 {
@@ -90,6 +91,14 @@ class NavigationTools
         $entry->chapter = $chapter;
         $entry->children = [];
         $entry->entryCount = 0;
+
+        $request = Request::current();
+
+        if ($request->uri == $url){
+            $settings = MenuSettings::singleton();
+            $settings->currentChapter = $chapter;
+        }
+
         return $entry;
     }
 

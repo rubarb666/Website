@@ -60,6 +60,8 @@ class WebsiteModule extends Module
         SolutionSchema::registerSchema( "Demo", '\Rhubarb\Website\Models\DemoSolutionSchema' );
 
         ModelRestResource::registerModelToResourceMapping( "Organisation", OrganisationResource::class );
+
+        include_once("settings/site.config.php");
     }
 
     /**
