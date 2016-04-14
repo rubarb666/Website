@@ -13,33 +13,33 @@
  	Order of the includes matters, and it is: normal, bold, italic, bold+italic.
 */
 /*------------------------------------
-	Website /fonts
+	Website fonts
 */
-/*@include font-face(Museo, '//fonts/museo/museo_300-webfont', $weight:300);									// Museo 300		| Page headings
-@include font-face(Museo, '//fonts/museo/museo_500-webfont', $weight:500);									// Museo 500		| Page headings
-@include font-face(MuseoSans, '//fonts/museo/museosans_300-webfont', $weight:normal);						// Museo Sans 300	| Regular Text
-@include font-face(MuseoSans, '//fonts/museo/museosans_300_italic-webfont', $weight:normal, $style:italic);	// Museo Sans 300	| Italic
-@include font-face(MuseoSans, '//fonts/museo/museosanscyrl_700-webfont', $weight:bold);						// Museo Sans 700	| Bold*/
+/*@include font-face(Museo, '/fonts/museo/museo_300-webfont', $weight:300);									// Museo 300		| Page headings
+@include font-face(Museo, '/fonts/museo/museo_500-webfont', $weight:500);									// Museo 500		| Page headings
+@include font-face(MuseoSans, '/fonts/museo/museosans_300-webfont', $weight:normal);						// Museo Sans 300	| Regular Text
+@include font-face(MuseoSans, '/fonts/museo/museosans_300_italic-webfont', $weight:normal, $style:italic);	// Museo Sans 300	| Italic
+@include font-face(MuseoSans, '/fonts/museo/museosanscyrl_700-webfont', $weight:bold);						// Museo Sans 700	| Bold*/
 @font-face {
   font-family: SSStandard;
   font-weight: normal;
   font-style: normal;
-  src: url("/fonts/ss-standard/web/fonts/ss-standard.eot");
-  src: url("/fonts/ss-standard/web/fonts/ss-standard.eot?#iefix") format("embedded-opentype"), url("/fonts/ss-standard/web/fonts/ss-standard.woff") format("woff"), url("/fonts/ss-standard/web/fonts/ss-standard.ttf") format("truetype"), url("/fonts/ss-standard/web/fonts/ss-standard.svg#SSStandard") format("svg"); }
+  src: url("/fonts/ss-standard/webfonts/ss-standard.eot");
+  src: url("/fonts/ss-standard/webfonts/ss-standard.eot?#iefix") format("embedded-opentype"), url("/fonts/ss-standard/webfonts/ss-standard.woff") format("woff"), url("/fonts/ss-standard/webfonts/ss-standard.ttf") format("truetype"), url("/fonts/ss-standard/webfonts/ss-standard.svg#SSStandard") format("svg"); }
 
 @font-face {
   font-family: SSSocial;
   font-weight: normal;
   font-style: normal;
-  src: url("/fonts/ss-social-regular/web/fonts/ss-social-regular.eot");
-  src: url("/fonts/ss-social-regular/web/fonts/ss-social-regular.eot?#iefix") format("embedded-opentype"), url("/fonts/ss-social-regular/web/fonts/ss-social-regular.woff") format("woff"), url("/fonts/ss-social-regular/web/fonts/ss-social-regular.ttf") format("truetype"), url("/fonts/ss-social-regular/web/fonts/ss-social-regular.svg#SSSocial") format("svg"); }
+  src: url("/fonts/ss-social-regular/webfonts/ss-social-regular.eot");
+  src: url("/fonts/ss-social-regular/webfonts/ss-social-regular.eot?#iefix") format("embedded-opentype"), url("/fonts/ss-social-regular/webfonts/ss-social-regular.woff") format("woff"), url("/fonts/ss-social-regular/webfonts/ss-social-regular.ttf") format("truetype"), url("/fonts/ss-social-regular/webfonts/ss-social-regular.svg#SSSocial") format("svg"); }
 
 @font-face {
   font-family: SSSocial;
   font-weight: bold;
   font-style: normal;
-  src: url("/fonts/ss-social-circle/web/fonts/ss-social-circle.eot");
-  src: url("/fonts/ss-social-circle/web/fonts/ss-social-circle.eot?#iefix") format("embedded-opentype"), url("/fonts/ss-social-circle/web/fonts/ss-social-circle.woff") format("woff"), url("/fonts/ss-social-circle/web/fonts/ss-social-circle.ttf") format("truetype"), url("/fonts/ss-social-circle/web/fonts/ss-social-circle.svg#SSSocial") format("svg"); }
+  src: url("/fonts/ss-social-circle/webfonts/ss-social-circle.eot");
+  src: url("/fonts/ss-social-circle/webfonts/ss-social-circle.eot?#iefix") format("embedded-opentype"), url("/fonts/ss-social-circle/webfonts/ss-social-circle.woff") format("woff"), url("/fonts/ss-social-circle/webfonts/ss-social-circle.ttf") format("truetype"), url("/fonts/ss-social-circle/webfonts/ss-social-circle.svg#SSSocial") format("svg"); }
 
 /* Site Configuration */
 /*------------------------------------
@@ -779,7 +779,7 @@ pre {
 html {
   font-size: 0.9375em;
   font-size: 15px;
-  font-family: "AvenirNextLTW01-Regular", sans-serif;
+  font-family: "Avenir Next", "Avernir", sans-serif;
   font-size-adjust: none;
   direction: ltr;
   line-height: 1.7;
@@ -838,7 +838,7 @@ h1 {
   font-size: 3.625em;
   line-height: 1.36;
   color: #282828;
-  font-family: "AvenirNextLTW01-Regular", sans-serif;
+  font-family: "Avenir Next", "Avernir", sans-serif;
   font-weight: normal;
   color: #fd4565; }
 
@@ -846,7 +846,7 @@ h2 {
   padding-top: 15px;
   padding-top: 15px;
   color: #282828;
-  font-family: "AvenirNextLTW01-Regular", sans-serif;
+  font-family: "Avenir Next", "Avernir", sans-serif;
   font-weight: normal;
   font-size: 1.875em;
   line-height: 1.36; }
@@ -1490,16 +1490,14 @@ td {
   position: relative;
   text-align: center;
   z-index: 0; }
-  .c-global-footer > .c-band {
-    padding: 30px 0; }
 
 .c-global-header {
-  padding-top: 150px;
-  padding-top: 150px;
+  padding-top: 30px;
+  padding-top: 30px;
   padding-right: 30px;
   padding-right: 30px;
-  padding-bottom: 90px;
-  padding-bottom: 90px;
+  padding-bottom: 30px;
+  padding-bottom: 30px;
   padding-left: 30px;
   padding-left: 30px;
   background: #282828;
@@ -1508,20 +1506,18 @@ td {
   .c-global-header h1 {
     display: none; }
   .l-docs .c-global-header {
-    padding: 0; }
+    padding: 15px; }
     .l-docs .c-global-header .c-site-logo {
+      padding: 0;
+      float: left;
+      height: 42px;
       width: auto;
-      max-width: 100%;
-      position: absolute;
-      top: 22.5px;
-      bottom: 15px;
-      left: 15px; }
+      max-width: 100%; }
 
 .c-global-nav {
   padding-bottom: 60px;
   padding-bottom: 60px;
-  width: 100%;
-  padding-top: 60px; }
+  width: 100%; }
   .l-docs .c-global-nav {
     padding: 0;
     width: auto; }
@@ -1544,11 +1540,6 @@ td {
     border-bottom: 2px solid transparent;
     color: white;
     display: block; }
-    .l-docs .c-global-nav a {
-      padding-top: 30px;
-      padding-top: 30px;
-      padding-bottom: 30px;
-      padding-bottom: 30px; }
     .c-global-nav a:hover {
       border-color: #fd4565;
       text-decoration: none;
@@ -1557,24 +1548,8 @@ td {
 .c-main {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.33);
   position: relative;
-  z-index: 1;
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  box-flex: 1;
-  -webkit-flex: 1 0 auto;
-  -moz-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  box-pack: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  -o-justify-content: center;
-  justify-content: center;
-  -ms-flex-pack: center; }
-  .l-docs .c-main > .c-band {
+  z-index: 1; }
+  .l-docs .c-main {
     padding: 0;
     margin: 0;
     display: block;
@@ -1584,16 +1559,7 @@ td {
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -moz-box-pack: center;
-    box-pack: center;
-    -webkit-justify-content: center;
-    -moz-justify-content: center;
-    -ms-justify-content: center;
-    -o-justify-content: center;
-    justify-content: center;
-    -ms-flex-pack: center; }
+    display: flex; }
 
 .c-main-content {
   margin-left: auto;
@@ -1601,39 +1567,28 @@ td {
   max-width: 1066.66667px;
   text-align: left;
   width: 100%; }
-  .l-docs.centered .c-main-content {
-    width: auto; }
   .l-docs .c-main-content {
     margin: 0;
+    width: 80%;
     max-width: 100%; }
     .l-docs .c-main-content .c-main-content__inner {
       max-width: 1066.66667px;
-      margin: 0 0 0 60px;
+      margin: 0 auto;
       padding: 45px 0; }
 
 .l-docs .c-manual-entries {
-  width: 375px;
+  width: 20%;
   border-right: 1px solid #e6e6e6;
-  padding: 15px 0; }
+  padding: 15px 22.5px; }
 
 .c-menu {
   list-style: none;
   text-align: left;
   margin: 0;
-  padding: 0 0 0 15px; }
-  .c-menu li.chapter {
-    font-size: 1.875em;
-    margin-top: 30px; }
-    .c-menu li.chapter a {
-      color: #333; }
-    .c-menu li.chapter .first {
-      margin-top: 0; }
-  .c-menu li.current {
-    background: #ffdce2; }
+  padding: 0; }
   .c-menu li.indent-1 {
     font-size: 1.3125em;
-    margin: 30px 0 7.5px 0;
-    padding-left: 7.5px; }
+    margin: 30px 0 7.5px 0; }
     .c-menu li.indent-1.first {
       margin-top: 0; }
   .c-menu li.indent-2 {
@@ -1646,34 +1601,15 @@ td {
     padding-left: 45px; }
   .c-menu li.indent-6 {
     padding-left: 60px; }
-  .c-menu li a {
-    padding-left: 7.5px; }
 
 .c-page {
   background-color: white;
   position: relative;
-  text-align: center;
-  display: block;
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  box-orient: vertical;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-direction: column;
-  min-height: 100vh; }
+  text-align: center; }
 
 .c-site-logo {
   width: 360px;
-  max-width: 80%;
-  margin-left: 7.5px; }
+  max-width: 80%; }
 
 table {
   border-spacing: 10px;
@@ -2111,31 +2047,31 @@ table {
  	Order of the includes matters, and it is: normal, bold, italic, bold+italic.
 */
   /*------------------------------------
-	Website /fonts
+	Website fonts
 */
-  /*@include font-face(Museo, '//fonts/museo/museo_300-webfont', $weight:300);									// Museo 300		| Page headings
-@include font-face(Museo, '//fonts/museo/museo_500-webfont', $weight:500);									// Museo 500		| Page headings
-@include font-face(MuseoSans, '//fonts/museo/museosans_300-webfont', $weight:normal);						// Museo Sans 300	| Regular Text
-@include font-face(MuseoSans, '//fonts/museo/museosans_300_italic-webfont', $weight:normal, $style:italic);	// Museo Sans 300	| Italic
-@include font-face(MuseoSans, '//fonts/museo/museosanscyrl_700-webfont', $weight:bold);						// Museo Sans 700	| Bold*/
+  /*@include font-face(Museo, '/fonts/museo/museo_300-webfont', $weight:300);									// Museo 300		| Page headings
+@include font-face(Museo, '/fonts/museo/museo_500-webfont', $weight:500);									// Museo 500		| Page headings
+@include font-face(MuseoSans, '/fonts/museo/museosans_300-webfont', $weight:normal);						// Museo Sans 300	| Regular Text
+@include font-face(MuseoSans, '/fonts/museo/museosans_300_italic-webfont', $weight:normal, $style:italic);	// Museo Sans 300	| Italic
+@include font-face(MuseoSans, '/fonts/museo/museosanscyrl_700-webfont', $weight:bold);						// Museo Sans 700	| Bold*/
   @font-face {
     font-family: SSStandard;
     font-weight: normal;
     font-style: normal;
-    src: url("/fonts/ss-standard/web/fonts/ss-standard.eot");
-    src: url("/fonts/ss-standard/web/fonts/ss-standard.eot?#iefix") format("embedded-opentype"), url("/fonts/ss-standard/web/fonts/ss-standard.woff") format("woff"), url("/fonts/ss-standard/web/fonts/ss-standard.ttf") format("truetype"), url("/fonts/ss-standard/web/fonts/ss-standard.svg#SSStandard") format("svg"); }
+    src: url("/fonts/ss-standard/webfonts/ss-standard.eot");
+    src: url("/fonts/ss-standard/webfonts/ss-standard.eot?#iefix") format("embedded-opentype"), url("/fonts/ss-standard/webfonts/ss-standard.woff") format("woff"), url("/fonts/ss-standard/webfonts/ss-standard.ttf") format("truetype"), url("/fonts/ss-standard/webfonts/ss-standard.svg#SSStandard") format("svg"); }
   @font-face {
     font-family: SSSocial;
     font-weight: normal;
     font-style: normal;
-    src: url("/fonts/ss-social-regular/web/fonts/ss-social-regular.eot");
-    src: url("/fonts/ss-social-regular/web/fonts/ss-social-regular.eot?#iefix") format("embedded-opentype"), url("/fonts/ss-social-regular/web/fonts/ss-social-regular.woff") format("woff"), url("/fonts/ss-social-regular/web/fonts/ss-social-regular.ttf") format("truetype"), url("/fonts/ss-social-regular/web/fonts/ss-social-regular.svg#SSSocial") format("svg"); }
+    src: url("/fonts/ss-social-regular/webfonts/ss-social-regular.eot");
+    src: url("/fonts/ss-social-regular/webfonts/ss-social-regular.eot?#iefix") format("embedded-opentype"), url("/fonts/ss-social-regular/webfonts/ss-social-regular.woff") format("woff"), url("/fonts/ss-social-regular/webfonts/ss-social-regular.ttf") format("truetype"), url("/fonts/ss-social-regular/webfonts/ss-social-regular.svg#SSSocial") format("svg"); }
   @font-face {
     font-family: SSSocial;
     font-weight: bold;
     font-style: normal;
-    src: url("/fonts/ss-social-circle/web/fonts/ss-social-circle.eot");
-    src: url("/fonts/ss-social-circle/web/fonts/ss-social-circle.eot?#iefix") format("embedded-opentype"), url("/fonts/ss-social-circle/web/fonts/ss-social-circle.woff") format("woff"), url("/fonts/ss-social-circle/web/fonts/ss-social-circle.ttf") format("truetype"), url("/fonts/ss-social-circle/web/fonts/ss-social-circle.svg#SSSocial") format("svg"); }
+    src: url("/fonts/ss-social-circle/webfonts/ss-social-circle.eot");
+    src: url("/fonts/ss-social-circle/webfonts/ss-social-circle.eot?#iefix") format("embedded-opentype"), url("/fonts/ss-social-circle/webfonts/ss-social-circle.woff") format("woff"), url("/fonts/ss-social-circle/webfonts/ss-social-circle.ttf") format("truetype"), url("/fonts/ss-social-circle/webfonts/ss-social-circle.svg#SSSocial") format("svg"); }
   /* ----------------------------------------------------------------------------------------------------------------------------
 
     print.scss

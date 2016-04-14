@@ -2,9 +2,6 @@
 
 namespace Rhubarb\Website\Navigation;
 
-use Rhubarb\Crown\Request\Request;
-use Rhubarb\Website\Settings\MenuSettings;
-
 class NavigationTools
 {
     /**
@@ -14,14 +11,12 @@ class NavigationTools
      */
     public static function buildMenu($tocs)
     {
-        $menu = self::makeEntry("", "TOC", null, null);
-
-        $chapter = 1;
+        $menu = self::makeEntry("", "TOC", null);
 
         foreach($tocs as $toc){
             $content = file($toc->tocPath);
 
-            $tocEntry = self::makeEntry($toc->urlStub, $toc->title, $menu, $chapter);
+            $tocEntry = self::makeEntry($toc->urlStub, $toc->title, $menu);
             $menu->children[] = $tocEntry;
 
             $currentMenu = $tocEntry;
@@ -45,99 +40,22 @@ class NavigationTools
                 }
 
                 $url = $parts[1] ? $toc->urlStub."/".$parts[1] : "";
-                $title = trim($parts[0]);
-
-                if (preg_match("/^\. /", $title)){
-                    $title = preg_replace("/^\. /", "", $title);
-
-                    $parentWithChapter = self::getParentWithChapter($currentMenu);
-                    $parentWithChapter->entryCount++;
-
-                    $subChapter = $parentWithChapter->chapter.".".$parentWithChapter->entryCount;
-                } else {
-                    $subChapter = false;
-                }
-
-                $newEntry = self::makeEntry($url, $title, $currentMenu, $subChapter);
-
+                $newEntry = self::makeEntry($url, $parts[0], $currentMenu);
                 $currentMenu->children[] = $newEntry;
 
                 $lastMenu = $newEntry;
             }
-
-            $chapter++;
         }
 
         return $menu;
     }
 
-    private static function getParentWithChapter($parent){
-        if ($parent->chapter){
-            return $parent;
-        }
-
-        if (!$parent->parent){
-            return null;
-        }
-
-        return self::getParentWithChapter($parent->parent);
-    }
-
-    private static function makeEntry($url, $name, $parent, $chapter){
+    private static function makeEntry($url, $name, $parent){
         $entry = new \stdClass();
         $entry->url = $url;
         $entry->name = $name;
         $entry->parent = $parent;
-        $entry->chapter = $chapter;
         $entry->children = [];
-        $entry->entryCount = 0;
-
-        $request = Request::current();
-
-        if ($request->uri == $url){
-            $settings = MenuSettings::singleton();
-            $settings->currentChapter = $chapter;
-        }
-
         return $entry;
-    }
-
-    public static function printMenu($parent, $indent)
-    {
-        $request = Request::current();
-
-        if ( $indent == 2 && stripos($request->uri, $parent->url) === false ){
-            return;
-        }
-
-        $x = 1;
-        $first = true;
-
-        foreach($parent->children as $child){
-
-            $current = $request->uri == $child->url ? " current" : "";
-            $firstClass = ($first) ? " first" : "";
-            $first = false;
-
-            print "<li class=\"indent-".($indent+1)." $current $firstClass \">";
-
-            $name = $child->name;
-
-            if ( $child->chapter ){
-                $name = $child->chapter.". ".$name;
-            }
-
-            if ($child->url != ""){
-                print "<a href='".$child->url."#content'>".$name."</a>";
-            } else {
-                print $name;
-            }
-
-            print "</li>";
-
-            self::printMenu($child, $indent+1);
-
-            $x++;
-        }
     }
 }

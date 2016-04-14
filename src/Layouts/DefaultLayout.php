@@ -4,7 +4,13 @@ namespace Rhubarb\Website\Layouts;
 
 require_once "vendor/rhubarbphp/rhubarb/src/Layout/Layout.php";
 
-use Rhubarb\Crown\Application;use Rhubarb\Crown\Layout\Layout;use Rhubarb\Crown\Request\Request;use Rhubarb\Crown\String\StringTools;use Rhubarb\Website\Navigation\NavigationTools;use Rhubarb\Website\Navigation\TableOfContentsSource;use Rhubarb\Website\Settings\MenuSettings;
+use Rhubarb\Crown\Application;
+use Rhubarb\Crown\Layout\Layout;
+use Rhubarb\Crown\Request\Request;
+use Rhubarb\Crown\String\StringTools;
+use Rhubarb\Website\Navigation\NavigationTools;
+use Rhubarb\Website\Navigation\TableOfContentsSource;
+use Rhubarb\Website\Settings\MenuSettings;
 
 class DefaultLayout extends Layout
 {
@@ -79,7 +85,7 @@ $request = Request::current();
     </div>
     <main class="c-main">
 <!--    <div class="c-band u-fill--shade"></div>-->
-    <div id="content" class="c-band">
+    <div id="content" class="c-band c-main">
         <div class="c-manual-entries">
         <?php
 

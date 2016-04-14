@@ -1,8 +1,8 @@
 .c-manual-entries {
 	.l-docs & {
-		width: $base-space*25;
+		width: 20%;
 		border-right: 1px solid color( border );
-		padding: $base-space 0;
+		padding: $base-space $base-space*1.5;
 	}
 }
 
@@ -10,32 +10,12 @@
 	list-style: none;
 	text-align: left;
 	margin: 0;
-	padding: 0 0 0 $base-space;
+	padding: 0;
 
 	li {
-
-		&.chapter {
-			@include font-size( font-size( gamma ) );
-
-			margin-top: $margin*2;
-
-			a {
-				color: $brand-a;
-			}
-
-			.first {
-				margin-top: 0;
-			}
-		}
-
-		&.current {
-			background: lighten( color( link ), 30% );
-		}
-
 		&.indent-1 {
 			@include font-size( font-size( beta ) );
 			margin: $margin*2 0 $margin/2 0;
-			padding-left: $base-space/2;
 
 			&.first {
 				margin-top: 0;
@@ -47,9 +27,5 @@
 		&.indent-4 { padding-left: $base-space*2; }
 		&.indent-5 { padding-left: $base-space*3; }
 		&.indent-6 { padding-left: $base-space*4; }
-
-		a {
-			padding-left: $base-space/2;
-		}
 	}
 }
