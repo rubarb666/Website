@@ -1,8 +1,9 @@
 .c-manual-entries {
 	.l-docs & {
-		width: 20%;
 		border-right: 1px solid color( border );
-		padding: $base-space $base-space*1.5;
+		float: left;
+		padding-right: $base-space;
+		width: 300px;
 	}
 }
 
@@ -27,5 +28,40 @@
 		&.indent-4 { padding-left: $base-space*2; }
 		&.indent-5 { padding-left: $base-space*3; }
 		&.indent-6 { padding-left: $base-space*4; }
+
+		&.current {
+			@include margin(n (-$base-space));
+			@include padding(n $base-space);
+			background:color(secondary, 1, 30%);
+		}
+
+		&.chapter {
+			@include margin($base-space n n n);
+			@include padding($base-space n);
+			@include font-size( font-size( gamma ) );
+			border-top: 1px solid color( border, 0.5 );
+			font-weight:bold;
+			&:first-child {
+				border-top:0;
+				margin-top:0;
+			}
+			a {
+				color:color(text);
+			}
+			&.open {
+				a {
+					color:color(link);
+				}
+			}
+			&.closed + .closed,
+			&.closed + .open {
+				margin-top:0;
+			}
+		}
+
+		a {
+			@include padding($base-space/8 n);
+			display: block;
+		}
 	}
 }

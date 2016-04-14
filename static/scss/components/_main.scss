@@ -1,5 +1,6 @@
 .c-main {
     @include box-shadow(0, 0, $base-space, rgba(0, 0, 0, 0.33));
+    background-color:color(site);
     position:relative;
     z-index:1;
 
@@ -18,14 +19,15 @@
     width:100%;
 
     .l-docs & {
+        @include padding(0 0 0 $base-space*2);
         margin: 0;
-        width: 80%;
         max-width:100%;
+        overflow: hidden;
+        width:auto;
 
         .c-main-content__inner {
             max-width:$content-unit*4;
             margin: 0 auto;
-            padding: $base-space*3 0;
         }
     }
 }

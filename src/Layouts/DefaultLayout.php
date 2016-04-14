@@ -85,7 +85,7 @@ $request = Request::current();
     </div>
     <main class="c-main">
 <!--    <div class="c-band u-fill--shade"></div>-->
-    <div id="content" class="c-band c-main">
+    <div id="content" class="c-band">
         <div class="c-manual-entries">
         <?php
 

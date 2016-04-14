@@ -1,5 +1,5 @@
 .c-global-header {
-    @include padding($base-space*2);
+    @include padding($base-space*8 $base-space $base-space*4 $base-space);
     background:color(quaternary);
     color:color(white);
     position: relative;
@@ -14,7 +14,7 @@
 
     // Documentation Layout
     .l-docs & {
-        padding: $base-space;
+        padding: $base-space*2;
 
         .c-site-logo {
             padding: 0;

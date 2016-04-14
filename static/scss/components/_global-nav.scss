@@ -1,5 +1,5 @@
 .c-global-nav {
-    @include padding(n n $base-space*4 n);
+    @include padding($base-space*4 n);
     width:100%;
 
     .l-docs & {
