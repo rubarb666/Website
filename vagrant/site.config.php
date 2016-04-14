@@ -1,19 +1,16 @@
 <?php
 
-namespace Gcd\Hub;
+namespace Rhubarb\Website;
 
-use Gcd\Core\Context;
-use Gcd\Core\Logging\Log;
-use Gcd\Core\Logging\PhpLog;
-use Gcd\Core\Modelling\ModellingSettings;
+use Monolog\Handler\ChromePHPHandler;
+use Monolog\Logger;
+use Rhubarb\Crown\Application;
+use Rhubarb\Crown\Logging\Log;
+use Rhubarb\Crown\Logging\MonologLog;
 
-$dbSettings = new ModellingSettings();
-$dbSettings->Host = "127.0.0.1";
-$dbSettings->Username = "root";
-$dbSettings->Password = "";
-$dbSettings->Database = "gcdhub";
+Application::current()->developerMode = true;
 
-$context = new Context();
-$context->DeveloperMode = true;
+$logger = new Logger("rhubarb");
+$logger->pushHandler( new ChromePHPHandler() );
 
-Log::AttachLog( new PhpLog( Log::ALL ) );
+Log::AttachLog( new MonologLog(Log::ALL, $logger) );
