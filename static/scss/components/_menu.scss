@@ -40,7 +40,6 @@
 			@include padding($base-space n);
 			@include font-size( font-size( gamma ) );
 			border-top: 1px solid color( border, 0.5 );
-			font-weight:bold;
 			&:first-child {
 				border-top:0;
 				margin-top:0;

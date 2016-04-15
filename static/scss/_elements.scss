@@ -518,7 +518,7 @@ q {
 blockquote {
 	@include padding($base-space);
 	@include vertical-spacing(force);
-	background-color:color(shade, $shade-amount);
+	background-color:color(senary, $shade-amount);
 	quotes: "#{$open-quote}" "#{$close-quote}";
 	border-radius: 4px;
 

@@ -15,8 +15,7 @@ $font-family: (
 
 /* Site Colours */
 
-$dropinn-red			: #9c243e;
-$brand-a				: #333;
+$brand-a				: #444444;
 $brand-b				: #FD4565;
 $brand-c				: #FD4565;
 $brand-d				: #282828;
@@ -42,8 +41,6 @@ $color: (
 		quaternary		: $brand-d,			// tertiary, quaternary, quinary ...
 		quinary			: $brand-e,			// tertiary, quaternary, quinary ...
 		senary			: $brand-f,			// tertiary, quaternary, quinary ...
-
-		dropinn			: $dropinn-red,
 
 		nav				: $brand-b,
 		nav-rev			: $white,
@@ -86,7 +83,7 @@ $brand-name-features	: $global-header-features;
 
 
 $tint-amount			: 0.5;
-$shade-amount			: 0.2;
+$shade-amount			: 0.1;
 
 $button-font-family		: $base-font-family;
 $button-color			: darken(map-get($color, site), 10%);
