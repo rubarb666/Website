@@ -4,15 +4,18 @@ namespace Rhubarb\Website\Presenters\Validation;
 
 trait TestFormLayout
 {
+    protected $includeInputMessageTargets = true;
+
     protected function printForm()
     {
+        $messageTarget = ($this->includeInputMessageTargets) ? '<span class="js-validation-message"></span>' : ''
         ?>
         <h2>Create your Account</h2>
 
         <h3>Personal Details</h3>
 
-        <div class="c-form c-form--constrained-width">
-
+        <div id="overall-form" class="c-form c-form--constrained-width">
+			<span class="js-validation-message"></span>
             <div class="c-form__group c-form__group--inline">
                 <div id="title-validation" class="is-required">
                     <label class="c-form__label">Title</label>
@@ -25,17 +28,17 @@ trait TestFormLayout
                             <option value="Ms" data-item="{&quot;value&quot;:&quot;Ms&quot;,&quot;label&quot;:&quot;Ms&quot;,&quot;data&quot;:[]}">Ms</option>
                             <option value="Dr" data-item="{&quot;value&quot;:&quot;Dr&quot;,&quot;label&quot;:&quot;Dr&quot;,&quot;data&quot;:[]}">Dr</option>
                         </select>                </div>
-                    <span class="js-validation-message"></span>
+                    <?=$messageTarget;?>
                 </div>
                 <div id="forename-validation" class="is-required">
                     <label class="c-form__label">First Name</label>
                     <input size="15" name="Forename" value="" id="Forename" presenter-name="Forename" placeholder="First Name" type="text">
-                    <span class="js-validation-message"></span>
+                    <?=$messageTarget;?>
                 </div>
                 <div id="surname-validation" class="is-required">
                     <label class="c-form__label">Last Name</label>
                     <input size="15" name="Surname" value="" id="Surname" presenter-name="Surname" placeholder="Last Name" type="text">
-                    <span class="js-validation-message"></span>
+                    <?=$messageTarget;?>
                 </div>
             </div>
 
@@ -43,7 +46,7 @@ trait TestFormLayout
                 <div id="phonenumber-validation">
                     <label class="c-form__label">Phone Number</label>
                     <input size="40" name="PhoneNumber" value="" id="PhoneNumber" presenter-name="PhoneNumber" placeholder="Phone" type="tel">
-                    <span class="js-validation-message"></span>
+                    <?=$messageTarget;?>
                 </div>
             </div>
 
@@ -105,7 +108,7 @@ trait TestFormLayout
                 <div class="c-form__group" id="email-validation">
                     <label class="c-form__label">Email Address</label>
                     <input size="40" name="Email" value="" id="Email" presenter-name="Email" placeholder="Email" type="email">
-                    <span class="js-validation-message"></span>
+                    <?=$messageTarget;?>
                 </div>
                 <div class="c-form__group" id="password-validation">
                     <div class="c-form__group--inline">
@@ -119,7 +122,7 @@ trait TestFormLayout
                             <input size="40" name="ConfirmPassword" value="" id="ConfirmPassword" presenter-name="ConfirmPassword" placeholder="Confirm Password" type="password">
                         </div>
                     </div>
-                    <span class="js-validation-message"></span>
+                    <?=$messageTarget;?>
                 </div>
                 <div class="c-form__group sign-up">
                     <label>

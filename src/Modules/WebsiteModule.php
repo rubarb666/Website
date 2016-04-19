@@ -25,6 +25,8 @@ class WebsiteModule extends Module
         $this->addUrlHandlers(
             [
                 "/gallery/validation/town-crier/" => new ClassMappedUrlHandler(\Rhubarb\Website\Presenters\Validation\TownCrier\IndexPresenter::class),
+                "/gallery/validation/the-reporter/" => new ClassMappedUrlHandler(\Rhubarb\Website\Presenters\Validation\TheReporter\IndexPresenter::class),
+                "/gallery/validation/the-eager-assistant/" => new ClassMappedUrlHandler(\Rhubarb\Website\Presenters\Validation\TheEagerAssistant\IndexPresenter::class),
                 "/" => new MarkdownUrlHandler(),
                 "/api" => new RestApiRootHandler(
                     ApiDescriptionResource::class,

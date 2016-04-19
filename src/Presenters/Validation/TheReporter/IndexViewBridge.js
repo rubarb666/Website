@@ -17,6 +17,7 @@ bridge.prototype.attachEvents = function () {
         fieldValidation
             .require(requiredViewBridges[i] + " is required")
             .setSource(requiredViewBridges[i])
+            .addTrigger(requiredViewBridges[i])
             .setTargetElement(requiredViewBridges[i].toLowerCase() + "-validation");
 
         requiredValidations.push(fieldValidation);
@@ -37,15 +38,27 @@ bridge.prototype.attachEvents = function () {
 
             return false;
         })
+        .addTrigger("AddressLine1")
+        .addTrigger("Town")
+        .addTrigger("Postcode")
         .setTargetElement("address-validation");
 
     requiredValidations.push(pafValidation);
 
+    var formValidation = new validation.validator();
+    formValidation
+        .check(validation.common.allValid(requiredValidations))
+        .setTargetElement("overall-form")
+        .setMessageFormatter(function(errors)
+        {
+            var response = "";
+            errors.map(function(item){response += "<li>" + item + "</li>"; });
+            return "<ul>" + response + "</ul>";
+        });
+
     document.getElementById("create-button").addEventListener("click", function () {
-        validation.common.allValid(requiredValidations)(true, function(){
+        formValidation.validate(function(){
             process('create', 'RegisterAndContinue');
-        }, function(errorMessages){
-            alert(errorMessages[0]);
         });
     });
 };

@@ -10,17 +10,20 @@ bridge.prototype.attachEvents = function () {
 
     // New account / confirm details validation
     var requiredValidations = [];
-    var requiredViewBridges = ["Forename", "Surname", "PhoneNumber"];
+    var requiredViewBridges = ["Email", "Forename", "Surname", "PhoneNumber"];
 
     for(var i = 0; i < requiredViewBridges.length; i++){
         var fieldValidation = new validation.validator();
         fieldValidation
             .require(requiredViewBridges[i] + " is required")
             .setSource(requiredViewBridges[i])
+            .addTrigger(requiredViewBridges[i])
             .setTargetElement(requiredViewBridges[i].toLowerCase() + "-validation");
 
         requiredValidations.push(fieldValidation);
     }
+
+    requiredValidations[0].check(validation.common.isEmailAddress());
 
     var pafValidation = new validation.validator();
     pafValidation
@@ -37,15 +40,38 @@ bridge.prototype.attachEvents = function () {
 
             return false;
         })
+        .addTrigger("AddressLine1")
+        .addTrigger("Town")
+        .addTrigger("Postcode")
         .setTargetElement("address-validation");
 
     requiredValidations.push(pafValidation);
 
+    var passwordValidation = new validation.validator();
+    passwordValidation
+        .require()
+        .check(validation.common.matches(function(){ return document.getElementById("ConfirmPassword").value; }))
+        .setSource('Password')
+        .addTrigger('Password')
+        .addTrigger('ConfirmPassword')
+        .setTargetElement("password-validation");
+
+    requiredValidations.push(passwordValidation);
+
+    var formValidation = new validation.validator();
+    formValidation
+        .check(validation.common.allValid(requiredValidations))
+        .setTargetElement("overall-form")
+        .setMessageFormatter(function(errors)
+        {
+            var response = "";
+            errors.map(function(item){response += "<li>" + item + "</li>"; });
+            return "<ul>" + response + "</ul>";
+        });
+
     document.getElementById("create-button").addEventListener("click", function () {
-        validation.common.allValid(requiredValidations)(true, function(){
+        formValidation.validate(function(){
             process('create', 'RegisterAndContinue');
-        }, function(errorMessages){
-            alert(errorMessages[0]);
         });
     });
 };
