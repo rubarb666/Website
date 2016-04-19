@@ -1,0 +1,51 @@
+/*------------------------------------*\
+
+   	BUTTONS
+
+	@namespace c-button
+
+/*------------------------------------*/
+
+$default-button-color: $brand-b;
+$default-button-height: $touch-target;
+
+/*
+ * Base button component
+*/
+.c-button {
+	@include background-color( $default-button-color );
+	@include prefixer( user-select, none, webkit moz spec );
+	-webkit-appearance: none;
+	text-transform: uppercase;
+	display: inline-block;
+	line-height: $default-button-height - 1;
+	min-height: $default-button-height;
+	padding: 0 $padding;
+	margin: 0;
+	border: none;
+	background-image: none;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	border-radius: $button-radius;
+	font-weight: $bold;
+	overflow: hidden;
+	touch-action: manipulation;
+	position: relative;
+	color: white;
+
+	&:hover,
+	&:focus,
+	&:active,
+	&:visited {
+		outline: 0;
+		text-decoration: none;
+		color: white;
+	}
+
+	&:hover {
+		background-color: darken( $default-button-color, 10% );
+		cursor: pointer;
+	}
+
+}
