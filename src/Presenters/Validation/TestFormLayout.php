@@ -12,10 +12,9 @@ trait TestFormLayout
         ?>
         <h2>Create your Account</h2>
 
-        <h3>Personal Details</h3>
-
         <div id="overall-form" class="c-form c-form--constrained-width">
 			<span class="js-validation-message"></span>
+            <h3>Personal Details</h3>
             <div class="c-form__group c-form__group--inline">
                 <div id="title-validation" class="is-required">
                     <label class="c-form__label">Title</label>

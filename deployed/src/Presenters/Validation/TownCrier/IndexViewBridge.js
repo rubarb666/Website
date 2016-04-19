@@ -15,9 +15,8 @@ bridge.prototype.attachEvents = function () {
     for(var i = 0; i < requiredViewBridges.length; i++){
         var fieldValidation = new validation.validator();
         fieldValidation
-            .require()
+            .require(requiredViewBridges[i] + " is required")
             .setSource(requiredViewBridges[i])
-            .addTrigger(requiredViewBridges[i])
             .setTargetElement(requiredViewBridges[i].toLowerCase() + "-validation");
 
         requiredValidations.push(fieldValidation);
@@ -25,7 +24,7 @@ bridge.prototype.attachEvents = function () {
 
     var pafValidation = new validation.validator();
     pafValidation
-        .require()
+        .require("You must enter an address")
         .setSource(function(){
             if (document.getElementById("AddressLine1").value.trim() != "" &&
                 document.getElementById("Town").value.trim() != "" &&
@@ -38,18 +37,12 @@ bridge.prototype.attachEvents = function () {
 
             return false;
         })
-        .addTrigger("AddressLine1")
-        .addTrigger("Town")
-        .addTrigger("Postcode")
         .setTargetElement("address-validation");
 
     requiredValidations.push(pafValidation);
 
-    var formValidator = new validation.validator();
-    formValidator.check(validation.common.allValid(requiredValidations));
-
     document.getElementById("create-button").addEventListener("click", function () {
-        formValidator.validate(function(){
+        validation.common.allValid(requiredValidations)(true, function(){
             process('create', 'RegisterAndContinue');
         }, function(errorMessages){
             alert(errorMessages[0]);

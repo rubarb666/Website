@@ -34,6 +34,7 @@ class IndexView extends HtmlView
 
     protected function printViewContent()
     {
+        $this->includeInputMessageTargets = false;
         $this->printForm();
     }
 }
