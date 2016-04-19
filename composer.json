@@ -1,20 +1,25 @@
 {
     "name": "RhubarbPHP/website",
     "description": "The website for Rhubarb PHP",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "license": "Apache 2.0",
     "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/RhubarbPHP/Module.JsValidation.git"
+        }
     ],
     "require-dev": {
         "codeception/codeception": "*"
     },
     "require":
     {
-        "rhubarbphp/rhubarb": "1.0.x-dev",
+        "rhubarbphp/rhubarb": "^1.0.0",
+        "rhubarbphp/module-js-validation": "*",
         "rhubarbphp/module-stem": "1.0.x-dev",
         "rhubarbphp/module-leaf": "1.0.x-dev",
         "rhubarbphp/module-patterns": "*",
-        "rhubarbphp/module-restapi": "1.0.x-dev",
+        "rhubarbphp/module-restapi": "1.0.x-dev@dev",
         "erusev/parsedown-extra" : "*",
         "rhubarbphp/module-image-processing" : "1.0.x-dev",
         "monolog/monolog": "^1"
