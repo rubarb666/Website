@@ -1,0 +1,400 @@
+/*------------------------------------*\
+
+   	FORMS
+
+   	* also include label and value styles
+
+	@namespace c-form
+
+/*------------------------------------*/
+
+%label {
+	font-size: font-size( milli );
+	font-weight: $bold;
+	color: color( text-quiet );
+	text-transform: uppercase;
+}
+
+
+/*
+ * Base form component
+*/
+.c-form {
+	@include vertical-spacing();
+}
+
+	// A narrower form
+	 .c-form--constrained-width {
+		 max-width: 500px;
+	 }
+
+
+/*
+ * Form sections
+ */
+.c-form__section {
+	border-top: 1px dotted color( border );
+	border-bottom: 1px dotted color( border );
+	padding: $padding 0;
+	@include vertical-spacing();
+
+	+ .c-form__section{
+		border-bottom: none;
+	}
+}
+
+
+/*
+ * Form groups
+ *
+ * Usually containing a label and input
+ * pair
+*/
+.c-form__group {
+	position: relative;
+	@include vertical-spacing( $margin/3 );
+}
+
+// Inline elements inside form group
+.c-form__group--inline {
+	display: table;
+	width: 100%;
+	@include screen-size(sm-max) {
+		display: block;
+		> * {
+			@include vertical-spacing();
+		}
+	}
+
+	> *,
+	.c-form__label {
+		display: table-cell;
+		padding: 0 $padding/3;
+
+		@include screen-size(sm-max) {
+			display: block;
+			padding:0;
+			margin-bottom: $padding/4;
+		}
+
+		&:first-child {
+			padding-left: 0;
+		}
+
+		&:last-child {
+			padding-right: 0;
+		}
+	}
+
+	.c-form__label {
+		padding-bottom: $padding/2;
+	}
+
+	> * {
+		vertical-align: top
+	}
+
+	&.is-invalid > * {
+		vertical-align: bottom;
+		&.js-validation-message {
+			display: table-cell;
+		}
+	}
+
+	.c-form__label {
+		vertical-align: bottom;
+		@include screen-size(sm-min) {
+			height: $padding + font-size( milli );
+			vertical-align: top;
+		}
+		&.empty-label {
+			@include screen-size(md-max) {
+				display: none;
+			}
+		}
+	}
+}
+
+/*
+ * Labels
+*/
+.c-form__label, .c-form__label--inline {
+	@extend %label;
+	margin: $margin/3 0 $margin/2 0;
+	display: block;
+}
+
+.c-form__label--inline {
+	display: inline-block;
+	input {
+		margin-right: 0;
+	}
+	select {
+		width:auto;
+		margin-left:$base-space/4;
+		margin-right: $base-space/4;
+		max-width:120px;
+		min-width:70px;
+	}
+}
+
+.c-label {
+	@extend %label;
+}
+
+.c-label--accept {
+	border-top: 1px dashed color( border );
+	display:block;
+	background: color(border, 0.3);
+	margin:0 0 $base-space/2 0;
+	padding: $padding;
+
+	&.is-signed {
+		background-color: lighten(color(success), 30%);
+	}
+}
+
+/*
+ * Text inputs
+*/
+input[type='email'],
+input[type='text'],
+input[type='date'],
+input[type='tel'],
+input[type='password'],
+.c-form__input-read-only,
+input[type='number'],
+textarea,
+select {
+	line-height: $touch-target;
+	border: 1px solid color( border );
+	padding-left: $padding/2;
+	padding-right: $padding/2;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	outline: none;
+	max-width: 100%;
+	width: 100%;
+	border-radius: none;
+
+	&:focus {
+		border-color: $brand-a;
+		@include box-shadow-inset();
+	}
+
+	&.full-width {
+		width: 100%;
+	}
+
+	&.small-width {
+		max-width: 200px;
+	}
+}
+
+input[type='email'],
+input[type='text'],
+input[type='date'],
+input[type='tel'],
+input[type='password'],
+.c-form__input-read-only,
+input[type='number'],
+select {
+	display: inline-block;
+	height: $touch-target;
+}
+
+select {
+	border-radius: 0;
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="32" height="24" viewBox="0 0 32 24"><polygon points="0,0 32,0 16,24" style="fill: rgb%28138, 138, 138%29"></polygon></svg>');
+	background-size: 9px 6px;
+    background-position: right center;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+}
+
+/*
+ * Radio inputs
+ */
+input[type="radio"] {
+	margin-left: 2px;
+}
+
+
+/*
+ * Form input groups
+ *
+ * Used to group a series of inputs
+*/
+.c-form__input-group {
+	line-height: $touch-target;
+	min-height: $touch-target;
+}
+
+	// Inline elements
+	.c-form__input-group--inline {
+
+		> * {
+			display: inline-block;
+			margin-left: $padding;
+			vertical-align: middle;
+
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+	}
+
+
+	// Read only form inputs
+	.c-form__input-read-only {
+		background-color: lighten( color( text-quiet ), 10% );
+		border-color: darken(color(border), 20%) !important;
+	}
+
+/*
+* Prefilled form items
+*/
+
+.c-form__prefilled {
+	background-color:lighten( color( text-quiet ), 10% );;
+	border-radius:$base-radius;
+	padding:$base-space/2;
+	.change-button {
+		@include link;
+		float:right;
+	}
+	.part {
+		&:empty {
+			display: none;
+			&:after {
+				display: none;
+			}
+		}
+		&:after {
+			content:",";
+		}
+		&[data-paf-field="AddressLine1"],
+		&:first-of-type {
+			font-weight:$bold;
+		}
+		&:last-child {
+			&:after {
+				content:"";
+			}
+		}
+	}
+}
+
+
+/*
+ * Form Actions
+ */
+.c-form__actions {
+	@include clear();
+	padding-top: $padding*2;
+
+	.c-button {
+
+		&:first-child {
+			float: left;
+		}
+
+		&:last-child {
+			float: right;
+		}
+
+		&:only-child {
+			float: left;
+		}
+
+	}
+
+	input[type="submit"] {
+		margin-right: $margin;
+	}
+
+}
+
+
+
+/*
+ * Form Help
+ */
+.c-form__help {
+	font-size: font-size( milli );
+	color: color( quiet );
+}
+
+
+
+/*
+ * Form footer - used to pull out information
+ * at the very bottom of a form, after the action
+ * buttons
+ */
+.c-form__footer {
+	padding: $padding*2 0;
+
+	@include screen-size ( md-min )
+	{
+		padding: $padding*3 0;
+	}
+}
+
+/*
+ * Specific Form Components
+ */
+
+/*
+ * Validation
+ */
+
+.js-validation-message {
+	@include padding($base-space/4 $base-space/2);
+	display: none;
+	font-size:font-size(alpha) - 2;
+	margin-top:$base-space/4;
+	background-color:color( error, 0.07, -10%);
+	color:color(error);
+
+	p {
+		display: inline;
+		margin:0;
+	}
+}
+
+.is-invalid, .is-missing {
+	.js-validation-message {
+		display: block;
+	}
+	input[type='email'],
+	input[type='text'],
+	input[type='date'],
+	input[type='tel'],
+	input[type='password'],
+	.c-form__input-read-only,
+	input[type='number'],
+	select {
+		border-color:color(red);
+	}
+	.c-form__label {
+		color:color(red);
+	}
+}
+
+.is-required {
+	.c-form__label {
+		&:after {
+			content:"*";
+			font-weight:normal;
+			margin-left:$base-space/4;
+			color: color( error );
+		}
+		&.empty-label:after {
+			display:none;
+		}
+	}
+}
+
+
