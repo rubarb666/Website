@@ -60,14 +60,7 @@ bridge.prototype.attachEvents = function () {
 
     var formValidation = new validation.validator();
     formValidation
-        .check(validation.common.allValid(requiredValidations))
-        .setTargetElement("overall-form")
-        .setMessageFormatter(function(errors)
-        {
-            var response = "";
-            errors.map(function(item){response += "<li>" + item + "</li>"; });
-            return "<ul>" + response + "</ul>";
-        });
+        .check(validation.common.allValid(requiredValidations));
 
     document.getElementById("create-button").addEventListener("click", function () {
         formValidation.validate(function(){
