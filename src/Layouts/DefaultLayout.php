@@ -5,7 +5,7 @@ namespace Rhubarb\Website\Layouts;
 require_once "vendor/rhubarbphp/rhubarb/src/Layout/Layout.php";
 
 use Rhubarb\Crown\Application;
-use Rhubarb\Crown\Layout\Layout;
+use Rhubarb\Crown\Html\ResourceLoader;use Rhubarb\Crown\Layout\Layout;
 use Rhubarb\Crown\Request\Request;
 use Rhubarb\Crown\String\StringTools;
 use Rhubarb\Website\Navigation\NavigationTools;
@@ -61,6 +61,7 @@ class DefaultLayout extends Layout
     }
 
     </style>
+    <?=ResourceLoader::getResourceInjectionHtml();?>
 </head>
 </html>
 <?php
