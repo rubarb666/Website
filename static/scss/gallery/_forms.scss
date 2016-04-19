@@ -9,7 +9,7 @@
 /*------------------------------------*/
 
 %label {
-	font-size: font-size( milli );
+	font-size: font-size( alpha ) - 2;
 	font-weight: $bold;
 	color: color( text-quiet );
 	text-transform: uppercase;
@@ -365,9 +365,11 @@ input[type="radio"] {
 }
 
 .is-invalid, .is-missing {
+
 	.js-validation-message {
 		display: block;
 	}
+
 	input[type='email'],
 	input[type='text'],
 	input[type='date'],
@@ -376,10 +378,11 @@ input[type="radio"] {
 	.c-form__input-read-only,
 	input[type='number'],
 	select {
-		border-color:color(red);
+		border-color:color(error);
 	}
+
 	.c-form__label {
-		color:color(red);
+		color:color(error);
 	}
 }
 
