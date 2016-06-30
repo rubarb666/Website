@@ -8,7 +8,7 @@ use Rhubarb\Crown\UrlHandlers\UrlHandler;
 use Rhubarb\Website\Navigation\NavigationTools;
 use Rhubarb\Website\Navigation\TableOfContentsSource;
 
-require_once "vendor/rhubarbphp/rhubarb/src/UrlHandlers/UrlHandler.php";
+require_once VENDOR_DIR."/rhubarbphp/rhubarb/src/UrlHandlers/UrlHandler.php";
 
 class MarkdownUrlHandler extends UrlHandler
 {
@@ -32,8 +32,10 @@ class MarkdownUrlHandler extends UrlHandler
         if ( preg_match( "/\/manual\/([^\/]+)\//", $url, $match ) )
         {
             $url = str_replace( $match[0], "", $url );
-            $rootPath = "vendor/rhubarbphp/".$match[1]."/docs/";
+            $rootPath = "docs/modules/".$match[1]."/docs/";
         }
+
+        $rootPath = APPLICATION_ROOT_DIR."/".$rootPath;
 
         // Look to see if there's a markdown file at this location.
         if (file_exists($rootPath . $url . ".md")) {

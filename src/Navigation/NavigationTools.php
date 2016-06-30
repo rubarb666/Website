@@ -7,65 +7,103 @@ use Rhubarb\Website\Settings\MenuSettings;
 
 class NavigationTools
 {
-    /**
-     * Builds a heirarchy of menus from the list of files passed.
-     *
-     * @param TableOfContentsSource[] $tocs
-     */
-    public static function buildMenu($tocs)
+    public static function preParseToc($tocPath)
     {
-        $menu = self::makeEntry("", "TOC", null, null);
+        $content = file($tocPath);
+        $processing = true;
 
-        $chapter = 1;
-
-        foreach($tocs as $toc){
-            $content = file($toc->tocPath);
-
-            $tocEntry = self::makeEntry($toc->urlStub, $toc->title, $menu, $chapter);
-            $menu->children[] = $tocEntry;
-
-            $currentMenu = $tocEntry;
-            $lastMenu = null;
-            $currentIndent = 0;
-
-            foreach($content as $line){
+        while ($processing) {
+            $processing = false;
+            $newContent = [];
+            foreach ($content as $line) {
                 $indent = strlen($line) - strlen(ltrim($line));
 
-                if ($indent > $currentIndent){
-                    $currentMenu = $lastMenu;
-                    $currentIndent = $indent;
-                } elseif ($indent < $currentIndent ){
-                    $currentMenu = $currentMenu->parent;
-                    $currentIndent = $indent;
+                if (preg_match("/[[]([^]]+)+[]]/", $line, $match)) {
+                    $subContent = file(APPLICATION_ROOT_DIR.'/'.$match[1]);
+                    $processing = true;
+                    foreach($subContent as $subContentLine){
+                        if (strpos($subContentLine, ':') !== false){
+                            $parts = explode(':', $subContentLine);
+                            $url = trim($parts[1]);
+
+                            if ($url != "" && $url[0] != "/"){
+                                $moduleParts = explode("/", $match[1],4);
+                                $module = $moduleParts[2];
+
+                                // As the url is relative we need to ground it back to the right folder.
+                                $url = "/manual/".$module."/".$url;
+
+                                $subContentLine = $parts[0].": ".$url;
+                            }
+                        }
+                        $subContentLine = str_repeat(' ', $indent).$subContentLine;
+                        $newContent[] = $subContentLine;
+                    }
+                } else {
+                    $newContent[] = $line;
                 }
+            }
 
-                $parts = explode(":", trim($line));
-                if (sizeof($parts) == 1 ){
-                    $parts[1] = "";
-                }
+            $content = $newContent;
+        }
 
-                $url = $parts[1] ? $toc->urlStub."/".$parts[1] : "";
-                $title = trim($parts[0]);
+        return $content;
+    }
+    /**
+     * Builds a heirarchy of menus from the list of files passed.
+     */
+    public static function buildMenu($tocPath)
+    {
+        $content = self::preParseToc($tocPath);
 
-                if (preg_match("/^\. /", $title)){
-                    $title = preg_replace("/^\. /", "", $title);
+        $menu = self::makeEntry("", "TOC", null, null);
+        $chapter = 0;
 
-                    $parentWithChapter = self::getParentWithChapter($currentMenu);
-                    $parentWithChapter->entryCount++;
+        $currentMenu = $menu;
+        $lastMenu = null;
+        $lastMenus = [0 => $menu ];
 
-                    $subChapter = $parentWithChapter->chapter.".".$parentWithChapter->entryCount;
+        $currentIndent = 0;
+
+        foreach($content as $line){
+            $indent = floor((strlen($line) - strlen(ltrim($line))) / 4);
+            if ($currentIndent == 0){
+                $chapter++;
+            }
+            if ($indent > $currentIndent){
+                $currentMenu = $lastMenu;
+                $currentIndent = $indent;
+            } elseif ($indent < $currentIndent ){
+                $currentMenu = $lastMenus[$indent];
+                $currentIndent = $indent;
+            }
+
+            $parts = explode(":", trim($line));
+            if (sizeof($parts) == 1 ){
+                $parts[1] = "";
+            }
+            $url = $parts[1] ? trim($parts[1]) : "";
+            $title = trim($parts[0]);
+
+            if (preg_match("/^\. /", $title)){
+                $title = preg_replace("/^\. /", "", $title);
+
+                $parentWithChapter = self::getParentWithChapter($currentMenu);
+                $parentWithChapter->entryCount++;
+                $subChapter = $parentWithChapter->chapter . "." . $parentWithChapter->entryCount;
+
+            } else {
+                if ($currentIndent == 0) {
+                    $subChapter = $chapter;
                 } else {
                     $subChapter = false;
                 }
-
-                $newEntry = self::makeEntry($url, $title, $currentMenu, $subChapter);
-
-                $currentMenu->children[] = $newEntry;
-
-                $lastMenu = $newEntry;
             }
 
-            $chapter++;
+            $newEntry = self::makeEntry($url, $title, $currentMenu, $subChapter);
+            $currentMenu->children[] = $newEntry;
+            $lastMenu = $newEntry;
+            $lastMenus[$indent+1] = $newEntry;
         }
 
         return $menu;
@@ -77,14 +115,14 @@ class NavigationTools
         }
 
         if (!$parent->parent){
-            return null;
+            return $parent;
         }
 
         return self::getParentWithChapter($parent->parent);
     }
 
     private static function makeEntry($url, $name, $parent, $chapter){
-        $entry = new \stdClass();
+        $entry = new MenuItem();
         $entry->url = $url;
         $entry->name = $name;
         $entry->parent = $parent;
@@ -139,5 +177,26 @@ class NavigationTools
 
             $x++;
         }
+    }
+}
+
+class MenuItem
+{
+    public $url;
+    public $children = [];
+
+    public function containsUrl($url)
+    {
+        if ($this->url == $url){
+            return true;
+        }
+
+        foreach($this->children as $child){
+            if ($child->containsUrl($url)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

@@ -15,13 +15,7 @@
     "require":
     {
         "rhubarbphp/rhubarb": "^1.0.0",
-        "rhubarbphp/module-jsvalidation": "dev-master",
-        "rhubarbphp/module-stem": "1.0.x-dev",
-        "rhubarbphp/module-leaf": "dev-feature/ApplicationObjectSupport as 1.0.0",
-        "rhubarbphp/module-patterns": "*",
-        "rhubarbphp/module-restapi": "1.0.x-dev@dev",
         "erusev/parsedown-extra" : "*",
-        "rhubarbphp/module-image-processing" : "1.0.x-dev",
         "monolog/monolog": "^1"
     },
     "autoload":

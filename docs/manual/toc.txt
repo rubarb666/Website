@@ -1,0 +1,4 @@
+Rhubarb Essentials: /manual/rhubarb/files-and-directories
+    [docs/modules/rhubarb/docs/toc.txt]
+Data Modelling: /manual/module.stem/
+    [docs/modules/module.stem/docs/toc.txt]

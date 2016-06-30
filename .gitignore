@@ -5,3 +5,5 @@
 /cache/
 static/scss/.sass-cache/
 *.scssc
+/deployed/
+/docs/modules/

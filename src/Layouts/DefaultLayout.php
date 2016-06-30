@@ -2,7 +2,7 @@
 
 namespace Rhubarb\Website\Layouts;
 
-require_once "vendor/rhubarbphp/rhubarb/src/Layout/Layout.php";
+require_once VENDOR_DIR."/rhubarbphp/rhubarb/src/Layout/Layout.php";
 
 use Rhubarb\Crown\Application;
 use Rhubarb\Crown\Html\ResourceLoader;use Rhubarb\Crown\Layout\Layout;
@@ -93,12 +93,9 @@ $request = Request::current();
 
         $request = Application::current()->request();
 
-        if (stripos($request->uri, "/manual/") === 0){
-            $menu = NavigationTools::buildMenu(
-            [
-                new TableOfContentsSource( __DIR__."/../../vendor/rhubarbphp/rhubarb/docs/toc.txt", "Rhubarb Essentials", "/manual/rhubarb" ),
-                new TableOfContentsSource( __DIR__."/../../vendor/rhubarbphp/module-stem/docs/toc.txt", "Data Modelling", "/manual/module-stem/" )
-            ]);
+        if (stripos($request->urlPath, "/manual/") === 0){
+
+            $menu = NavigationTools::buildMenu(APPLICATION_ROOT_DIR."/docs/manual/toc.txt");
 
             ?><ul class="c-menu"><?php
             $x = 1;
@@ -110,11 +107,18 @@ $request = Request::current();
                 $firstClass = ($first) ? " first" : "";
                 $first = false;
 
-                if (StringTools::startsWith($request->uri, $item->url)){
-                    print '<li class="chapter open'.$firstClass.'"><a href="'.$item->url.'">'.$item->chapter.". ".$item->name.'</a></li>';
+                $url = $item->url;
+
+                if ((!$url) && isset($item->children) && (sizeof($item->children) > 0)){
+                    //$url = $item->children[0]->url;
+                }
+
+                // Is the current url this one or one of the children? If so open the menu and children.
+                if ($item->containsUrl($request->urlPath)){
+                    print '<li class="chapter open'.$firstClass.'">'.$item->chapter.". ".$item->name.'</li>';
                     NavigationTools::printMenu($item, 0);
                 } else {
-                    print '<li class="chapter closed'.$firstClass.'"><a href="'.$item->url.'">'.$item->chapter.". ".$item->name.'</a></li>';
+                    print '<li class="chapter closed'.$firstClass.'"><a href="'.$url.'">'.$item->chapter.". ".$item->name.'</a></li>';
                 }
 
                 $x++;
