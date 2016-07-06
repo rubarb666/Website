@@ -15,8 +15,12 @@
     "require":
     {
         "rhubarbphp/rhubarb": "^1.0.0",
+        "rhubarbphp/module-leaf": "*",
         "erusev/parsedown-extra" : "*",
-        "monolog/monolog": "^1"
+        "monolog/monolog": "^1",
+        "rhubarbphp/module-stem": "*",
+        "rhubarbphp/module-leaf-common-controls": "1.0.0.x-dev",
+        "rhubarbphp/custard": "^1.0"
     },
     "autoload":
     {
@@ -24,5 +28,8 @@
         {
             "Rhubarb\\Website\\": "src/"
         }
+    },
+    "config": {
+        "bin-dir": "bin/"
     }
 }

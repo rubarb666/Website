@@ -12,6 +12,7 @@ class DemoSolutionSchema extends SolutionSchema
 
         $this->addModel( "Contact", '\Rhubarb\Website\Models\Contact' );
         $this->addModel( "Organisation", Organisation::class );
+        $this->addModel("Comment", Comment::class);
     }
 
     /**
