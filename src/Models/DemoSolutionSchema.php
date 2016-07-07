@@ -6,9 +6,9 @@ use Rhubarb\Stem\Schema\SolutionSchema;
 
 class DemoSolutionSchema extends SolutionSchema
 {
-    public function __construct($version = 0)
+    public function __construct()
     {
-        parent::__construct($version);
+        parent::__construct(0.01);
 
         $this->addModel( "Contact", '\Rhubarb\Website\Models\Contact' );
         $this->addModel( "Organisation", Organisation::class );

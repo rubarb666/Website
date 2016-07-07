@@ -29,29 +29,27 @@ class CommentBlock extends Leaf
         /** @var WebRequest $request */
         $request = WebRequest::current();
         $urlPath = $request->urlPath;
+        try {
 
-        $comments = Comment::getCommentsForPage($urlPath);
+            $comments = Comment::getCommentsForPage($urlPath);
 
-        $array = Array();
+            $array = Array();
 
-        foreach($comments as $comment)
-        {
-            $replies = Comment::getRepliesForComment($comment->CommentID);
-            $array[] =
-                [
-                    "Comment" => $comment,
-                    "Replies" => $replies
-                ];
+            foreach ($comments as $comment) {
+                $replies = Comment::getRepliesForComment($comment->CommentID);
+                $array[] =
+                    [
+                        "Comment" => $comment,
+                        "Replies" => $replies
+                    ];
+            }
+
+            $this->model->comments = $array;
         }
-
-        $this->model->comments = $array;
-        
-        $this->model->newLikeEvent->attachHandler(function($id)
+        catch(\Exception $ex)
         {
-            Comment::likeComment($id);
-        });
-
-
+            new Comment(1);
+        }
 
     }
 

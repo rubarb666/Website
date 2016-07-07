@@ -19,9 +19,12 @@ class DefaultLeafView extends View
 
     protected function createSubLeaves()
     {
-        $this->registerSubLeaf(
-          $commentBlock = new CommentBlock("CommentBlock")
-        );
+        $request = WebRequest::current();
+        if (stripos($request->urlPath, "/manual/") === 0) {
+            $this->registerSubLeaf(
+                $commentBlock = new CommentBlock("CommentBlock")
+            );
+        }
     }
 
 
