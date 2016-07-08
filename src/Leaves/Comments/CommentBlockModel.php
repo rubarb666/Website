@@ -8,6 +8,7 @@ use Rhubarb\Leaf\Leaves\LeafModel;
 class CommentBlockModel extends LeafModel
 {
     public $comments = array();
+    public $visibility;
 
     /**
      * @var Event
@@ -19,11 +20,17 @@ class CommentBlockModel extends LeafModel
      */
     public $newReplyEvent;
 
+    /**
+     * @var Event
+     */
+    public $askQuestionEvent;
+
     public function __construct()
     {
         parent::__construct();
-        
+
         $this->newLikeEvent = new Event();
         $this->newReplyEvent = new Event();
+        $this->askQuestionEvent = new Event();
     }
 }

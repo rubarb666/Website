@@ -10,6 +10,7 @@ use Rhubarb\Stem\Models\Model;
 use Rhubarb\Stem\Schema\Columns\AutoIncrementColumn;
 use Rhubarb\Stem\Schema\Columns\DateColumn;
 use Rhubarb\Stem\Schema\Columns\DateTimeColumn;
+use Rhubarb\Stem\Schema\Columns\ForeignKeyColumn;
 use Rhubarb\Stem\Schema\Columns\IntegerColumn;
 use Rhubarb\Stem\Schema\Columns\StringColumn;
 use Rhubarb\Stem\Schema\ModelSchema;
@@ -23,6 +24,8 @@ use Rhubarb\Stem\Schema\ModelSchema;
  * @parameter string            $Body
  * @parameter likes             $Likes
  * @parameter RhubarbDateTime   $Date
+ * @property-read Comment $ParentComment Relationship
+ * @property-read Comment[]|\Rhubarb\Stem\Collections\Collection $ChildComments Relationship
  */
 class Comment extends Model
 {
@@ -36,7 +39,7 @@ class Comment extends Model
         $schema = new ModelSchema("tblComment");
         $schema->addColumn(
             new AutoIncrementColumn("CommentID"),
-            new IntegerColumn("ParentCommentID", 0),
+            new ForeignKeyColumn("ParentCommentID", 0),
             new StringColumn("UrlPath", 50),
             new StringColumn("Email", 50),
             new StringColumn("Name", 50),

@@ -3,6 +3,7 @@
 namespace Rhubarb\Website\Models;
 
 use Rhubarb\Stem\Schema\SolutionSchema;
+use Rhubarb\Website\Settings\WebsiteSettings;
 
 class DemoSolutionSchema extends SolutionSchema
 {
@@ -13,6 +14,7 @@ class DemoSolutionSchema extends SolutionSchema
         $this->addModel( "Contact", '\Rhubarb\Website\Models\Contact' );
         $this->addModel( "Organisation", Organisation::class );
         $this->addModel("Comment", Comment::class);
+        $this->addModel("WebsiteSettings", WebsiteSettings::class);
     }
 
     /**
@@ -27,6 +29,10 @@ class DemoSolutionSchema extends SolutionSchema
                 "Organisation" =>
                 [
                     "Contacts" => "Contact.OrganisationID"
+                ],
+                'Comment' =>
+                [
+                    'ChildComments' => 'Comment.ParentCommentID:ParentCommentCategory'
                 ]
             ]
         );

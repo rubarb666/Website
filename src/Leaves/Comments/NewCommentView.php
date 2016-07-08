@@ -35,7 +35,7 @@ class NewCommentView extends View
         $email->setPlaceholderText("email@address.com");
         $email->setLabel("Email:");
 
-        $body->setMaxLength(50);
+        $body->setMaxLength(10000);
         $body->setPlaceholderText("Rhubarb Crumble or Rhubarb Tart?");
         $body->setLabel("Question:");
 
@@ -44,6 +44,7 @@ class NewCommentView extends View
 
     protected function printViewContent()
     {
+        print "<head><script src='https://www.google.com/recaptcha/api.js'></script></head>";
         print "<div class='c-comment__submission'>";
         print $this->leaves["CommentName"]->getLabel();
         print $this->leaves["CommentName"];
@@ -51,6 +52,10 @@ class NewCommentView extends View
         print $this->leaves["CommentEmail"];
         print $this->leaves["CommentBody"]->getLabel();
         print $this->leaves["CommentBody"];
+        print '<div class="c-comment__submission--captcha"><div class="g-recaptcha" data-sitekey = "6LeWkyQTAAAAAB__o0t5SdNZVOlgrbrEcV7wtQeM" ></div></div>';
+        if ($this->model->newCommentError) {
+            print "<div class='c-comment__submission--error'>" . $this->model->newCommentError . "</div>";
+        }
         print $this->leaves["SubmitBtn"];
         print "</div>";
     }

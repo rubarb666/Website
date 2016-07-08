@@ -29,28 +29,23 @@ class CommentBlock extends Leaf
         /** @var WebRequest $request */
         $request = WebRequest::current();
         $urlPath = $request->urlPath;
+        $this->model->visibility = "";
         try {
-
             $comments = Comment::getCommentsForPage($urlPath);
-
-            $array = Array();
-
-            foreach ($comments as $comment) {
-                $replies = Comment::getRepliesForComment($comment->CommentID);
-                $array[] =
-                    [
-                        "Comment" => $comment,
-                        "Replies" => $replies
-                    ];
-            }
-
-            $this->model->comments = $array;
-        }
-        catch(\Exception $ex)
-        {
+            $this->model->comments = $comments;
+        } catch (\Exception $ex) {
             new Comment(1);
         }
 
+        $this->model->askQuestionEvent->attachHandler(function()
+        {
+            // Show the new comment dialogue
+        });
+
+        $this->model->newReplyEvent->attachHandler(function()
+        {
+            // Reply to the comment
+        });
     }
 
     /**

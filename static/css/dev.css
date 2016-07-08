@@ -50,7 +50,7 @@
 }
 
 .c-comment {
-    background-color: #bbbbbb;
+    background-color: #bb9cb7;
     padding: 2%;
     border-radius: 15px;
     margin-bottom: 10px;
@@ -65,21 +65,21 @@
     font-size: 0;
     border-width: 15px;
     border-style: solid;
-    border-color: transparent transparent #bbb #bbb;
+    border-color: transparent transparent #bb9cb7 #bb9cb7;
     position: absolute;
     top: -30px;
     left: 15px;
 }
 
-.c-comment--reply {
-    background-color: #fd6986;
-    margin-left: 100px;
+.c-comment--alt {
+    background-color: #fdae77;
 }
 
-.c-comment--reply:after {
-    border-color: transparent #fd6986 #fd6986 transparent;
-    left: auto;
-    right: 15px;
+.c-comment--alt:after {
+    border-color: transparent transparent #fdae77 #fdae77;
+    /*border-color: transparent #fdae77 #fdae77 transparent;*/
+    /*left: auto;*/
+    /*right: 15px;*/
 }
 
 .c-comment__submission {
@@ -91,4 +91,25 @@
 
 .c-comment__submit-button {
     margin-top: 10px;
+}
+
+.c-comment-thread {
+    list-style:none;
+    margin-left:0;
+    border: 2px dashed #e4e6e8;
+}
+
+.c-comment-thread ul {
+    margin-left:20px;
+    list-style: none;
+}
+
+.c-comment__submission--captcha {
+    margin-top: 10px;
+}
+
+.c-comment__submission--error {
+    font-weight: bolder;
+    font-size: 1.2em;
+    color: orange;
 }

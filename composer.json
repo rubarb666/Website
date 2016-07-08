@@ -20,7 +20,8 @@
         "monolog/monolog": "^1",
         "rhubarbphp/module-stem": "*",
         "rhubarbphp/module-leaf-common-controls": "1.0.0.x-dev",
-        "rhubarbphp/custard": "^1.0"
+        "rhubarbphp/custard": "^1.0",
+        "rhubarbphp/scaffold-application-settings": "*"
     },
     "autoload":
     {

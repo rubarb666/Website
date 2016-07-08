@@ -11,6 +11,8 @@ class NewCommentModel extends LeafModel
      * @var Event
      */
     public $newCommentEvent;
+    
+    public $newCommentError;
 
     public function __construct()
     {
