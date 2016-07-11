@@ -37,7 +37,6 @@ class NewComment extends Leaf
     protected function onModelCreated()
     {
         $this->model->newCommentEvent->attachHandler(function () {
-
             /** @var WebRequest $request */
             $request = WebRequest::current();
             $urlPath = $request->urlPath;
@@ -46,8 +45,7 @@ class NewComment extends Leaf
             $email = strip_tags($this->model->CommentEmail);
             $body = strip_tags($this->model->CommentBody);
 
-            //TODO: Raise in event
-            $parentId = 0;
+            $parentId = $this->model->parentId;
 
             $payload = $request->getPayload();
 
@@ -55,10 +53,11 @@ class NewComment extends Leaf
                 new Equals("SettingName", "GoogleSecret")
             );
 
+            $secretValue = $secret[0]->SettingValue;
 
             $gcaptcha =
                 [
-                    "secret" => $secret[0]->SettingValue,
+                    "secret" => $secretValue,
                     "response" => $payload["g-recaptcha-response"],
                     "remoteip" => $_SERVER['REMOTE_ADDR']
                 ];
@@ -88,13 +87,17 @@ class NewComment extends Leaf
                 } else {
                     $this->model->newCommentError = "⚠️ Sorry, there was a problem saving your comment ⚠️";
                 }
-            }
-            else
-            {
+            } else {
                 $this->model->newCommentError = "⚠️ The captcha was entered incorrectly, please try again ⚠️";
             }
         });
 
         parent::onModelCreated();
+    }
+
+    public function __construct($name, $parentId)
+    {
+        parent::__construct($name);
+        $this->model->parentId = $parentId;
     }
 }

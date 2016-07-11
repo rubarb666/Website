@@ -13,6 +13,8 @@ class NewCommentModel extends LeafModel
     public $newCommentEvent;
     
     public $newCommentError;
+    
+    public $parentId;
 
     public function __construct()
     {

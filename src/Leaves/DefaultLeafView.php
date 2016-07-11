@@ -5,6 +5,7 @@ use ParsedownExtra;
 use Rhubarb\Crown\PhpContext;
 use Rhubarb\Crown\Request\Request;
 use Rhubarb\Crown\Request\WebRequest;
+use Rhubarb\Leaf\Leaves\LeafDeploymentPackage;
 use Rhubarb\Leaf\Views\View;
 use Rhubarb\Website\Leaves\Comments\CommentBlock;
 use Rhubarb\Website\Navigation\NavigationTools;
@@ -88,5 +89,15 @@ class DefaultLeafView extends View
         }
 
         print "";
+    }
+
+    public function getDeploymentPackage()
+    {
+        return new LeafDeploymentPackage(__DIR__ . '/' . $this->getViewBridgeName() . '.js');
+    }
+
+    protected function getViewBridgeName()
+    {
+        return 'DefaultLeafViewBridge';
     }
 }

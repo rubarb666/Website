@@ -6,6 +6,7 @@ require_once VENDOR_DIR."/rhubarbphp/rhubarb/src/Layout/Layout.php";
 
 use Rhubarb\Crown\Application;
 use Rhubarb\Crown\Html\ResourceLoader;use Rhubarb\Crown\Layout\Layout;
+use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\Request\Request;
 use Rhubarb\Crown\String\StringTools;
 use Rhubarb\Website\Navigation\NavigationTools;
@@ -19,6 +20,10 @@ class DefaultLayout extends Layout
         ?><html>
 <title>Rhubarb PHP</title>
 <head>
+
+    <?= ResourceLoader::getResourceInjectionHtml(); ?>
+
+    <?= LayoutModule::getHeadItemsAsHtml(); ?>
 <link href="/static/css/screen.css" rel="stylesheet" type="text/css" />
 <link href="/static/css/gallery.css" rel="stylesheet" type="text/css" />
 <link href="/static/css/dev.css" rel="stylesheet" type="text/css" />
@@ -62,7 +67,6 @@ class DefaultLayout extends Layout
     }
 
     </style>
-    <?=ResourceLoader::getResourceInjectionHtml();?>
 </head>
 </html>
 <?php

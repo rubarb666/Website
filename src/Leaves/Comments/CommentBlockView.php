@@ -5,6 +5,7 @@ namespace Rhubarb\Website\Leaves\Comments;
 use Rhubarb\Leaf\Controls\Common\Buttons\Button;
 use Rhubarb\Leaf\Controls\Common\Text\TextArea;
 use Rhubarb\Leaf\Controls\Common\Text\TextBox;
+use Rhubarb\Leaf\Leaves\LeafDeploymentPackage;
 use Rhubarb\Leaf\Views\View;
 use Rhubarb\Website\Models\Comment;
 
@@ -18,22 +19,17 @@ class CommentBlockView extends View
     protected function createSubLeaves()
     {
         $this->registerSubLeaf(
-            $newComment = new NewComment("NewComment"),
-            $like = new Button("LikeBtn", "Like this post", function () {
-                $this->model->newLikeEvent->raise(
-                // CommentID
-            );
-            }, true),
-            $reply = new Button("ReplyBtn", "Reply to this post", function () {
-                $this->model->newReplyEvent->raise(
-                // CommentID
-                );
-            }),
-            $like = new Button("AskQuestion", "Ask a Question", function () {
-                $this->model->askQuestionEvent->raise(
-
-                );
-            }, true)
+            $newComment = new NewComment("NewComment", 0),
+            $reply = new Button("ReplyBtn", "Reply",
+                function () {
+                    $this->model->replyToCommentEvent->raise();
+                },
+                true),
+            $question = new Button("AskQuestion", "Ask a Question",
+                function () {
+                    $this->model->askQuestionEvent->raise();
+                },
+                true)
         );
 
         parent::createSubLeaves();
@@ -66,12 +62,9 @@ class CommentBlockView extends View
 
     private function getHTMLForComment(Comment $comment, $i)
     {
-        if($i % 2 == 0)
-        {
+        if ($i % 2 == 0) {
             $style = 'c-comment';
-        }
-        else
-        {
+        } else {
             $style = 'c-comment c-comment--alt';
         }
 
@@ -89,14 +82,14 @@ class CommentBlockView extends View
         $html .= $comment->Body;
         $html .= "</div>";
         $html .= "<div class ='c-comment__footer'>";
+//        $html .= $this->leaves["ReplyBtn"];
         $html .= "</div>";
         $html .= "</div>";
 
-        if(count($comment->ChildComments))
-        {
+        if (count($comment->ChildComments)) {
             $html .= "<ul>";
             foreach ($comment->ChildComments as $reply) {
-                $html .= $this->getHTMLForComment($reply, ($i+1));
+                $html .= $this->getHTMLForComment($reply, ($i + 1));
             }
             $html .= "</ul>";
         }
@@ -105,4 +98,15 @@ class CommentBlockView extends View
 
         return $html;
     }
+
+    public function getDeploymentPackage()
+    {
+        return new LeafDeploymentPackage(__DIR__ . '/' . $this->getViewBridgeName() . '.js');
+    }
+
+    protected function getViewBridgeName()
+    {
+        return 'CommentBlockViewBridge';
+    }
+
 }

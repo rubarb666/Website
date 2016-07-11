@@ -42,7 +42,7 @@ class CommentBlock extends Leaf
             // Show the new comment dialogue
         });
 
-        $this->model->newReplyEvent->attachHandler(function()
+        $this->model->replyToCommentEvent->attachHandler(function()
         {
             // Reply to the comment
         });

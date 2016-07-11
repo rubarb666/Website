@@ -14,7 +14,6 @@ class RhubarbWebsiteApplication extends Application
 {
     protected function initialise()
     {
-        $this->developerMode = true;
 
         if (file_exists(APPLICATION_ROOT_DIR . "/settings/site.config.php")) {
             include_once(APPLICATION_ROOT_DIR . "/settings/site.config.php");

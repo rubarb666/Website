@@ -5,6 +5,7 @@ namespace Rhubarb\Website\Leaves\Comments;
 use Rhubarb\Leaf\Controls\Common\Buttons\Button;
 use Rhubarb\Leaf\Controls\Common\Text\TextArea;
 use Rhubarb\Leaf\Controls\Common\Text\TextBox;
+use Rhubarb\Leaf\Leaves\LeafDeploymentPackage;
 use Rhubarb\Leaf\Views\View;
 
 class NewCommentView extends View
@@ -20,10 +21,8 @@ class NewCommentView extends View
             $name = new TextBox("CommentName"),
             $email = new TextBox("CommentEmail"),
             $body = new TextArea("CommentBody"),
-            $submit = new Button("SubmitBtn", "Ask your question", function () {
-                $this->model->newCommentEvent->raise(
-                // Parent Coment ID
-                );
+            $submit = new Button("SubmitBtn", "Submit your question", function (){
+                $this->model->newCommentEvent->raise();
             }, true)
         );
 
@@ -56,7 +55,20 @@ class NewCommentView extends View
         if ($this->model->newCommentError) {
             print "<div class='c-comment__submission--error'>" . $this->model->newCommentError . "</div>";
         }
+
         print $this->leaves["SubmitBtn"];
         print "</div>";
     }
+
+    public function getDeploymentPackage()
+    {
+        return new LeafDeploymentPackage(__DIR__ . '/NewCommentViewBridge.js');
+    }
+
+    protected function getViewBridgeName()
+    {
+        return 'NewCommentViewBridge';
+    }
+
+
 }

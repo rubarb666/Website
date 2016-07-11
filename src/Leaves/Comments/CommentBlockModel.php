@@ -18,19 +18,20 @@ class CommentBlockModel extends LeafModel
     /**
      * @var Event
      */
-    public $newReplyEvent;
+    public $replyToCommentEvent;
 
     /**
      * @var Event
      */
     public $askQuestionEvent;
+    
 
     public function __construct()
     {
         parent::__construct();
 
         $this->newLikeEvent = new Event();
-        $this->newReplyEvent = new Event();
+        $this->replyToCommentEvent = new Event();
         $this->askQuestionEvent = new Event();
     }
 }
