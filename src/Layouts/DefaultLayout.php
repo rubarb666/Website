@@ -19,14 +19,13 @@ class DefaultLayout extends Layout
         ?><html>
 <title>Rhubarb PHP</title>
 <head>
+
 <link href="/static/css/screen.css" rel="stylesheet" type="text/css" />
 <link href="/static/css/gallery.css" rel="stylesheet" type="text/css" />
 <link href="/static/css/dev.css" rel="stylesheet" type="text/css" />
-<link href="/static/css/shThemeEclipse.css" rel="stylesheet" type="text/css" />
-<script src="/static/js/shCore.js" type="text/javascript"></script>
-<script src="/static/js/shBrushPhp.js" type="text/javascript"></script>
-<script src="/static/js/shBrushBash.js" type="text/javascript"></script>
-<script src="/static/js/shBrushJScript.js" type="text/javascript"></script>
+
+<link href="/static/prism/prism.css" rel="stylesheet" type="text/css" />
+<script src="/static/prism/prism.js" type="text/javascript"></script>
 
 <link rel="apple-touch-icon" sizes="57x57" href="/static/apple-touch-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/static/apple-touch-icon-60x60.png">
@@ -153,18 +152,16 @@ $request = Request::current();
 </div>
 <script type="text/javascript">
 
-    var codes = document.querySelectorAll("code");
+    var pres = document.querySelectorAll("[data-url]");
 
-    for(var i = 0; i<codes.length; i++){
-        if (codes[i].classList.contains("language-php")){
-            codes[i].parentNode.className = "brush: php";
+    for(var i = 0; i < pres.length; i++){
+        var pre = pres[i];
+        var a = document.createElement("A");
+        a.href = pre.attributes['data-url'].value;
+        a.innerHTML = "View the full example";
 
-            codes[i].parentNode.innerHTML = codes[i].innerHTML;
-        }
+        pre.parentNode.insertBefore(a, pre.nextSibling);
     }
-
-    SyntaxHighlighter.defaults['toolbar'] = false;
-    SyntaxHighlighter.all()
 
     // Webfonts
     var MTIProjectId='b00cbac7-a878-4c08-9abc-c0d909f94713';

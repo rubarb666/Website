@@ -10,7 +10,7 @@
         }
     ],
     "require-dev": {
-        "codeception/codeception": "*"
+        "codeception/codeception": "2.1.8"
     },
     "require":
     {

@@ -7,6 +7,7 @@ use Rhubarb\Crown\Logging\Log;
 use Rhubarb\Crown\UrlHandlers\UrlHandler;
 use Rhubarb\Website\Navigation\NavigationTools;
 use Rhubarb\Website\Navigation\TableOfContentsSource;
+use Rhubarb\Website\Parsedown\RhubarbParsedown;
 
 require_once VENDOR_DIR."/rhubarbphp/rhubarb/src/UrlHandlers/UrlHandler.php";
 
@@ -65,7 +66,7 @@ class MarkdownUrlHandler extends UrlHandler
                 $markDownRaw = str_replace($match[0],$html, $markDownRaw);
             }
 
-            $parseDown = new ParsedownExtra();
+            $parseDown = new RhubarbParsedown($rootPath);
             return $parseDown->text($markDownRaw);
         }
 
