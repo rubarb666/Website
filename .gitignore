@@ -7,3 +7,5 @@ static/scss/.sass-cache/
 *.scssc
 /deployed/
 /docs/modules/
+
+tests/_output/*
