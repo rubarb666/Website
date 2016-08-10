@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Rhubarb\Website\Parsedown;
-
 
 use Rhubarb\Crown\Application;
 
@@ -20,40 +18,80 @@ class RhubarbParsedown extends \ParsedownExtra
         $this->relativeDir = $relativeDir;
     }
 
+    public static function getHtmlForExampleDirectory($scanPath)
+    {
+        $directory = scandir($scanPath);
+
+        $elements = [];
+        $tabs = [];
+        $parser = new RhubarbParsedown($scanPath);
+
+        foreach($directory as $dir){
+            if ($dir[0] == "."){
+                continue;
+            }
+
+            if (!is_file($scanPath."/".$dir)){
+                continue;
+            }
+
+            $tabId = preg_replace("/\\W/", "", strtolower($dir));
+
+            $info = pathinfo($scanPath."/".$dir);
+            $newLine = ["text" => "``` ".strtolower($info["extension"])." file[".$dir."]"];
+            $element = $parser->blockFencedCode($newLine);
+            $element = $parser->blockFencedCodeComplete($element);
+            $element = $element["element"];
+
+            $attributes = [];
+
+            foreach($element["text"]["attributes"] as $att => $value) {
+                $attributes[] = $att."=\"".$value."\"";
+            }
+
+            $tabs[] = [
+                "file" => $dir,
+                "id" => $tabId,
+                "html" => "<div class='c-tab js-tab' id='$tabId'>
+                                    <div class='c-tab__content'>
+                                    <pre ".implode(" ",$attributes)."><code>".trim($element["text"]["text"])."</code>
+                                    </pre></div>
+                                </div>"
+            ];
+        }
+
+        $tabUl = '
+            <div class="js-tabs c-tabs">
+                <div class="c-tabs-nav">
+                    ';
+
+        foreach($tabs as $tab){
+            $tabUl .= '<a href="#/" class="c-tabs-nav__link js-tab-link" data-tab="'.$tab["id"].'">'.$tab["file"].'</a>';
+        }
+
+        $tabUl .= '</div>';
+
+        foreach($tabs as $tab){
+            $tabUl .= $tab["html"];
+        }
+
+        $tabUl .= '
+            </div>';
+
+        return $tabUl;
+    }
 
     protected function blockFencedCode($Line)
     {
         if (preg_match('/^['.$Line['text'][0].']{3,}[ ]*dir[[]([^]]+)[]]/', $Line['text'], $match))
         {
             $scanPath = $this->relativeDir.'/'.$match[1];
-            $directory = scandir($scanPath);
-
-            $elements = [];
-
-            foreach($directory as $dir){
-                if ($dir[0] == "."){
-                    continue;
-                }
-
-                if (!is_file($scanPath."/".$dir)){
-                    continue;
-                }
-
-                $info = pathinfo($scanPath."/".$dir);
-                $newLine = ["text" => "``` ".strtolower($info["extension"])." file[".$match[1]."/".$dir."]"];
-                $element = $this->blockFencedCode($newLine);
-                $element = $this->blockFencedCodeComplete($element);
-                $elements[] = $element["element"];
-            }
+            $html = self::getHtmlForExampleDirectory($scanPath);
 
             return array(
                 'char' => $Line['text'][0],
                 'group' => true,
-                'element' => array(
-                    'name' => 'div',
-                    'handler' => 'elements',
-                    'text' => $elements
-                ),
+                'markup' => $html
             );
         }
 
@@ -104,6 +142,10 @@ class RhubarbParsedown extends \ParsedownExtra
                 $Block['element']['attributes']['data-line'] = $match[1];
             }
 
+            if (preg_match("/demo[[]([^]]+)[]]/", $Line["text"], $match)){
+                $Block['element']['attributes']['data-demo-url'] = $match[1];
+            }
+
             return $Block;
         }
     }
@@ -115,7 +157,8 @@ class RhubarbParsedown extends \ParsedownExtra
             return;
         }
 
-        if ($Block["element"]["handler"] == "elements"){
+        if (!isset($Block['element']))
+        {
             $Block['complete'] = true;
             return $Block;
         }
@@ -143,7 +186,8 @@ class RhubarbParsedown extends \ParsedownExtra
 
     protected function blockFencedCodeComplete($Block)
     {
-        if ($Block["element"]["handler"] == "elements"){
+        if (!isset($Block['element']))
+        {
             return $Block;
         }
 

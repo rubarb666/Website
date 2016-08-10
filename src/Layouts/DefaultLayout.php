@@ -152,13 +152,67 @@ $request = Request::current();
 </div>
 <script type="text/javascript">
 
+    var tabs = document.querySelectorAll('.js-tabs');
+    
+    for(var i = 0; i < tabs.length; i++){
+        var tab = tabs[i];
+
+        var panes = tab.querySelectorAll('.js-tab');
+
+        if (panes.length > 1){
+            for(var j = 1; j < panes.length; j++) {
+                panes[j].style.display = 'none';
+            }
+        }
+
+        var links = tab.querySelectorAll('.c-tabs-nav a');
+
+        for(var a = 0; a < links.length; a++){
+            links[a].addEventListener('click', function(event){
+                var pane = event.target.attributes["data-tab"].value;
+
+                var links = this.querySelectorAll('.js-tab-link');
+
+                for(var a = 0; a < links.length; a++) {
+                    if (links[a] == event.target){
+                        links[a].classList.add('is-active');
+                    } else {
+                        links[a].classList.remove('is-active');
+                    }
+                }
+
+                var panes = this.querySelectorAll('.js-tab');
+
+                for(var j = 0; j < panes.length; j++) {
+                    if (panes[j].id == pane){
+                        panes[j].style.display = 'block';
+                    } else {
+                        panes[j].style.display = 'none';
+                    }
+                }
+
+            }.bind(tab));
+        }
+    }
+
     var pres = document.querySelectorAll("[data-url]");
 
     for(var i = 0; i < pres.length; i++){
         var pre = pres[i];
         var a = document.createElement("A");
         a.href = pre.attributes['data-url'].value;
-        a.innerHTML = "View the full example";
+        a.innerHTML = "View the full file";
+
+        pre.parentNode.insertBefore(a, pre.nextSibling);
+    }
+
+    pres = document.querySelectorAll("[data-demo-url]");
+
+    for(var i = 0; i < pres.length; i++){
+        var pre = pres[i];
+        var a = document.createElement("A");
+        a.href = pre.attributes['data-demo-url'].value;
+        a.innerHTML = "View the demo";
 
         pre.parentNode.insertBefore(a, pre.nextSibling);
     }
