@@ -144,7 +144,7 @@ class NavigationTools
     {
         $request = Request::current();
 
-        if ( $indent == 2 && stripos($request->uri, $parent->url) === false ){
+        if ( $parent->url != "" && ($indent == 2 && stripos($request->uri, $parent->url) === false )){
             return;
         }
 
