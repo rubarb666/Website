@@ -170,6 +170,11 @@ $request = Request::current();
         var links = tab.querySelectorAll('.c-tabs-nav a');
 
         for(var a = 0; a < links.length; a++){
+
+            if (a == 0){
+                links[a].classList.add("is-active");
+            }
+
             links[a].addEventListener('click', function(event){
                 var pane = event.target.attributes["data-tab"].value;
 
