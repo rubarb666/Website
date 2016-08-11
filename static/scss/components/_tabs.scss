@@ -20,19 +20,35 @@ $tab-content: color(site);
 	list-style: none;
 	white-space: nowrap;
 	overflow-x: auto;
+	background-color: color( tabs, 0.5 );
+	border: 1px solid color( tabs );
+	@include padding( $padding $padding 0 $padding );
+	font-weight: $bold;
+	margin-bottom: -2px;
+	overflow: hidden;
+	border-radius: $base-radius/2 $base-radius/2 0 0;
 }
 
 .c-tabs-nav__link {
-	@include margin(n n n $base-space/4);
-	@include padding($padding/3 $padding/2);
-	background: color( site );
-	color: color( tabs );
+	@include padding(0 $padding);
+	line-height: $touch-target;
+	background: white;
+	color: color( text );
 	text-align: center;
 	display: inline-block;
 	white-space: nowrap;
-	font-weight: $bold;
-	border-radius: 3px 3px 0 0;
 	font-size: font-size( alpha );
+	margin: 0;
+	margin-right: 3px;
+	border: 1px solid color( tabs );
+	opacity: 0.5;
+	z-index: 4;
+	position: relative;
+
+	&:not( .is-active ) {
+		@include transform( translateY( 10% ) );
+		z-index: 0;
+	}
 
 	&:target, &:focus, &:active, &:hover {
 		outline: none;
@@ -40,12 +56,11 @@ $tab-content: color(site);
 	}
 
 	&:visited {
-		color: color( tabs );
+		color: color( text );
 	}
 
 	&:hover {
-		background: color(tabs);
-		color: white;
+		opacity: 1;
 	}
 
 	&:first-child {
@@ -53,20 +68,27 @@ $tab-content: color(site);
 	}
 
 	&.is-active {
-		background: color(tabs);
-		color: white;
+		background: white;
+		color: color( secondary );
+		border: 1px solid color( tabs );
+		border-bottom-color: white;
+		opacity: 1;
 	}
 }
 
 .c-tab__content {
-	background: $tab-content;
-	//border: 1px solid color(tabs);
+	background: white;
+	padding: $padding/3;
+	border: 1px solid color( tabs );
+	z-index: 3;
+	position: relative;
+	border-radius: 0 0 $base-radius/2 $base-radius/2;
 
 	pre[class*="language-"] {
-		border-top-left-radius: 0;
-		border-top-right-radius: 0;
-		margin-top: 0;
+		margin: 0;
 		border-color: color( tabs );
+		min-width: 800px;
+		border-radius: 0;
 	}
 }
 
