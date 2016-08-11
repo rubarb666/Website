@@ -58,6 +58,8 @@ $color: (
 		error			: #D51111,
 		warning			: $brand-c,
 		success			: $brand-f,
+		tabs			: darken($site, 20%),
+		quiet			: lighten( $brand-a, 30%  ),
 
 	/* Social Media */
 		twitter			: $color-twitter,

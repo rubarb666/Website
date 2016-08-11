@@ -1,0 +1,101 @@
+/*------------------------------------------*\
+
+    c-tabs.scss
+
+    Tabs are perfect for single page web
+    applications, or for web pages capable
+    of displaying different subjects.
+
+
+    @namespace  .c-
+    @parent     .c-tabs
+
+\*------------------------------------------*/
+
+
+$tab-content: color(site);
+
+.c-tabs-nav {
+	font-size:0;
+	list-style: none;
+	white-space: nowrap;
+	overflow-x: auto;
+	background-color: color( tabs, 0.5 );
+	border: 1px solid color( tabs );
+	@include padding( $padding $padding 0 $padding );
+	font-weight: $bold;
+	margin-bottom: -2px;
+	overflow: hidden;
+	border-radius: $base-radius/2 $base-radius/2 0 0;
+}
+
+.c-tabs-nav__link {
+	@include padding(0 $padding);
+	line-height: $touch-target;
+	background: white;
+	color: color( text );
+	text-align: center;
+	display: inline-block;
+	white-space: nowrap;
+	font-size: font-size( alpha );
+	margin: 0;
+	margin-right: 3px;
+	border: 1px solid color( tabs );
+	opacity: 0.5;
+	z-index: 4;
+	position: relative;
+
+	&:not( .is-active ) {
+		@include transform( translateY( 10% ) );
+		z-index: 0;
+	}
+
+	&:target, &:focus, &:active, &:hover {
+		outline: none;
+		text-decoration: none;
+	}
+
+	&:visited {
+		color: color( text );
+	}
+
+	&:hover {
+		opacity: 1;
+	}
+
+	&:first-child {
+		margin-left: 0;
+	}
+
+	&.is-active {
+		background: white;
+		color: color( secondary );
+		border: 1px solid color( tabs );
+		border-bottom-color: white;
+		opacity: 1;
+	}
+}
+
+.c-tab__content {
+	background: white;
+	padding: $padding/3;
+	border: 1px solid color( tabs );
+	z-index: 3;
+	position: relative;
+	border-radius: 0 0 $base-radius/2 $base-radius/2;
+
+	pre[class*="language-"] {
+		margin: 0;
+		border-color: color( tabs );
+		min-width: 800px;
+		border-radius: 0;
+	}
+}
+
+.c-tab {
+	display: none;
+
+	&.is-active {
+		display: block;
+	}
+}
