@@ -100,9 +100,9 @@ class RhubarbParsedown extends \ParsedownExtra
                 'text' => '',
             );
 
-            $language = $matches[1];
-
             if (isset($matches[1])) {
+                $language = $matches[1];
+                
                 $class = 'language-' . $language;
 
                 $Element['attributes'] = array(
