@@ -26,27 +26,27 @@ class RhubarbParsedown extends \ParsedownExtra
         $tabs = [];
         $parser = new RhubarbParsedown($scanPath);
 
-        foreach($directory as $dir){
-            if ($dir[0] == "."){
+        foreach ($directory as $dir) {
+            if ($dir[0] == ".") {
                 continue;
             }
 
-            if (!is_file($scanPath."/".$dir)){
+            if (!is_file($scanPath . "/" . $dir)) {
                 continue;
             }
 
             $tabId = preg_replace("/\\W/", "", strtolower($dir));
 
-            $info = pathinfo($scanPath."/".$dir);
-            $newLine = ["text" => "``` ".strtolower($info["extension"])." file[".$dir."]"];
+            $info = pathinfo($scanPath . "/" . $dir);
+            $newLine = ["text" => "``` " . strtolower($info["extension"]) . " file[" . $dir . "]"];
             $element = $parser->blockFencedCode($newLine);
             $element = $parser->blockFencedCodeComplete($element);
             $element = $element["element"];
 
             $attributes = [];
 
-            foreach($element["text"]["attributes"] as $att => $value) {
-                $attributes[] = $att."=\"".$value."\"";
+            foreach ($element["text"]["attributes"] as $att => $value) {
+                $attributes[] = $att . "=\"" . $value . "\"";
             }
 
             $tabs[] = [
@@ -54,7 +54,7 @@ class RhubarbParsedown extends \ParsedownExtra
                 "id" => $tabId,
                 "html" => "<div class='c-tab js-tab' id='$tabId'>
                                     <div class='c-tab__content'>
-                                    <pre ".implode(" ",$attributes)."><code>".trim($element["text"]["text"])."</code>
+                                    <pre " . implode(" ", $attributes) . "><code>" . trim($element["text"]["text"]) . "</code>
                                     </pre></div>
                                 </div>"
             ];
@@ -65,13 +65,13 @@ class RhubarbParsedown extends \ParsedownExtra
                 <div class="c-tabs-nav">
                     ';
 
-        foreach($tabs as $tab){
-            $tabUl .= '<a href="#/" class="c-tabs-nav__link js-tab-link" data-tab="'.$tab["id"].'">'.$tab["file"].'</a>';
+        foreach ($tabs as $tab) {
+            $tabUl .= '<a href="#/" class="c-tabs-nav__link js-tab-link" data-tab="' . $tab["id"] . '">' . $tab["file"] . '</a>';
         }
 
         $tabUl .= '</div>';
 
-        foreach($tabs as $tab){
+        foreach ($tabs as $tab) {
             $tabUl .= $tab["html"];
         }
 
@@ -83,9 +83,8 @@ class RhubarbParsedown extends \ParsedownExtra
 
     protected function blockFencedCode($Line)
     {
-        if (preg_match('/^['.$Line['text'][0].']{3,}[ ]*dir[[]([^]]+)[]]/', $Line['text'], $match))
-        {
-            $scanPath = $this->relativeDir.'/'.$match[1];
+        if (preg_match('/^[' . $Line['text'][0] . ']{3,}[ ]*dir[[]([^]]+)[]]/', $Line['text'], $match)) {
+            $scanPath = $this->relativeDir . '/' . $match[1];
             $html = self::getHtmlForExampleDirectory($scanPath);
 
             return array(
@@ -95,16 +94,14 @@ class RhubarbParsedown extends \ParsedownExtra
             );
         }
 
-        if (preg_match('/^['.$Line['text'][0].']{3,}[ ]*([\w-]+)?/', $Line['text'], $matches))
-        {
+        if (preg_match('/^[' . $Line['text'][0] . ']{3,}[ ]*([\w-]+)?/', $Line['text'], $matches)) {
             $Element = array(
                 'name' => 'code',
                 'text' => '',
             );
 
-            if (isset($matches[1]))
-            {
-                $class = 'language-'.$matches[1];
+            if (isset($matches[1])) {
+                $class = 'language-' . $matches[1];
 
                 $Element['attributes'] = array(
                     'class' => $class,
@@ -122,11 +119,11 @@ class RhubarbParsedown extends \ParsedownExtra
 
             //$Block['element']['attributes']['class'] = 'line-numbers';
 
-            if (preg_match("/file[[]([^]]+)[]]/", $Line["text"], $match)){
+            if (preg_match("/file[[]([^]]+)[]]/", $Line["text"], $match)) {
                 $file = $match[1];
-                $content = file($this->relativeDir.'/'.$file);
+                $content = file($this->relativeDir . '/' . $file);
 
-                if (preg_match("/lines[[](\\d+)(-(\\d+))?[]]/", $Line["text"], $match)){
+                if (preg_match("/lines[[](\\d+)(-(\\d+))?[]]/", $Line["text"], $match)) {
                     $from = $match[1];
                     $to = (!$match[3]) ? sizeof($content) : $match[3];
 
@@ -135,14 +132,15 @@ class RhubarbParsedown extends \ParsedownExtra
 
                 $Element["text"] = implode("", $content);
                 $request = Application::current()->request();
-                $Block['element']['attributes']['data-url'] = "/view/".$request->uri."/".$file;
+                $Block['element']['attributes']['data-url'] = $this->generateGitHubUrl($file, $request->urlPath);
+//                $Block['element']['attributes']['data-url'] = "/view/" . $request->uri . "/" . $file;//github url
             }
 
-            if (preg_match("/highlight[[]([^]]+)[]]/", $Line["text"], $match)){
+            if (preg_match("/highlight[[]([^]]+)[]]/", $Line["text"], $match)) {
                 $Block['element']['attributes']['data-line'] = $match[1];
             }
 
-            if (preg_match("/demo[[]([^]]+)[]]/", $Line["text"], $match)){
+            if (preg_match("/demo[[]([^]]+)[]]/", $Line["text"], $match)) {
                 $Block['element']['attributes']['data-demo-url'] = $match[1];
             }
 
@@ -152,26 +150,22 @@ class RhubarbParsedown extends \ParsedownExtra
 
     protected function blockFencedCodeContinue($Line, $Block)
     {
-        if (isset($Block['complete']))
-        {
+        if (isset($Block['complete'])) {
             return;
         }
 
-        if (!isset($Block['element']))
-        {
+        if (!isset($Block['element'])) {
             $Block['complete'] = true;
             return $Block;
         }
 
-        if (isset($Block['interrupted']))
-        {
+        if (isset($Block['interrupted'])) {
             $Block['element']['text']['text'] .= "\n";
 
             unset($Block['interrupted']);
         }
 
-        if (preg_match('/^'.$Block['char'].'{3,}[ ]*$/', $Line['text']))
-        {
+        if (preg_match('/^' . $Block['char'] . '{3,}[ ]*$/', $Line['text'])) {
             $Block['element']['text']['text'] = trim($Block['element']['text']['text']);
 
             $Block['complete'] = true;
@@ -179,18 +173,33 @@ class RhubarbParsedown extends \ParsedownExtra
             return $Block;
         }
 
-        $Block['element']['text']['text'] .= "\n".$Line['body'];;
+        $Block['element']['text']['text'] .= "\n" . $Line['body'];;
 
         return $Block;
     }
 
     protected function blockFencedCodeComplete($Block)
     {
-        if (!isset($Block['element']))
-        {
+        if (!isset($Block['element'])) {
             return $Block;
         }
 
         return parent::blockFencedCodeComplete($Block);
+    }
+
+    /**
+     * @param $file that you want to be displayed on github, relative to the code e.g "/examples/helloWorld.php
+     * @param $urlPath e.g. $request->urlPath "/manual/module.leaf"
+     * @return string the url to the file on GitHub
+     */
+    protected function generateGitHubUrl($file, $urlPath)
+    {
+        $urlPathArray = str_split($urlPath);
+        //remove manual/ from the string
+        $extractedModuleRepository = "";
+        for ($i = 8; $i < sizeof($urlPathArray); $i++) {
+            $extractedModuleRepository .= $urlPathArray[$i];
+        }//_strPos pregReplace
+        return "https://github.com/RhubarbPHP/" . $extractedModuleRepository . "blob/master/docs/" . $file;
     }
 }

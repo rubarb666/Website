@@ -202,6 +202,7 @@ $request = Request::current();
         var a = document.createElement("A");
         a.href = pre.attributes['data-url'].value;
         a.innerHTML = "View the full file";
+        a.setAttribute("target", "_blank");
 
         pre.parentNode.insertBefore(a, pre.nextSibling);
     }
