@@ -100,12 +100,18 @@ class RhubarbParsedown extends \ParsedownExtra
                 'text' => '',
             );
 
+            $language = $matches[1];
+
             if (isset($matches[1])) {
-                $class = 'language-' . $matches[1];
+                $class = 'language-' . $language;
 
                 $Element['attributes'] = array(
                     'class' => $class,
                 );
+
+                if ($language == "bash"){
+                    $Element['attributes']['class'] = $Element['attributes']['class']." command-line";
+                }
             }
 
             $Block = array(
