@@ -159,8 +159,10 @@ $request = Request::current();
 
         var panes = tab.querySelectorAll('.js-tab');
 
-        if (panes.length > 1){
-            for(var j = 1; j < panes.length; j++) {
+        for(var j = 0; j < panes.length; j++) {
+            if (j == 0){
+                panes[j].style.display = 'block';
+            } else {
                 panes[j].style.display = 'none';
             }
         }
