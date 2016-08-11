@@ -125,7 +125,7 @@ class RhubarbParsedown extends \ParsedownExtra
 
                 if (preg_match("/lines[[](\\d+)(-(\\d+))?[]]/", $Line["text"], $match)) {
                     $from = $match[1];
-                    $to = (!$match[3]) ? sizeof($content) : $match[3];
+                    $to = (!isset($match[3])) ? sizeof($content) : $match[3];
 
                     $content = array_slice($content, $from, $to - $from);
                 }
