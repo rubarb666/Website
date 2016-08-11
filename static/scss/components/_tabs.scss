@@ -1,0 +1,79 @@
+/*------------------------------------------*\
+
+    c-tabs.scss
+
+    Tabs are perfect for single page web
+    applications, or for web pages capable
+    of displaying different subjects.
+
+
+    @namespace  .c-
+    @parent     .c-tabs
+
+\*------------------------------------------*/
+
+
+$tab-content: color(site);
+
+.c-tabs-nav {
+	font-size:0;
+	list-style: none;
+	white-space: nowrap;
+	overflow-x: auto;
+}
+
+.c-tabs-nav__link {
+	@include margin(n n n $base-space/4);
+	@include padding($padding/3 $padding/2);
+	background: color( site );
+	color: color( tabs );
+	text-align: center;
+	display: inline-block;
+	white-space: nowrap;
+	font-weight: $bold;
+	border-radius: 3px 3px 0 0;
+	font-size: font-size( alpha );
+
+	&:target, &:focus, &:active, &:hover {
+		outline: none;
+		text-decoration: none;
+	}
+
+	&:visited {
+		color: color( tabs );
+	}
+
+	&:hover {
+		background: color(tabs);
+		color: white;
+	}
+
+	&:first-child {
+		margin-left: 0;
+	}
+
+	&.is-active {
+		background: color(tabs);
+		color: white;
+	}
+}
+
+.c-tab__content {
+	background: $tab-content;
+	//border: 1px solid color(tabs);
+
+	pre[class*="language-"] {
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		margin-top: 0;
+		border-color: color( tabs );
+	}
+}
+
+.c-tab {
+	display: none;
+
+	&.is-active {
+		display: block;
+	}
+}

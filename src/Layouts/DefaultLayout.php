@@ -85,7 +85,7 @@ $request = Request::current();
         </nav>
     </div>
     <main class="c-main">
-<!--    <div class="c-band u-fill--shade"></div>-->
+
     <div id="content" class="c-band">
         <div class="c-manual-entries">
         <?php
@@ -153,7 +153,7 @@ $request = Request::current();
 <script type="text/javascript">
 
     var tabs = document.querySelectorAll('.js-tabs');
-    
+
     for(var i = 0; i < tabs.length; i++){
         var tab = tabs[i];
 
