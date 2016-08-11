@@ -201,7 +201,9 @@ $request = Request::current();
         var pre = pres[i];
         var a = document.createElement("A");
         a.href = pre.attributes['data-url'].value;
-        a.innerHTML = "View the full file";
+        var urlArray = pre.attributes['data-url'].value.split("/");
+        var fileName = urlArray[urlArray.length-1];
+        a.innerHTML = "View " + fileName + " on github";//view filename on github
         a.setAttribute("target", "_blank");
 
         pre.parentNode.insertBefore(a, pre.nextSibling);
