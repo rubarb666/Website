@@ -199,7 +199,7 @@ $request = Request::current();
 
     for(var i = 0; i < pres.length; i++){
         var pre = pres[i];
-        var a = document.createElement("A");
+        var a = document.createElement("a");
         a.href = pre.attributes['data-url'].value;
         var urlArray = pre.attributes['data-url'].value.split("/");
         var fileName = urlArray[urlArray.length-1];
@@ -213,9 +213,10 @@ $request = Request::current();
 
     for(var i = 0; i < pres.length; i++){
         var pre = pres[i];
-        var a = document.createElement("A");
+        var a = document.createElement("a");
         a.href = pre.attributes['data-demo-url'].value;
         a.innerHTML = "View the demo";
+        a.className = "c-button c-button--small";
 
         pre.parentNode.insertBefore(a, pre.nextSibling);
     }
