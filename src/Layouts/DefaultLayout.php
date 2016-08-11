@@ -195,6 +195,18 @@ $request = Request::current();
         }
     }
 
+    var allPres =document.querySelectorAll("pre");
+    for (var i = 0; i<allPres.length; i++)
+    {
+        var pre = allPres[i];
+        if(pre.hasAttribute("data-url") || pre.hasAttribute("data-demo-url"))
+        {
+            div = document.createElement("div");
+            div.className="button-bar";
+            pre.parentNode.insertBefore(div, pre.nextSibling);
+        }
+    }
+
     var pres = document.querySelectorAll("[data-url]");
 
     for(var i = 0; i < pres.length; i++){
@@ -203,10 +215,11 @@ $request = Request::current();
         a.href = pre.attributes['data-url'].value;
         var urlArray = pre.attributes['data-url'].value.split("/");
         var fileName = urlArray[urlArray.length-1];
-        a.innerHTML = "View " + fileName + " on github";//view filename on github
+        a.innerHTML = "View " + fileName + " on github";
         a.setAttribute("target", "_blank");
+        a.className = "git-hub-link";
 
-        pre.parentNode.insertBefore(a, pre.nextSibling);
+        pre.nextSibling.appendChild(a);
     }
 
     pres = document.querySelectorAll("[data-demo-url]");
@@ -216,9 +229,9 @@ $request = Request::current();
         var a = document.createElement("a");
         a.href = pre.attributes['data-demo-url'].value;
         a.innerHTML = "View the demo";
-        a.className = "c-button c-button--small";
+        a.className = "c-button c-button--small demo-button";
 
-        pre.parentNode.insertBefore(a, pre.nextSibling);
+       pre.nextSibling.appendChild(a);
     }
 
     // Webfonts
