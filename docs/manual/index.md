@@ -13,29 +13,29 @@ handling common scenarios.
 
 ## Table of Contents
 
-### 1. [Rhubarb Essentials](/manual/rhubarb/)
+### 1. [Rhubarb Essentials](/manual/rhubarb/files-and-directories)
 
 Looks at the essential concepts underpinning the Rhubarb framework and the classes that form them. We'll
 explore Modules, Layouts, UrlHandlers, Request and Response, exception handling, Date Time, Emailing, Record Streams,
 Encryption, Settings, Sessions and more.
 
-### 2. [Modelling with Stem](/manual/module-stem/)
+### 2. [Modelling with Stem](/manual/module.stem/)
 
 Abstract your database layer with the Rhubarb ORM tool 'Stem'. Create model objects, collections and relationships
 all abstracted from the real data provider through repositories, filters and aggregates.
 
-### 3. [Rapid user interface building with Leaf](/manual/module-leaf/)
+### 3. [Rapid user interface building with Leaf](/manual/module.leaf/)
 
 'Leaf' is a hierarchical model-view-presenter framework allowing you to rapidly build complex user interfaces
 through much smaller and simpler units which all follow the model-view-presenter pattern. Fast, testable, and
 tidy - you will be surprised how much you can build so quickly.
 
-### 4. [Building REST APIs](/manual/module-restapi/)
+### 4. Building REST APIs
 
 Whether creating bespoke resources objects or exposing model objects from 'Stem', our restapi module will help
 you build secure APIs that conform to the very best API standards.
 
-### 5. [Scaffolds](/manual/scaffolds/)
+### 5. Scaffolds
 
 Scaffolds let you import whole units of functionality to your application. They work out-of-the-box but are
 often configurable, and if you can't configure them to your liking you can exploit Rhubarb's modular nature and

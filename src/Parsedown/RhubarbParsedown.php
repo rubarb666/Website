@@ -3,6 +3,8 @@
 namespace Rhubarb\Website\Parsedown;
 
 use Rhubarb\Crown\Application;
+use Rhubarb\Crown\Request\Request;
+use Rhubarb\Crown\Response\HtmlResponse;
 
 class RhubarbParsedown extends \ParsedownExtra
 {
@@ -81,11 +83,66 @@ class RhubarbParsedown extends \ParsedownExtra
         return $tabUl;
     }
 
+    public static function getHtmlForDemo($demoPath, $request = null)
+    {
+        if (file_exists($demoPath)) {
+            // Include all the php files in the folder.
+            $directory = dirname($demoPath);
+            $scan = scandir($directory);
+
+            foreach($scan as $dir){
+                if ($dir[0] == "."){
+                    continue;
+                }
+
+                if (!preg_match("/\\.php$/", $dir)){
+                    continue;
+                }
+
+                include_once($directory."/".$dir);
+            }
+
+            // Read the example leaf to find the class name and namespace
+            $source = file_get_contents($demoPath);
+
+            if (preg_match("/namespace ([^;]+);/", $source, $namespace)){
+                if (preg_match("/class ([\\w]+)/", $source, $class)){
+                    $leafClass = $namespace[1]."\\".$class[1];
+                    $leaf = new $leafClass();
+
+                    /**
+                     * @var HtmlResponse $response
+                     */
+                    $response = $leaf->generateResponse($request);
+                    $html = $response->getContent();
+
+                    $code = RhubarbParsedown::getHtmlForExampleDirectory(dirname($demoPath));
+                    $html .= $code;
+                    $html = '<div class="c-example">'.$html.'</div>';
+                    return $html;
+                }
+            }
+        }
+
+        return false;
+    }
+
     protected function blockFencedCode($Line)
     {
         if (preg_match('/^[' . $Line['text'][0] . ']{3,}[ ]*dir[[]([^]]+)[]]/', $Line['text'], $match)) {
             $scanPath = $this->relativeDir . '/' . $match[1];
             $html = self::getHtmlForExampleDirectory($scanPath);
+
+            return array(
+                'char' => $Line['text'][0],
+                'group' => true,
+                'markup' => $html
+            );
+        }
+
+        if (preg_match('/^[' . $Line['text'][0] . ']{3,}[ ]*demo[[]([^]]+)[]]/', $Line['text'], $match)) {
+            $scanPath = $this->relativeDir . '/' . $match[1];
+            $html = self::getHtmlForDemo($scanPath, Request::current());
 
             return array(
                 'char' => $Line['text'][0],
@@ -101,11 +158,17 @@ class RhubarbParsedown extends \ParsedownExtra
             );
 
             if (isset($matches[1])) {
-                $class = 'language-' . $matches[1];
+                $language = $matches[1];
+
+                $class = 'language-' . $language;
 
                 $Element['attributes'] = array(
                     'class' => $class,
                 );
+
+                if ($language == "bash"){
+                    $Element['attributes']['class'] = $Element['attributes']['class']." command-line";
+                }
             }
 
             $Block = array(
@@ -125,7 +188,7 @@ class RhubarbParsedown extends \ParsedownExtra
 
                 if (preg_match("/lines[[](\\d+)(-(\\d+))?[]]/", $Line["text"], $match)) {
                     $from = $match[1];
-                    $to = (!$match[3]) ? sizeof($content) : $match[3];
+                    $to = (!isset($match[3])) ? sizeof($content) : $match[3];
 
                     $content = array_slice($content, $from, $to - $from);
                 }
