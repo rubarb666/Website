@@ -190,16 +190,15 @@ class RhubarbParsedown extends \ParsedownExtra
     /**
      * @param $file that you want to be displayed on github, relative to the code e.g "/examples/helloWorld.php
      * @param $urlPath e.g. $request->urlPath "/manual/module.leaf"
+     * removes "manual/" and "/index" (if it exists)
      * @return string the url to the file on GitHub
      */
     protected function generateGitHubUrl($file, $urlPath)
     {
-        $urlPathArray = str_split($urlPath);
-        //remove manual/ from the string
-        $extractedModuleRepository = "";
-        for ($i = 8; $i < sizeof($urlPathArray); $i++) {
-            $extractedModuleRepository .= $urlPathArray[$i];
-        }//_strPos pregReplace
-        return "https://github.com/RhubarbPHP/" . $extractedModuleRepository . "blob/master/docs/" . $file;
+        $urlPath = str_replace("manual/", "", $urlPath);
+        if (strpos($urlPath, "/index")) {
+            $urlPath = str_replace("/index", "/", $urlPath);
+        }
+        return "https://github.com/RhubarbPHP/" . $urlPath . "blob/master/docs/" . $file;
     }
 }
