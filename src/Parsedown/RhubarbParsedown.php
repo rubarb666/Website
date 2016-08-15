@@ -258,10 +258,7 @@ class RhubarbParsedown extends \ParsedownExtra
      */
     protected function generateGitHubUrl($file, $urlPath)
     {
-        $urlPath = str_replace("manual/", "", $urlPath);
-        if (strpos($urlPath, "/index")) {
-            $urlPath = str_replace("/index", "/", $urlPath);
-        }
-        return "https://github.com/RhubarbPHP/" . $urlPath . "blob/master/docs/" . $file;
+        $urlArray = explode("/", $urlPath);
+        return "https://github.com/RhubarbPHP/" . $urlArray[2] . "/blob/master/docs/" . $file;
     }
 }
