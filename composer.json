@@ -17,6 +17,7 @@
         "rhubarbphp/rhubarb": "^1.0.0",
         "rhubarbphp/module-leaf": "^1.0.0",
         "rhubarbphp/module-leaf-common-controls": "^1.0.0",
+        "rhubarbphp/module-leaf-html5upload": "dev-master",
         "erusev/parsedown-extra" : "*",
         "monolog/monolog": "^1"
     },

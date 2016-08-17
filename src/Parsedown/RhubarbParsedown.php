@@ -105,23 +105,25 @@ class RhubarbParsedown extends \ParsedownExtra
             // Read the example leaf to find the class name and namespace
             $source = file_get_contents($demoPath);
 
-            if (preg_match("/namespace ([^;]+);/", $source, $namespace)){
-                if (preg_match("/class ([\\w]+)/", $source, $class)){
-                    $leafClass = $namespace[1]."\\".$class[1];
-                    $leaf = new $leafClass();
+            $hasNamespace = preg_match("/namespace ([^;]+);/", $source, $namespace);
 
-                    /**
-                     * @var HtmlResponse $response
-                     */
-                    $response = $leaf->generateResponse($request);
-                    $html = $response->getContent();
+            if (preg_match("/class ([\\w]+)/", $source, $class)){
+                $namespace = ($hasNamespace) ? $namespace[1] : "";
+                $leafClass = $namespace."\\".$class[1];
+                $leaf = new $leafClass();
 
-                    $code = RhubarbParsedown::getHtmlForExampleDirectory(dirname($demoPath));
-                    $html .= $code;
-                    $html = '<div class="c-example">'.$html.'</div>';
-                    return $html;
-                }
+                /**
+                 * @var HtmlResponse $response
+                 */
+                $response = $leaf->generateResponse($request);
+                $html = $response->getContent();
+
+                $code = RhubarbParsedown::getHtmlForExampleDirectory(dirname($demoPath));
+                $html .= $code;
+                $html = '<div class="c-example">'.$html.'</div>';
+                return $html;
             }
+
         }
 
         return false;
