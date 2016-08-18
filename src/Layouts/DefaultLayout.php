@@ -66,6 +66,7 @@ class DefaultLayout extends Layout
 </html>
 <?php
 $request = Request::current();
+
 ?>
 <body <?=(StringTools::contains($request->uri, "manual")) ? 'class="l-docs"' : '';?>>
 <div class="c-page">
@@ -85,42 +86,68 @@ $request = Request::current();
         </nav>
     </div>
     <main class="c-main">
-
     <div id="content" class="c-band">
+        <?php
+        if (stripos($request->urlPath, "/manual/") === 0) {
+
+            $menu = NavigationTools::buildMenu(APPLICATION_ROOT_DIR . "/docs/manual/toc.txt");
+            ?>
+            <div id="c-manual-books">
+                <ul class="c-menu">
+                    <?php
+                        $first = true;
+                        $selectedMenu = false;
+
+                        foreach($menu->children as $item) {
+
+                            $firstClass = ($first) ? " first" : "";
+                            $first = false;
+
+                            $url = $item->url;
+
+                            if ($item->containsUrl($request->urlPath)) {
+                                $selectedMenu = $item;
+                                $firstClass .= " open";
+                            } else {
+                                $firstClass .= " closed";
+                            }
+
+                            print '<li class="book '.$firstClass.' '.strtolower($item->name).'"><a href="'.$url.'">'.$item->name.'</a></li>';
+                        }
+                    ?>
+                </ul>
+            </div>
+            <?php
+        }
+        ?>
         <div class="c-manual-entries">
         <?php
 
-        $request = Application::current()->request();
-
         if (stripos($request->urlPath, "/manual/") === 0){
-
-            $menu = NavigationTools::buildMenu(APPLICATION_ROOT_DIR."/docs/manual/toc.txt");
-
             ?><ul class="c-menu"><?php
-            $x = 1;
 
             $first = true;
 
-            foreach($menu->children as $item){
+            if ($selectedMenu) {
 
-                $firstClass = ($first) ? " first" : "";
-                $first = false;
+                print '<li class="book index">' . $item->chapter . ". " . $item->name . '</li>';
 
-                $url = $item->url;
+                foreach ($selectedMenu->children as $item) {
 
-                if ((!$url) && isset($item->children) && (sizeof($item->children) > 0)){
-                    //$url = $item->children[0]->url;
-                }
+                    $firstClass = ($first) ? " first" : "";
+                    $first = false;
 
-                // Is the current url this one or one of the children? If so open the menu and children.
-                if ($item->containsUrl($request->urlPath)){
-                    print '<li class="chapter open'.$firstClass.'">'.$item->chapter.". ".$item->name.'</li>';
+                    $url = $item->url;
+
+                    if ((!$url) && isset($item->children) && (sizeof($item->children) > 0)) {
+                        //$url = $item->children[0]->url;
+                    }
+
+                    // Is the current url this one or one of the children? If so open the menu and children.
+                    print '<li class="chapter open' . $firstClass . '">' . $item->chapter . ". " . $item->name . '</li>';
+
                     NavigationTools::printMenu($item, 0);
-                } else {
-                    print '<li class="chapter closed'.$firstClass.'"><a href="'.$url.'">'.$item->chapter.". ".$item->name.'</a></li>';
                 }
-
-                $x++;
             }
             ?></ul>
             <?php
