@@ -58,6 +58,7 @@ class DefaultLayout extends Layout
 
 <?php
 $request = Request::current();
+
 ?>
 
 <body <?=(StringTools::contains($request->uri, "manual")) ? 'class="l-docs"' : '';?>>
@@ -106,56 +107,78 @@ $request = Request::current();
                 <li class="is-selected"><a href="/manual/index">Stem</a></li>
                 <li><a href="/contributing">Scaffolds</a></li>
             </ul>
+    </div>
+    <main class="c-main">
+    <div id="content" class="c-band">
+        <?php
+        if (stripos($request->urlPath, "/manual/") === 0) {
 
-
-
-
-        <main class="c-main">
-
-            <div id="content" class="c-band">
-
-                <div class="o-wrap">
-
-                    <div class="c-manual-entries">
+            $menu = NavigationTools::buildMenu(APPLICATION_ROOT_DIR . "/docs/manual/toc.txt");
+            ?>
+            <div id="c-manual-books">
+                <ul class="c-menu">
                     <?php
-
-                    if (stripos($request->urlPath, "/manual/") === 0){
-
-                        $menu = NavigationTools::buildMenu(APPLICATION_ROOT_DIR."/docs/manual/toc.txt");
-
-                        ?><ul class="c-menu"><?php
-                        $x = 1;
-
                         $first = true;
+                        $selectedMenu = false;
 
-                        foreach($menu->children as $item){
+                        foreach($menu->children as $item) {
 
                             $firstClass = ($first) ? " first" : "";
                             $first = false;
 
                             $url = $item->url;
 
-                            if ((!$url) && isset($item->children) && (sizeof($item->children) > 0)){
-                                //$url = $item->children[0]->url;
-                            }
-
-                            // Is the current url this one or one of the children? If so open the menu and children.
-                            if ($item->containsUrl($request->urlPath)){
-                                print '<li class="chapter open'.$firstClass.'">'.$item->chapter.". ".$item->name.'</li>';
-                                NavigationTools::printMenu($item, 0);
+                            if ($item->containsUrl($request->urlPath)) {
+                                $selectedMenu = $item;
+                                $firstClass .= " open";
                             } else {
-                                print '<li class="chapter closed'.$firstClass.'"><a href="'.$url.'">'.$item->chapter.". ".$item->name.'</a></li>';
+                                $firstClass .= " closed";
                             }
 
-                            $x++;
+                            print '<li class="book '.$firstClass.' '.strtolower($item->name).'"><a href="'.$url.'">'.$item->name.'</a></li>';
                         }
-                        ?></ul>
-                        <?php
-                    }
-
                     ?>
-                    </div>
+                </ul>
+            </div>
+            <?php
+        }
+        ?>
+        <div class="c-manual-entries">
+        <?php
 
+        if (stripos($request->urlPath, "/manual/") === 0) {
+            ?>
+            <ul class="c-menu">
+            <div class="o-wrap">
+                <?php
+
+                if ($selectedMenu) {
+
+                    print '<li class="book index">' . $selectedMenu->chapter . ". " . $selectedMenu->name . '</li>';
+
+                    foreach ($selectedMenu->children as $item) {
+
+                        $firstClass = ($first) ? " first" : "";
+                        $first = false;
+
+                        $url = $item->url;
+
+                        if ((!$url) && isset($item->children) && (sizeof($item->children) > 0)) {
+                            //$url = $item->children[0]->url;
+                        }
+
+                        // Is the current url this one or one of the children? If so open the menu and children.
+                        print '<li class="chapter open' . $firstClass . '">' . $item->chapter . ". " . $item->name . '</li>';
+
+                        NavigationTools::printMenu($item, 0);
+                    }
+                }
+                ?>
+            </div>
+            </ul>
+            <?php
+        }
+        ?>
                     <div class="c-main-content">
                         <div class="c-main-content__inner">
                             <?php
@@ -169,8 +192,6 @@ $request = Request::current();
                             ?>
                         </div>
                     </div>
-
-                </div>
 
             </div>
 

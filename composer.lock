@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e45c405b64c66449f3b0980b896043c0",
-    "content-hash": "93feed2e81fd2b488f213b0e72d639d7",
+    "hash": "0e93105aaf97bbc525caf1655b89a380",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -418,6 +417,47 @@
             "time": "2016-08-09 20:24:13"
         },
         {
+            "name": "rhubarbphp/module-leaf-html5upload",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RhubarbPHP/Module.Leaf.Html5Upload.git",
+                "reference": "9419e92fd4a875cea160c6be0b331a22e9e3c85a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RhubarbPHP/Module.Leaf.Html5Upload/zipball/9419e92fd4a875cea160c6be0b331a22e9e3c85a",
+                "reference": "9419e92fd4a875cea160c6be0b331a22e9e3c85a",
+                "shasum": ""
+            },
+            "require": {
+                "rhubarbphp/module-leaf-common-controls": "^1.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Rhubarb\\Leaf\\Controls\\Html5Upload\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "Leaf patterns for HTML 5 uploads.",
+            "homepage": "http://www.rhubarbphp.com/",
+            "keywords": [
+                "HTML5",
+                "framework",
+                "leaf",
+                "mvp",
+                "php",
+                "presenter",
+                "rhubarb",
+                "upload"
+            ],
+            "time": "2016-08-12 09:31:13"
+        },
+        {
             "name": "rhubarbphp/rhubarb",
             "version": "1.1.4",
             "source": {
@@ -722,16 +762,16 @@
         },
         {
             "name": "facebook/webdriver",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/php-webdriver.git",
-                "reference": "0b889d7de7461439f8a3bbcca46e0f696cb27986"
+                "reference": "b7186fb1bcfda956d237f59face250d06ef47253"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/0b889d7de7461439f8a3bbcca46e0f696cb27986",
-                "reference": "0b889d7de7461439f8a3bbcca46e0f696cb27986",
+                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/b7186fb1bcfda956d237f59face250d06ef47253",
+                "reference": "b7186fb1bcfda956d237f59face250d06ef47253",
                 "shasum": ""
             },
             "require": {
@@ -739,7 +779,9 @@
                 "php": ">=5.3.19"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.6.*"
+                "friendsofphp/php-cs-fixer": "^1.11",
+                "phpunit/phpunit": "4.6.* || ~5.0",
+                "squizlabs/php_codesniffer": "^2.6"
             },
             "suggest": {
                 "phpdocumentor/phpdocumentor": "2.*"
@@ -762,7 +804,7 @@
                 "selenium",
                 "webdriver"
             ],
-            "time": "2016-06-04 00:02:34"
+            "time": "2016-08-10 00:44:08"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -1296,12 +1338,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "467d048f06b50afe9b0de3a2855a7bd53b4aa63c"
+                "reference": "938acae009773adc8b2dcbfeb9c4aebbaecc6537"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/467d048f06b50afe9b0de3a2855a7bd53b4aa63c",
-                "reference": "467d048f06b50afe9b0de3a2855a7bd53b4aa63c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/938acae009773adc8b2dcbfeb9c4aebbaecc6537",
+                "reference": "938acae009773adc8b2dcbfeb9c4aebbaecc6537",
                 "shasum": ""
             },
             "require": {
@@ -1366,7 +1408,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-08-11 15:54:32"
+            "time": "2016-08-17 09:38:53"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1374,12 +1416,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "363392d7d849dc05902d88cc1d7046805b6b5f2d"
+                "reference": "4e83390f64e7ce04fcaec2ce95cd72823b431d19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/363392d7d849dc05902d88cc1d7046805b6b5f2d",
-                "reference": "363392d7d849dc05902d88cc1d7046805b6b5f2d",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/4e83390f64e7ce04fcaec2ce95cd72823b431d19",
+                "reference": "4e83390f64e7ce04fcaec2ce95cd72823b431d19",
                 "shasum": ""
             },
             "require": {
@@ -1425,7 +1467,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2016-07-02 15:30:03"
+            "time": "2016-08-17 09:33:51"
         },
         {
             "name": "psr/http-message",
@@ -2317,7 +2359,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "rhubarbphp/module-leaf-html5upload": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

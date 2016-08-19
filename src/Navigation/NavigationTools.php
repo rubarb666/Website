@@ -19,6 +19,11 @@ class NavigationTools
                 $indent = strlen($line) - strlen(ltrim($line));
 
                 if (preg_match("/[[]([^]]+)+[]]/", $line, $match)) {
+
+                    if (!file_exists(APPLICATION_ROOT_DIR.'/'.$match[1])){
+                        continue;
+                    }
+
                     $subContent = file(APPLICATION_ROOT_DIR.'/'.$match[1]);
                     $processing = true;
                     foreach($subContent as $subContentLine){

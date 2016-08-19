@@ -1,6 +1,7 @@
-Rhubarb Essentials: /manual/rhubarb/files-and-directories
+rhubarb: /manual/rhubarb/files-and-directories
     [docs/modules/rhubarb/docs/toc.txt]
-Modelling with Stem: /manual/module.stem/
+stem: /manual/module.stem/
     [docs/modules/module.stem/docs/toc.txt]
-User Interfaces using Leaf: /manual/module.leaf/
+leaf: /manual/module.leaf/
     [docs/modules/module.leaf/docs/toc.txt]
+scaffolds: /manual/scaffolds/
