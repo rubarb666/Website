@@ -14,29 +14,26 @@
 
 .c-sidebar {
     @include padding($base-space $base-space/2);
+	border-right: 1px solid color(border);
+
+
+	.book {
+		font-family: font-family(primary);
+		font-size: font-size(delta);
+		@include margin(n n $base-space*2 n);
+	}
+
+	.chapter {
+		font-family: font-family(primary);
+		font-size: font-size(beta);
+		color: color(secondary);
+		@include margin($base-space n $base-space $base-space*2);
+	}
+
+	.indent-1 {
+		@include margin(n n n $base-space*2);
+		font-size: font-size(alpha)-2;
+	}
 }
 
-.c-sidebar__heading {
-    @include font-size(font-size(gamma));
-    @include padding(n $base-space/2);
-}
 
-.c-sidebar__stories {
-    list-style: none;
-    margin-left: 0;
-    @include screen-size(m-l) {
-        display: flex;
-    }
-}
-
-.c-sidebar__story {
-    @include screen-size(m-l) {
-        flex: 1;
-        width: 33.33%;
-        max-width: none;
-    }
-    @include screen-size(m-) {
-        display: block;
-        max-width: none;
-    }
-}

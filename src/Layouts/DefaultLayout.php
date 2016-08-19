@@ -63,93 +63,96 @@ $request = Request::current();
 
 <body <?=(StringTools::contains($request->uri, "manual")) ? 'class="l-docs"' : '';?>>
 
+    <header id="page-header" class="c-header s-header">
+
+        <div class="c-masthead">
+
+            <!--<input type="checkbox" id="nav-primary-reveal" class="c-masthead__nav-toggle-check u-off-canvas">-->
+            <h1 class="c-masthead__logo u-margin-none">
+                <a href="/">
+
+                    <?php
+
+                    if (strpos($request->urlPath, "manual") !== false){
+                        print "<img class=\"c-site-logo\" src=\"/static/images/rhubarb-manual-logo.svg\">";
+                    }
+                    else {
+                        print "<img class=\"c-site-logo\" src=\"/static/images/rhubarb-logo.svg\">";
+                    }
+
+                    ?>
+
+                </a>
+            </h1>
+            <label class="c-masthead__nav-toggle" for="nav-primary-reveal"></label>
+
+            <nav class="c-masthead__nav">
+                <ul class="c-nav c-nav--primary">
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/tutorial/index">Get Started</a></li>
+                    <li class="is-selected"><a href="/manual/index">Manual</a></li>
+                    <li><a href="/contributing">Contributing</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </header>
 
 
+    <!--<ul class="c-nav c-nav--secondary">
+        <li><a href="/tutorial/index">Rhubarb</a></li>
+        <li><a href="/tutorial/index">Leaf</a></li>
+        <li class="is-selected"><a href="/manual/index">Stem</a></li>
+        <li><a href="/contributing">Scaffolds</a></li>
+    </ul>-->
 
 
-            <header id="page-header" class="c-header s-header">
-                <div class="c-masthead">
-
-                    <!--<input type="checkbox" id="nav-primary-reveal" class="c-masthead__nav-toggle-check u-off-canvas">-->
-                    <h1 class="c-masthead__logo u-margin-none">
-                        <a href="/">
-
-                            <?php
-
-                            if (strpos($request->urlPath, "manual") !== false){
-                                print "<img class=\"c-site-logo\" src=\"/static/images/rhubarb-manual-logo.svg\">";
-                            }
-                            else {
-                                print "<img class=\"c-site-logo\" src=\"/static/images/rhubarb-logo.svg\">";
-                            }
-
-                            ?>
-
-                        </a>
-                    </h1>
-                    <label class="c-masthead__nav-toggle" for="nav-primary-reveal"></label>
-
-                    <nav class="c-masthead__nav">
-                        <ul class="c-nav c-nav--primary">
-                            <li><a href="/about">About</a></li>
-                            <li><a href="/tutorial/index">Get Started</a></li>
-                            <li class="is-selected"><a href="/manual/index">Manual</a></li>
-                            <li><a href="/contributing">Contributing</a></li>
-                        </ul>
-                    </nav>
-
-                </div>
-            </header>
-
-            <ul class="c-nav c-nav--secondary">
-                <li><a href="/tutorial/index">Rhubarb</a></li>
-                <li><a href="/tutorial/index">Leaf</a></li>
-                <li class="is-selected"><a href="/manual/index">Stem</a></li>
-                <li><a href="/contributing">Scaffolds</a></li>
-            </ul>
-    </div>
     <main class="c-main">
-    <div id="content" class="c-band">
+
+
         <?php
         if (stripos($request->urlPath, "/manual/") === 0) {
 
             $menu = NavigationTools::buildMenu(APPLICATION_ROOT_DIR . "/docs/manual/toc.txt");
             ?>
-            <div id="c-manual-books">
-                <ul class="c-menu">
-                    <?php
-                        $first = true;
-                        $selectedMenu = false;
+            <ul class="c-nav c-nav--secondary c-nav--flex-items">
+                <?php
+                    $first = true;
+                    $selectedMenu = false;
 
-                        foreach($menu->children as $item) {
+                    foreach($menu->children as $item) {
 
-                            $firstClass = ($first) ? " first" : "";
-                            $first = false;
+                        $firstClass = ($first) ? " first" : "";
+                        $first = false;
 
-                            $url = $item->url;
+                        $url = $item->url;
 
-                            if ($item->containsUrl($request->urlPath)) {
-                                $selectedMenu = $item;
-                                $firstClass .= " open";
-                            } else {
-                                $firstClass .= " closed";
-                            }
-
-                            print '<li class="book '.$firstClass.' '.strtolower($item->name).'"><a href="'.$url.'">'.$item->name.'</a></li>';
+                        if ($item->containsUrl($request->urlPath)) {
+                            $selectedMenu = $item;
+                            $firstClass .= " open is-active";
+                        } else {
+                            $firstClass .= " closed";
                         }
-                    ?>
-                </ul>
-            </div>
+
+                        print '<li class="book '.$firstClass.' '.strtolower($item->name).'"><a href="'.$url.'"><img src="/static/images/'.$item->name.'-logo.svg" /></a></li>';
+                    }
+                ?>
+            </ul>
             <?php
         }
+
         ?>
-        <div class="c-manual-entries">
+
+        <div class="o-box o-box--padded-extra">
+
+            <div class="o-layout">
+
         <?php
 
         if (stripos($request->urlPath, "/manual/") === 0) {
             ?>
-            <ul class="c-menu">
-            <div class="o-wrap">
+            <ul class="c-sidebar o-layout__item u-1/4@l">
                 <?php
 
                 if ($selectedMenu) {
@@ -174,26 +177,32 @@ $request = Request::current();
                     }
                 }
                 ?>
-            </div>
             </ul>
             <?php
         }
         ?>
-                    <div class="c-main-content">
-                        <div class="c-main-content__inner">
-                            <?php
+            <div class="c-main-content s-manual-content o-layout__item u-3/4@l">
+                <div class="o-box o-box--padded">
 
-                            $settings = MenuSettings::singleton();
-                            if ($settings->currentChapter){
-                                $content = str_replace("<h1>", "<h1>".$settings->currentChapter.". ", $content);
-                            }
+                    <div class="c-article">
+                    <?php
 
-                            parent::printLayout($content);
-                            ?>
-                        </div>
+                    $settings = MenuSettings::singleton();
+                    if ($settings->currentChapter){
+                        $content = str_replace("<h1>", "<h1>".$settings->currentChapter.". ", $content);
+                    }
+
+                    parent::printLayout($content);
+                    ?>
                     </div>
+                    
+                </div>
+            </div>
+
 
             </div>
+
+        </div>
 
         </main>
 
@@ -205,15 +214,14 @@ $request = Request::current();
         </footer>
 
 
-    </div>
 
 
 <script type="text/javascript">
 
-    var ps = document.querySelectorAll('.c-main-content__inner p');
+    var ps = document.querySelectorAll('.s-manual-content p');
 
     if (ps.length > 0 ){
-        ps[0].classList.add('first');
+        ps[0].classList.add('c-intro-paragraph');
     }
 
     var tabs = document.querySelectorAll('.js-tabs');

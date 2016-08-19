@@ -242,6 +242,13 @@ samp {
 	font-family: font-family(mono);
 }
 
+code {
+	background: #EDEDED;
+	padding: 0 2px;
+	border-radius: 4px;
+	margin-bottom: $base-space;
+}
+
 pre {
 	white-space: pre-wrap;
 }

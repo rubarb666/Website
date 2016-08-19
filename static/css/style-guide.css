@@ -268,7 +268,7 @@ font-style: normal;
  * Style Guide specific styles
  */
 ::selection {
-  background-color: #e25831;
+  background-color: #e53a7d;
   color: white; }
 
 .style-guide {
@@ -324,7 +324,7 @@ font-style: normal;
       display: inline-block;
       color: rgba(54, 62, 70, 0.5); }
       .style-guide-nav ul li a:hover {
-        color: #e25831;
+        color: #e53a7d;
         text-decoration: none; }
   .style-guide-nav h2 {
     text-transform: uppercase; }
