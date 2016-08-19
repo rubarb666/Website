@@ -1,0 +1,50 @@
+/*------------------------------------------*\
+
+    _c-icon.scss
+
+    Icons that can be used in HTML or as
+    content using pseudo classes
+
+    @namespace  .c-
+    @parent     .c-icon
+
+\*------------------------------------------*/
+
+.c-icon {
+	font-family: font-family( icon );
+	font-style: normal;
+	font-weight: normal;
+	display: inline-block;
+	text-decoration: inherit;
+
+	/* For safety - reset parent styles, that can break glyph codes*/
+	font-variant: normal;
+	text-transform: none;
+}
+
+.c-icon--search:before {
+  content: "\e986";
+}
+.c-icon--folder:before {
+  content: "\e92f";
+}
+.c-icon--price-tags:before {
+  content: "\e936";
+}
+.c-icon--clock2:before {
+  content: "\e94f";
+}
+.c-icon--drawer:before {
+  content: "\e95c";
+}
+.c-icon--bubble:before {
+  content: "\e96b";
+}
+.c-icon--key:before {
+  content: "\e98d";
+}
+.c-icon--cross:before {
+  content: "\ea0f";
+}
+
+

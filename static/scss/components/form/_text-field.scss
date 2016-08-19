@@ -1,0 +1,45 @@
+/*------------------------------------------*\
+
+    _c-text-field.scss
+
+    Basic text box styling.
+    Use the config file to adjust their appearance.
+
+    @namespace  .c-
+    @parent     .c-text-field
+    @variations .c-text-field--fill
+
+\*------------------------------------------*/
+
+.c-text-field {
+    @include field;
+    width: 100%;
+}
+
+.c-text-field--fill {
+    display: block;
+    max-width: none;
+}
+
+.c-text-field--naked {
+    background: transparent;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+textarea.c-text-field {
+    @include padding($padding/2 n);
+    line-height: inherit;
+}
+
+.c-color-field {
+    @include field;
+    height: $touch-target;
+    &::-webkit-color-swatch {
+        border: 0;
+    }
+    &::-webkit-color-swatch-wrapper {
+        padding: 0;
+    }
+}

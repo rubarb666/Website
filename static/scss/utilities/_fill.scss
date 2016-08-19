@@ -1,0 +1,36 @@
+/*scss/utilities/_u-fill.scss*/
+
+.u-fill-site {
+    background-color: color(site) !important;
+}
+
+.u-fill-text {
+    @include background-color(color(text));
+}
+
+.u-fill-link {
+    @include background-color(color(link));
+}
+
+
+
+.u-fill-primary {
+    @include background-color(color(primary));
+}
+
+.u-fill-secondary {
+    @include background-color(color(secondary));
+}
+
+.u-fill-tertiary {
+    @include background-color(color(tertiary));
+}
+
+
+
+.u-fill-shade {
+    background-color: color(black, $shade-amount) !important;
+}
+.u-fill-tint {
+    background-color: color(white, $tint-amount) !important;
+}

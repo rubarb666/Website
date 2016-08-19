@@ -1,0 +1,18 @@
+/*------------------------------------
+	LINK
+*/
+
+@mixin link ( $linkColor: color(link) ) {
+	color: $linkColor;
+	cursor: pointer;
+	&:hover {
+		color: lighten($linkColor, 20%);
+	}
+	&:visited {
+		color: desaturate($linkColor, 10%);
+		opacity:0.8;
+	}
+	&:active {
+		color: complement($linkColor);
+	}
+}

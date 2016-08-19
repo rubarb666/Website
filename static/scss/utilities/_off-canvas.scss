@@ -1,0 +1,5 @@
+/*scss/utilities/_u-off-canvas.scss*/
+
+.u-off-canvas{
+    @include position(absolute, 0 0 0 -9999px);
+}

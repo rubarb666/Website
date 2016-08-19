@@ -1,0 +1,39 @@
+/*------------------------------------------*\
+
+    _c-label.scss
+
+    Basic label class. By default this gives
+    the label a block display, and space from
+    form elements above it.
+
+    @namespace  .c-
+    @parent     .c-label
+
+\*------------------------------------------*/
+
+.c-label {
+    @include margin($base-space n n n);
+    display: block;
+    &:first-child {
+        margin-top:0;
+    }
+}
+
+.c-label--check {
+    margin-top:0;
+	@include margin(n n $base-space/2 n);
+    &:active {
+        color: color(text, $fade);
+    }
+}
+
+.c-label--optional {
+    &:after {
+        content: " (Optional)";
+        opacity: $fade;
+    }
+}
+
+.c-label--error {
+    color: color(error)
+}

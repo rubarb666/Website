@@ -1,0 +1,13 @@
+/*------------------------------------
+	Website fonts
+*/
+
+/*@include font-face(Museo, '/fonts/museo/museo_300-webfont', $weight:300);									// Museo 300		| Page headings
+@include font-face(Museo, '/fonts/museo/museo_500-webfont', $weight:500);									// Museo 500		| Page headings
+@include font-face(MuseoSans, '/fonts/museo/museosans_300-webfont', $weight:normal);						// Museo Sans 300	| Regular Text
+@include font-face(MuseoSans, '/fonts/museo/museosans_300_italic-webfont', $weight:normal, $style:italic);	// Museo Sans 300	| Italic
+@include font-face(MuseoSans, '/fonts/museo/museosanscyrl_700-webfont', $weight:bold);						// Museo Sans 700	| Bold*/
+
+@include font-face(SSStandard, '/fonts/ss-standard/webfonts/ss-standard');				// Symbolset | www.symbolset.com | Copyright © 2012 Oak Studios LLC
+@include font-face(SSSocial, '/fonts/ss-social-regular/webfonts/ss-social-regular', normal);	// Symbolset | www.symbolset.com | Copyright © 2012 Oak Studios LLC
+@include font-face(SSSocial, '/fonts/ss-social-circle/webfonts/ss-social-circle', bold);	// Symbolset | www.symbolset.com | Copyright © 2012 Oak Studios LLC

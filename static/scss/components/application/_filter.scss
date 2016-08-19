@@ -1,0 +1,18 @@
+.c-filter {
+
+}
+
+.c-filter--grid .c-filter__item {
+    flex: 1;
+    > * {
+        display: block;
+    }
+}
+
+.c-filter--grid .c-filter__item--long {
+	flex:2;
+}
+
+.c-filter--grid .c-filter__button {
+    text-align: $end;
+}

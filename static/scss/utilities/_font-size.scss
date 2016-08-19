@@ -1,0 +1,30 @@
+/*scss/utilities/_u-font-size.scss*/
+
+.u-base {
+    @include base-font-size;
+}
+
+.u-micro {
+    font-size: font-size(micro) !important;
+}
+
+.u-milli {
+    font-size: font-size(milli) !important;
+}
+
+.u-alpha {
+    font-size: font-size(alpha) !important;
+}
+
+.u-beta {
+    font-size: font-size(beta) !important;
+}
+
+.u-gamma {
+    font-size: font-size(gamma) !important;
+}
+
+.u-delta {
+    font-size: font-size(delta) !important;
+}
+

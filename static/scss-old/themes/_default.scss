@@ -1,0 +1,91 @@
+/* Base typography */
+
+$font-stack-a			: 'AvenirNextLTW01-Regular', sans-serif;
+$font-stack-b			: 'AvenirNextLTW01-Regular', sans-serif;
+$font-stack-mono		: Consolas, Monaco, 'Andale Mono', monospace;
+
+$font-family: (
+	primary				: $font-stack-a,
+	secondary			: $font-stack-b,
+	article				: $font-stack-a,
+	mono				: $font-stack-mono,
+	icons				: SSStandard,
+	social-icons		: SSSocial
+);
+
+/* Site Colours */
+
+$brand-a				: #444444;
+$brand-b				: #FD4565;
+$brand-c				: #FD4565;
+$brand-d				: #282828;
+$brand-e				: #2c8ae8;
+$brand-f				: #84960e;
+$site					: #ffffff;
+$white					: #ffffff;
+
+$color: (
+		footer			: $brand-c,
+		site			: $site,
+		white			: $white,
+
+	/* Text colors */
+		text			: $brand-a,
+		text-quiet		: lighten($brand-a, 20%),
+		link			: $brand-b,
+
+	/* Brand colors */
+		primary			: $brand-a,
+		secondary		: $brand-b,			// tertiary, quaternary, quinary ...
+		tertiary		: $brand-c,			// tertiary, quaternary, quinary ...
+		quaternary		: $brand-d,			// tertiary, quaternary, quinary ...
+		quinary			: $brand-e,			// tertiary, quaternary, quinary ...
+		senary			: $brand-f,			// tertiary, quaternary, quinary ...
+
+		nav				: $brand-b,
+		nav-rev			: $white,
+
+	/* Tint and Shade */
+		tint			: $color-tint,
+		tint-safe		: lighten($site, 10%),
+		shade			: $color-shade,
+		shade-safe		: darken($site, 5%),
+
+	/* UI colors */
+		border			: darken($site, 10%),
+		mark			: $color-mark,
+		alert			: $brand-b,
+		error			: #D51111,
+		warning			: $brand-c,
+		success			: $brand-f,
+		tabs			: darken($site, 20%),
+		quiet			: lighten( $brand-a, 30%  ),
+
+	/* Social Media */
+		twitter			: $color-twitter,
+		facebook		: $color-facebook,
+		whatsapp		: $color-whatsapp,
+		youtube			: $color-youtube,
+		yahoo			: $color-yahoo,
+		googleplus		: $color-googleplus,
+		pinterest		: $color-pinterest
+);
+
+$base-font-family		: map-get($font-family, primary);
+
+/* Headings */
+
+$heading-font-family	: map-get($font-family, primary);
+$heading-color			: $brand-d!default;
+$heading-weight			: normal!default;
+
+$brand-name-case		: $global-header-case;
+$brand-name-weight		: $global-header-weight;
+$brand-name-features	: $global-header-features;
+
+
+$tint-amount			: 0.5;
+$shade-amount			: 0.1;
+
+$button-font-family		: $base-font-family;
+$button-color			: darken(map-get($color, site), 10%);

@@ -44,7 +44,7 @@ class MarkdownUrlHandler extends UrlHandler
         $parts = explode("/",$url);
 
         if ($parts[0] == "examples"){
-            if (file_exists($rootPath . $url . ".php")) {
+            if (file_exists($rootPath . $url . ".php"))  {
                 $html = RhubarbParsedown::getHtmlForDemo($rootPath . $url . ".php", Request::current());
                 return $html;
             }

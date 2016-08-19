@@ -1,0 +1,58 @@
+@mixin margin(
+$margin
+) {
+	@if length($margin) == 1 and $margin != n {
+		@include rem(margin-top, $margin);
+		@include rem(margin-right, $margin);
+		@include rem(margin-bottom, $margin);
+		@include rem(margin-left, $margin);
+	}
+
+	@if length($margin) == 2 {
+		$margin-y: nth($margin, 1);
+		$margin-x: nth($margin, 2);
+		@if $margin-y != n {
+			@include rem(margin-top, $margin-y);
+			@include rem(margin-bottom, $margin-y);
+		}
+		@if $margin-x != n {
+			@include rem(margin-left, $margin-x);
+			@include rem(margin-right, $margin-x);
+		}
+	}
+
+	@if length($margin) == 3 {
+		$margin-y-top: nth($margin, 1);
+		$margin-x: nth($margin, 2);
+		$margin-y-bottom: nth($margin, 3);
+		@if $margin-y-top != n {
+			@include rem(margin-top, $margin-y-top);
+		}
+		@if $margin-x != n {
+			@include rem(margin-left, $margin-x);
+			@include rem(margin-right, $margin-x);
+		}
+		@if $margin-y-bottom != n {
+			@include rem(margin-bottom, $margin-y-bottom);
+		}
+	}
+
+	@if length($margin) == 4 {
+		$margin-top: nth($margin, 1);
+		$margin-right: nth($margin, 2);
+		$margin-bottom: nth($margin, 3);
+		$margin-left: nth($margin, 4);
+		@if $margin-top != n {
+			@include rem(margin-top, $margin-top);
+		}
+		@if $margin-right != n {
+			@include rem(margin-right, $margin-right);
+		}
+		@if $margin-bottom != n {
+			@include rem(margin-bottom, $margin-bottom);
+		}
+		@if $margin-left != n {
+			@include rem(margin-left, $margin-left);
+		}
+	}
+}

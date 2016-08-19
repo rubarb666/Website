@@ -1,0 +1,19 @@
+.c-field--long {
+    max-width: $content-unit;
+}
+
+.c-field--short {
+    max-width: $content-unit/4;
+}
+
+.c-field--error {
+    border-color: color(error);
+}
+
+.c-field--success {
+    border-color: color(success);
+}
+
+.c-field--warning {
+    border-color: color(warning);
+}

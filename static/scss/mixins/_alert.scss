@@ -1,0 +1,19 @@
+@mixin alert (
+	$alert-color: color(secondary),
+	$icon: ''
+) {
+	@include background-color($alert-color);
+	background-color:rgba($alert-color, 0.9);
+
+	@if $has-alert-border {
+		border-color: darken($alert-color, 5%);
+	}
+
+	@if $icon != '' {
+		&:before {
+			content: $icon;
+			margin-right: $margin/2;
+			font-family: font-family( icon );
+		}
+	}
+}

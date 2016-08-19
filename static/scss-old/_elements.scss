@@ -1,0 +1,665 @@
+/*
+
+    ELEMENTS
+    Combines the Normalize (git.io/normalize)
+    and the reset at
+    csswizardry.com/2011/10/reset-restarted
+    with GCD's own preferences
+
+*/
+
+@charset "UTF-8";
+
+/*------------------------------------
+	HTML5 BLOCK ELEMENTS
+	Correct `block` display not defined in IE 8/9.
+*/
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+	display: block;
+}
+
+
+/*------------------------------------
+	HTML5 INLINE BLOCK ELEMENTS
+	Correct `block` display not defined in IE 8/9.
+*/
+
+audio,
+canvas,
+video {
+	display: inline-block;
+	max-width:100%;
+}
+
+/*------------------------------------
+	Address styling not present in IE 8/9.
+*/
+
+[hidden] {
+	display: none;
+}
+
+/*--------------------------------------
+	BOX MODEL
+	This works for IE8 and above.
+	For IE7, there'll need to be tweaks
+*/
+
+@if $global-border-box == true{
+/**
+* Let’s make the box model all nice, shall we...?
+*/
+	* {
+		&,
+		&:before,
+		&:after {
+			@include prefixer(box-sizing, inherit, webkit moz spec);
+		}
+	}
+}
+
+/*------------------------------------
+	Smooth transitions
+*/
+
+@include screen-size(md-min) {
+	@if $smoothness != 0 {
+		:hover {
+			@include prefixer(transition, #{$smoothness}s, moz webkit spec);
+		}
+	}
+}
+
+/*------------------------------------
+	Remove margins and padding
+*/
+
+h1, h2, h3, h4, h5, h6,
+dl, dd, ol, ul,
+p, blockquote, pre,
+table, th, td, caption,
+form, fieldset, legend,
+hr {
+	margin: 0;
+	padding: 0;
+}
+
+/*------------------------------------
+	Spacing Resets
+*/
+
+h1, h2, h3, h4, h5, h6,
+ul, ol, dl,
+blockquote, p, address,
+table,
+form, fieldset, figure,
+pre {
+	@include vertical-spacing(include);
+}
+
+/*------------------------------------
+	HTML & BODY
+*/
+
+@mixin base-font-size {
+	font-size: em($base-font-size);
+	font-size: rem($base-font-size);
+	@include screen-size(md-max) {
+		font-size: em($base-font-size * size-ratio(medium));
+		font-size: rem($base-font-size * size-ratio(medium));
+	}
+
+	@include screen-size(sm-max) {
+		font-size: em($base-font-size * size-ratio(small));
+		font-size: rem($base-font-size * size-ratio(small));
+	}
+}
+
+html {
+	@include base-font-size;
+	font-family: $base-font-family;
+	// Pixel to em adjustment /mixins/functions/_px-to-em.scss
+	font-size-adjust: none;
+	// Setting for Firefox. Adjust for specific elements if needed.
+	// webdesignernotebook.com/css/the-little-known-font-size-adjust-css3-property/
+	direction: $direction;
+	line-height:$line-height-ratio;
+	min-height: 100%;
+	overflow-y: scroll;
+	// Prevent iOS text size adjust after orientation change, without disabling:
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	//
+
+	@if $global-border-box == true{
+		@include prefixer(box-sizing, border-box, webkit moz spec);
+	}
+}
+
+body {
+	color: color(text);
+	//font-weight: 300;
+	margin: 0;
+	position: relative;
+	width: 100%;
+	@include screen {
+		@include legibility;
+		@include font-features;
+		background: color(footer);
+	}
+	@include screen-size(sm-min) {
+		overflow-x:hidden;
+	}
+}
+
+/*------------------------------------
+	SITE DIRECTION
+	This should very rarely be touched
+*/
+
+$main-start-default: $main-start !global;
+$main-end-default: $main-end !global;
+
+@if $direction == "rtl" {
+	$main-start: $main-end-default !global;
+	$main-end: $main-start-default !global;
+}
+
+/*------------------------------------
+	Links
+*/
+
+a {
+	@include link;
+	text-decoration: none;
+	&:focus {
+		outline: thin dotted color(shade, $shade-amount);
+		// Address `outline` inconsistency between Chrome and other browsers.
+	}
+	&:active,
+	&:hover {
+		outline: 0;
+		// Improve readability when focused and also mouse hovered in all browsers.
+	}
+	&:hover,
+	&:active,
+	&:focus {
+		text-decoration: underline;
+	}
+}
+
+//@include selection {
+//	background: color(primary);
+//	color: color(site);
+//}
+
+/*------------------------------------
+	Headings
+*/
+
+@mixin h($level) {
+	@include font-size($level, relative, fixed);
+	line-height:$line-height-ratio * 0.8;
+}
+
+h1 {
+	@include h(font-size(epsilon));
+	color: $heading-color;
+	font-family: $heading-font-family;
+	font-weight: $heading-weight;
+	color: color( tertiary );
+
+	@include screen-size(sm-max) {
+		@include h(font-size(gamma));
+	}
+}
+
+h2 {
+	@include padding($base-space*1 n n n);
+	color: $heading-color;
+	font-family: $heading-font-family;
+	font-weight: $heading-weight;
+	@include h(font-size(gamma));
+	@include screen-size(sm-max) {
+		@include h(font-size(beta));
+		@include padding($base-space*1.5 n n n);
+	}
+	&:first-child {
+		padding-top:0;
+	}
+}
+
+h3 {
+	@include padding($base-space*0.5 n n n);
+	color: $heading-color;
+	font-weight: $heading-weight;
+	@include h(font-size(beta));
+	@include screen-size(sm-max) {
+		@include h(font-size(alpha));
+		@include padding($base-space*.75 n n n);
+	}
+	&:first-child {
+		padding-top:0;
+	}
+}
+
+h4 {
+	@include h(font-size(alpha));
+}
+
+h5 {
+	@include h(font-size(alpha));
+}
+
+h6 {
+	@include h(font-size(alpha));
+}
+
+/*------------------------------------
+	Lists
+*/
+
+ul, ol, dd {
+	@include rem(margin-#{$main-start}, 2 * $vertical-space);
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+dt {
+	font-weight:$dt-weight;
+  	color: $heading-color;
+}
+
+dd {
+  margin-bottom: $vertical-space;
+}
+
+/*------------------------------------
+	Code
+*/
+
+code,
+kbd,
+pre,
+samp {
+	font-size:1em;
+	font-family: font-family(mono);
+}
+
+div.line code {
+  background: none;
+}
+
+pre {
+	white-space: pre-wrap;
+	background: #eeeeee;
+	padding: $base-space;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+
+/*------------------------------------
+	Form
+*/
+
+$field-border: map-get($color, border);;
+
+/* form */
+
+form {
+
+}
+
+/* fieldset */
+
+fieldset {
+	border: 0;
+}
+
+/* label */
+
+label {
+	cursor: pointer;
+	@include display(inline);
+	margin-#{$main-end}: $gutter/2;
+	input {
+		@include margin(n ($base-space/2) n n);
+	}
+}
+
+/* input */
+
+button,
+input,
+select,
+textarea {
+	@include legibility;
+	font-family: inherit;
+	font-size: 100%;
+	// Correct font size not being inherited in all browsers.
+	margin: 0;
+	// Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+	&[disabled] {
+		cursor: default;
+		// Re-set default cursor for disabled elements.
+	}
+	&::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+}
+
+button,
+select {
+	text-transform: none;
+	// Address inconsistent `text-transform` inheritance for `button` and `select`
+}
+
+input[type="date"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="url"] {
+	&:focus, &:active {
+		cursor: text;
+	}
+}
+
+input[type="color"] {
+	line-height:1;
+	padding:0;
+	min-height:$touch-target;
+	min-width:$touch-target;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	padding: 0;
+	// Remove excess padding in IE 8/9.
+}
+
+input[type="submit"], button {
+	margin-#{$main-end}: $gutter/2;
+}
+
+/* textarea */
+
+textarea {
+	overflow: auto;
+	// Remove default vertical scrollbar in IE 8/9.
+	vertical-align: top;
+	// Improve readability and alignment in all browsers.
+	&:focus, &:active {
+		cursor: text;
+	}
+}
+
+/*------------------------------------
+	Inline Elements
+*/
+
+b {
+	font-weight: $bold;
+}
+
+strong {
+	font-weight: $bold;
+	strong {
+		font-weight:bolder;
+	}
+}
+
+i, em {
+	font-style: $italic;
+	i, em {
+		font-style: normal;
+	}
+}
+
+small {
+	@include font-size(font-size(milli));
+}
+
+u, ins {
+	text-decoration: underline;
+}
+u.typo {
+	text-decoration: none;
+	border-bottom: 1px dashed map-get($color, error);
+}
+
+dfn {
+	font-style: $italic;
+	// Address styling not present in Safari 5 and Chrome.
+}
+
+mark {
+	color: color(text);
+	background-color: color(shade, $shade-amount);
+}
+
+// Prevent `sub` and `sup` affecting `line-height` in all browsers.
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+//
+
+/*------------------------------------
+	Quotations
+*/
+
+@if $english-quotes == true{
+	$open-quote: \201C !global;
+	$close-quote: \201D !global;
+} @else {
+	$open-quote: \00AB !global;
+	$close-quote: \00BB !global;
+}
+
+q {
+	quotes: "#{$open-quote}" "#{$close-quote}" "\2018" "\2019";
+
+	&:before {
+		content: "\201C";
+		content: open-quote;
+	}
+	&:after {
+		content: "\201D";
+		content: close-quote;
+	}
+
+	q {
+		&:before {
+			content: "\2018";
+			content: open-quote;
+		}
+		&:after {
+			content: "\2019";
+			content: close-quote;
+		}
+	}
+}
+
+blockquote {
+	@include padding($base-space);
+	@include vertical-spacing(force);
+	background-color:color(senary, $shade-amount);
+	quotes: "#{$open-quote}" "#{$close-quote}";
+	border-radius: 4px;
+
+	p {
+		@include vertical-spacing($vertical-space:$vertical-space/2);
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+
+	q {
+		&:before {
+			content: "\2018";
+			content: open-quote;
+		}
+		&:after {
+			content: "\2019";
+			content: close-quote;
+		}
+	}
+	footer {
+		display: block;
+		margin-top:$vertical-space/2;
+		text-indent: 0;
+
+		&:before {
+			content: "\2014";
+		}
+	}
+}
+
+
+
+
+/*------------------------------------
+	Media
+*/
+
+img {
+	border: 0;
+	// Remove border when inside `a` element in IE 8/9.
+	font-style: italic;
+	// So that `alt` text is visually offset if images don’t load.
+	max-width: 100%;
+	&[height],
+	&[width] {
+		height: auto;
+		width: auto;
+	}
+
+	&[src$=".gif"],
+	&[src$=".png"] {
+		//@include image-rendering(optimize-contrast);
+	}
+}
+
+audio {
+	&:not([controls]) {
+		display: none;
+		// Prevent modern browsers from displaying `audio` without controls.
+		height: 0;
+		// Remove excess height in iOS 5 devices.
+	}
+}
+
+svg {
+	&:not(:root) {
+		overflow: hidden;
+		// Correct overflow displayed oddly in IE 9.
+	}
+}
+
+figure {
+	@include margin(0 0 n 0);
+	> * {
+		@include vertical-spacing($vertical-space:$vertical-space/2);
+	}
+}
+
+/*------------------------------------
+	Rules
+*/
+
+hr {
+	@include prefixer(box-sizing, content-box, webkit moz spec);
+	@include rem(margin-bottom, $vertical-space - 2px);
+	@include is-old-ie {
+		background-color: color(shade-safe);
+	}
+	@include is-not-old-ie {
+		background-color: color(shade, $shade-amount);
+	}
+	border: 0;
+	height: 1px;
+
+	.c-Page-main--night & {
+		@include is-old-ie {
+			background-color: color(tint-safe);
+		}
+		@include is-not-old-ie {
+			background-color: color(tint, $tint-amount/3);
+		}
+	}
+}
+
+/*------------------------------------
+	Table
+*/
+
+table {
+	// Remove most spacing between table cells.
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+}
+
+th {
+	text-align:$main-start;
+	vertical-align: bottom;
+}
+
+td {
+	vertical-align: top;
+}
+
+/* Cell alignments */
+
+[colspan="1"] {
+	text-align: $main-start;
+}
+
+[rowspan] {
+	vertical-align: middle;
+}
+
+[rowspan="1"] {
+	vertical-align: top;
+}
+
+.disable-hover,
+.disable-hover * {
+	pointer-events: none !important;
+}
+

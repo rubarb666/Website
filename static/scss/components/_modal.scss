@@ -1,0 +1,139 @@
+/*------------------------------------------*\
+
+    c-modal.scss
+
+    Modal window will appear in front of all
+    other content.
+
+
+    @namespace  .c-
+    @parent     .c-modal
+    @variations .c-modal--small
+                .c-modal--border
+
+\*------------------------------------------*/
+
+$modal-default-padding: $padding;
+
+.c-modal-container {
+	@include position(fixed, 0px 0px 0px 0px);
+	display: none;
+	z-index: zindex(overlay);
+
+	&.is-open {
+		display: block !important;
+	}
+
+	&:before {
+		content: '';
+		display: block;
+		@include position(fixed, 0px 0px 0px 0px);
+		background: $modal-overlay-color;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.c-modal {
+	@include position(fixed, 50% 0 0 50%);
+	display: flex;
+	flex-direction: column;
+	z-index: zindex(modal);
+	background: $modal-background;
+	transform: translate(-50%, -50%);
+
+	@if $has-modal-box-shadow {
+		box-shadow: $shadow-light;
+	}
+
+	@if $is-modal-rounded {
+		border-radius: $base-radius;
+	}
+
+	@if $has-modal-border {
+		border: 1px solid color(border);
+	}
+
+	@include screen-size(m-) {
+		left: $base-space*2;
+		right: $base-space*2;
+		transform: translateY(-50%);
+	}
+
+	@include screen-size(mh-) {
+		top: $base-space*2;
+		bottom: $base-space*2;
+		transform: translateX(-50%);
+	}
+
+	@media only screen and (max-height: screen-size(mh)) and (max-width: screen-size(m)) {
+		left: $base-space*2;
+		right: $base-space*2;
+		top: $base-space*2;
+		bottom: $base-space*2;
+		transform:none;
+	}
+
+	@include screen-size(s-) {
+		bottom: $base-space;
+		left: $base-space;
+		right: $base-space;
+		top: $base-space;
+	}
+}
+
+.c-modal__actions,
+.c-modal__header {
+	@include padding($modal-default-padding);
+	min-height:1px;
+
+	@include screen-size( m )
+	{
+		@include padding($modal-default-padding * 1.5);
+	}
+}
+
+.c-modal__body {
+	@include padding(n $base-space $base-space $base-space);
+	flex: 1;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+
+	@include screen-size( m )
+	{
+		@include padding(n $modal-default-padding * 1.5 $modal-default-padding * 1.5 $modal-default-padding * 1.5);
+	}
+
+	// If we're including modal actions then
+	// remove the padding from the top of
+	// the actions
+	& + .c-modal__actions {
+		padding-top: 0;
+	}
+}
+
+.c-modal__close {
+	position: absolute;
+	top: $modal-default-padding;
+	right: $modal-default-padding;
+	z-index: zindex(modal);
+
+	@include screen-size( m )
+	{
+		top: $modal-default-padding * 1.5;
+		right: $modal-default-padding * 1.5;
+	}
+}
+
+
+.c-modal--small {
+	@include screen-size(m) {
+		width: $small-modal-size;
+		max-width:100%;
+	}
+	@include screen-size(mh) {
+		.c-modal__body {
+			max-height: 100%;
+		}
+	}
+}

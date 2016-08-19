@@ -1,0 +1,56 @@
+/*------------------------------------------*\
+
+    _c-dropdown.scss
+
+    This dropdown is an autocomplete text
+    box. The user will start typing to reveal
+    a list of recommended search items.
+
+    @namespace  .c-
+    @parent     .c-dropdown
+    @children	.c-dropdown__link
+
+\*------------------------------------------*/
+
+// width added for style-guide purposes
+$dropdown-width: 300px;
+
+.c-dropdown-container {
+	max-width:$dropdown-width;
+	position:relative;
+}
+
+.c-dropdown {
+	border:1px solid color(border);
+	display:none;
+	position: absolute;
+	width: 100%;
+	margin-top: -1px;
+	background:color(white);
+	z-index:zindex(overlay);
+
+	ul,ol {
+		> * {
+			border-bottom: 1px solid color(border);
+
+			&:last-child {
+				border-bottom: none;
+			}
+
+			&.is-selected {
+				background:lighten(color(border),10%);
+			}
+		}
+	}
+}
+
+	.c-dropdown__link {
+		@include padding($padding/2 $padding);
+		display:block;
+
+		&:hover {
+			background: lighten(color(border), 10%);
+			cursor: pointer;
+		}
+	}
+

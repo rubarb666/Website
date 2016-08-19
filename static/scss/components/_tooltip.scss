@@ -1,0 +1,152 @@
+$arrow-size	: $base-space/2;
+$arrow-pos	: $arrow-size + $base-space/4;
+
+[data-tooltip] {
+	cursor: help;
+	position: relative;
+
+	&:hover:before, &:hover:after {
+		animation: tooltip-appear 0.5s;
+		display: block;
+	}
+}
+
+[data-tooltip] {
+
+	&:after, &:before {
+		pointer-events: none;
+	}
+
+	&:after {
+		@include padding($padding/4 $padding/2);
+		@include position(absolute, 50% 0 0 50%);
+		@include background-color(color(tooltip));
+		@include base-font-size;
+		content: attr(data-tooltip);
+		display: none;
+		font-weight: normal;
+		line-height: $base-line-height;
+		text-align: center;
+		transform: translate(-50%, -50%);
+		white-space: nowrap;
+		z-index: zindex(dropdown);
+		@if $button-radius > 0 {
+			border-radius:$button-radius;
+		}
+	}
+
+
+	&:before {
+		content: '';
+		display: none;
+		z-index: zindex(dropdown);
+	}
+}
+
+// testing mixin before
+// moving it to the mixin
+// folder
+
+@mixin tooltip (
+$direction
+){
+	@if $direction == "left" {
+
+		&:after, &:before {
+			@include position(absolute, 50% 0 0 (-$arrow-pos));
+		}
+
+		&:after {
+			transform: translate(-100%, -50%);
+		}
+
+		&:before {
+			border-top: $arrow-size solid transparent;
+			border-bottom: $arrow-size solid transparent;
+			border-left: $arrow-size solid color(tooltip);
+			transform: translateY(-50%);
+		}
+
+	} @else if $direction == "top" {
+
+		&:after, &:before {
+			@include position(absolute, (-$arrow-pos) 0 0 50%);
+		}
+
+		&:after {
+			transform: translate(-50%, -100%);
+		}
+
+		&:before {
+			border-left: $arrow-size solid transparent;
+			border-right: $arrow-size solid transparent;
+			border-top: $arrow-size solid color(tooltip);
+			transform: translateX(-50%);
+		}
+
+	} @else if $direction == "bottom" {
+
+		&:after, &:before {
+			@include position(absolute, 0 0 (-$arrow-pos) 50%);
+		}
+
+		&:after {
+			transform: translate(-50%, 100%);
+			top:auto;
+		}
+
+		&:before {
+			border-left: $arrow-size solid transparent;
+			border-right: $arrow-size solid transparent;
+			border-bottom: $arrow-size solid color(tooltip);
+			transform: translateX(-50%);
+		}
+
+	} @else if $direction == "right" {
+
+		&:after, &:before {
+			@include position(absolute, 50% (-$arrow-pos) 0 0);
+		}
+
+		&:after {
+			transform: translate(100%, -50%);
+			left:auto;
+		}
+
+		&:before {
+			border-top: $arrow-size solid transparent;
+			border-bottom: $arrow-size solid transparent;
+			border-right: $arrow-size solid color(tooltip);
+			transform: translateY(-50%);
+		}
+
+	}
+}
+
+[data-placement="left"] {
+	@include tooltip(left);
+}
+
+[data-placement="top"] {
+	@include tooltip(top);
+}
+
+[data-placement="bottom"] {
+	@include tooltip(bottom);
+}
+
+[data-placement="right"] {
+	@include tooltip(right);
+}
+
+@keyframes tooltip-appear {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

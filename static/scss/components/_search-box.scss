@@ -1,0 +1,46 @@
+/*------------------------------------------*\
+
+    search-box.scss
+
+    Simple search component.
+    Contains style for
+    - label
+    - text input
+    - button
+
+    @namespace  .c-
+    @parent     .c-search-box
+    @children   .c-search-box__container
+                .c-search-box__label
+                .c-search-box__text
+                .c-search-box__button
+
+
+\*------------------------------------------*/
+
+.c-search-box {
+    display: flex;
+    padding: 0;
+    width:100%;
+    white-space: nowrap;
+    line-height: $touch-target + 2;
+}
+
+    .c-search-box__container {
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+    .c-search-box__label {
+        line-height: $touch-target + 2;
+    }
+
+    .c-search-box__text {
+        @include field;
+        flex:1;
+        width:100%;
+    }
+
+    .c-search-box__button {
+        @include margin(n n n $base-space/2);
+    }

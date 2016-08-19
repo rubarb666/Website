@@ -1,0 +1,20 @@
+/*------------------------------------
+	BACKGROUND
+*/
+
+@mixin background-color (
+$background-color: transparent
+) {
+	background-color: $background-color;
+	@if $background-color != transparent {
+		$lightness: lightness($background-color);
+
+		@if $lightness < 75 {
+			color: $white;
+
+			a, a:visited, &:visited {
+				color: $white;
+			}
+		}
+	}
+}

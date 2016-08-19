@@ -1,0 +1,32 @@
+/*------------------------------------------*\
+
+    _o-pair.scss
+
+    Pair items together, eg. icon and text,
+    icon and icon, text and text etc.
+
+    @namespace  .o-
+    @parent     .o-pair
+
+\*------------------------------------------*/
+
+.o-pair {
+    @include is-old-ie {
+        display: inline-block;
+        font-size: 0;
+
+        > * {
+            @include base-font-size;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    @include is-not-old-ie {
+        display: inline-flex;
+
+        > * {
+            display: flex;
+            align-items: center;
+        }
+    }
+}

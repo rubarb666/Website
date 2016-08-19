@@ -1,0 +1,42 @@
+/*------------------------------------------*\
+
+    _c-sidebar.scss
+
+    Styles specific to the Sidebar
+
+    @namespace  .c-
+    @parent     .c-sidebar
+    @children   .c-sidebar__heading
+                .c-sidebar__stories
+                .c-sidebar__story
+
+\*------------------------------------------*/
+
+.c-sidebar {
+    @include padding($base-space $base-space/2);
+}
+
+.c-sidebar__heading {
+    @include font-size(font-size(gamma));
+    @include padding(n $base-space/2);
+}
+
+.c-sidebar__stories {
+    list-style: none;
+    margin-left: 0;
+    @include screen-size(m-l) {
+        display: flex;
+    }
+}
+
+.c-sidebar__story {
+    @include screen-size(m-l) {
+        flex: 1;
+        width: 33.33%;
+        max-width: none;
+    }
+    @include screen-size(m-) {
+        display: block;
+        max-width: none;
+    }
+}

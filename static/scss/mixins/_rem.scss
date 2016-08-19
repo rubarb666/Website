@@ -1,0 +1,12 @@
+@mixin rem(
+$element: font-size,
+$pxval:$base-space,
+$unit:rem
+) {
+	@include is-old-ie {
+		#{$element}: $pxval;
+	}
+	@include is-not-old-ie {
+		#{$element}: rem($pxval);
+	}
+}

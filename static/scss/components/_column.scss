@@ -1,0 +1,22 @@
+/*------------------------------------------*\
+
+    _c-column.scss
+
+    Control of display of structural columns.
+
+    @namespace  .c-
+    @parent     .c-column
+    @variations .c-column--primary
+
+\*------------------------------------------*/
+
+
+.c-column {
+
+}
+
+.c-column--primary {
+    @include screen-size(l) {
+        @include padding(n $base-space n n);
+    }
+}

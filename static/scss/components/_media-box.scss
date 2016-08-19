@@ -1,0 +1,19 @@
+/*------------------------------------*\
+
+   	MEDIA BOX
+
+   	Uses a responsive technique for
+   	iFrames, embed etc.
+
+	@namespace 	.c-
+	@parent 	.c-media-box
+
+/*------------------------------------*/
+
+.c-media-box {
+	@include media-box(aspect-ratio(widescreen), '> *');
+}
+
+.c-media-box--square {
+	padding-bottom: aspect-ratio(square);
+}

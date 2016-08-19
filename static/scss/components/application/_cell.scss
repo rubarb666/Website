@@ -1,0 +1,20 @@
+.c-cell {
+
+}
+
+.c-cell--numerical {
+    text-align: right;
+}
+
+.c-cell--tight {
+    white-space: nowrap;
+    width: 1px;
+
+}
+
+.c-cell--primary {
+    font-weight: bold;
+    a {
+        display: block;
+    }
+}

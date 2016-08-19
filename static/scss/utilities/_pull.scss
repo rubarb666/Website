@@ -1,0 +1,23 @@
+.u-pull-none {
+    @include media-query(orig) {
+        float: none;
+    }
+}
+
+.u-pull-left {
+    @include media-query(orig) {
+        float: left;
+    }
+}
+
+.u-pull-right {
+    @include media-query(orig) {
+        float: right;
+    }
+}
+
+.u-pull-center {
+    @include media-query(orig) {
+        margin: 0 auto;
+    }
+}

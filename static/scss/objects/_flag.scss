@@ -1,0 +1,88 @@
+/*------------------------------------------*\
+
+    _o-flag.scss
+
+    Abstract object which positions an
+    image/icon etc. next to text.
+    It can be positioned top, bottom
+    or center-aligned
+
+    @namespace  .o-
+    @parent     .o-flag
+    @children   .o-flag__image
+                .o-flag__body
+    @variations .o-flag--centered
+                .o-flag--top
+                .o-flag--bottom
+
+\*------------------------------------------*/
+
+.o-flag {
+    @include is-old-ie {
+        display: table;
+        > * {
+            display: table-cell;
+        }
+    }
+    @include is-not-old-ie {
+        display: flex;
+        > * {
+            display: flex;
+        }
+    }
+}
+
+.o-flag__image {
+    @include is-old-ie {
+        width: 1px;
+        white-space: nowrap;
+    }
+    @include is-not-old-ie {
+        min-width: 1px;
+    }
+}
+
+.o-flag__body {
+    @include is-not-old-ie {
+        flex: 1;
+    }
+}
+
+.o-flag--centered {
+    @include is-old-ie {
+        > * {
+            vertical-align: middle;
+        }
+    }
+    @include is-not-old-ie {
+        > * {
+            align-items: center;
+        }
+    }
+}
+
+.o-flag--top {
+    @include is-old-ie {
+        > * {
+            vertical-align: top;
+        }
+    }
+    @include is-not-old-ie {
+        > * {
+            align-items: flex-start;
+        }
+    }
+}
+
+.o-flag--bottom {
+    @include is-old-ie {
+        > * {
+            vertical-align: bottom;
+        }
+    }
+    @include is-not-old-ie {
+        > * {
+            align-items: flex-end;
+        }
+    }
+}

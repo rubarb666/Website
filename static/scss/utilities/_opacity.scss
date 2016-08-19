@@ -1,0 +1,11 @@
+.u-transparent {
+    opacity: 0;
+}
+
+.u-translucent {
+    opacity: $fade;
+}
+
+.u-opaque {
+    opacity: 1;
+}

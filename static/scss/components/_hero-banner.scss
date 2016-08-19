@@ -1,0 +1,68 @@
+/*------------------------------------------*\
+
+    _c-hero-banner.scss
+
+	Banners support an image, title and strapline
+
+    @namespace  .c-
+    @parent     .c-hero-banner
+    @variations .c-hero-banner--centered
+    @states		.has-tint
+
+\*------------------------------------------*/
+
+.c-hero-banner {
+	@include margin( n n $margin n );
+	align-items: center;
+	background-color: color( shade, $shade-amount );
+	background-size: cover;
+	display: flex;
+
+	/* If an inline style is applied then assume
+	 * that it's a background image and change
+	 * the colour of the elements within */
+	&[style] {
+		* {
+			color: white;
+			position: relative;
+			z-index: 1;
+		}
+	}
+
+	// Optionally add a tint
+	&.has-shade {
+		position: relative;
+
+		&:before {
+			@include position( absolute, 0px 0px 0px 0px );
+			background-color: color( shade, $fade );
+			content: '';
+			display: block;
+			z-index: 1;
+		}
+	}
+}
+
+
+	.c-hero-banner__content {
+		@include padding( $padding );
+	}
+
+
+	.c-hero-banner__title {
+		font-size: font-size( eta );
+		margin: 0;
+	}
+
+
+	.c-hero-banner__strapline {
+		font-size: font-size( gamma );
+	}
+
+
+
+// Center the content
+.c-hero-banner--centered {
+	text-align: center;
+	justify-content: center;
+}

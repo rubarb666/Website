@@ -1,0 +1,6 @@
+input[type="radio"],
+input[type="checkbox"] {
+    .c-label & {
+        @include margin(n $base-space n n);
+    }
+}

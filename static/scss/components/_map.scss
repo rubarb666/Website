@@ -1,0 +1,21 @@
+/*------------------------------------*\
+
+   	MAP
+
+   	Uses a responsive technique for
+   	iFrames
+
+	@namespace 	.c-
+	@parent 	.c-map
+
+/*------------------------------------*/
+
+.c-map {
+	@include media-box();
+
+	// Make sure the internal controls
+	// don't get reset
+	img {
+		max-width: inherit !important;
+	}
+}

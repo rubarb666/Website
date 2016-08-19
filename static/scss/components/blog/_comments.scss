@@ -1,0 +1,57 @@
+.c-comments {
+    list-style: none;
+    margin-left: 0;
+    li {
+        @include padding(n n n ($base-space*3.5));
+        @include screen-size(m-) {
+            @include padding(n n n ($base-space*1.5));
+        }
+    }
+
+    .c-comments {
+        @include padding($base-space n n n);
+    }
+
+    .children {
+        margin-left: 0;
+        @include padding(n n n ($base-space*3.5));
+        @include screen-size(m-) {
+            @include padding(n n n ($base-space*1.5));
+        }
+    }
+}
+
+.c-comment {
+    @include vertical-spacing();
+}
+
+.c-comment__box {
+    @include margin(n n n (-$base-space*3.5));
+    @include screen-size(m-) {
+        @include margin(n n n (-$base-space*1.5));
+    }
+}
+
+.c-comment__avatar {
+    @include margin(n $base-space n n);
+}
+
+.c-comment__meta {
+    @include vertical-spacing($vertical-space:$vertical-space/2);
+}
+
+.c-comment__reply {
+
+}
+
+.c-comment__cancel-reply {
+    @include base-font-size;
+    float: $end;
+    font-weight: normal;
+}
+
+.comment-respond {
+    @include padding($base-space n n n);
+    @include margin($base-space n n n);
+    border-top: 1px solid color(shade, $shade-amount);
+}

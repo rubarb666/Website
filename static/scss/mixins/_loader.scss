@@ -1,0 +1,13 @@
+@mixin loader(
+	$loader-width: $touch-target,
+	$loader-color: color( primary ),
+	$loader-stroke-width: .2rem
+)
+{
+	border-radius: 50%;
+	width: $loader-width;
+	height: $loader-width;
+	border: $loader-stroke-width solid rgba( $loader-color, 0.2 );
+	border-top-color: $loader-color;
+	animation: spin 1s infinite linear;
+}

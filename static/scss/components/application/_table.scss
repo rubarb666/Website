@@ -1,0 +1,7 @@
+.c-table--app {
+    @include table-borders(lined);
+
+    td {
+        vertical-align: middle;
+    }
+}

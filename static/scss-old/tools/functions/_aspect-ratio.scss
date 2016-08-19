@@ -1,0 +1,8 @@
+@function aspect-ratio($key) {
+	@if map-has-key($aspect-ratio, $key) {
+		@return map-get($aspect-ratio, $key);
+	} @else {
+		@warn "Unknown `#{$key}` in $aspect-ratio.";
+		@return null;
+	}
+}

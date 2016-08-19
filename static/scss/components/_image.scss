@@ -1,0 +1,15 @@
+.c-image {
+    @include media-box(aspect-ratio(widescreen), img);
+    background: color(shade, $shade-amount);
+    font-size: 0;
+
+    img {
+        transform: translateY( -50% );
+        height: auto;
+        top: 50%;
+    }
+}
+
+.c-image--square {
+    padding-bottom: aspect-ratio(square);
+}

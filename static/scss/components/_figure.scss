@@ -1,0 +1,10 @@
+.c-figure {
+
+    figcaption {
+        @include padding($base-space n);
+    }
+    
+    &[class*=" u-fill"] figcaption {
+        @include padding(n $base-space);
+    }
+}

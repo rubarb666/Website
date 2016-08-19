@@ -1,0 +1,25 @@
+/*scss/utilities/_u-padding.scss*/
+
+.u-padding{
+    padding: $padding !important;
+}
+.u-padding-ns {
+    padding-top: $padding !important;
+    padding-bottom: $padding !important;
+}
+.u-padding-ew {
+    padding-left: $padding !important;
+    padding-right: $padding !important;
+}
+.u-padding-top {
+    padding-top: $padding !important;
+}
+.u-padding-bottom {
+    padding-bottom: $padding !important;
+}
+.u-padding-left {
+    padding-left: $padding !important;
+}
+.u-padding-right {
+    padding-right: $padding !important;
+}

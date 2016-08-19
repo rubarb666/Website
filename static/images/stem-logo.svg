@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="72px" height="23px" viewBox="0 0 72 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2 Copy 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFCE80" offset="0%"></stop>
+            <stop stop-color="#EA9716" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Layout" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-weight="300">
+        <g id="Desktop-HD-Copy-3" transform="translate(-886.000000, -103.000000)" fill="url(#linearGradient-1)">
+            <g id="Group-6" transform="translate(-1.000000, 80.000000)">
+                <g id="Group-5" transform="translate(132.000000, 18.000000)">
+                    <g id="Group-2-Copy-4" transform="translate(754.000000, 0.000000)">
+                        <text id="Ω-Copy-2" font-family="Chalet-ParisNineteenSeventy, Chalet" font-size="34.4399953" letter-spacing="-0.839999825">
+                            <tspan x="17.8599814" y="27.1785714">te</tspan>
+                            <tspan x="44.5240979" y="27.1785714">m</tspan>
+                        </text>
+                        <text id="Ω-Copy-3" font-family="Chalet-ParisNineteenEighty, Chalet" font-size="35.2799952">
+                            <tspan x="0.647724513" y="26">s</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

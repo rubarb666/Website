@@ -1,0 +1,25 @@
+/*------------------------------------------*\
+
+    _c-fieldset.scss
+
+    Fieldset styling. This can be applied
+    to any element.
+
+    @namespace  .c-
+    @parent     .c-fieldset
+
+\*------------------------------------------*/
+
+.c-fieldset {
+    @include vertical-spacing($vertical-space:$vertical-space*4);
+}
+
+.c-fieldset__heading {
+    @include vertical-spacing($vertical-space:$vertical-space/2);
+    font-size: font-size(gamma);
+    
+}
+
+.c-fieldset__tip {
+    opacity: $fade;
+}

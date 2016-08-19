@@ -1,0 +1,33 @@
+/*------------------------------------------*\
+
+    _column-widths.scss
+
+    Controls the fixed width of columns
+
+    @namespace  .u-
+
+\*------------------------------------------*/
+
+@mixin column-width( $numerator, $denominator )
+{
+  .u-col-#{$numerator}\/#{$denominator} {
+    width: $numerator*($fixed-width/$denominator);
+  }
+}
+
+@for $i from 1 through 6
+{
+  @include column-width( 1, $i+1 );
+}
+
+@for $i from 1 through 3
+{
+  @include column-width( 2, $i+2 );
+}
+
+@for $i from 1 through 2
+{
+  @include column-width( 3, $i+3 );
+}
+
+@include column-width( 4, 5 );

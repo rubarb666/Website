@@ -1,0 +1,23 @@
+// add more space around list items
+.u-list-spacing {
+	> * {
+		@include padding($padding);
+	}
+}
+
+.u-list-spacing-ew {
+	> * {
+		@include padding(n $padding);
+	}
+}
+
+// inline list items
+.u-list-inline {
+	> * {
+		display: inline-block;
+
+		&:first-child {
+			padding-left: 0;
+		}
+	}
+}

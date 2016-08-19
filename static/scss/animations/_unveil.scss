@@ -1,0 +1,125 @@
+.a-unveil {
+    overflow: hidden;
+    position: relative;
+    .a-unveil__top {
+        @include position(absolute, 0px 0px 0px 0px);
+    }
+    &.on-hover {
+        .a-unveil__top {
+            animation: none;
+            transform: translate(0, 0);
+            transition: transform $duration;
+        }
+    }
+}
+
+.a-unveil--down,
+.a-unveil--up {
+    .a-unveil__top {
+        min-height: 100%;
+    }
+}
+
+.a-unveil--left,
+.a-unveil--right {
+    .a-unveil__top {
+        min-width: 100%;
+    }
+}
+
+
+.a-unveil--down {
+    .a-unveil__top {
+        animation: unveil-down $duration;
+        bottom: auto;
+        transform: translateY(100%);
+    }
+    &.on-hover {
+        &:hover {
+            .a-unveil__top {
+                transform: translateY(100%);
+            }
+        }
+    }
+}
+
+.a-unveil--up {
+    .a-unveil__top {
+        animation: unveil-up $duration;
+        top: auto;
+        transform: translateY(-100%);
+    }
+    &.on-hover {
+        &:hover {
+            .a-unveil__top {
+                transform: translateY(-100%);
+            }
+        }
+    }
+}
+
+.a-unveil--right {
+    .a-unveil__top {
+        animation: unveil-right $duration;
+        right: auto;
+        transform: translateX(100%);
+    }
+    &.on-hover {
+        &:hover {
+            .a-unveil__top {
+                transform: translateX(100%);
+            }
+        }
+    }
+}
+
+.a-unveil--left {
+    .a-unveil__top {
+        animation: unveil-left $duration;
+        left: auto;
+        transform: translateX(-100%);
+    }
+    &.on-hover {
+        &:hover {
+            .a-unveil__top {
+                transform: translateX(-100%);
+            }
+        }
+    }
+}
+
+@keyframes unveil-down {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes unveil-up {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes unveil-right {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes unveil-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}

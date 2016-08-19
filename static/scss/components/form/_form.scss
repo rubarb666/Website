@@ -1,0 +1,49 @@
+/*------------------------------------------*\
+
+    _c-form.scss
+
+    High-level form styles.
+    Take care to be be too specific.
+
+    @namespace  .c-
+    @parent     .c-form
+    @children   .c-form__actions
+
+\*------------------------------------------*/
+
+.c-form {
+
+}
+
+.c-form__item {
+    @include margin($base-space n n n);
+    &:first-child {
+        margin-top:0;
+    }
+}
+
+.c-form__actions {
+    @include padding($base-space n);
+}
+
+.c-form__error,
+.c-form__success,
+.c-form__warning {
+    display: block;
+    font-style: normal;
+}
+
+.c-form__error {
+    color: color(error);
+    &:before {
+        margin-right: $base-space/4;
+    }
+}
+
+.c-form__warning {
+    color: color(warning);
+}
+
+.c-form__success {
+    color: color(success);
+}

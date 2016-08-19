@@ -57,16 +57,15 @@ video {
 	For IE7, there'll need to be tweaks
 */
 
-@if $global-border-box == true{
 /**
 * Let’s make the box model all nice, shall we...?
 */
-	* {
-		&,
-		&:before,
-		&:after {
-			@include prefixer(box-sizing, inherit, webkit moz spec);
-		}
+
+* {
+	&,
+	&:before,
+	&:after {
+		box-sizing: $box-sizing;
 	}
 }
 
@@ -74,10 +73,10 @@ video {
 	Smooth transitions
 */
 
-@include screen-size(md-min) {
+@include screen-size(m) {
 	@if $smoothness != 0 {
 		:hover {
-			@include prefixer(transition, #{$smoothness}s, moz webkit spec);
+			transition: $smoothness;
 		}
 	}
 }
@@ -100,13 +99,14 @@ hr {
 	Spacing Resets
 */
 
+article, header, footer,
 h1, h2, h3, h4, h5, h6,
 ul, ol, dl,
 blockquote, p, address,
 table,
 form, fieldset, figure,
 pre {
-	@include vertical-spacing(include);
+	@include vertical-spacing();
 }
 
 /*------------------------------------
@@ -114,16 +114,19 @@ pre {
 */
 
 @mixin base-font-size {
-	font-size: em($base-font-size);
+	font-size: $base-font-size;
 	font-size: rem($base-font-size);
-	@include screen-size(md-max) {
-		font-size: em($base-font-size * size-ratio(medium));
-		font-size: rem($base-font-size * size-ratio(medium));
+	@if size-ratio(medium) != "1" {
+		@include screen-size(m-) {
+			font-size: $base-font-size * size-ratio(medium);
+			font-size: rem($base-font-size * size-ratio(medium));
+		}
 	}
-
-	@include screen-size(sm-max) {
-		font-size: em($base-font-size * size-ratio(small));
-		font-size: rem($base-font-size * size-ratio(small));
+	@if size-ratio(small) != "1" {
+		@include screen-size(s-) {
+			font-size: $base-font-size * size-ratio(small);
+			font-size: rem($base-font-size * size-ratio(small));
+		}
 	}
 }
 
@@ -137,29 +140,26 @@ html {
 	direction: $direction;
 	line-height:$line-height-ratio;
 	min-height: 100%;
-	overflow-y: scroll;
+	//overflow-y: scroll;
 	// Prevent iOS text size adjust after orientation change, without disabling:
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	//
-
-	@if $global-border-box == true{
-		@include prefixer(box-sizing, border-box, webkit moz spec);
-	}
 }
 
 body {
 	color: color(text);
-	//font-weight: 300;
 	margin: 0;
 	position: relative;
 	width: 100%;
+	-webkit-font-smoothing: antialiased;
+
 	@include screen {
-		@include legibility;
-		@include font-features;
+		text-rendering: optimizeLegibility;
+		font-feature-settings: $font-features;
 		background: color(footer);
 	}
-	@include screen-size(sm-min) {
+	@include screen-size(s) {
 		overflow-x:hidden;
 	}
 }
@@ -169,12 +169,12 @@ body {
 	This should very rarely be touched
 */
 
-$main-start-default: $main-start !global;
-$main-end-default: $main-end !global;
+$start-default: $start !global;
+$end-default: $end !global;
 
 @if $direction == "rtl" {
-	$main-start: $main-end-default !global;
-	$main-end: $main-start-default !global;
+	$start: $end-default !global;
+	$end: $start-default !global;
 }
 
 /*------------------------------------
@@ -182,6 +182,7 @@ $main-end-default: $main-end !global;
 */
 
 a {
+	@include link;
 	@include link;
 	text-decoration: none;
 	&:focus {
@@ -200,96 +201,33 @@ a {
 	}
 }
 
-//@include selection {
-//	background: color(primary);
-//	color: color(site);
-//}
-
 /*------------------------------------
 	Headings
 */
 
-@mixin h($level) {
-	@include font-size($level, relative, fixed);
-	line-height:$line-height-ratio * 0.8;
-}
-
-h1 {
-	@include h(font-size(epsilon));
-	color: $heading-color;
-	font-family: $heading-font-family;
-	font-weight: $heading-weight;
-	color: color( tertiary );
-
-	@include screen-size(sm-max) {
-		@include h(font-size(gamma));
-	}
-}
-
-h2 {
-	@include padding($base-space*1 n n n);
-	color: $heading-color;
-	font-family: $heading-font-family;
-	font-weight: $heading-weight;
-	@include h(font-size(gamma));
-	@include screen-size(sm-max) {
-		@include h(font-size(beta));
-		@include padding($base-space*1.5 n n n);
-	}
-	&:first-child {
-		padding-top:0;
-	}
-}
-
-h3 {
-	@include padding($base-space*0.5 n n n);
-	color: $heading-color;
-	font-weight: $heading-weight;
-	@include h(font-size(beta));
-	@include screen-size(sm-max) {
-		@include h(font-size(alpha));
-		@include padding($base-space*.75 n n n);
-	}
-	&:first-child {
-		padding-top:0;
-	}
-}
-
-h4 {
-	@include h(font-size(alpha));
-}
-
-h5 {
-	@include h(font-size(alpha));
-}
-
-h6 {
-	@include h(font-size(alpha));
+h1, h2, h3, h4, h5 {
+	font-family: font-family(primary);
+	font-size: inherit;
+	font-weight: normal;
 }
 
 /*------------------------------------
 	Lists
 */
 
-ul, ol, dd {
-	@include rem(margin-#{$main-start}, 2 * $vertical-space);
-}
+ul, ol {
+	list-style: none;
+	padding: 0;
+	margin-left: 0;
 
-ul {
-	list-style: disc;
-}
-
-ol {
-	list-style: decimal;
+	> li {
+		margin: 0;
+		padding: 0;
+	}
 }
 
 dt {
 	font-weight:$dt-weight;
-  	color: $heading-color;
-}
-
-dd {
-  margin-bottom: $vertical-space;
 }
 
 /*------------------------------------
@@ -300,27 +238,17 @@ code,
 kbd,
 pre,
 samp {
-	font-size:1em;
+	@include font-size(font-size(alpha));
 	font-family: font-family(mono);
-}
-
-div.line code {
-  background: none;
 }
 
 pre {
 	white-space: pre-wrap;
-	background: #eeeeee;
-	padding: $base-space;
-	border: 1px solid #ddd;
-	border-radius: 4px;
 }
 
 /*------------------------------------
 	Form
 */
-
-$field-border: map-get($color, border);;
 
 /* form */
 
@@ -334,12 +262,16 @@ fieldset {
 	border: 0;
 }
 
+legend {
+	float:left;
+	width: 100%;
+}
+
 /* label */
 
 label {
 	cursor: pointer;
-	@include display(inline);
-	margin-#{$main-end}: $gutter/2;
+	display: inline;
 	input {
 		@include margin(n ($base-space/2) n n);
 	}
@@ -351,9 +283,9 @@ button,
 input,
 select,
 textarea {
-	@include legibility;
 	font-family: inherit;
 	font-size: 100%;
+	text-rendering: optimizeLegibility;
 	// Correct font size not being inherited in all browsers.
 	margin: 0;
 	// Address margins set differently in Firefox 4+, Safari 5, and Chrome.
@@ -398,10 +330,6 @@ input[type="checkbox"],
 input[type="radio"] {
 	padding: 0;
 	// Remove excess padding in IE 8/9.
-}
-
-input[type="submit"], button {
-	margin-#{$main-end}: $gutter/2;
 }
 
 /* textarea */
@@ -516,11 +444,7 @@ q {
 }
 
 blockquote {
-	@include padding($base-space);
-	@include vertical-spacing(force);
-	background-color:color(senary, $shade-amount);
 	quotes: "#{$open-quote}" "#{$close-quote}";
-	border-radius: 4px;
 
 	p {
 		@include vertical-spacing($vertical-space:$vertical-space/2);
@@ -573,6 +497,18 @@ img {
 	&[src$=".png"] {
 		//@include image-rendering(optimize-contrast);
 	}
+
+	img:before {
+		content: "We're sorry, the image below is broken :(";
+		display: block;
+		margin-bottom: $base-space/2;
+	}
+
+	img:after {
+		content: "(url: " attr(src) ")";
+		display: block;
+		font-size: font-size(milli);
+	}
 }
 
 audio {
@@ -592,10 +528,7 @@ svg {
 }
 
 figure {
-	@include margin(0 0 n 0);
-	> * {
-		@include vertical-spacing($vertical-space:$vertical-space/2);
-	}
+	margin:	0;
 }
 
 /*------------------------------------
@@ -603,7 +536,6 @@ figure {
 */
 
 hr {
-	@include prefixer(box-sizing, content-box, webkit moz spec);
 	@include rem(margin-bottom, $vertical-space - 2px);
 	@include is-old-ie {
 		background-color: color(shade-safe);
@@ -612,6 +544,7 @@ hr {
 		background-color: color(shade, $shade-amount);
 	}
 	border: 0;
+	box-sizing: content-box;
 	height: 1px;
 
 	.c-Page-main--night & {
@@ -636,7 +569,7 @@ table {
 }
 
 th {
-	text-align:$main-start;
+	text-align:$start;
 	vertical-align: bottom;
 }
 
@@ -647,7 +580,7 @@ td {
 /* Cell alignments */
 
 [colspan="1"] {
-	text-align: $main-start;
+	text-align: $start;
 }
 
 [rowspan] {

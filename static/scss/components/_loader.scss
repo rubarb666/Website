@@ -1,0 +1,24 @@
+/*------------------------------------------*\
+
+    c-loader.scss
+
+    A collection of loading elements.
+
+    @namespace  .c-
+    @parent     .c-loader
+
+\*------------------------------------------*/
+
+.c-loader {
+	@include loader();
+}
+
+// Spin animation
+@keyframes spin {
+	0% {
+		transform: rotate( 0deg );
+	}
+	100% {
+		transform: rotate( 360deg );
+	}
+}

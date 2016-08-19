@@ -1,0 +1,73 @@
+/*------------------------------------------*\
+
+    _c-nav.scss
+
+    Navigation component
+
+    @namespace  .c-
+    @parent     .c-nav
+    @variation  .c-nav--primary
+
+\*------------------------------------------*/
+
+.c-nav {
+    list-style: none;
+    margin-bottom: 0;
+    margin-left: 0;
+
+    li {
+        line-height: $touch-target;
+        a {
+            @include padding(n $base-space);
+            line-height: $touch-target;
+            display: block;
+        }
+    }
+
+    @include screen-size(m) {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        li {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    @include screen-size(m-) {
+        ul {
+            width:100%;
+        }
+        li a {
+            &:hover, &:active, &:target {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.c-nav--primary{
+	font-size: font-size(alpha);
+    @include screen-size(m-) {
+        @include background-color(color(header));
+    }
+
+	li {
+		a {
+
+		}
+	}
+
+	li.is-selected a {
+		@include background-color(white);
+		color: color(text);
+		border-radius: $base-radius;
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+}

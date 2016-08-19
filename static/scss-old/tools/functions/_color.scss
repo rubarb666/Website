@@ -1,0 +1,11 @@
+@function color($key, $opacity: 1, $lighten: 0, $map: $color) {
+	@if map-has-key($color, $key) {
+		$value: map-get($color, $key);
+		$value: rgba($value, $opacity);
+		$value: call(if($lighten >= 0, lighten, darken), $value, abs($lighten));
+		@return $value;
+	} @else {
+		@warn "Unknown `#{$key}` in $color.";
+		@return null;
+	}
+}

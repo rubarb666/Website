@@ -1,0 +1,202 @@
+/*------------------------------------
+	TABLES
+*/
+
+$odd-color: map-get($color, shade);
+$even-color: map-get($color, tint);
+
+@mixin table-borders($type: grid, // grid | framed | ruled | lined
+$border-width: 1px,
+$border-style: solid,
+$border-color: map-get($color, border)) {
+	border: 0;
+	border-collapse: separate;
+	@if $type == "framed" {
+		tr {
+			&:first-child {
+				td, th {
+					border-top: $border-width $border-style $border-color;
+				}
+			}
+			&:last-child {
+				td, th {
+					border-bottom: $border-width $border-style $border-color;
+				}
+			}
+			td, th {
+				&:first-child {
+					@include padding(n n n $padding/2);
+					border-left: $border-width $border-style $border-color;
+				}
+				&:last-child {
+					@include padding(n $padding/2 n n);
+					border-right: $border-width $border-style $border-color;
+				}
+			}
+		}
+	} @else if $type == "ruled" {
+		tr {
+			td, th {
+				border-left: $border-width $border-style $border-color;
+				&:first-child {
+					border-left: 0;
+				}
+			}
+		}
+	} @else if $type == "lined" {
+		thead {
+			tr {
+				td, th {
+					border-bottom: $border-width $border-style $border-color;
+				}
+			}
+		}
+		tbody {
+			tr {
+				td, th {
+					border-top: $border-width $border-style $border-color;
+				}
+				&:first-child {
+					td, th {
+						border-top: 0;
+					}
+				}
+			}
+		}
+	} @else {
+		tr {
+			&:first-child {
+				td, th {
+					border-top: $border-width $border-style $border-color;
+				}
+			}
+			td, th {
+				border-right: $border-width $border-style $border-color;
+				border-bottom: $border-width $border-style $border-color;
+				&:first-child {
+					@include padding(n n n $padding/2);
+					border-left: $border-width $border-style $border-color;
+				}
+				&:last-child {
+					@include padding(n $padding/2 n n);
+					border-right: $border-width $border-style $border-color;
+				}
+			}
+		}
+	}
+}
+
+@mixin table-layout($layout) {
+	@if $layout == "collapse-horizontally" {
+		display: block;
+		white-space: nowrap;
+		overflow-x: auto;
+
+		@include screen-size(m) {
+			display: table;
+		}
+
+		tr {
+			display: inline-block;
+
+			@include screen-size(m) {
+				display: table-row;
+			}
+		}
+
+		td, th {
+			display: block;
+			white-space: nowrap;
+
+			@include screen-size(m) {
+				display: table-cell;
+			}
+		}
+	} @else if $layout == "collapse-vertically" {
+		th {
+			display: none;
+		}
+
+		td {
+			display: block;
+
+			&:before {
+				content: attr(data-th) ": ";
+				display: inline-block;
+
+				@include screen-size(m) {
+					display: none;
+				}
+			}
+		}
+
+		th, td {
+			text-align: left;
+
+			@include screen-size(m) {
+				display: table-cell;
+			}
+
+		}
+	}
+}
+
+@mixin table-rounded($corner-radius: $base-radius) {
+	border-collapse: separate;
+	tr {
+		&:first-child {
+			td, th {
+				&:first-child {
+					border-top-left-radius: $corner-radius;
+				}
+				&:last-child {
+					border-top-right-radius: $corner-radius;
+				}
+			}
+		}
+		&:last-child {
+			td, th {
+				&:first-child {
+					border-bottom-left-radius: $corner-radius;
+				}
+				&:last-child {
+					border-bottom-right-radius: $corner-radius;
+				}
+			}
+		}
+	}
+}
+
+@mixin table-pattern($pattern: stripes, // stripes | bars | chequered
+$odd-color: $odd-color,
+$even-color: $even-color) {
+	@if $pattern == "stripes" {
+		tr {
+			background-color: $even-color;
+		}
+		tr:nth-of-type(odd) {
+			background-color: $odd-color; /* Override this color in your theme stylesheet */
+		}
+	} @else if $pattern == "bars" {
+		td {
+			background-color: $even-color;
+		}
+		td:nth-of-type(odd) {
+			background-color: $odd-color; /* Override this color in your theme stylesheet */
+		}
+	} @else if $pattern == "chequered" {
+		tr td {
+			background-color: $even-color;
+		}
+		tr:nth-of-type(odd) {
+			td:nth-of-type(odd) {
+				background-color: $odd-color; /* Override this color in your theme stylesheet */
+			}
+		}
+		tr:nth-of-type(even) {
+			td:nth-of-type(even) {
+				background-color: $odd-color; /* Override this color in your theme stylesheet */
+			}
+		}
+	}
+}

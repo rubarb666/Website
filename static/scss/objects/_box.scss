@@ -1,0 +1,25 @@
+/*------------------------------------------*\
+
+    _o-box.scss
+
+    Abstract object which contains a clearfix
+    and bottom margin if it's followed by a
+    sibling element
+
+    @namespace  .o-
+    @parent     .o-box
+
+\*------------------------------------------*/
+
+.o-box{
+    @include clear;
+    @include vertical-spacing;
+}
+
+.o-box--padded {
+	@include padding($base-space);
+}
+
+.o-box--padded-extra {
+	@include padding($base-space*2);
+}

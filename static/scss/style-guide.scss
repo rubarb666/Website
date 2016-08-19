@@ -1,0 +1,315 @@
+@import "helpers/all";
+@import "functions/all";
+@import "fonts";
+@import "themes/default";
+@import "config";
+@import "mixins/all";
+@import "components/table";
+
+/*
+ * Style Guide specific styles
+ */
+$styleGuideNavWidth: 250px;
+
+::selection {
+	background-color: color( secondary );
+	color: white;
+}
+
+.style-guide {
+	border-top: 1px solid color( border );
+
+	@include screen-size( m )
+	{
+		overflow: auto;
+	}
+}
+
+.style-guide-layout {
+	position: relative;;
+
+	@include screen-size(m-) {
+
+		&[style] {
+			height: auto !important;
+		}
+	}
+}
+
+.style-guide-logo {
+	fill: color( primary );
+	margin-bottom: $base-space*2;
+}
+
+.style-guide-nav {
+	@include padding( $base-space * 2 );
+
+	@include screen-size( m )
+	{
+		@include position( absolute, 0px 0 0px 0px );
+		overflow: auto;
+	}
+
+	@include screen-size( m- )
+	{
+
+		> .o-box {
+			@include padding($base-space);
+			background-color: color(shade, $shade-amount);
+			display: none;
+
+			&.is-visible {
+				display: block;
+			}
+		}
+	}
+
+	@include screen-size( m )
+	{
+		width:$styleGuideNavWidth;
+		border-right: 1px solid color( border );
+		position: absolute;
+	}
+
+	ul {
+		list-style: none;
+		@include margin( n n $margin*2 0px );
+
+		li {
+			a {
+				@include padding( $padding/4 n );
+				display: inline-block;
+				color: color( text, 0.5 );
+
+				&:hover {
+					color: color( secondary );
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	h2 {
+		text-transform: uppercase;
+	}
+
+	.is-active {
+		color: color( text );
+	}
+}
+
+.style-guide-header {
+	border-bottom: 1px solid color( border );
+	margin-bottom: 0;
+	padding-top: 0;
+	padding-bottom: $padding;
+
+	.c-search-box {
+		width: $styleGuideNavWidth/2;
+		float: right;
+
+		@include screen-size( m )
+		{
+			width: $styleGuideNavWidth;
+		}
+	}
+
+	.c-breadcrumb {
+		float: left;
+		max-width: 150px;
+		margin: 0;
+		padding: 0;
+		line-height: $touch-target + 2;
+	}
+}
+
+.style-guide-nav-mobile-link {
+	@include padding(n $base-space);
+	display: block;
+
+	@include screen-size( m )
+	{
+		display: none;
+	}
+}
+
+.style-guide-content {
+	@include padding($base-space);
+	overflow: auto;
+	max-height: 100%;
+
+	> .o-box {
+		padding-top: $padding;
+	}
+
+	@include screen-size(m) {
+		@include position(absolute, 0px 0px 0px $styleGuideNavWidth);
+		overflow: hidden;
+		padding: 0;
+
+		> .o-box {
+			@include padding($base-space $base-space*2);
+			overflow: auto;
+			max-height: calc( 100% - 75px );
+
+			.c-article {
+				margin-left: auto;
+				margin-right: auto;
+				max-width:800px;
+			}
+
+		}
+	}
+}
+
+.style-guide-content pre {
+	@include margin( $margin*2 n );
+	background-color: color( border, 0.2 );
+	border: 1px solid color( border );
+}
+
+.source-panel, .included-scss {
+	position: relative;
+	margin-top: $padding*4;
+
+	&:before {
+		content: 'HTML';
+		background: color( border );
+		@include padding( $padding/4 $padding/2 );
+		display: inline-block;
+		@include position( absolute, 0px n n 0px );
+		font-size: font-size( micro );
+		margin-top: -( $padding*1.5 );
+		text-transform: uppercase;
+		font-weight: bold;
+		color: white;
+		border-radius: $base-radius/4 $base-radius/4 0 0;
+	}
+}
+
+.included-scss {
+	margin-top: $padding*3;
+
+	&.is-hidden {
+		display: none;
+	}
+
+	&:before {
+		content: 'SCSS';
+	}
+
+}
+
+.style-guide-box {
+	display: none;
+
+	&.is-active {
+		display: block;
+	}
+}
+
+.style-guide-box-description {
+	display: block;
+	@include margin( n n $padding*2 n );
+
+	h1 {
+		font-size: font-size( eta );
+		@include screen-size(m) {
+			font-size: font-size( delta );
+			@include margin( $margin*2 n );
+		}
+	}
+
+	h2 {
+		font-size: font-size( delta );
+		@include screen-size(m) {
+			font-size: font-size( eta );
+			@include margin( $margin*2 n );
+		}
+	}
+
+	h3 {
+		font-size: font-size( beta );
+	}
+
+	ul {
+		list-style: disc;
+		@include rem(margin-#{$start}, 2 * $vertical-space);
+		@include rem(margin-bottom, $vertical-space);
+	}
+
+	ol {
+		list-style: decimal;
+		@include rem(margin-#{$start}, 2 * $vertical-space);
+		@include rem(margin-bottom, $vertical-space);
+	}
+
+	.c-revealer__hide-button,
+	.c-revealer__show-button {
+		font-size: font-size( milli );
+		text-transform: uppercase;
+	}
+
+	*:not(pre) > code {
+		background: color( link, 1, 57% );
+		@include padding( $padding/4 );
+	}
+
+	code, pre {
+		font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	}
+
+	pre {
+		border: 1px solid color( border );
+		@include padding( $padding );
+
+		code, pre {
+			font-family: inherit;
+		}
+	}
+
+	table {
+		width: auto;
+		@extend .c-table;
+		@include table-borders( grid, 1px, solid, color( border ) );
+	}
+
+	hr {
+		@include margin( $margin*3 0 );
+	}
+
+}
+
+// Hide the footer in the style guide
+body.page-template-template-style-guide {
+
+	@include screen-size(m) {
+		overflow: hidden;
+
+		footer {
+			display: none;
+		}
+	}
+
+
+}
+
+.style-guide-divide {
+
+	display:none;
+
+	&.is-open {
+		display:block !important;
+	}
+
+	.o-layout {
+		border-top:1px dotted color(border);
+	}
+
+	label {
+		font-size:font-size(milli);
+	}
+}
+
+
+

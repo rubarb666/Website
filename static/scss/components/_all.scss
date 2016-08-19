@@ -1,18 +1,53 @@
-@import "band";
-@import "global-footer";
-@import "global-header";
-@import "global-nav";
+// Essentials - Nearly every project will require these
+@import "button";
+@import "column";
+@import "header";
+@import "icon";
 @import "main";
-@import "menu";
-@import "page";
-@import "site-logo";
+@import "masthead";
+@import "nav-primary";
 @import "table";
-@import "tabs";
 
-.syntaxhighlighter {
-    @include padding($base-space);
-    @include vertical-spacing(force);
-    border:1px solid color( border );
-    @include box-shadow();
-    border-radius: 4px;
-}
+// Common - Most projects will need these
+@import "alert";
+@import "colophon";
+@import "figure";
+@import "image";
+@import "media-box";
+@import "modal";
+@import "pager";
+@import "search-box";
+@import "sidebar";
+@import "tabs";
+@import "tooltip";
+@import "media-box";
+
+// Optional - Not every project will need these
+@import "dropdown";
+@import "hero-banner";
+@import "map";
+@import "revealer";
+@import "slider";
+@import "loader";
+@import "breadcrumb";
+
+// Form components
+@import "form/check-radio";
+@import "form/fieldset";
+@import "form/form";
+@import "form/label";
+@import "form/select-field";
+@import "form/text-field";
+@import "form/field";
+
+// Blog Specific Components
+@import "blog/article";
+@import "blog/story";
+@import "blog/comments";
+
+// Application Specific Components
+@import "application/cell";
+@import "application/filter";
+@import "application/table";
+
+

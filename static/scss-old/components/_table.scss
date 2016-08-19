@@ -1,0 +1,31 @@
+table {
+    border-spacing: 10px;
+    border-collapse: separate;
+    th {
+        text-align: left;
+        border-bottom: 1px solid #cccccc;
+    }
+    td, td {
+        line-height: 125%;
+        font-size: 95%;
+    }
+}
+
+.syntaxhighlighter {
+
+    table {
+        width:auto;
+        td {
+            font-size: 9pt;
+            padding: 0;
+            line-height: 140%;
+        }
+    }
+
+    .gutter { font-family: monospace; }
+
+    .gutter div {
+        padding-right: 10px;
+        margin-right: 10px;
+    }
+}

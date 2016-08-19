@@ -1,0 +1,225 @@
+/*------------------------------------------*\
+
+    fonts.scss
+
+\*------------------------------------------*/
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon.eot?mxm45i");
+  src: url("../fonts/icomoon.eot?mxm45i#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?mxm45i") format("truetype"), url("../fonts/icomoon.woff?mxm45i") format("woff"), url("../fonts/icomoon.svg?mxm45i#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: "chalet-london-1960";
+  src: url("../fonts/chalet/chalet-london1960-webfont.eot");
+  src: url("../fonts/chalet/chalet-london1960-webfont.eot") format("eot"), url("../fonts/chalet/chalet-london1960-webfont.woff") format("woff"), url("../fonts/chalet/chalet-london1960-webfont.ttf") format("truetype"), url("../fonts/chalet/chalet-london1960-webfont.svg") format("svg");
+  font-style: normal; }
+@font-face {
+  font-family: "chalet-ny-1960";
+  src: url("../fonts/chalet/chalet-newyork1960-webfont.eot");
+  src: url("../fonts/chalet/chalet-newyork1960-webfont.eot") format("eot"), url("../fonts/chalet/chalet-newyork1960-webfont.woff") format("woff"), url("../fonts/chalet/chalet-newyork1960-webfont.ttf") format("truetype"), url("../fonts/chalet/chalet-newyork1960-webfont.svg") format("svg");
+  font-style: normal; }
+@font-face {
+  font-family: "chalet-paris-1960";
+  src: url("../fonts/chalet/chalet-paris1960-webfont.eot");
+  src: url("../fonts/chalet/chalet-paris1960-webfont.eot") format("eot"), url("../fonts/chalet/chalet-paris1960-webfont.woff") format("woff"), url("../fonts/chalet/chalet-paris1960-webfont.ttf") format("truetype"), url("../fonts/chalet/chalet-paris1960-webfont.svg") format("svg");
+  font-style: normal; }
+/*
+@font-face{
+font-family:"Avenir Next W00_n4";
+src:url("../fonts/avenir-next/069faa0e-9913-48c4-9ef7-89a4bc080b65.eot?#iefix") format("eot")
+}
+@font-face{
+font-family:"Avenir Next W00";
+src:url("../fonts/avenir-next/069faa0e-9913-48c4-9ef7-89a4bc080b65.eot?#iefix");
+src:url("../fonts/avenir-next/069faa0e-9913-48c4-9ef7-89a4bc080b65.eot?#iefix") format("eot"),url("../fonts/avenir-next/7db1f672-3a8f-4d19-9c49-7f61aed450b5.woff2") format("woff2"),url("../fonts/avenir-next/4ab86b35-c0c2-42b5-98ad-4b6eba66b197.woff") format("woff"),url("../fonts/avenir-next/276b3566-1c3b-4bc1-8915-15314f091f29.ttf") format("truetype"),url("../fonts/avenir-next/5d02f5f4-46e7-453a-aef9-3e7106d7bb68.svg#5d02f5f4-46e7-453a-aef9-3e7106d7bb68") format("svg");
+font-weight: 400;
+font-style: normal;
+}
+@font-face{
+font-family:"Avenir Next W00_n7";
+src:url("../fonts/avenir-next/fb4117a5-14ee-4035-8692-935bfff7fc2e.eot?#iefix") format("eot")
+}
+@font-face{
+font-family:"Avenir Next W00";
+src:url("../fonts/avenir-next/fb4117a5-14ee-4035-8692-935bfff7fc2e.eot?#iefix");
+src:url("../fonts/avenir-next/fb4117a5-14ee-4035-8692-935bfff7fc2e.eot?#iefix") format("eot"),
+url("../fonts/avenir-next/4c04fb14-abdb-4f93-82bb-734d1b84307b.woff2") format("woff2"),
+url("../fonts/avenir-next/04d2f223-2786-40c9-8481-be9dd47d8e7f.woff") format("woff"),
+url("../fonts/avenir-next/bce3274e-f498-48ae-b269-a6930df496e7.ttf") format("truetype"),
+url("../fonts/avenir-next/68f0375d-f66f-4f88-822a-5a0b61d2efc0.svg#68f0375d-f66f-4f88-822a-5a0b61d2efc0") format("svg");
+font-weight: 700;
+font-style: normal;
+}*/
+/*--------------------------------
+
+    COLORS
+
+----------------------------------*/
+/*--------------------------------
+
+    TYPOGRAPHY
+
+----------------------------------*/
+/* Weights / Styles */
+/* Headings */
+/* Data lists */
+/* Buttons */
+/* Fields */
+/* Shadows */
+/* Overall site settings */
+/* Animations */
+/* Typography */
+/* Quotes */
+/* Spacing */
+/* Color */
+/* Graphical ornaments */
+/* Screen sizes */
+/* Media ratios */
+/* Z-index */
+/* Buttons */
+/* Alerts */
+/* Fields */
+/* Modal Windows */
+/* Tags */
+/* Orientation */
+/* Framework */
+/* Old IE -- Don't touch */
+/*------------------------------------
+	BACKGROUND
+*/
+/*------------------------------------
+	# BORDER
+	http://davidtheclark.github.io/scut/#border
+*/
+/*------------------------------------
+	# BORDER RADIUS
+
+	Short hand for putting rounded corners on a side of an element
+
+		@include border-top-radius(20px);
+*/
+/*------------------------------------
+	CLEARFIX
+	From http://nicolasgallagher.com/micro-clearfix-hack/
+*/
+/*------------------------------------
+	# FONT FACE
+
+	Shorthand for including @font-face in your css.
+	Remember also, Google fonts, Typekit have different approaches.
+
+	Example:
+		@include font-face(proxima-nova, /fonts/proxima-nova-bold-italic, bold, italic);
+
+ 	Order of the includes matters, and it is: normal, bold, italic, bold+italic.
+*/
+/*------------------------------------
+	FONT-SIZE
+*/
+/*------------------------------------
+	# HIDE-TEXT
+
+	Hide-text is an image replacement mixin. It is based off the HTML5-Boilerplate image-replacement.
+*/
+/*------------------------------------
+	LINK
+*/
+/*------------------------------------*\
+
+	MEDIA BOX
+
+	Used to constrain the proportions of an element with a set width
+	like an iframe.
+
+	Should be applied to a parent container with the media element nested.
+
+	e.g. <div class="video-wrapper">
+			<iframe></iframe>
+		</div>
+
+	- landscape
+	- square
+	- portrait
+	- widescreen
+
+/*------------------------------------*/
+/*------------------------------------
+	# OFF-CANVAS
+
+	Throw and element off the page.
+	This makes it still accessible by screen-readers, labels etc.
+	But doesn't appear on the UI
+*/
+/*------------------------------------
+	OLD-IE
+*/
+/*------------------------------------
+	Position
+*/
+/*------------------------------------
+	RESOLUTIONS
+	@include screen-size();
+*/
+/*------------------------------------
+	TABLES
+*/
+/*------------------------------------
+	VERTICAL-SPACING (Consistent spacing)
+*/
+/*------------------------------------*\
+
+   	BUTTON
+
+	Button options and styles can be changed in _config.scss
+	under the *Buttons*.
+
+	Options include:
+
+	$button-font-family
+	$has-button-border
+	$has-button-gradient
+	$has-button-shadow
+	$is-button-rounded
+
+	/ref/patterns.php#buttons
+
+/*------------------------------------*/
+.c-main {
+  background: #444; }
+
+.flex-wrapper {
+  justify-content: space-around;
+  align-items: center;
+  height: 400px;
+  flex-direction: column;
+  margin-top: 400px;
+  margin-bottom: 400px; }
+
+.c-wrapper {
+  display: flex;
+  position: relative;
+  width: 400px;
+  justify-content: space-between; }
+
+.c-buttons {
+  position: fixed;
+  top: 80px;
+  right: 20px; }
+
+.c-square {
+  border-radius: 5px;
+  width: 80px;
+  height: 100px;
+  background-color: #7BC4E3;
+  border-bottom: 2px solid #2b9dcd;
+  position: relative;
+  z-index: 3; }
+  .c-square:nth-child(2) {
+    background-color: #75C45F;
+    border-color: #468a33;
+    z-index: 2; }
+  .c-square:nth-child(3) {
+    background-color: #EF6262;
+    border-color: #d51616;
+    z-index: 1; }

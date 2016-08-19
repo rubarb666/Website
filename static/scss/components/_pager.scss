@@ -1,0 +1,63 @@
+/*------------------------------------------*\
+
+    c-pager.scss
+
+    @namespace  .c-
+    @parent     .c-pager
+    @children	.c-pager__item
+    @states 	.is-selected
+    			.is-next
+    			.is-prev
+
+\*------------------------------------------*/
+
+// Pager Container
+.c-pager {
+	@include clear;
+}
+
+// Individual Pager Items
+.c-pager__item {
+	@include padding( n $padding );
+	appearance: none;
+	line-height: $touch-target;
+	min-height: $touch-target;
+	border: 1px solid color( border );
+	float: left;
+	margin-left: -1px;
+
+	&:first-child {
+		margin-left: 0;
+	}
+
+	&.is-selected {
+		@include background-color( color( primary ) );
+		border-color: color( primary );
+		position: relative;
+		z-index: 2;
+	}
+
+	&:hover {
+		text-decoration: none;
+
+		&:not( .is-selected ) {
+			background-color: color( border, 0.2 );
+		}
+	}
+
+	@include screen-size( s- )
+	{
+		&:not( [class*='is-prev'] ):not( [class*='is-next'] ):not( [class*='is-selected'] )
+		{
+			display: none;
+		}
+	}
+}
+
+
+
+
+
+
+
+

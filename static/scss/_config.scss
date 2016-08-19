@@ -1,205 +1,165 @@
-/*------------------------------------
-	# SITE CONFIGURATION
+/* Overall site settings */
+$base-unit              : 16px !default;
 
-	To get your site looking the way you want it, start here.
-	Just change the values. Don't take anything out. Everything is here for a reason.
+$box-sizing             : border-box !default;
+$is-site-responsive     : true !default;
+$is-site-fluid          : true !default;
+    $fixed-width		: $base-unit*90;	// [number]px
+    $fluid-width		: 100%;	// [number]px
+$smoothness             : 0.2;
+$content-unit           : $fixed-width/3 !default;
 
-*/
+/* Animations */
+$duration               : 1s;
 
-$is-site-responsive		: false;		// yes | no
-$is-site-fluid			: false;		// yes | no
-	$fixed-width		: 1600px;	// [number]px
-	$fluid-width		: 100%;		// [number]%
-$base-space				: 15px;		// [number]px
-$rem-units				: true;
-$smoothness				: 0.2;		// [number] (in seconds)
-
-
-/* Site direction */
-
-$direction				: ltr!default;		// ltr | rtl
-$main-start				: left!default;		// left | right
-$main-end				: right!default;	// left | right
-$site-anchor			: center!default;	// left | right | center
-
-
-/* Z-index */
-$zindex: (
-	modal				: 9000,
-	overlay				: 8000,
-	dropdown			: 7000,
-	base				: 0
-);
-
-
-$base-font-size			: $base-space!default;
-$base-line-height		: $base-space * 1.7!default;
-
-
-/* Font Weight and Style */
-
-$bold					: bold!default;		// [value]
-$italic					: italic!default;	// [value]
-
-/* Site Colours */
-
-$fade					: 0.7;
-
-/* Tint and Shade */
-$color-tint				: white;
-$color-shade			: black;
-
-/* UI colors */
-$color-mark				: #ffff00;
-$color-error			: #b22222;
-$color-warning			: DarkGoldenRod;
-$color-success			: ForestGreen;
-
-/* Social Media */
-$color-twitter			: #00ACEE;
-$color-facebook			: #3B5998;
-$color-whatsapp			: #43d854;
-$color-youtube			: #C4302B;
-$color-yahoo			: #720E9E;
-$color-googleplus		: #DD4B39;
-$color-pinterest		: #C92228;
-
-
-/* Lists */
-
-$dt-weight				: bold;
-
+/* Typography */
+$direction              : ltr !default;
+$base-line-height       : $base-unit * 1.5 !default;
+$base-font-size         : $base-unit !default;
+$fs-ratio               : $major-third !default;   // Scale at which font sizes change
+$font-features			: liga kern;
 
 /* Quotes */
 
 $english-quotes			: true!default;		// true | false
-	$open-quote			: null;				// don't change these
-	$close-quote		: null;
+$open-quote				: null;				// don't change these
+$close-quote			: null;
+
+/* Spacing */
+$rem-units              : true !default;
+$base-space             : $base-unit;
+$vertical-space         : $base-space;
+$line-height-ratio		: $base-line-height / $base-font-size!default;
+$touch-target           : $base-unit * 2.5;
+$padding                : $base-space;
+$margin                 : $base-space;
+
+/* Color */
+
+$black: #000000;
+$white: #ffffff;
+$fade:  0.5;
+$error: #dc3b3b;
+$warning: #f0b100;
+$success: #42b655;
+
+$color: (
+    // base
+    black               : $black,
+    white               : $white,
+
+    // shading
+    shade               : $black,
+    tint                : $white,
+
+    // brand
+    primary             : $brand-color-1,
+    secondary           : $brand-color-2,
+    tertiary            : $brand-color-3,
+
+    // site
+    site                : $white,
+    header              : $brand-color-1,
+    footer              : darken( $white, 5% ),
+    border              : #d7d7d7,
+    tabs				: $brand-color-4,
+
+    // text
+    text                : $brand-color-1,
+    link                : $brand-color-3,
+
+    // alerts
+    error               : $error,
+    warning             : $warning,
+    success             : $success,
+
+    tooltip             : $brand-color-1
+);
+
+$shade-amount           : 0.06;
+$tint-amount            : 0.6;
 
 /* Graphical ornaments */
 
-$base-radius			: $base-space / 2;
-
-
-/* Buttons */
-
-$has-button-border		: no; 				// yes | no
-$has-button-gradient	: no; 				// yes | no
-$has-button-shadow		: no;				// yes | no
-$is-button-rounded		: yes; 				// yes | no
-	//if yes
-	$button-radius		: $base-radius / 2; // [number]
-
-/* Forms */
-
-$field-font-family		: inherit;
-$field-bg				: #ffffff;
-$has-field-border		: yes; 				// yes | no
-$has-field-rounded		: no; 				// yes | no
-$field-radius			: $base-radius/2; 				// yes | no
-
-/* Font Sizes */
-
-$fs-ratio				: 1.4; 	// [variable]
-$font-features			: liga kern;
+$base-radius			: $base-unit / 4 !default;
+$base-shadow            : 0px 1px $base-unit/4 rgba(0, 0, 0, 0.1) !default;
+$base-shadow-inset      : inset $base-shadow !default;
 
 /* Screen sizes */
 
 $screen-size: (
-	small				: em($fixed-width/4),	// [number]
-	small-height		: em(360px),			// [number]
-	medium				: em($fixed-width/2),	// [number]
-	medium-height		: em(660px),			// [number]
-	large				: em($fixed-width)		// [number]
+        s				: $fixed-width/4,	// [number]
+        m				: $fixed-width/2,	// [number]
+        l				: $fixed-width,		// [number]
+        xl				: $fixed-width*1.5,		// [number]
+
+        sh              : 360px,
+        mh              : 500px
 );
 
 $size-ratio: (
-	small				: 0.9,				// [number]
-	medium				: 0.95
+        small			: 0.9,				// [number]
+        medium			: 0.95
 );
 
 /* Media ratios */
-
 $aspect-ratio: (
 	landscape			: 75%,
 	square				: 100%,
-	half				: 50%,
-	third				: 33%,
 	portrait			: 400%/3,
-	widescreen			: 56.25%,
-	cinema				: 42%
+	widescreen			: 56.25%
 );
 
+/* Z-index */
+$zindex: (
+    modal : 9000,
+    overlay : 8000,
+    dropdown : 7000,
+    alert : 5000,
+    base : 0
+);
 
-/* Template */
+/* Buttons */
+$has-button-border      : false !default;
+$has-button-gradient    : false !default;
+$has-button-shadow      : false !default;
+$button-radius          : $base-radius/2 !default;
+$large-button-height    : $touch-target*1.5;
 
-$global-header-height	: $base-space*3; 	// [number][unit]
-$global-header-weight	: normal; 	// [number][unit]
-$global-header-case		: normal; 	// [number][unit]
-$global-header-features	: $font-features; 	// [number][unit]
+/* Alerts */
+$has-alert-border       : false !default;
+$is-alert-rounded       : false !default;
+$alert-radius           : $base-radius/2 !default;
 
+/* Fields */
+$has-field-border       : true !default;
+$is-field-rounded       : false !default;
+$field-border           : color(border, $fade*2);
+$field-radius           : $base-radius/4 !default;
+$select-icon            : '';
 
-/* Modal Box */
+/* Modal Windows */
+$has-modal-box-shadow	: true !default;
+$modal-overlay-color	: rgba($black, 0.8) !default;
+$modal-background		: $white !default;
+$is-modal-rounded		: true !default;
+$has-modal-border		: false !default;
+$small-modal-size		: $base-unit*30;
 
-$show-modal-box			: false;			// false | true
-$modal-box-width		: 600px;			// [number]px
-$modal-box-bg			: rgba(250, 250, 250, 0.95);
+/* Tags */
+$is-tag-rounded			: true !default;
 
-$overlay-color			: rgba(0, 0, 0, 0.8);
-
+/* Orientation */
+$direction              : ltr !default;
+$start                  : left !default;
+$end                    : right !default;
 
 /* Framework */
-
-$global-border-box		: true!default;		// true | false
-$vertical-space			: $base-space!default;
-$line-height-ratio		: $base-line-height / $base-font-size!default;
-$padding				: $base-space!default;
-$margin					: $base-space!default;
-$touch-target			: 42px!default;
-$nav-width				: $fixed-width/4 - $base-space*3;
-
-
-	/* Grid */
-	$gutter				: $base-space!default;
-	$total-columns		: 12!default;
-	$grid-unit			: ( ($fixed-width + $gutter) / $total-columns ) - $gutter;
-
-
-	/* Subject / Object */
-	$subject-width		: 33%;					/* 1/3 */
-	$object-width		: 100 - $subject-width;	/* 2/3 */
-	$mini-gutter		: $base-space;
-
-	/* Tables */
-	$cell-padding-v		: $base-space/4;
-	$cell-padding-x		: $base-space/2;
-
-	/* Article */
-	$article-width		: $fixed-width/2;
-	$article-gutter		: $fixed-width/8;
-
-	$content-unit		: $fixed-width/6;
-
-
-
-/* Prefixes */
-
-$prefix-for-webkit		: true;
-$prefix-for-mozilla		: true;
-$prefix-for-microsoft	: true;
-$prefix-for-opera		: true;
-$prefix-for-spec		: true;
-
-/**
-* Developer Mode allows a set of predetermined classes
-* to be output by default in the CSS
-*/
-
-$developer-mode			: true;
+$header-height          : $base-unit*2;
+$min-body-height        : $base-unit*36;
 
 /* Old IE -- Don't touch */
 
 $old-ie					: false!default;		// true | *false*
 $not-old-ie				: true!default;			// *true* | false
 
-$asset-pipeline			: false !default;

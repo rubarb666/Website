@@ -1,0 +1,42 @@
+/*scss/objects/_o-media.scss*/
+
+@mixin media {
+    @include clear;
+}
+@mixin media-body {
+    overflow: hidden;
+}
+@mixin media-image($orientation: start) {
+    font-size: 0;
+    @if $orientation == "end" {
+        float: $end;
+    } @else {
+        float: $start;
+    }
+}
+
+.o-media {
+    @include media-query(orig m) {
+        @include media;
+        .o-media__image {
+            @include media-image;
+        }
+    }
+}
+
+.o-media__body {
+    @include media-body;
+}
+
+.o-media-reverse {
+    @include media-query(orig m) {
+        @include media;
+        .o-media__image {
+            @include media-image(end);
+        }
+    }
+}
+
+.o-media__image--end {
+    @include media-image(end);
+}

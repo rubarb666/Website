@@ -1,0 +1,15 @@
+/*------------------------------------
+	OLD-IE
+*/
+
+@mixin is-old-ie {
+	@if $old-ie == true {
+		@content;
+	}
+}
+
+@mixin is-not-old-ie {
+	@if $old-ie == false {
+		@content;
+	}
+}

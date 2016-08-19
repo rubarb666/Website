@@ -1,0 +1,11 @@
+@mixin screen($is-not-old-ie:is-old-ie) {
+    @if $old-ie == true {
+        @if $is-not-old-ie != "is-not-old-ie" {
+            @content;
+        }
+    } @else {
+        @media screen {
+            @content;
+        }
+    }
+}

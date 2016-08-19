@@ -1,0 +1,83 @@
+/*------------------------------------------*\
+
+    _o-layout.scss
+
+    Abstract object which helps create
+    a simple grid layout.
+    This helps define rows and items.
+    Widths are defined using utility classes
+    (see u-fractions)
+
+    @namespace  .o-
+    @parent     .o-layout
+    @children   .o-layout__item
+                .o-layout__filler
+    @variations .o-layout--fixed
+                .o-layout--flex
+
+\*------------------------------------------*/
+
+@mixin layout-container {
+    @include clear;
+    font-size: $base-font-size;
+    margin-left: -$base-space;
+}
+
+@mixin layout-item {
+    @include base-font-size;
+    display: inline-block;
+    margin-right: -$base-font-size/4;
+    padding-left: $base-space;
+    vertical-align: top;
+    width: 100%;
+    letter-spacing:0;
+    word-spacing:0;
+}
+
+%layout-container {
+    @include layout-container;
+}
+
+%layout-item {
+    @include layout-item;
+}
+
+/*
+    Basic Layout
+    Uses display:inline-block to layout
+*/
+
+.o-layout {
+    @extend %layout-container;
+}
+
+.o-layout--flex {
+    display: flex;
+    margin-left: 0;
+
+}
+
+.o-layout--fixed {
+    margin-left: 0;
+}
+
+.o-layout__item {
+    @extend %layout-item;
+    .o-layout--flex & {
+        margin-right: 0;
+    }
+}
+
+.o-layout__filler {
+    overflow: hidden;
+    .o-layout--flex & {
+        flex: 1;
+    }
+}
+
+.o-layout--tight {
+    margin-left: 0;
+    .o-layout__item {
+        padding-left: 0;
+    }
+}

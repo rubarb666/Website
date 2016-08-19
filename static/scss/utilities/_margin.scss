@@ -1,0 +1,33 @@
+/*scss/utilities/_u-margin.scss*/
+
+.u-margin {
+    margin: $margin !important;
+}
+.u-margin-ns {
+    margin-top: $margin !important;
+    margin-bottom: $margin !important;
+}
+.u-margin-ew {
+    margin-left: $margin !important;
+    margin-right: $margin !important;
+}
+.u-margin-top {
+    margin-top: $margin !important;
+}
+.u-margin-bottom {
+    margin-bottom: $margin !important;
+}
+.u-margin-left {
+    @include media-query(orig m l) {
+        margin-left: $margin !important;
+    }
+}
+.u-margin-right {
+    @include media-query(orig m l) {
+        margin-right: $margin !important;
+    }
+}
+
+.u-margin-none {
+    @include margin( 0 );
+}

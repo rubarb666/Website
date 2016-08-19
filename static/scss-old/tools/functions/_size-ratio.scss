@@ -1,0 +1,8 @@
+@function size-ratio($key) {
+	@if map-has-key($size-ratio, $key) {
+		@return map-get($size-ratio, $key);
+	} @else {
+		@warn "Unknown `#{$key}` in $size-ratio.";
+		@return null;
+	}
+}

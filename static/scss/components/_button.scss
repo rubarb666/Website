@@ -1,0 +1,102 @@
+/*------------------------------------------*\
+
+    _button.scss
+
+    Global buttons.
+
+
+    @namespace  .c-
+    @parent     .c-button
+    @variations .c-button--primary
+                .c-button--secondary
+                .c-button--ghost
+                .c-button--text
+                .c-button--small
+                .c-button--large
+                .c-button--long
+    @states     .has-dropdown
+                .is-processing
+
+\*------------------------------------------*/
+
+.c-button {
+    @include button;
+
+    &.has-dropdown {
+        &:after {
+			font-family: font-family(icon);
+			content: "\f0d7";
+			margin-left:$margin/4;
+        }
+    }
+
+    &.is-processing {
+        &:before {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            line-height: $touch-target/1.75;
+            margin-right: $margin;
+            @include loader( $touch-target/1.75, white, .1rem );
+        }
+    }
+}
+
+.c-button--disabled {
+    cursor: not-allowed;
+    opacity: $fade;
+    pointer-events: none;
+}
+
+a.c-button {
+    &:hover, &:active, &:focus, &:target {
+        text-decoration: none;
+    }
+}
+
+.c-button--inline {
+    @include padding(n $base-space/2);
+    min-height: 0;
+    line-height: inherit;
+}
+
+.c-button--primary {
+    @include button-color($button-color-primary);
+}
+
+.c-button--secondary {
+    @include button-color($button-color-secondary);
+}
+
+.c-button--ghost {
+    @include button-hollow(color(secondary));
+}
+
+.c-button--text{
+    @include button-color(transparent);
+    @include button-text-color($button-color-secondary, darken($button-color-secondary, 10%));
+    box-shadow: none;
+}
+
+.c-button--small {
+    @include padding(n $base-space/2);
+    font-size: font-size(milli);
+    line-height: $touch-target/1.5;
+    min-height: $touch-target/1.5;
+}
+
+.c-button--large {
+    @include padding(n $base-space*2);
+    font-size: font-size(beta);
+    line-height: $large-button-height;
+    min-height: $large-button-height;
+}
+
+.c-button--long{
+    display: block;
+    text-align: center;
+}
+
+.c-button-group{
+    display:block;
+}

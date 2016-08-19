@@ -1,0 +1,17 @@
+/*------------------------------------------*\
+
+    _c-header.scss
+
+    Global site header.
+
+    @namespace  .c-
+    @parent     .c-header
+
+\*------------------------------------------*/
+
+.c-header {
+    @include background-color(color(header));
+    margin-bottom: 0;
+	//position: fixed;
+	width: 100%;
+}

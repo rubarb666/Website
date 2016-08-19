@@ -1,0 +1,74 @@
+/*scss/components/_c-article.scss*/
+
+.c-article{
+    @include screen-size(m) {
+        @include padding(n n $base-space*2 n);
+    }
+}
+
+    .c-article__footer {
+        @include margin($base-space n);
+    }
+
+    .c-article__title {
+        @include font-size(font-size(epsilon));
+    }
+
+    .c-article__kicker {
+        @include margin(0 n);
+        font-weight: bolder;
+        text-transform: uppercase;
+    }
+    
+    .c-article__byline {
+        opacity: $fade;
+    }
+
+    .c-article__header {
+        @include padding(n n $base-space n);
+
+        @include screen-size(m) {
+            @include padding(n n $base-space*2 n);
+        }
+    }
+
+    .c-article__body {
+        max-width: $content-unit * 2;
+        @include screen-size(m) {
+            @include padding($base-space*2 n);
+        }
+        
+        ul {
+            @include rem(margin-#{$start}, $base-space);
+            list-style: disc;
+        }
+
+        img {
+            @include vertical-spacing();
+        }
+
+        .s-article & {
+            h2, h3 {
+                font-weight: bold;
+            }
+            h2 {
+                @include font-size(font-size(beta));
+            }
+        }
+    }
+
+// Image Treatment
+
+.alignright {
+    float: $end;
+}
+
+.alignleft {
+    float: $start;
+}
+
+img, [width], [height] {
+    &.size-full {
+        width: 100%;
+    }
+}

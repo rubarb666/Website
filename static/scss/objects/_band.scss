@@ -1,0 +1,16 @@
+/*------------------------------------------*\
+
+    _o-band.scss
+
+    Abstract object which adds padding to
+    the top and bottom of an element.
+    Useful for layouts
+
+    @namespace  .o-
+    @parent     .o-band
+
+\*------------------------------------------*/
+
+.o-band{
+    @include padding($base-space n);
+}

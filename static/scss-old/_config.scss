@@ -1,0 +1,205 @@
+/*------------------------------------
+	# SITE CONFIGURATION
+
+	To get your site looking the way you want it, start here.
+	Just change the values. Don't take anything out. Everything is here for a reason.
+
+*/
+
+$is-site-responsive		: false;		// yes | no
+$is-site-fluid			: false;		// yes | no
+	$fixed-width		: 1600px;	// [number]px
+	$fluid-width		: 100%;		// [number]%
+$base-space				: 15px;		// [number]px
+$rem-units				: true;
+$smoothness				: 0.2;		// [number] (in seconds)
+
+
+/* Site direction */
+
+$direction				: ltr!default;		// ltr | rtl
+$main-start				: left!default;		// left | right
+$main-end				: right!default;	// left | right
+$site-anchor			: center!default;	// left | right | center
+
+
+/* Z-index */
+$zindex: (
+	modal				: 9000,
+	overlay				: 8000,
+	dropdown			: 7000,
+	base				: 0
+);
+
+
+$base-font-size			: $base-space!default;
+$base-line-height		: $base-space * 1.7!default;
+
+
+/* Font Weight and Style */
+
+$bold					: bold!default;		// [value]
+$italic					: italic!default;	// [value]
+
+/* Site Colours */
+
+$fade					: 0.7;
+
+/* Tint and Shade */
+$color-tint				: white;
+$color-shade			: black;
+
+/* UI colors */
+$color-mark				: #ffff00;
+$color-error			: #b22222;
+$color-warning			: DarkGoldenRod;
+$color-success			: ForestGreen;
+
+/* Social Media */
+$color-twitter			: #00ACEE;
+$color-facebook			: #3B5998;
+$color-whatsapp			: #43d854;
+$color-youtube			: #C4302B;
+$color-yahoo			: #720E9E;
+$color-googleplus		: #DD4B39;
+$color-pinterest		: #C92228;
+
+
+/* Lists */
+
+$dt-weight				: bold;
+
+
+/* Quotes */
+
+$english-quotes			: true!default;		// true | false
+	$open-quote			: null;				// don't change these
+	$close-quote		: null;
+
+/* Graphical ornaments */
+
+$base-radius			: $base-space / 2;
+
+
+/* Buttons */
+
+$has-button-border		: no; 				// yes | no
+$has-button-gradient	: no; 				// yes | no
+$has-button-shadow		: no;				// yes | no
+$is-button-rounded		: yes; 				// yes | no
+	//if yes
+	$button-radius		: $base-radius / 2; // [number]
+
+/* Forms */
+
+$field-font-family		: inherit;
+$field-bg				: #ffffff;
+$has-field-border		: yes; 				// yes | no
+$has-field-rounded		: no; 				// yes | no
+$field-radius			: $base-radius/2; 				// yes | no
+
+/* Font Sizes */
+
+$fs-ratio				: 1.4; 	// [variable]
+$font-features			: liga kern;
+
+/* Screen sizes */
+
+$screen-size: (
+	small				: em($fixed-width/4),	// [number]
+	small-height		: em(360px),			// [number]
+	medium				: em($fixed-width/2),	// [number]
+	medium-height		: em(660px),			// [number]
+	large				: em($fixed-width)		// [number]
+);
+
+$size-ratio: (
+	small				: 0.9,				// [number]
+	medium				: 0.95
+);
+
+/* Media ratios */
+
+$aspect-ratio: (
+	landscape			: 75%,
+	square				: 100%,
+	half				: 50%,
+	third				: 33%,
+	portrait			: 400%/3,
+	widescreen			: 56.25%,
+	cinema				: 42%
+);
+
+
+/* Template */
+
+$global-header-height	: $base-space*3; 	// [number][unit]
+$global-header-weight	: normal; 	// [number][unit]
+$global-header-case		: normal; 	// [number][unit]
+$global-header-features	: $font-features; 	// [number][unit]
+
+
+/* Modal Box */
+
+$show-modal-box			: false;			// false | true
+$modal-box-width		: 600px;			// [number]px
+$modal-box-bg			: rgba(250, 250, 250, 0.95);
+
+$overlay-color			: rgba(0, 0, 0, 0.8);
+
+
+/* Framework */
+
+$global-border-box		: true!default;		// true | false
+$vertical-space			: $base-space!default;
+$line-height-ratio		: $base-line-height / $base-font-size!default;
+$padding				: $base-space!default;
+$margin					: $base-space!default;
+$touch-target			: 42px!default;
+$nav-width				: $fixed-width/4 - $base-space*3;
+
+
+	/* Grid */
+	$gutter				: $base-space!default;
+	$total-columns		: 12!default;
+	$grid-unit			: ( ($fixed-width + $gutter) / $total-columns ) - $gutter;
+
+
+	/* Subject / Object */
+	$subject-width		: 33%;					/* 1/3 */
+	$object-width		: 100 - $subject-width;	/* 2/3 */
+	$mini-gutter		: $base-space;
+
+	/* Tables */
+	$cell-padding-v		: $base-space/4;
+	$cell-padding-x		: $base-space/2;
+
+	/* Article */
+	$article-width		: $fixed-width/2;
+	$article-gutter		: $fixed-width/8;
+
+	$content-unit		: $fixed-width/6;
+
+
+
+/* Prefixes */
+
+$prefix-for-webkit		: true;
+$prefix-for-mozilla		: true;
+$prefix-for-microsoft	: true;
+$prefix-for-opera		: true;
+$prefix-for-spec		: true;
+
+/**
+* Developer Mode allows a set of predetermined classes
+* to be output by default in the CSS
+*/
+
+$developer-mode			: true;
+
+/* Old IE -- Don't touch */
+
+$old-ie					: false!default;		// true | *false*
+$not-old-ie				: true!default;			// *true* | false
+
+$asset-pipeline			: false !default;

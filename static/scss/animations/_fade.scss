@@ -1,0 +1,40 @@
+/*------------------------------------------*\
+
+    _fade.scss
+
+    Adds a fade animation on display
+
+    @namespace  .a-
+
+\*------------------------------------------*/
+
+.a-fade-in {
+	animation: fade-in $duration;
+
+	&.on-check,
+	&.on-hover {
+		animation: none;
+		transition: opacity $duration;
+		opacity: 0;
+	}
+
+	:checked + &.on-check,
+	&.on-hover:hover {
+		opacity: 1;
+	}
+}
+
+.a-fade-out {
+	animation: fade-out $duration;
+
+	&.on-check,
+	&.on-hover {
+		animation: none;
+		transition: opacity $duration;
+	}
+
+	:checked + &.on-check,
+	&.on-hover:hover {
+		opacity: 0;
+	}
+}

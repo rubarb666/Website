@@ -1,91 +1,58 @@
-/* Base typography */
+/*--------------------------------
 
-$font-stack-a			: 'AvenirNextLTW01-Regular', sans-serif;
-$font-stack-b			: 'AvenirNextLTW01-Regular', sans-serif;
-$font-stack-mono		: Consolas, Monaco, 'Andale Mono', monospace;
+    COLORS
+
+----------------------------------*/
+
+$white                  : #ffffff;
+$brand-color-1          : #363E46;
+$brand-color-2          : #E25831;
+$brand-color-3          : #0f6ab4;
+$brand-color-4			: #eaeaea;
+
+$heading-color          : $brand-color-1;
+$button-color           : darken($white, 10%);
+$button-color-primary   : $brand-color-2;
+$button-color-secondary	: $brand-color-3;
+$field-bg               : $white;
+
+/*--------------------------------
+
+    TYPOGRAPHY
+
+----------------------------------*/
+
+$font-stack-a           : 'chalet-ny-1960', -apple-system, sans-serif;
+$font-stack-b           : 'helvetica', -apple-system, sans-serif;
+$font-stack-mono        : monospace;
+$icon-font				: "icomoon", sans-serif;
 
 $font-family: (
-	primary				: $font-stack-a,
-	secondary			: $font-stack-b,
-	article				: $font-stack-a,
-	mono				: $font-stack-mono,
-	icons				: SSStandard,
-	social-icons		: SSSocial
+	primary         : $font-stack-a,
+	secondary       : $font-stack-b,
+	mono            : $font-stack-mono,
+	icon			: $icon-font
 );
 
-/* Site Colours */
+$base-font-family		: map-get($font-family, secondary);
 
-$brand-a				: #444444;
-$brand-b				: #FD4565;
-$brand-c				: #FD4565;
-$brand-d				: #282828;
-$brand-e				: #2c8ae8;
-$brand-f				: #84960e;
-$site					: #ffffff;
-$white					: #ffffff;
-
-$color: (
-		footer			: $brand-c,
-		site			: $site,
-		white			: $white,
-
-	/* Text colors */
-		text			: $brand-a,
-		text-quiet		: lighten($brand-a, 20%),
-		link			: $brand-b,
-
-	/* Brand colors */
-		primary			: $brand-a,
-		secondary		: $brand-b,			// tertiary, quaternary, quinary ...
-		tertiary		: $brand-c,			// tertiary, quaternary, quinary ...
-		quaternary		: $brand-d,			// tertiary, quaternary, quinary ...
-		quinary			: $brand-e,			// tertiary, quaternary, quinary ...
-		senary			: $brand-f,			// tertiary, quaternary, quinary ...
-
-		nav				: $brand-b,
-		nav-rev			: $white,
-
-	/* Tint and Shade */
-		tint			: $color-tint,
-		tint-safe		: lighten($site, 10%),
-		shade			: $color-shade,
-		shade-safe		: darken($site, 5%),
-
-	/* UI colors */
-		border			: darken($site, 10%),
-		mark			: $color-mark,
-		alert			: $brand-b,
-		error			: #D51111,
-		warning			: $brand-c,
-		success			: $brand-f,
-		tabs			: darken($site, 20%),
-		quiet			: lighten( $brand-a, 30%  ),
-
-	/* Social Media */
-		twitter			: $color-twitter,
-		facebook		: $color-facebook,
-		whatsapp		: $color-whatsapp,
-		youtube			: $color-youtube,
-		yahoo			: $color-yahoo,
-		googleplus		: $color-googleplus,
-		pinterest		: $color-pinterest
-);
-
-$base-font-family		: map-get($font-family, primary);
+/* Weights / Styles */
+$bold                   : bold;
+$italic                 : italic;
 
 /* Headings */
+$heading-font-family    : $font-stack-a;
+$heading-weight         : $bold;
 
-$heading-font-family	: map-get($font-family, primary);
-$heading-color			: $brand-d!default;
-$heading-weight			: normal!default;
+/* Data lists */
+$dt-weight              : $bold;
 
-$brand-name-case		: $global-header-case;
-$brand-name-weight		: $global-header-weight;
-$brand-name-features	: $global-header-features;
+/* Buttons */
+$button-font-family     : $font-stack-a;
+$button-border-width    : 1px;
 
+/* Fields */
+$field-font-family      : inherit;
 
-$tint-amount			: 0.5;
-$shade-amount			: 0.1;
-
-$button-font-family		: $base-font-family;
-$button-color			: darken(map-get($color, site), 10%);
+/* Shadows */
+$shadow-light			: 0px 1px 3px rgba($brand-color-1, 0.3);

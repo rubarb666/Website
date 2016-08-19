@@ -1,0 +1,33 @@
+/*------------------------------------------*\
+
+    _zoom.scss
+
+    Adds a zoom animation on hover
+
+    @namespace  .a-
+
+\*------------------------------------------*/
+
+.a-zoom {
+
+	transition: transform $duration/4 ease-out;
+
+	&:not( .c-image ):hover {
+		transform: scale( 1.2 );
+		cursor: pointer;
+	}
+
+	// When applied to the .c-image class we can
+	// animate the zoom inside the bounds
+	&.c-image {
+		position: relative;
+		overflow: hidden;
+
+		img {
+			&:hover {
+				transform: translateY( -50% ) scale( 1.2 );
+			}
+			transition: transform $duration/4 ease-out;
+		}
+	}
+}

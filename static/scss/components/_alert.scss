@@ -1,0 +1,46 @@
+/*------------------------------------------*\
+
+    _c-alert.scss
+
+    Alert messages that appear on validation
+    or for notifications.
+
+    @namespace  .c-
+    @parent     .c-alert
+    @variations .c-alert--error
+                .c-alert--warning
+                .c-alert--success
+
+\*------------------------------------------*/
+
+.c-alert {
+	padding: $padding/2 $padding;
+	margin-bottom:$margin;
+	@include alert(color(border));
+
+	@if $has-alert-border {
+		border-width: 1px;
+		border-style: solid;
+	}
+
+	@if $is-alert-rounded {
+		border-radius: $alert-radius;
+	}
+}
+
+.c-alert--error {
+	@include alert(color(error));
+}
+
+.c-alert--warning {
+	@include alert(color(warning), '\e94f');
+}
+
+.c-alert--success {
+	@include alert(color(success));
+}
+
+.c-alert--top {
+	@include position(fixed, 0px 0px 0 0px);
+	z-index: zindex(alert);
+}

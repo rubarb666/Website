@@ -1,0 +1,52 @@
+@mixin field-blank (
+$width: auto
+) {
+	border:	0;
+	border-radius: 0;
+	display: inline-block;
+	line-height: $touch-target;
+	max-width:100%;
+	min-height: $touch-target;
+	width:$width;
+	@if $field-font-family {
+		font-family: $field-font-family;
+	}
+}
+
+@mixin field-base (
+$width: auto
+) {
+	@include field-blank($width);
+	appearance: none;
+	color:map-get($color, text);
+	background:$field-bg;
+
+
+	// Border Settings
+	@if $has-field-border {
+		border: 1px solid $field-border;
+	}
+	@if $is-field-rounded {
+		border-radius: $field-radius;
+	}
+}
+
+@mixin field (
+$width: auto
+) {
+	@include field-base($width);
+	@include padding(0 ($base-space/2));
+}
+
+@mixin field-reset {
+	appearance: none;
+	background: transparent;
+	border:	0;
+	line-height: inherit;
+	min-height: inherit;
+	padding: 0;
+}
+
+@mixin field-padding {
+	@include padding(0 ($base-space/2));
+}

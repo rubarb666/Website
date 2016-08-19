@@ -1,0 +1,66 @@
+/*------------------------------------------*\
+
+    _c-story.scss
+
+    News or article in index form.
+    Usually appears as a box with thumbnail,
+    headline and brief
+
+    @namespace  .c-
+    @parent     .c-story
+    @children   .c-story__image
+                .c-story__body
+                .c-story__headline
+                .c-story__byline
+
+\*------------------------------------------*/
+
+.c-story {
+    @include media-query(orig m) {
+        display: inline-block;
+
+        .s-sidebar & {
+            @include padding(n $base-space/2);
+            max-width: $content-unit;
+        }
+
+        .c-story__image {
+            margin-bottom: 0;
+            max-width: 50%;
+            width: $content-unit/2;
+            
+            img {
+                width: 100%;
+            }
+
+            .s-sidebar & {
+                @include margin(n n $base-space/2 n);
+                float:none;
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+
+        .c-story__body {
+            @include padding(n n n $base-space);
+
+        }
+    }
+}
+    .c-story__image {
+        @include margin(n n $base-space n);
+    }
+
+    .c-story__body {
+        .s-sidebar & {
+            padding-left: 0;
+        }
+    }
+
+    .c-story__headline {
+        @include font-size(font-size(beta));
+    }
+    
+    .c-story__byline {
+        opacity: $fade;
+    }

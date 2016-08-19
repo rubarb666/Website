@@ -1,0 +1,20 @@
+.o-pill{
+	@include font-size(font-size(milli));
+	@include padding($base-space/4 $base-space/2);
+	display: inline-block;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.o-pill__icon {
+	@include margin(n (-$base-space/4) n $base-space/4);
+	display: inline-block;
+	font-size: 0.6em;
+	vertical-align: middle;
+}
+
+a.o-pill__icon {
+	&:hover, &:focus {
+		text-decoration: none;
+	}
+}

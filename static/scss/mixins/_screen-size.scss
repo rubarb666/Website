@@ -1,0 +1,119 @@
+/*------------------------------------
+	RESOLUTIONS
+	@include screen-size();
+*/
+
+
+@mixin screen-size (
+$ss
+) {
+	@if $is-site-responsive {
+
+		// Horizontal Widths
+
+		@if $ss == "s-" {
+			@media only screen and (max-width: screen-size(s) ) {
+				@content;
+			}
+			// Small screens
+		}
+		@if $ss == "s" {
+			@media only screen and (min-width: screen-size(s) ) {
+				@content;
+			}
+			// Medium screens and bigger
+		}
+		@if $ss == "s-m" {
+			@media only screen and (min-width: screen-size(s) ) and (max-width: screen-size(m) ) {
+				@content;
+			}
+			// Medium screens only
+		}
+		@if $ss == "m-" {
+			@media only screen and (max-width: screen-size(m) ) {
+				@content;
+			}
+			// Medium screens and ser
+		}
+		@if $ss == "m" {
+			@media only screen and (min-width: screen-size(m) ) {
+				@content;
+			}
+			// Large screens and bigger
+		}
+		@if $ss == "m-l" {
+			@media only screen and (min-width: screen-size(m) ) and (max-width: screen-size(l) ) {
+				@content;
+			}
+			// Large screens only
+		}
+		@if $ss == "l-" {
+			@media only screen and (max-width: screen-size(l) ) {
+				@content;
+			}
+			// Large screens and ser
+		}
+		@if $ss == "l" {
+			@media only screen and (min-width: screen-size(l) ) {
+				@content;
+			}
+			// Extra-Large screens and bigger
+		}
+		@if $ss == "xl" {
+			@media only screen and (min-width: screen-size(xl) ) {
+				@content;
+			}
+			// Extra-Large screens and bigger
+		}
+		// Vertical Heights
+		@if $ss == "mh" {
+			@media only screen and (min-height: screen-size(mh)) {
+				@content;
+			}
+		}
+		@if $ss == "mh-" {
+			@media only screen and (max-height: screen-size(mh)) {
+				@content;
+			}
+		}
+	}
+	@else {
+		@if $ss == "m" {
+			@media (min-width: screen-size(m) ) {
+				@content;
+			}
+		}
+	}
+}
+
+@mixin hidpi(
+	$ratio: 1.3 // Default value set to 1.3 to target Google Nexus 7 (http://bjango.com/articles/min-device-pixel-ratio/)
+) {
+	@media only screen and (-webkit-min-device-pixel-ratio: $ratio),
+	only screen and (min-resolution: #{round($ratio*96)}dpi),
+	only screen and (min-resolution: #{$ratio}dppx) {
+		@content;
+	}
+}
+
+// Media Query class expander
+// Example:
+// .object {
+//		width:100%;
+// }
+
+@mixin media-query (
+	$mqs: m
+) {
+	@each $mq in $mqs {
+		@if $mq == 'orig' {
+			@content;
+		} @else {
+			&\@#{$mq} {
+				@include screen-size($mq) {
+					@content;
+				}
+			}
+		}
+	}
+}

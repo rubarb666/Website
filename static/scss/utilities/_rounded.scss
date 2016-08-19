@@ -1,0 +1,13 @@
+/*scss/utilities/_u-rounded.scss*/
+
+.u-rounded{
+    border-radius: $base-radius !important;
+}
+
+.u-ellipse {
+    border-radius:100% !important;
+}
+
+.u-pill {
+    border-radius:1000px !important;
+}

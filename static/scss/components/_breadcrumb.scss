@@ -1,0 +1,20 @@
+/*------------------------------------------*\
+
+    _c-breadcrumb.scss
+
+	In wordpress we use the yoast plugin to
+	generate the breadcrumb so access to the
+	internal elements are limited
+
+    @namespace  .c-
+    @parent     .c-breadcrumb
+
+\*------------------------------------------*/
+
+.c-breadcrumb {
+	width: $fixed-width;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: $margin;
+	@include padding( n $padding );
+}
