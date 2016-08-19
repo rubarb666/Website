@@ -1,5 +1,18 @@
-.s-cms-content {
-	margin-left: $margin;
+.s-manual-content {
+
+	h1 {
+		font-size: font-size(delta);
+	}
+
+	h2 {
+		font-size: font-size(beta);
+		color: color(secondary);
+	}
+
+	p:first-child {
+		font-size: font-size(beta);
+	}
+
 	ul {
 		list-style-type: disc;
 	}
@@ -7,4 +20,23 @@
 	ol {
 		list-style-type: decimal;
 	}
+}
+
+
+.c-article {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.c-intro-paragraph {
+	font-size: font-size(beta);
+	@include margin(n n $base-space*2 n);
+}
+
+dd {
+	@include margin(n n $base-space n);
+}
+
+dt {
+	@include margin(n n $base-space/2 n);
 }
