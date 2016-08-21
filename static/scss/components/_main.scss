@@ -16,3 +16,9 @@
         min-height: $min-body-height;
     }
 }
+
+.c-main-content {
+	max-width: 100%;
+	overflow: hidden;
+	width: auto;
+}

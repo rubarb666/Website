@@ -152,7 +152,7 @@ $request = Request::current();
 
         if (stripos($request->urlPath, "/manual/") === 0) {
             ?>
-            <ul class="c-sidebar o-layout__item u-1/4@l">
+            <ul class="c-sidebar">
                 <?php
 
                 if ($selectedMenu) {
@@ -181,7 +181,7 @@ $request = Request::current();
             <?php
         }
         ?>
-            <div class="c-main-content s-manual-content o-layout__item u-3/4@l">
+            <div class="c-main-content s-manual-content">
                 <div class="o-box o-box--padded">
 
                     <div class="c-article">
@@ -195,7 +195,7 @@ $request = Request::current();
                     parent::printLayout($content);
                     ?>
                     </div>
-                    
+
                 </div>
             </div>
 

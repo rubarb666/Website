@@ -15,6 +15,9 @@
 .c-sidebar {
     @include padding($base-space $base-space/2);
 	border-right: 1px solid color(border);
+	float: left;
+	padding-right: $base-space;
+	width: 300px;
 
 
 	.book {
@@ -32,6 +35,11 @@
 
 	.indent-1 {
 		@include margin(n n n $base-space*2);
+		font-size: font-size(alpha)-2;
+	}
+
+	.indent-2 {
+		@include margin(n n n $base-space*3);
 		font-size: font-size(alpha)-2;
 	}
 }

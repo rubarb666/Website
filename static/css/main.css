@@ -1474,6 +1474,11 @@ a.c-button:hover, a.c-button:active, a.c-button:focus, a.c-button:target {
     .c-main {
       min-height: 576px; } }
 
+.c-main-content {
+  max-width: 100%;
+  overflow: hidden;
+  width: auto; }
+
 /*------------------------------------------*\
 
     _c-masthead.scss
@@ -2108,7 +2113,10 @@ a.c-button:hover, a.c-button:active, a.c-button:focus, a.c-button:target {
   padding-bottom: 1rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  border-right: 1px solid #d7d7d7; }
+  border-right: 1px solid #d7d7d7;
+  float: left;
+  padding-right: 16px;
+  width: 300px; }
   .c-sidebar .book {
     font-family: "chalet-ny-1960", -apple-system, sans-serif;
     font-size: 32px;
@@ -2122,6 +2130,9 @@ a.c-button:hover, a.c-button:active, a.c-button:focus, a.c-button:target {
     margin-left: 2rem; }
   .c-sidebar .indent-1 {
     margin-left: 2rem;
+    font-size: 14px; }
+  .c-sidebar .indent-2 {
+    margin-left: 3rem;
     font-size: 14px; }
 
 /*------------------------------------------*\
