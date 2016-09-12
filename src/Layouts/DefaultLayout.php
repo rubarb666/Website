@@ -97,10 +97,10 @@ $request = Request::current();
 
             <nav class="c-masthead__nav">
                 <ul class="c-nav c-nav--primary">
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/tutorial/index">Get Started</a></li>
-                    <li class="is-selected"><a href="/manual/index">Manual</a></li>
-                    <li><a href="/contributing">Contributing</a></li>
+                    <li<?=(stripos($_SERVER["SCRIPT_NAME"], "/about") === 0) ? ' class="is-selected"' : '';?>><a href="/about">About</a></li>
+                    <li<?=(stripos($_SERVER["SCRIPT_NAME"], "/tutorial") === 0) ? ' class="is-selected"' : '';?>><a href="/tutorial/index">Get Started</a></li>
+                    <li<?=(stripos($_SERVER["SCRIPT_NAME"], "/manual") === 0) ? ' class="is-selected"' : '';?>><a href="/manual/index">Manual</a></li>
+                    <li<?=(stripos($_SERVER["SCRIPT_NAME"], "/contributing") === 0) ? ' class="is-selected"' : '';?>><a href="/contributing">Contributing</a></li>
                 </ul>
             </nav>
 
