@@ -22,29 +22,15 @@
 	text-transform: none;
 }
 
-.c-icon--search:before {
-  content: "\e986";
-}
-.c-icon--folder:before {
-  content: "\e92f";
-}
-.c-icon--price-tags:before {
-  content: "\e936";
-}
-.c-icon--clock2:before {
-  content: "\e94f";
-}
-.c-icon--drawer:before {
-  content: "\e95c";
-}
-.c-icon--bubble:before {
-  content: "\e96b";
-}
-.c-icon--key:before {
-  content: "\e98d";
+.c-icon--dots-three-horizontal:before {
+	content: "\e903";
 }
 .c-icon--cross:before {
-  content: "\ea0f";
+	content: "\e902";
 }
-
-
+.c-icon--menu:before {
+	content: "\e901";
+}
+.c-icon--search:before {
+	content: "\e900";
+}

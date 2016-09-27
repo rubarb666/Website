@@ -19,28 +19,68 @@
 \*------------------------------------------*/
 
 .c-search-box {
-    display: flex;
-    padding: 0;
-    width:100%;
-    white-space: nowrap;
-    line-height: $touch-target + 2;
+	display: flex;
+	width:100%;
+	white-space: nowrap;
+	line-height: $touch-target + 2;
+
+	.c-header & {
+		@include position(absolute, 0px 0px auto auto );
+		display: block;
+		width: 410px;
+		border-radius: 0 0 0 $base-radius;
+		@include background-color(white);
+		@include border(1px solid color(border), n n y n);
+		color: color(text);
+		display: none;
+	}
+
+	.c-header & {
+		&.is-active {
+			display: block;
+			animation: slideX 0.3s;
+			transform: translateX(0%);
+			padding-right: $base-space*4;
+		}
+	}
+
+
+	.l-docs & {
+		@include position(absolute, 0px 0px 0px 0px);
+		padding: $base-space/1.5;
+		width: 100%;
+		transform: translateX(100%);
+		border-radius: 0;
+	}
+
 }
 
-    .c-search-box__container {
-        margin-bottom: 0;
-        width: 100%;
-    }
 
-    .c-search-box__label {
-        line-height: $touch-target + 2;
-    }
+@keyframes slideX {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
+}
 
-    .c-search-box__text {
-        @include field;
-        flex:1;
-        width:100%;
-    }
 
-    .c-search-box__button {
-        @include margin(n n n $base-space/2);
-    }
+.c-search-box__container {
+	margin-bottom: 0;
+	width: 100%;
+}
+
+.c-search-box__label {
+	line-height: $touch-target + 2;
+}
+
+.c-search-box__text {
+	@include field;
+	flex:1;
+	width:100%;
+}
+
+.c-search-box__button {
+	@include margin(n n n $base-space/2);
+}

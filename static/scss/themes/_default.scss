@@ -7,7 +7,7 @@
 $white                  : #ffffff;
 $brand-color-1          : #363E46;
 $brand-color-2          : #E53A7D;
-$brand-color-3          : #0f6ab4;
+$brand-color-3          : #1B99D7;
 $brand-color-4			: #eaeaea;
 
 $heading-color          : $brand-color-1;
@@ -24,12 +24,14 @@ $field-bg               : $white;
 
 $font-stack-a           : 'chalet-ny-1960', -apple-system, sans-serif;
 $font-stack-b           : 'helvetica-light', -apple-system, sans-serif;
+$font-stack-c           : 'helvetica', -apple-system, sans-serif;
 $font-stack-mono        : monospace;
 $icon-font				: "icomoon", sans-serif;
 
 $font-family: (
 	primary         : $font-stack-a,
 	secondary       : $font-stack-b,
+	secondary-reg   : $font-stack-c,
 	mono            : $font-stack-mono,
 	icon			: $icon-font
 );

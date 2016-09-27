@@ -166,9 +166,7 @@ class NavigationTools
 
             $name = $child->name;
 
-            if ( $child->chapter ){
-                $name = $child->chapter.". ".$name;
-            }
+          
 
             if ($child->url != ""){
                 print "<a href='".$child->url."#content'>".$name."</a>";

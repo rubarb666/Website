@@ -1,0 +1,16 @@
+/*
+ * Base page component
+ */
+.c-module {
+	border-radius: $base-radius;
+	background: white;
+	@include vertical-spacing();
+}
+
+.c-module--shade {
+	background-color: color( shade, 0.04 );
+}
+
+.c-module--border {
+	border: 1px solid color(border);
+}

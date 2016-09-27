@@ -458,7 +458,7 @@ font-style: normal;
     font-size: 13px;
     text-transform: uppercase; }
   .style-guide-box-description *:not(pre) > code {
-    background: #e9f4fd;
+    background: white;
     padding-top: 0.25rem;
     padding-right: 0.25rem;
     padding-bottom: 0.25rem;
