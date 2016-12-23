@@ -236,12 +236,18 @@
 
 	&.is-active {
 		display: block;
+		animation: slideX 0.3s;
+		transform: translateX(0%);
 	}
 
 	.book {
 		margin-bottom: 0!important;
-		padding: 8px;
 		display: none;
+
+		a {
+			padding: 8px;
+			display: block;
+		}
 
 		@include screen-size(m-) {
 			display: block;
@@ -256,7 +262,12 @@
 
 	@include screen-size(m-) {
 		@include position(absolute, 0px 0px 0px 0px);
-		@include padding($base-space*3);
+		@include padding($base-space*2);
 		background-color: $white;
+	}
+
+	.c-nav-manual__close {
+		@include position(absolute, $base-space $base-space n n);
+		cursor: pointer;
 	}
 }

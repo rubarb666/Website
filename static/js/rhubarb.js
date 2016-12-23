@@ -21,5 +21,10 @@ $j(function () {
         $j('.c-contents-button').toggleClass('is-active');
     });
 
+    //Triggering menu button animation
+    $j('.c-nav-manual__close').click(function () {
+        $j('.c-nav-manual').removeClass('is-active');
+    });
+
 });
 

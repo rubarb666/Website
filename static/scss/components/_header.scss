@@ -64,6 +64,11 @@
 	}
 
 	.l-docs & {
+		padding-right: $base-space*4;
+
+		@include screen-size(m-) {
+			padding-right: 0;
+		}
 
 		@include screen-size(m) {
 			flex: 1;
@@ -120,7 +125,7 @@
 
 .c-header__nav-toggle {
 	@include position(absolute, $base-space $base-space n n);
-	//display: none;
+	display: none;
 
 	&:before {
 		font-family: font-family(icon);
@@ -130,9 +135,7 @@
 	}
 
 	@include screen-size(m-) {
-		.l-docs & {
-			display: block;
-		}
+		display: block;
 	}
 
 	&.is-active:before {

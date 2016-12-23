@@ -173,6 +173,8 @@ $request = Request::current();
                                     <div class="o-box u-padding-right">
                                         
                                         <ul class="c-nav-manual">
+                                        
+                                        <li class="u-beta"><span class="c-nav-manual__close c-icon c-icon--cross"></span></li>
 
 HTML;
 
@@ -304,7 +306,7 @@ HTML;
 
 
         <footer class="c-global-footer">
-            <div class="c-band">
+            <div class="c-band u-align-center u-milli">
             the tasty PHP framework.
             </div>
         </footer>
