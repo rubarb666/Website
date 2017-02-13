@@ -451,7 +451,21 @@ q {
 }
 
 blockquote {
+	position: relative;
 	quotes: "#{$open-quote}" "#{$close-quote}";
+	padding: $padding*2 $padding*2 $padding*2 $padding*4;
+	font-size: font-size(beta);
+
+	&:before {
+		font-family:Arial;
+		content: "\201C";
+		color: $brand-color-2;
+		font-size: 5em;
+		@include position(absolute, -10px n n 10px);
+		position: absolute;
+		left: 16px;
+		top:-10px;
+	}
 
 	p {
 		@include vertical-spacing($vertical-space:$vertical-space/2);

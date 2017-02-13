@@ -9,8 +9,8 @@
 		color: color(secondary);
 	}
 
-	p:first-child {
-		font-size: font-size(beta);
+	> p:first-child {
+		font-size: font-size(gamma);
 	}
 
 	ul {
