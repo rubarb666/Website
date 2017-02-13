@@ -5,6 +5,7 @@ namespace Rhubarb\Website\Layouts;
 require_once VENDOR_DIR."/rhubarbphp/rhubarb/src/Layout/Layout.php";
 
 use Rhubarb\Crown\Application;
+use Rhubarb\Crown\Deployment\ResourceDeploymentPackage;
 use Rhubarb\Crown\Html\ResourceLoader;use Rhubarb\Crown\Layout\Layout;
 use Rhubarb\Crown\Request\Request;
 use Rhubarb\Crown\String\StringTools;
@@ -14,6 +15,7 @@ use Rhubarb\Website\Settings\MenuSettings;
 
 class DefaultLayout extends Layout
 {
+
     protected function printLayout($content)
     {
         ?>
@@ -24,11 +26,18 @@ class DefaultLayout extends Layout
 
 <head>
 
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width; user-scalable=yes; initial-scale=1.0; maximum-scale=1.0;">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
 <!--<link href="/static/css/screen.css" rel="stylesheet" type="text/css" />-->
 <link href="/static/css/main.css" rel="stylesheet" type="text/css" />
 <link href="/static/css/dev.css" rel="stylesheet" type="text/css" />
 <link href="/static/prism/prism.css" rel="stylesheet" type="text/css" />
 <script src="/static/prism/prism.js" type="text/javascript"></script>
+<script src="/static/js/rhubarb.js" type="text/javascript"></script>
 <!--<link href="/static/css/gallery.css" rel="stylesheet" type="text/css" />-->
 
 <!--Favicons-->
@@ -74,150 +83,239 @@ $request = Request::current();
 </script>
     <header id="page-header" class="c-header s-header">
 
-        <div class="c-masthead">
+        <!--<input type="checkbox" id="nav-primary-reveal" class="c-masthead__nav-toggle-check u-off-canvas">-->
 
-            <!--<input type="checkbox" id="nav-primary-reveal" class="c-masthead__nav-toggle-check u-off-canvas">-->
-            <h1 class="c-masthead__logo u-margin-none">
-                <a href="/">
+        <h1 class="c-header__logo">
+            <a href="/">
 
-                    <?php
+                <?php
 
-                    if (strpos($request->urlPath, "manual") !== false){
-                        print "<img class=\"c-site-logo\" src=\"/static/images/rhubarb-manual-logo.svg\">";
-                    }
-                    else {
-                        print "<img class=\"c-site-logo\" src=\"/static/images/rhubarb-logo.svg\">";
-                    }
+                if (strpos($request->urlPath, "manual") !== false){
+                    print "<img class=\"c-site-logo\" src=\"/static/images/rhubarb-manual-logo.svg\">";
+                }
+                else {
+                    print "<img class=\"c-site-logo\" src=\"/static/images/rhubarb-logo.svg\">";
+                }
 
-                    ?>
+                ?>
 
-                </a>
-            </h1>
-            <label class="c-masthead__nav-toggle" for="nav-primary-reveal"></label>
+            </a>
+        </h1>
 
-            <nav class="c-masthead__nav">
-                <ul class="c-nav c-nav--primary">
-                    <li<?=(stripos($_SERVER["SCRIPT_NAME"], "/about") === 0) ? ' class="is-selected"' : '';?>><a href="/about">About</a></li>
-                    <li<?=(stripos($_SERVER["SCRIPT_NAME"], "/tutorial") === 0) ? ' class="is-selected"' : '';?>><a href="/tutorial/index">Get Started</a></li>
-                    <li<?=(stripos($_SERVER["SCRIPT_NAME"], "/manual") === 0) ? ' class="is-selected"' : '';?>><a href="/manual/index">Manual</a></li>
-                    <li<?=(stripos($_SERVER["SCRIPT_NAME"], "/contributing") === 0) ? ' class="is-selected"' : '';?>><a href="/contributing">Contributing</a></li>
-                </ul>
-            </nav>
+        <nav class="c-header__nav">
+            <ul class="c-nav c-nav--primary">
+                <li<?=(stripos($_SERVER["SCRIPT_NAME"], "/about") === 0) ? ' class="is-selected"' : '';?>><a href="/about">About</a></li>
+                <li<?=(stripos($_SERVER["SCRIPT_NAME"], "/tutorial/index") === 0) ? ' class="is-selected"' : '';?>><a href="/tutorial/index">Get Started</a></li>
+                <li<?=(stripos($_SERVER["SCRIPT_NAME"], "/manual") === 0) ? ' class="is-selected"' : '';?>><a href="/manual/index">Manual</a></li>
+                <li<?=(stripos($_SERVER["SCRIPT_NAME"], "/contributing") === 0) ? ' class="is-selected"' : '';?>><a href="/contributing">Contributing</a></li>
+            </ul>
+        </nav>
 
+        <a class="c-header__search"></a>
+        <a class="c-header__nav-toggle" for="nav-primary-reveal"></a>
+
+        <!-- Global Search Box -->
+        <div class="o-box o-box--padded c-search-box u-margin-none">
+            <div class="o-wrap">
+                <span class="c-icon c-icon--search"></span>
+                <input type="search" class="c-search-box__text c-text-field--naked" placeholder="Search" />
+            </div>
         </div>
 
     </header>
 
+    <?php
+    if (stripos($request->urlPath, "/manual/") === 0) {
 
-    <!--<ul class="c-nav c-nav--secondary">
-        <li><a href="/tutorial/index">Rhubarb</a></li>
-        <li><a href="/tutorial/index">Leaf</a></li>
-        <li class="is-selected"><a href="/manual/index">Stem</a></li>
-        <li><a href="/contributing">Scaffolds</a></li>
-    </ul>-->
+        $menu = NavigationTools::buildMenu(APPLICATION_ROOT_DIR . "/docs/manual/toc.txt");
+        ?>
+        <ul class="c-nav c-nav--secondary c-nav--flex-items">
+            <?php
+            $first = true;
+            $selectedMenu = false;
 
+            foreach($menu->children as $item) {
+
+                $firstClass = ($first) ? " first" : "";
+                $first = false;
+
+                $url = $item->url;
+
+                if ($item->containsUrl($request->urlPath)) {
+                    $selectedMenu = $item;
+                    $firstClass .= " open is-active";
+                } else {
+                    $firstClass .= " closed";
+                }
+
+                print '<li class="book '.$firstClass.' '.strtolower($item->name).'"><a href="'.$url.'"><img src="/static/images/'.$item->name.'-logo.svg" /></a></li>';
+            }
+            ?>
+
+            <li class="book c-nav--secondary__extras"><a href="#"><span class="c-icon c-icon--dots-three-horizontal"></span></a></li>
+        </ul>
+        <?php
+    }
+
+    ?>
 
     <main class="c-main">
 
+        <div class="o-box">
 
-        <?php
-        if (stripos($request->urlPath, "/manual/") === 0) {
+            <div class="o-wrap">
 
-            $menu = NavigationTools::buildMenu(APPLICATION_ROOT_DIR . "/docs/manual/toc.txt");
-            ?>
-            <ul class="c-nav c-nav--secondary c-nav--flex-items">
-                <?php
-                    $first = true;
-                    $selectedMenu = false;
+                <a href="#" class="c-contents-button c-button c-button--primary c-button--ghost c-button--small u-margin-bottom"><span class="c-icon c-icon--menu"></span> Contents</a>
 
-                    foreach($menu->children as $item) {
+                <div class="o-layout">
 
-                        $firstClass = ($first) ? " first" : "";
-                        $first = false;
-
-                        $url = $item->url;
-
-                        if ($item->containsUrl($request->urlPath)) {
-                            $selectedMenu = $item;
-                            $firstClass .= " open is-active";
-                        } else {
-                            $firstClass .= " closed";
-                        }
-
-                        print '<li class="book '.$firstClass.' '.strtolower($item->name).'"><a href="'.$url.'"><img src="/static/images/'.$item->name.'-logo.svg" /></a></li>';
-                    }
-                ?>
-            </ul>
-            <?php
-        }
-
-        ?>
-
-        <div class="o-box o-box--padded-extra">
-
-            <div class="o-layout">
-
-        <?php
-
-        if (stripos($request->urlPath, "/manual/") === 0) {
-            ?>
-            <ul class="c-sidebar">
-                <?php
-
-                if ($selectedMenu) {
-
-                    print '<li class="book index">' . $selectedMenu->chapter . ". " . $selectedMenu->name . '</li>';
-
-                    foreach ($selectedMenu->children as $item) {
-
-                        $firstClass = ($first) ? " first" : "";
-                        $first = false;
-
-                        $url = $item->url;
-
-                        if ((!$url) && isset($item->children) && (sizeof($item->children) > 0)) {
-                            //$url = $item->children[0]->url;
-                        }
-
-                        // Is the current url this one or one of the children? If so open the menu and children.
-                        print '<li class="chapter open' . $firstClass . '">' . $item->chapter . ". " . $item->name . '</li>';
-
-                        NavigationTools::printMenu($item, 0);
-                    }
-                }
-                ?>
-            </ul>
-            <?php
-        }
-        ?>
-            <div class="c-main-content s-manual-content">
-                <div class="o-box o-box--padded">
-
-                    <div class="c-article">
                     <?php
 
-                    $settings = MenuSettings::singleton();
-                    if ($settings->currentChapter){
-                        $content = str_replace("<h1>", "<h1>".$settings->currentChapter.". ", $content);
-                    }
+                        if (stripos($request->urlPath, "/manual/") === 0) {
 
-                    parent::printLayout($content);
-                    ?>
+
+                            print <<<HTML
+
+
+                                 <div class="o-layout__item u-1/4@l u-1/3@m u-1@s">
+                                 
+                                    <div class="o-box u-padding-right">
+                                        
+                                        <ul class="c-nav-manual">
+                                        
+                                        <li class="u-beta"><span class="c-nav-manual__close c-icon c-icon--cross"></span></li>
+
+HTML;
+
+
+                                        $menu = NavigationTools::buildMenu(APPLICATION_ROOT_DIR . "/docs/manual/toc.txt");
+                                        ?>
+                                        <?php
+                                        $first = true;
+                                        $selectedMenu = false;
+
+                                        foreach($menu->children as $item) {
+
+                                            $firstClass = ($first) ? " first" : "";
+                                            $first = false;
+
+                                            $url = $item->url;
+
+                                            if ($item->containsUrl($request->urlPath)) {
+                                                $selectedMenu = $item;
+                                                $firstClass .= " open is-active";
+                                            } else {
+                                                $firstClass .= " closed";
+                                            }
+
+                                            print '<li class="book '.$firstClass.' '.strtolower($item->name).'"><a href="'.$url.'"><img src="/static/images/'.$item->name.'-logo.svg" /></a></li>';
+                                        }
+                                        ?>
+
+                                        <li class="book c-nav--secondary__extras"><a href="#"><span class="c-icon c-icon--dots-three-horizontal"></span></a></li>
+
+
+                                    <?php
+
+                                    if ($selectedMenu) {
+
+                                        foreach ($selectedMenu->children as $item) {
+
+                                            $firstClass = ($first) ? " first" : "";
+                                            $first = false;
+
+                                            $url = $item->url;
+
+                                            if ((!$url) && isset($item->children) && (sizeof($item->children) > 0)) {
+                                                //$url = $item->children[0]->url;
+                                            }
+
+                                            // Is the current url this one or one of the children? If so open the menu and children.
+                                            print '<li class="chapter open' . $firstClass . '">'  . "" . $item->name . '</li>';
+
+                                            NavigationTools::printMenu($item, 0);
+                                        }
+                                    }
+                                    ?>
+
+                                </ul>
+                            </div>
+
+                        <?php
+                        }
+                        ?>
+
+
+
                     </div>
+
+
+                    <?php
+
+
+                        if (stripos($request->urlPath, "/manual/") === 0) {
+
+                            print <<<HTML
+
+                                <div class="o-layout__item u-3/4@l u-2/3@m u-1@s">
+                                    <div class="s-manual-content">
+                                        <div class="o-box">
+                                            <div class="c-article">
+
+HTML;
+
+
+
+                        }
+                        else {
+
+                            print<<<HTML
+                            <div class="o-layout__item u-1@s">
+                                <div class="s-manual-content">
+                                    <div class="o-box">
+                                        <div class="c-article u-pull-center">
+HTML;
+
+
+
+
+                        }
+
+
+                    ?>
+
+
+
+
+
+
+                            <?php
+
+                            $settings = MenuSettings::singleton();
+                            if ($settings->currentChapter){
+                                $content = str_replace("<h1>", "<h1>"." ", $content);
+                            }
+
+                            parent::printLayout($content);
+                            ?>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    </div>
+
 
                 </div>
             </div>
-
-
-            </div>
-
         </div>
+
 
         </main>
 
 
         <footer class="c-global-footer">
-            <div class="c-band">
+            <div class="c-band u-align-center u-milli">
             the tasty PHP framework.
             </div>
         </footer>

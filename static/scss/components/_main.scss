@@ -11,14 +11,19 @@
 \*------------------------------------------*/
 
 .c-main {
-    background: color(site);
+	@include padding($base-space);
+
     @include screen-size(m) {
         min-height: $min-body-height;
+		@include padding($base-space*2)
     }
 }
 
-.c-main-content {
-	max-width: 100%;
-	overflow: hidden;
-	width: auto;
+.c-article {
+	padding: 0;
+
+	@include screen-size(m) {
+		min-height: $min-body-height;
+		@include padding(0 $base-space*2)
+	}
 }

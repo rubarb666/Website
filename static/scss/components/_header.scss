@@ -11,7 +11,145 @@
 
 .c-header {
     @include background-color(color(header));
+	padding: $base-space*6 0;
     margin-bottom: 0;
-	//position: fixed;
-	width: 100%;
+	min-height: 35vh;
+	text-align: center;
+	position: relative;
+
+	.l-docs & {
+		@include padding($base-space*1.2 $base-space);
+		display: flex;
+		flex-wrap: nowrap;
+		min-height: $header-height;
+		line-height: $header-height;
+	}
+}
+
+.c-header__logo {
+	display: block;
+	align-items: center;
+	justify-items: center;
+	@include margin(0 0 $base-space*3 0);
+
+	img {
+		min-width: 300px;
+	}
+
+
+	.l-docs & {
+		display: flex;
+		margin-bottom: 0;
+
+		img {
+			max-height: $touch-target;
+			min-width: auto;
+		}
+
+		@include screen-size(m-) {
+			flex: 1;
+		}
+	}
+
+}
+
+.c-header__nav {
+	display: flex;
+
+	@include screen-size(m-) {
+		@include position(absolute, ($header-height)+$base-space*2 0px 0 0px);
+		display: none;
+		min-height: 0;
+		z-index:1;
+	}
+
+	.l-docs & {
+		padding-right: $base-space*4;
+
+		@include screen-size(m-) {
+			padding-right: 0;
+		}
+
+		@include screen-size(m) {
+			flex: 1;
+		}
+
+	}
+
+	&.is-active {
+		display: block; }
+
+}
+
+.c-header__search,
+.c-header__nav-toggle {
+	@include padding(n n n $base-space);
+	font-size: font-size(beta);
+}
+
+.c-header__search {
+	@include position(absolute, $base-space $base-space*3 0 0);
+	z-index: 999;
+
+	&:before {
+		font-family: font-family(icon);
+		content:"\e900";
+		display: inline-block;
+	}
+
+	&.is-active {
+		right: $base-space;
+		top: $base-space*1.2;
+	}
+
+	&.is-active:before {
+		color: color(text);
+		content: "\e902";
+	}
+
+	.l-docs & {
+		position: relative;
+		top: 0;
+		right: $base-space*2.5;
+		font-size: font-size(alpha);
+
+		&.is-active {
+			@include screen-size(m-) {
+				right: 0px!important;
+				color: color(text);
+			}
+		}
+	}
+}
+
+
+.c-header__nav-toggle {
+	@include position(absolute, $base-space $base-space n n);
+	display: none;
+
+	&:before {
+		font-family: font-family(icon);
+		content:"\e901";
+		display: inline-block;
+
+	}
+
+	@include screen-size(m-) {
+		display: block;
+	}
+
+	&.is-active:before {
+		content: "\e902";
+	}
+}
+
+
+.c-contents-button {
+	display: none;
+
+	@include screen-size(m-) {
+		.l-docs & {
+			display: inline-block;
+		}
+	}
 }
