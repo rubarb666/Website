@@ -244,9 +244,13 @@ samp {
 
 code {
 	background: #EDEDED;
-	padding: 0 2px;
+	padding: 0 $base-space/3;
 	border-radius: 4px;
 	margin-bottom: $base-space;
+
+	p & {
+		border: 1px solid color(border);
+	}
 }
 
 pre {
@@ -453,21 +457,13 @@ q {
 blockquote {
 	position: relative;
 	quotes: "#{$open-quote}" "#{$close-quote}";
-	padding: $padding*2 $padding*2 $padding*2 $padding*4;
+	padding: $padding $padding $padding $padding*1.5;
 	font-size: font-size(beta);
-
-	&:before {
-		font-family:Arial;
-		content: "\201C";
-		color: $brand-color-2;
-		font-size: 5em;
-		@include position(absolute, -10px n n 10px);
-		position: absolute;
-		left: 16px;
-		top:-10px;
-	}
+	border-left: 3px solid $brand-color-2;
+	background: #FFF1F7;
 
 	p {
+		font-size: font-size(alpha)+2!important;
 		@include vertical-spacing($vertical-space:$vertical-space/2);
 		&:last-of-type {
 			margin-bottom: 0;

@@ -260,6 +260,10 @@
 		}
 	}
 
+	.indent-2 {
+		margin-left: $base-space;
+	}
+
 	@include screen-size(m-) {
 		@include position(absolute, 0px 0px 0px 0px);
 		@include padding($base-space*2);

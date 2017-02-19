@@ -222,6 +222,77 @@
 		"randomFootnoteNumbers": 0,
 		"useCompatibilityMode": 0
 		},
+	"\/docs\/modules\/custard.sassc\/CHANGELOG.md": {
+		"criticStyle": 0,
+		"enableFootnotes": 1,
+		"enableLabels": 1,
+		"enableSmartQuotes": 1,
+		"escapeLineBreaks": 0,
+		"fileType": 4096,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/custard.sassc\/CHANGELOG.md",
+		"maskEmailAddresses": 1,
+		"outputAbbreviatedPath": "\/docs\/modules\/custard.sassc\/CHANGELOG.html",
+		"outputFormat": 0,
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"parseMetadata": 1,
+		"processHTML": 0,
+		"randomFootnoteNumbers": 0,
+		"useCompatibilityMode": 0
+		},
+	"\/docs\/modules\/custard.sassc\/composer.json": {
+		"fileType": 524288,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/custard.sassc\/composer.json",
+		"orderOutput": 0,
+		"outputAbbreviatedPath": "\/docs\/modules\/custard.sassc\/composer-min.json",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1
+		},
+	"\/docs\/modules\/custard.sassc\/README.md": {
+		"criticStyle": 0,
+		"enableFootnotes": 1,
+		"enableLabels": 1,
+		"enableSmartQuotes": 1,
+		"escapeLineBreaks": 0,
+		"fileType": 4096,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/custard.sassc\/README.md",
+		"maskEmailAddresses": 1,
+		"outputAbbreviatedPath": "\/docs\/modules\/custard.sassc\/README.html",
+		"outputFormat": 0,
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"parseMetadata": 1,
+		"processHTML": 0,
+		"randomFootnoteNumbers": 0,
+		"useCompatibilityMode": 0
+		},
+	"\/docs\/modules\/custard.sassc\/src\/CompileScssCommand.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/custard.sassc\/src\/CompileScssCommand.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/custard.sassc\/src\/CompileScssModule.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/custard.sassc\/src\/CompileScssModule.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/docs\/modules\/custard\/CHANGELOG.md": {
 		"criticStyle": 0,
 		"enableFootnotes": 1,
@@ -1257,6 +1328,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/docs\/modules\/module.leaf.commoncontrols\/src\/SelectionControls\/MultiSelect\/MultiSelect.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/module.leaf.commoncontrols\/src\/SelectionControls\/MultiSelect\/MultiSelect.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/docs\/modules\/module.leaf.commoncontrols\/src\/SelectionControls\/RadioButtons\/RadioButtons.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -1347,6 +1427,24 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/docs\/modules\/module.leaf.commoncontrols\/src\/Text\/Hidden.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/module.leaf.commoncontrols\/src\/Text\/Hidden.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/module.leaf.commoncontrols\/src\/Text\/HiddenView.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/module.leaf.commoncontrols\/src\/Text\/HiddenView.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/docs\/modules\/module.leaf.commoncontrols\/src\/Text\/NumericTextBox.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -1383,15 +1481,6 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/docs\/modules\/module.leaf.commoncontrols\/src\/Text\/PasswordTextBoxView.php": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/docs\/modules\/module.leaf.commoncontrols\/src\/Text\/PasswordTextBoxView.php",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
 	"\/docs\/modules\/module.leaf.commoncontrols\/src\/Text\/TextArea.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -1415,6 +1504,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/docs\/modules\/module.leaf.commoncontrols\/src\/Text\/TextBox.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/module.leaf.commoncontrols\/src\/Text\/TextBoxModel.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/module.leaf.commoncontrols\/src\/Text\/TextBoxModel.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -1544,6 +1642,27 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/docs\/modules\/module.leaf.html5upload\/CHANGELOG.md": {
+		"criticStyle": 0,
+		"enableFootnotes": 1,
+		"enableLabels": 1,
+		"enableSmartQuotes": 1,
+		"escapeLineBreaks": 0,
+		"fileType": 4096,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/module.leaf.html5upload\/CHANGELOG.md",
+		"maskEmailAddresses": 1,
+		"outputAbbreviatedPath": "\/docs\/modules\/module.leaf.html5upload\/CHANGELOG.html",
+		"outputFormat": 0,
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"parseMetadata": 1,
+		"processHTML": 0,
+		"randomFootnoteNumbers": 0,
+		"useCompatibilityMode": 0
+		},
 	"\/docs\/modules\/module.leaf.html5upload\/composer.json": {
 		"fileType": 524288,
 		"ignore": 1,
@@ -1554,6 +1673,27 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1
+		},
+	"\/docs\/modules\/module.leaf.html5upload\/docs\/html5upload.md": {
+		"criticStyle": 0,
+		"enableFootnotes": 1,
+		"enableLabels": 1,
+		"enableSmartQuotes": 1,
+		"escapeLineBreaks": 0,
+		"fileType": 4096,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/module.leaf.html5upload\/docs\/html5upload.md",
+		"maskEmailAddresses": 1,
+		"outputAbbreviatedPath": "\/docs\/modules\/module.leaf.html5upload\/docs\/html5upload.html",
+		"outputFormat": 0,
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"parseMetadata": 1,
+		"processHTML": 0,
+		"randomFootnoteNumbers": 0,
+		"useCompatibilityMode": 0
 		},
 	"\/docs\/modules\/module.leaf.html5upload\/README.md": {
 		"criticStyle": 0,
@@ -1575,6 +1715,22 @@
 		"processHTML": 0,
 		"randomFootnoteNumbers": 0,
 		"useCompatibilityMode": 0
+		},
+	"\/docs\/modules\/module.leaf.html5upload\/scss\/_upload-progress.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/module.leaf.html5upload\/scss\/_upload-progress.scss",
+		"outputAbbreviatedPath": "\/docs\/modules\/module.leaf.html5upload\/css\/_upload-progress.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
 		},
 	"\/docs\/modules\/module.leaf.html5upload\/src\/Html5FileUpload.php": {
 		"fileType": 8192,
@@ -1907,6 +2063,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/docs\/modules\/module.leaf.table\/src\/Leaves\/Columns\/BooleanColumn.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/module.leaf.table\/src\/Leaves\/Columns\/ClosureColumn.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/module.leaf.table\/src\/Leaves\/Columns\/ClosureColumn.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -2557,6 +2722,33 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/docs\/modules\/module.leaf\/src\/Leaves\/UrlStateLeaf.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/module.leaf\/src\/Leaves\/UrlStateLeaf.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/module.leaf\/src\/Leaves\/UrlStateLeafModel.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/module.leaf\/src\/Leaves\/UrlStateLeafModel.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/module.leaf\/src\/Leaves\/UrlStateView.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/module.leaf\/src\/Leaves\/UrlStateView.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/docs\/modules\/module.leaf\/src\/UrlHandlers\/LeafCollectionUrlHandler.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -2715,6 +2907,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/docs\/modules\/module.leaf\/tests\/unit\/Fixtures\/TestLeafModel.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/module.leaf\/tests\/unit\/Leaves\/BindingTest.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/module.leaf\/tests\/unit\/Leaves\/BindingTest.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -3107,6 +3308,27 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/module.postmarkemail\/CHANGELOG.md": {
+		"criticStyle": 0,
+		"enableFootnotes": 1,
+		"enableLabels": 1,
+		"enableSmartQuotes": 1,
+		"escapeLineBreaks": 0,
+		"fileType": 4096,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/module.postmarkemail\/CHANGELOG.md",
+		"maskEmailAddresses": 1,
+		"outputAbbreviatedPath": "\/docs\/modules\/module.postmarkemail\/CHANGELOG.html",
+		"outputFormat": 0,
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"parseMetadata": 1,
+		"processHTML": 0,
+		"randomFootnoteNumbers": 0,
+		"useCompatibilityMode": 0
 		},
 	"\/docs\/modules\/module.postmarkemail\/composer.json": {
 		"fileType": 524288,
@@ -5039,6 +5261,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/docs\/modules\/module.stem\/src\/Filters\/JsonContains.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/module.stem\/src\/Filters\/JsonContains.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/docs\/modules\/module.stem\/src\/Filters\/LessThan.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -5381,6 +5612,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/docs\/modules\/module.stem\/src\/Repositories\/MySql\/Filters\/MySqlJsonContains.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/module.stem\/src\/Repositories\/MySql\/Filters\/MySqlJsonContains.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/docs\/modules\/module.stem\/src\/Repositories\/MySql\/Filters\/MySqlLessThan.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -5462,6 +5702,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/docs\/modules\/module.stem\/src\/Repositories\/MySql\/Schema\/Columns\/MySqlBinaryDataColumn.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/module.stem\/src\/Repositories\/MySql\/Schema\/Columns\/MySqlBinaryDataColumn.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/docs\/modules\/module.stem\/src\/Repositories\/MySql\/Schema\/Columns\/MySqlBooleanColumn.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -5512,6 +5761,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/docs\/modules\/module.stem\/src\/Repositories\/MySql\/Schema\/Columns\/MySqlEnumColumn.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/module.stem\/src\/Repositories\/MySql\/Schema\/Columns\/MySqlFloatColumn.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/module.stem\/src\/Repositories\/MySql\/Schema\/Columns\/MySqlFloatColumn.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -5674,6 +5932,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/docs\/modules\/module.stem\/src\/Schema\/Columns\/AutoIncrementColumn.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/module.stem\/src\/Schema\/Columns\/BinaryDataColumn.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/module.stem\/src\/Schema\/Columns\/BinaryDataColumn.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -6740,6 +7007,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/docs\/modules\/module.stem\/tests\/unit\/Repositories\/MySql\/Filters\/MysqlJsonContainsTest.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/module.stem\/tests\/unit\/Repositories\/MySql\/Filters\/MysqlJsonContainsTest.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/docs\/modules\/module.stem\/tests\/unit\/Repositories\/MySql\/MySqlTest.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -7255,6 +7531,27 @@
 		"randomFootnoteNumbers": 0,
 		"useCompatibilityMode": 0
 		},
+	"\/docs\/modules\/rhubarb\/docs\/assets.md": {
+		"criticStyle": 0,
+		"enableFootnotes": 1,
+		"enableLabels": 1,
+		"enableSmartQuotes": 1,
+		"escapeLineBreaks": 0,
+		"fileType": 4096,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/docs\/assets.md",
+		"maskEmailAddresses": 1,
+		"outputAbbreviatedPath": "\/docs\/modules\/rhubarb\/docs\/assets.html",
+		"outputFormat": 0,
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"parseMetadata": 1,
+		"processHTML": 0,
+		"randomFootnoteNumbers": 0,
+		"useCompatibilityMode": 0
+		},
 	"\/docs\/modules\/rhubarb\/docs\/custard\/index.md": {
 		"criticStyle": 0,
 		"enableFootnotes": 1,
@@ -7675,6 +7972,27 @@
 		"randomFootnoteNumbers": 0,
 		"useCompatibilityMode": 0
 		},
+	"\/docs\/modules\/rhubarb\/docs\/simple-xml-transcoder.md": {
+		"criticStyle": 0,
+		"enableFootnotes": 1,
+		"enableLabels": 1,
+		"enableSmartQuotes": 1,
+		"escapeLineBreaks": 0,
+		"fileType": 4096,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/docs\/simple-xml-transcoder.md",
+		"maskEmailAddresses": 1,
+		"outputAbbreviatedPath": "\/docs\/modules\/rhubarb\/docs\/simple-xml-transcoder.html",
+		"outputFormat": 0,
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"parseMetadata": 1,
+		"processHTML": 0,
+		"randomFootnoteNumbers": 0,
+		"useCompatibilityMode": 0
+		},
 	"\/docs\/modules\/rhubarb\/docs\/static-resources.md": {
 		"criticStyle": 0,
 		"enableFootnotes": 1,
@@ -7809,6 +8127,69 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/src\/Application.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/rhubarb\/src\/Assets\/Asset.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/src\/Assets\/Asset.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/rhubarb\/src\/Assets\/AssetCatalogueProvider.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/src\/Assets\/AssetCatalogueProvider.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/rhubarb\/src\/Assets\/AssetCatalogueSettings.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/src\/Assets\/AssetCatalogueSettings.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/rhubarb\/src\/Assets\/AssetUrlHandler.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/src\/Assets\/AssetUrlHandler.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/rhubarb\/src\/Assets\/LocalStorageAssetCatalogueProvider.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/src\/Assets\/LocalStorageAssetCatalogueProvider.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/rhubarb\/src\/Assets\/LocalStorageAssetCatalogueProviderSettings.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/src\/Assets\/LocalStorageAssetCatalogueProviderSettings.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/rhubarb\/src\/Assets\/LoginValidatedAssetUrlHandler.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/src\/Assets\/LoginValidatedAssetUrlHandler.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -8043,6 +8424,33 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/src\/Events\/EventEmitter.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/rhubarb\/src\/Exceptions\/AssetException.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/src\/Exceptions\/AssetException.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/rhubarb\/src\/Exceptions\/AssetExposureException.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/src\/Exceptions\/AssetExposureException.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/rhubarb\/src\/Exceptions\/AssetNotFoundException.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/src\/Exceptions\/AssetNotFoundException.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -8533,6 +8941,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/docs\/modules\/rhubarb\/src\/Request\/XmlRequest.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/src\/Request\/XmlRequest.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/docs\/modules\/rhubarb\/src\/Response\/BasicAuthorisationRequiredResponse.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -8592,6 +9009,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/src\/Response\/NotAuthorisedResponse.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/rhubarb\/src\/Response\/NotFoundResponse.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/src\/Response\/NotFoundResponse.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -8925,6 +9351,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/src\/Xml\/NodeStrategyTraversal.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/rhubarb\/src\/Xml\/SimpleXmlTranscoder.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/src\/Xml\/SimpleXmlTranscoder.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -9307,6 +9742,51 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/docs\/modules\/rhubarb\/tests\/unit\/Assets\/AssetCatalogueProviderTest.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/tests\/unit\/Assets\/AssetCatalogueProviderTest.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/rhubarb\/tests\/unit\/Assets\/AssetCatalogueProviderTests.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/tests\/unit\/Assets\/AssetCatalogueProviderTests.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/rhubarb\/tests\/unit\/Assets\/AssetUrlHandlerTest.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/tests\/unit\/Assets\/AssetUrlHandlerTest.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/rhubarb\/tests\/unit\/Assets\/LocalStorageAssetCatalogueProviderTest.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/tests\/unit\/Assets\/LocalStorageAssetCatalogueProviderTest.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/rhubarb\/tests\/unit\/Assets\/LoginValidatedAssetUrlHandlerTest.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/tests\/unit\/Assets\/LoginValidatedAssetUrlHandlerTest.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/docs\/modules\/rhubarb\/tests\/unit\/ContainerTest.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -9595,6 +10075,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/docs\/modules\/rhubarb\/tests\/unit\/Request\/XmlRequestTest.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/tests\/unit\/Request\/XmlRequestTest.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/docs\/modules\/rhubarb\/tests\/unit\/Response\/HtmlResponseTest.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -9627,6 +10116,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/tests\/unit\/Response\/ResponseTest.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/rhubarb\/tests\/unit\/Response\/XmlResponseTest.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/tests\/unit\/Response\/XmlResponseTest.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -9766,6 +10264,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/docs\/modules\/rhubarb\/tests\/unit\/Xml\/SimpleXmlTranscoderTest.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/rhubarb\/tests\/unit\/Xml\/SimpleXmlTranscoderTest.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/docs\/modules\/rhubarb\/tests\/unit\/Xml\/XmlParserTest.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -9774,6 +10281,27 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.applicationsettings\/CHANGELOG.md": {
+		"criticStyle": 0,
+		"enableFootnotes": 1,
+		"enableLabels": 1,
+		"enableSmartQuotes": 1,
+		"escapeLineBreaks": 0,
+		"fileType": 4096,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.applicationsettings\/CHANGELOG.md",
+		"maskEmailAddresses": 1,
+		"outputAbbreviatedPath": "\/docs\/modules\/scaffold.applicationsettings\/CHANGELOG.html",
+		"outputFormat": 0,
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"parseMetadata": 1,
+		"processHTML": 0,
+		"randomFootnoteNumbers": 0,
+		"useCompatibilityMode": 0
 		},
 	"\/docs\/modules\/scaffold.applicationsettings\/composer.json": {
 		"fileType": 524288,
@@ -10123,15 +10651,6 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/docs\/modules\/scaffold.authentication\/src\/Leaves\/LogoutModel.php": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authentication\/src\/Leaves\/LogoutModel.php",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
 	"\/docs\/modules\/scaffold.authentication\/src\/Leaves\/LogoutView.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -10191,6 +10710,24 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authentication\/src\/Settings\/AuthenticationSettings.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.authentication\/src\/Settings\/ProtectedUrl.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authentication\/src\/Settings\/ProtectedUrl.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.authentication\/src\/UrlHandlers\/CallableUrlHandler.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authentication\/src\/UrlHandlers\/CallableUrlHandler.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -10290,6 +10827,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/docs\/modules\/scaffold.authenticationwithroles\/src\/Commands\/UpdateRolePermissionsCommand.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authenticationwithroles\/src\/Commands\/UpdateRolePermissionsCommand.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/docs\/modules\/scaffold.authenticationwithroles\/src\/DatabaseSchema.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -10344,6 +10890,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/docs\/modules\/scaffold.authenticationwithroles\/src\/RolePermissionDefinitions.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authenticationwithroles\/src\/RolePermissionDefinitions.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/docs\/modules\/scaffold.authenticationwithroles\/src\/User.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -10362,11 +10917,128 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/docs\/modules\/scaffold.authenticationwithroles\/tests\/UserTest.php": {
+	"\/docs\/modules\/scaffold.authenticationwithroles\/tests\/_bootstrap.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authenticationwithroles\/tests\/UserTest.php",
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authenticationwithroles\/tests\/_bootstrap.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.authenticationwithroles\/tests\/_support\/_generated\/AcceptanceTesterActions.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authenticationwithroles\/tests\/_support\/_generated\/AcceptanceTesterActions.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.authenticationwithroles\/tests\/_support\/_generated\/FunctionalTesterActions.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authenticationwithroles\/tests\/_support\/_generated\/FunctionalTesterActions.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.authenticationwithroles\/tests\/_support\/_generated\/UnitTesterActions.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authenticationwithroles\/tests\/_support\/_generated\/UnitTesterActions.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.authenticationwithroles\/tests\/_support\/AcceptanceTester.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authenticationwithroles\/tests\/_support\/AcceptanceTester.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.authenticationwithroles\/tests\/_support\/FunctionalTester.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authenticationwithroles\/tests\/_support\/FunctionalTester.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.authenticationwithroles\/tests\/_support\/Helper\/Acceptance.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authenticationwithroles\/tests\/_support\/Helper\/Acceptance.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.authenticationwithroles\/tests\/_support\/Helper\/Functional.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authenticationwithroles\/tests\/_support\/Helper\/Functional.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.authenticationwithroles\/tests\/_support\/Helper\/Unit.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authenticationwithroles\/tests\/_support\/Helper\/Unit.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.authenticationwithroles\/tests\/_support\/UnitTester.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authenticationwithroles\/tests\/_support\/UnitTester.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.authenticationwithroles\/tests\/acceptance\/_bootstrap.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authenticationwithroles\/tests\/acceptance\/_bootstrap.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.authenticationwithroles\/tests\/functional\/_bootstrap.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authenticationwithroles\/tests\/functional\/_bootstrap.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.authenticationwithroles\/tests\/unit\/_bootstrap.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authenticationwithroles\/tests\/unit\/_bootstrap.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.authenticationwithroles\/tests\/unit\/UserTest.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.authenticationwithroles\/tests\/unit\/UserTest.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -10750,11 +11422,11 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/docs\/modules\/scaffold.communications\/src\/CaptureToCommunciationsProcessorInterface.php": {
+	"\/docs\/modules\/scaffold.communications\/src\/CaptureToCommunicationsProcessorInterface.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.communications\/src\/CaptureToCommunciationsProcessorInterface.php",
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.communications\/src\/CaptureToCommunicationsProcessorInterface.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -10786,6 +11458,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/docs\/modules\/scaffold.communications\/src\/Decorators\/CommunicationDecorator.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.communications\/src\/Decorators\/CommunicationDecorator.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/docs\/modules\/scaffold.communications\/src\/EmailProviders\/CommunicationEmailProvider.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -10800,6 +11481,96 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.communications\/src\/Exceptions\/InvalidProviderException.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.communications\/src\/Leaves\/Communication\/CommunicationCollection.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.communications\/src\/Leaves\/Communication\/CommunicationCollection.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.communications\/src\/Leaves\/Communication\/CommunicationCollectionModel.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.communications\/src\/Leaves\/Communication\/CommunicationCollectionModel.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.communications\/src\/Leaves\/Communication\/CommunicationCollectionView.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.communications\/src\/Leaves\/Communication\/CommunicationCollectionView.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.communications\/src\/Leaves\/CommunicationItem\/CommunicationItemArchiveCollection.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.communications\/src\/Leaves\/CommunicationItem\/CommunicationItemArchiveCollection.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.communications\/src\/Leaves\/CommunicationItem\/CommunicationItemCollection.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.communications\/src\/Leaves\/CommunicationItem\/CommunicationItemCollection.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.communications\/src\/Leaves\/CommunicationItem\/CommunicationItemCollectionCheckbox.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.communications\/src\/Leaves\/CommunicationItem\/CommunicationItemCollectionCheckbox.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.communications\/src\/Leaves\/CommunicationItem\/CommunicationItemCollectionCheckboxView.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.communications\/src\/Leaves\/CommunicationItem\/CommunicationItemCollectionCheckboxView.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.communications\/src\/Leaves\/CommunicationItem\/CommunicationItemCollectionModel.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.communications\/src\/Leaves\/CommunicationItem\/CommunicationItemCollectionModel.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.communications\/src\/Leaves\/CommunicationItem\/CommunicationItemCollectionView.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.communications\/src\/Leaves\/CommunicationItem\/CommunicationItemCollectionView.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.communications\/src\/Leaves\/CommunicationItem\/CommunicationItemSearchPanel.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.communications\/src\/Leaves\/CommunicationItem\/CommunicationItemSearchPanel.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -10836,6 +11607,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.communications\/src\/Processors\/CommunicationProcessor.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.communications\/src\/Settings\/CommunicationsSettings.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.communications\/src\/Settings\/CommunicationsSettings.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -11043,6 +11823,15 @@
 		"randomFootnoteNumbers": 0,
 		"useCompatibilityMode": 0
 		},
+	"\/docs\/modules\/scaffold.navigationmenu\/src\/Menu.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.navigationmenu\/src\/Menu.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/docs\/modules\/scaffold.navigationmenu\/src\/MenuItem.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -11115,20 +11904,20 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/docs\/modules\/scaffold.navigationmenu\/tests\/Leaves\/TwoLevelMenuPresenterTest.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.navigationmenu\/tests\/Leaves\/TwoLevelMenuPresenterTest.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/docs\/modules\/scaffold.navigationmenu\/tests\/MenuItemTest.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.navigationmenu\/tests\/MenuItemTest.php",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/docs\/modules\/scaffold.navigationmenu\/tests\/Presenters\/TwoLevelMenuPresenterTest.php": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.navigationmenu\/tests\/Presenters\/TwoLevelMenuPresenterTest.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -11165,11 +11954,20 @@
 		"randomFootnoteNumbers": 0,
 		"useCompatibilityMode": 0
 		},
-	"\/docs\/modules\/scaffold.pikadaypresenter\/src\/PikadayPresenter.php": {
+	"\/docs\/modules\/scaffold.pikadaypresenter\/src\/Pikaday.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.pikadaypresenter\/src\/PikadayPresenter.php",
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.pikadaypresenter\/src\/Pikaday.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/docs\/modules\/scaffold.pikadaypresenter\/src\/PikadayModel.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/docs\/modules\/scaffold.pikadaypresenter\/src\/PikadayModel.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
