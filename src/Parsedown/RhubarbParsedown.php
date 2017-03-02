@@ -116,12 +116,17 @@ class RhubarbParsedown extends \ParsedownExtra
                  * @var HtmlResponse $response
                  */
                 $response = $leaf->generateResponse($request);
-                $html = $response->getContent();
 
-                $code = RhubarbParsedown::getHtmlForExampleDirectory(dirname($demoPath));
-                $html .= $code;
-                $html = '<div class="c-example">'.$html.'</div>';
-                return $html;
+                if ($response instanceof HtmlResponse) {
+                    $html = $response->getContent();
+                    $code = RhubarbParsedown::getHtmlForExampleDirectory(dirname($demoPath));
+                    $html .= $code;
+                    $html = '<div class="c-example">' . $html . '</div>';
+                    return $html;
+                } else {
+                    $response->send();
+                    exit;
+                }
             }
 
         }
