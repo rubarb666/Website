@@ -15,12 +15,21 @@
 
 $tab-content: color(site);
 
+.c-tabs {
+
+	pre {
+		margin-top: 0 !important;
+		max-height: none !important;
+		border-radius: 0 $base-radius $base-radius $base-radius !important;
+	}
+
+}
+
 .c-tabs-nav {
 	font-size:0;
 	list-style: none;
 	white-space: nowrap;
 	overflow-x: auto;
-	//margin-bottom: -1px;
 }
 
 .c-tabs-nav__link {
@@ -34,6 +43,7 @@ $tab-content: color(site);
 	text-align: center;
 	display: inline-block;
 	white-space: nowrap;
+	border-radius: $base-radius $base-radius 0 0;
 	
 	&:target, &:focus, &:active, &:hover {
 		outline: none;
@@ -56,12 +66,22 @@ $tab-content: color(site);
 	&.is-active {
 		background: $tab-content;
 	}
+
+
+	font-size: font-size(alpha)-4;
+
+	&.is-active {
+		background: color(text);
+		color: white;
+		border: none;
+		font-weight: bold;
+	}
+
 }
 
 .c-tab__content {
-	@include padding($base-space);
-	background: $tab-content;
-	//border: 1px solid color(tabs);
+	padding: 0;
+	background: none;
 }
 
 .c-tab {

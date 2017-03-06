@@ -1,0 +1,40 @@
+pre {
+	max-height: 500px;
+	overflow-y: scroll;
+	margin-bottom: $base-space*2;
+}
+
+.c-example {
+
+
+	pre {
+		margin-top: 0!important;
+		max-height: none!important;
+		border-radius: 0 $base-radius $base-radius $base-radius!important;
+	}
+
+	form {
+		border-radius: $base-radius;
+		padding: $base-space*4 $base-space*2 $base-space*2 $base-space*2;
+		border: 1px solid color(border);
+		position: relative;
+
+		&:before {
+			content: "Example";
+			background: color(border);
+			color: color(text);
+			@include position(absolute, 0px n n 0px);
+			padding: $base-space/2;
+			font-size: 12px;
+			font-weight: bold;
+			border-radius: $base-radius/2 0px $base-radius 0px;
+		}
+	}
+
+
+
+}
+
+
+
+
