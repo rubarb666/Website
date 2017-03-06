@@ -5,12 +5,20 @@
 	}
 
 	h2 {
-		font-size: font-size(beta);
+		font-size: font-size(beta)+2;
+		color: color(text);
+	}
+
+	h3 {
 		color: color(secondary);
 	}
 
 	> p:first-child {
 		font-size: font-size(gamma);
+	}
+
+	ol, ul {
+		margin-left: $base-space*3;
 	}
 
 	ul {
@@ -33,7 +41,7 @@
 }
 
 dd {
-	@include margin(n n $base-space n);
+	@include margin(n n $base-space $base-space*2);
 }
 
 dt {
