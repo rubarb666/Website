@@ -217,18 +217,18 @@ font-style: normal;
   display: block;
   white-space: nowrap;
   overflow-x: auto; }
-  @media only screen and (min-width: 720px) {
+  @media only screen and (min-width: 800px) {
     .c-table--collapse-h {
       display: table; } }
   .c-table--collapse-h tr {
     display: inline-block; }
-    @media only screen and (min-width: 720px) {
+    @media only screen and (min-width: 800px) {
       .c-table--collapse-h tr {
         display: table-row; } }
   .c-table--collapse-h td, .c-table--collapse-h th {
     display: block;
     white-space: nowrap; }
-    @media only screen and (min-width: 720px) {
+    @media only screen and (min-width: 800px) {
       .c-table--collapse-h td, .c-table--collapse-h th {
         display: table-cell; } }
   .c-table--collapse-h tr {
@@ -238,7 +238,7 @@ font-style: normal;
     margin-right: 1rem; }
     .c-table--collapse-h tr:first-child {
       margin-left: 0; }
-    @media only screen and (min-width: 720px) {
+    @media only screen and (min-width: 800px) {
       .c-table--collapse-h tr tr {
         margin-top: 0rem;
         margin-bottom: 0rem;
@@ -252,12 +252,12 @@ font-style: normal;
   .c-table--collapse-v td:before {
     content: attr(data-th) ": ";
     display: inline-block; }
-    @media only screen and (min-width: 720px) {
+    @media only screen and (min-width: 800px) {
       .c-table--collapse-v td:before {
         display: none; } }
 .c-table--collapse-v th, .c-table--collapse-v td {
   text-align: left; }
-  @media only screen and (min-width: 720px) {
+  @media only screen and (min-width: 800px) {
     .c-table--collapse-v th, .c-table--collapse-v td {
       display: table-cell; } }
 .c-table--collapse-v td:before {
@@ -273,13 +273,13 @@ font-style: normal;
 
 .style-guide {
   border-top: 1px solid #d7d7d7; }
-  @media only screen and (min-width: 720px) {
+  @media only screen and (min-width: 800px) {
     .style-guide {
       overflow: auto; } }
 
 .style-guide-layout {
   position: relative; }
-  @media only screen and (max-width: 720px) {
+  @media only screen and (max-width: 800px) {
     .style-guide-layout[style] {
       height: auto !important; } }
 
@@ -292,14 +292,14 @@ font-style: normal;
   padding-right: 2rem;
   padding-bottom: 2rem;
   padding-left: 2rem; }
-  @media only screen and (min-width: 720px) {
+  @media only screen and (min-width: 800px) {
     .style-guide-nav {
       position: absolute;
       top: 0px;
       bottom: 0px;
       left: 0px;
       overflow: auto; } }
-  @media only screen and (max-width: 720px) {
+  @media only screen and (max-width: 800px) {
     .style-guide-nav > .o-box {
       padding-top: 1rem;
       padding-right: 1rem;
@@ -309,7 +309,7 @@ font-style: normal;
       display: none; }
       .style-guide-nav > .o-box.is-visible {
         display: block; } }
-  @media only screen and (min-width: 720px) {
+  @media only screen and (min-width: 800px) {
     .style-guide-nav {
       width: 250px;
       border-right: 1px solid #d7d7d7;
@@ -339,7 +339,7 @@ font-style: normal;
   .style-guide-header .c-search-box {
     width: 125px;
     float: right; }
-    @media only screen and (min-width: 720px) {
+    @media only screen and (min-width: 800px) {
       .style-guide-header .c-search-box {
         width: 250px; } }
   .style-guide-header .c-breadcrumb {
@@ -353,7 +353,7 @@ font-style: normal;
   padding-left: 1rem;
   padding-right: 1rem;
   display: block; }
-  @media only screen and (min-width: 720px) {
+  @media only screen and (min-width: 800px) {
     .style-guide-nav-mobile-link {
       display: none; } }
 
@@ -366,7 +366,7 @@ font-style: normal;
   max-height: 100%; }
   .style-guide-content > .o-box {
     padding-top: 16px; }
-  @media only screen and (min-width: 720px) {
+  @media only screen and (min-width: 800px) {
     .style-guide-content {
       position: absolute;
       top: 0px;
@@ -431,14 +431,14 @@ font-style: normal;
   margin-bottom: 2rem; }
   .style-guide-box-description h1 {
     font-size: 62px; }
-    @media only screen and (min-width: 720px) {
+    @media only screen and (min-width: 800px) {
       .style-guide-box-description h1 {
         font-size: 32px;
         margin-top: 2rem;
         margin-bottom: 2rem; } }
   .style-guide-box-description h2 {
     font-size: 32px; }
-    @media only screen and (min-width: 720px) {
+    @media only screen and (min-width: 800px) {
       .style-guide-box-description h2 {
         font-size: 62px;
         margin-top: 2rem;
@@ -494,7 +494,7 @@ font-style: normal;
     margin-left: 0rem;
     margin-right: 0rem; }
 
-@media only screen and (min-width: 720px) {
+@media only screen and (min-width: 800px) {
   body.page-template-template-style-guide {
     overflow: hidden; }
     body.page-template-template-style-guide footer {

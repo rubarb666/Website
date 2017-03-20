@@ -273,5 +273,15 @@
 	.c-nav-manual__close {
 		@include position(absolute, $base-space $base-space n n);
 		cursor: pointer;
+		display: none;
+	}
+
+
+	&.is-active {
+		.c-nav-manual__close {
+			display: block!important;
+		}
 	}
 }
+
+

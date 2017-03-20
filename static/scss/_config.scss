@@ -4,7 +4,7 @@ $base-unit              : 16px !default;
 $box-sizing             : border-box !default;
 $is-site-responsive     : true !default;
 $is-site-fluid          : true !default;
-    $fixed-width		: $base-unit*90;	// [number]px
+    $fixed-width		: $base-unit*100;	// [number]px
     $fluid-width		: 100%;	// [number]px
 $smoothness             : 0.2;
 $content-unit           : $fixed-width/3 !default;
