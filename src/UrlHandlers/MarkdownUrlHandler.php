@@ -32,7 +32,8 @@ class MarkdownUrlHandler extends UrlHandler
         $rootPath = "docs";
 
         // If this is the manual - we could be looking at other rhubarb projects.
-        if ( preg_match( "/\/manual\/([^\/]+)\//", $url, $match ) )
+        if ( preg_match( "/\/manual\/([^\/]+)\//", $url, $match ) &&
+             $url != "/manual/scaffolds/index")
         {
             $url = str_replace( $match[0], "", $url );
             $rootPath = "docs/modules/".$match[1]."/docs/";

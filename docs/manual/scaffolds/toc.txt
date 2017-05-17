@@ -1,0 +1,4 @@
+scaffolds: /manual/scaffolds/
+    Background Tasks: /manual/scaffold.backgroundtasks/
+        [docs/modules/scaffold.backgroundtasks/docs/toc.txt]
+modules: /manual/scaffolds/

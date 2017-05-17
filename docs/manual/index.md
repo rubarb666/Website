@@ -1,5 +1,5 @@
-The Manual
-==========
+Rhubarb PHP  [packagist:rhubarbphp/rhubarb]
+===========================
 
 > The Rhubarb documentation is constantly being updated as the code is continually improved. Should you find any
 > issues with the documentation from misspellings to demo code that no longer works, please

@@ -4,7 +4,7 @@ About Rhubarb
 Rhubarb is a collection of [open source projects](https://github.com/rhubarbphp) that together comprise the Rhubarb
 PHP framework.
 
-Rhubarb is aimed at developers who need to build PHP applications that address the common pitfalls of
+Rhubarb is aimed at developers who need to build PHP applications that address the challenges of
 enterprise application development:
 
 * Performance degradation as the application grows
@@ -19,5 +19,6 @@ Rhubarb is designed to enable modern development practices, patterns and princip
 ## Gcd.
 
 [Gcd.](http://gcdtech.com/) is the originator of the framework and curator and maintainer of the
-projects. We use Rhubarb day and daily in demanding and high performance applications and use that experience in shaping the development of Rhubarb.
+core projects. We use Rhubarb day and daily in demanding and high performance applications and use
+that experience in shaping the development of Rhubarb.
 

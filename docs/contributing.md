@@ -11,8 +11,7 @@ generally fall into three main areas:
 All of the repositories in the [rhubarbphp](https://github.com/rhubarbphp) Github organisation embody the heart
 and spirit of the system. Their integrity is guaranteed by a list of
 [appointed maintainers](https://github.com/orgs/RhubarbPHP/teams). However we welcome and love contributions
-from anyone and contributions should be made using a pull request from a forked version of the module in question
-into the 'develop' branch of the original repository.
+from anyone and contributions should be made using a pull request from a forked version of the module.
 
 ### 2. Scaffolds
 
@@ -49,7 +48,7 @@ set the version number to the dev- branch you're working on.
     "require":
     {
         "rhubarbphp/rhubarb": "1.*",
-        "rhubarbphp/module-stem": "dev-develop"
+        "rhubarbphp/module-stem": "dev-master"
     }
 }
 
