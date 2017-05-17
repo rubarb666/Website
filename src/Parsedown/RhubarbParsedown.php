@@ -5,6 +5,7 @@ namespace Rhubarb\Website\Parsedown;
 use Rhubarb\Crown\Application;
 use Rhubarb\Crown\Request\Request;
 use Rhubarb\Crown\Response\HtmlResponse;
+use Rhubarb\Leaf\Leaves\Leaf;
 
 class RhubarbParsedown extends \ParsedownExtra
 {
@@ -111,6 +112,15 @@ class RhubarbParsedown extends \ParsedownExtra
                 $namespace = ($hasNamespace) ? $namespace[1] : "";
                 $leafClass = $namespace."\\".$class[1];
                 $leaf = new $leafClass();
+
+                /**
+                 * @var Leaf $leaf
+                 */
+                if (isset($_POST) && isset($_POST['_leafEventTarget']) && $_SERVER["HTTP_ACCEPT"] == "application/leaf") {
+                    if (stripos($_POST['_leafEventTarget'], $leaf->getName()) !== 0) {
+                        return;
+                    }
+                }
 
                 /**
                  * @var HtmlResponse $response
