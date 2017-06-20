@@ -64,3 +64,4 @@ will end up at the same place.
 
 ## Breaking the ice - hello world
 
+[Building a blog](/tutorial/blog)
