@@ -1,43 +1,34 @@
+[Building a blog](/tutorial/blog)
+
 Tutorial: Building a blog
 ==========================
 # Initial Setup
 You will need to install the following globally:
 * git
-* Composer
-* Vagrant. 
-Vagrant requires you to also have installed Oracle Virtual Box
+* [Composer](https://getcomposer.org/download/)
+* [Oracle Virtual Box (Required by Vagrant)](https://www.virtualbox.org/wiki/Downloads)
+* [Vagrant](https://www.vagrantup.com/downloads.html)
 
-You should then run the following commands from the project root to get started
+Run the following commands to create the base project and get started:
 ```bash
-git clone https://github.com/RhubarbPHP/Bootstrap.WebApp.git
-cd Bootstrap.WebApp
-composer install #Download PHP Dependencies
+composer create-project rhubarbphp/bootstrap-webapp blog
+cd blog
 vagrant up #Start Virtual Machine
 ```
-Note that vagrant uses port 8080 which can sometimes conflict with the ports that other applications such as Skype use. 
 
-You will notice that a vendor directory has been created, this is where all of thethird party dependencies are stored. 
-This is where you will find `vendor/bin` which contains all of the executables.
+# Where is the homepage?
+Open your browser at [localhost:8080](http://localhost:8080), you will find the "You're up and running!" start page.
 
-# Where is the home page?
-If you open your browser at localhost:8080 you will find the "You're up and running!" start page.
+Rhubarb uses a Model-View-Presenter pattern so, in `src/Leaves` you will find a Leaf, a Model and 
+View: `Index`, `IndexModel` and `IndexView`.
 
-Rhubarb uses a Model-View-Presenter pattern so, in `src/Leaves/Index` you will find a Leaf (Presenter), a Model and 
-View: Index, IndexModel and Index View.
+Open `IndexView.php` and change "You're up and running!" to the obligatory text "Hello, World!".
 
-Open IndexView.php and change "You're up and running!" to the obligatory text " Hello, World!".
-
-You will find that the home page text has changed.
-
-In `Index.php` you will notice that the Leaf class has been extended and that two methods:
-`getViewClass()` and `createModel()` have been overridden. You must extend these 
-methods and return what they are expecting every time. 
-
-`getViewClass()` expects a string to be returned of the View class that you have created.
-`createModel()` expects you to return a new `LeafModel` class that you have extended.
+Refresh the page and you will find that the homepage text has changed to "Hello World!".
 
 # Create an about us page
-Create a new Directory in the `src/Leaves` directory called `AboutUs`. Inside this directory create 3 php files:
+> There is a shortcut for creating leaves later in this tutorial
+Create a new directory in `src/Leaves`  called  `AboutUs`. Inside this directory create 3 php files:
 `AboutUs.php`, `AboutUsModel.php`, `AboutUsView.php`
 
 ## AboutUs.php
@@ -45,11 +36,11 @@ Add a namespace to `AboutUs.php`:
 
 `namespace Your\WebApp\Leaves\AboutUs;`
 
-(Quick explanation of namespaces: The src directory is `Your\WebApp`, `\Leaves\` is the Leaves directory and the 
-`AboutUs` part of the namespace is the `AboutUs`directory that we created. This is to allow the composer autoloader to 
-find our classes.)
+> (Quick explanation of namespaces: The src directory is `Your\WebApp`, `\Leaves\` is the Leaves directory and the 
+> `AboutUs` part of the namespace is the `AboutUs` directory that we created. This is to allow the composer autoloader to 
+> find our classes.). Namespaces are configured in the `composer.json` file.
 
-Add a class called `AboutUs` which `extends \Rhubarb\Leaf\Leaves\Leaf`. For convenience you can add a use statement to 
+After the namespace, add a class called `AboutUs` which `extends \Rhubarb\Leaf\Leaves\Leaf`. For convenience, you can add a `use` statement to 
 shorten this. Your file will now look like this.
 
 ```php
@@ -65,13 +56,13 @@ class AboutUs extends Leaf
 ```
 
 Those of you using an IDE will notice that the class declaration is showing an error because we need to override two 
-methods. Lets leave that until we create the other two classes so we can use them here.
+methods. Let's leave that until we create the other two classes so we can use them here.
 
 In `AboutUsModel.php` add the same namespace as before and your class declaration should be as follows:
 
 `class AboutUsModel extends \Rhubarb\Leaf\Leaves\LeafModel`
 
-You can simplify this with a use statement.
+You can simplify this with a `use` statement.
 
 In `AboutUs.php` override the `createModel()` method and return a new `AboutUsModel()`
 
@@ -84,7 +75,7 @@ protected function createModel()
 
 In `AboutUsView.php` add the namespace as before, and add the class declaration as follows:
 
-(At this point I will assume that you will automatically switch to the use statements)
+> (At this point I will assume that you will automatically switch to the `use` statements)
 
 `class AboutUsView extends \Rhubarb\Leaf\Views\View`
 
@@ -99,7 +90,7 @@ protected function printViewContent()
 }
 ```
 
-You can also use `print "Your content";` if you prefer, instead of opening and closing php.
+You can also use `print "Your content";` if you prefer, instead of opening and closing php tags.
 
 In `AboutUs.php` we can now override that last method: `getViewClass()`. We need to return the class name of our view class.
 ```php
@@ -109,13 +100,13 @@ protected function getViewClass()
 }
 ```
 
-the last thing that we need to do is register our leaf `AboutUs` in the main YourApplication class. You will find this 
-in the `src/` directory: `YourApplication.php`
+The last thing that we need to do is register our Leaf `AboutUs` in the Application class in `src/YourApplication.php`. 
 
 You will find a `registerUrlHandlers()` method, which calls a method `$this->addUrlHandlers();`
 
-This method accepts an array of url handlers. You will find the index one here already. Add an array to as the second 
-parameter to `ClassMappedUrlHandler` and add a key value pair of "about-us/" => new classMappedUrlHandler(AboutUs::class)
+This method accepts an array of `UrlHandler`s. You will find the `Index` Leaf registered here already. 
+Add an array to as the second parameter to `ClassMappedUrlHandler` and add a key value pair 
+of `"about-us/" => new classMappedUrlHandler(AboutUs::class)`
 
 If that seems daunting, just copy this for now.
 
@@ -134,34 +125,39 @@ protected function registerUrlHandlers()
 }
 ```
 
-You will add all of your new Pages to this array. All page names should end with a /
-`http://localhost:8080/about-us/` is the url where we will now find the page.
+You will add all of your new pages to this array. For convenience, all page names should end with a /
+[http://localhost:8080/about-us/](http://localhost:8080/about-us/) is the URL where we will now find the page.
 
 ## If that seemed like a lot of work
-Rhubarb uses custard commands to speed up the process of a lot of repetitive tasks.
-
-Lets make a quick directory that we can remove in a moment.
+Rhubarb uses Custard commands to speed up the process of a lot of repetitive tasks.
 
 Create a directory as follows:
-`src/Leaves/Delete`
-then `cd` to the `Delete` Directory
+`mkdir src/Leaves/QuickQuestions`
+then ` cd src/Leaves/QuickQuestions`
 
-then 
+then run the create leaf Custard command:
 `../../../vendor/bin/custard leaf:create-leaf`
-type in `Delete` or whatever you want your leaf to be called then press enter and it will create a Leaf, Model and View
-with a lot of helpful comments. You can delete this directory unless you want to keep it for reference.
+type in `QuickQuestions`  and press enter. 
+The command it will create a Leaf, Model and View with a lot of helpful comments.
+
+This page can be added to our `UrlHandler`s, as follows:
+
+```php
+$this->addUrlHandlers(
+    [
+        "/" => new ClassMappedUrlHandler(Index::class,
+            [
+                "about-us/" => new ClassMappedUrlHandler(\Your\WebApp\Leaves\AboutUs\AboutUs::class),
+                "quick-questions/" => new ClassMappedUrlHandler(\Your\WebApp\Leaves\QuickQuestions\QuickQuestions::class)
+            ])
+    ]
+);
+```
 
 # Databases & tables
 
-We need to require the Stem module to the project. In the project root enter the following command:
-
-`composer require rhubarbphp/module-stem`
-
-This will update your `composer.json` and your `composer.lock` files. In `YourApplication.php` we will need to register 
-the Stem module. In `getModules()` add `new \Rhubarb\Stem\StemModule()`
-
 Create a `Models` directory in `src/` In here you will need to create a `SolutionSchema` class and a Model class for each 
-table of your database.
+table of your database. This will be explained in a moment.
 
 
 ## Post Table
@@ -171,7 +167,7 @@ it needs to contain a class as follows:
 
 `class Post extends \Rhubarb\Stem\Models\Model`
 
-In `createSchema()` set it up to look like this:
+You must override  `createSchema()` set it up to look like this:
 
 ```php
 protected function createSchema()
@@ -190,11 +186,14 @@ protected function createSchema()
 }
 ```
 
-All we are doing here is defining the columns in the table, and setting the labelColumnName which will be useful later.
+All we are doing here is defining the name of the table, the columns in the table and setting the labelColumnName which will be useful later.
+
+> A common pitfall is forgetting to return `$schema` at the end of the method.
 
 ## Register the table in a SolutionSchema
 
-In the Models directory create a new file called `YourApplicationSolutionSchema.php`.
+In the Models directory create a new file called `YourApplicationSolutionSchema.php`. Please note that the name of the class
+does not matter, in RhubarbPHP configuration over convention is preferred. If you prefer, you could name this BlogSolutionSchema.
 
 Give it the same namespace as before, and add a class declaration as follows:
 
@@ -209,37 +208,34 @@ public function __construct($version = 0)
     $this->addModel("Post", Post::class);
 }
 ```
+> Any time you make a change to any of the models in the schema, you must increase the version number to ensure that the tables 
+> update to reflect the change. Columns will never be removed by this process.
 
 ## Register the SolutionSchema
-First, have a look in the settings directory to see that vagrant has copied in a file called site.config.php with your
-database credentials. When you move to a live server you should create this file for yourself with your secure
-credentials. For our purposes in local development, this is sufficient.
 
 In `YourApplication.php` we need to register our SolutionSchema.
 
-Override the `initialise()` method, and call the parent.
-
-In this method, you will need to include `site.config.php`, register the SolutionSchema and set the default repository class name to the mysql 
-repository as follows:
+In the `initialise()` method, add the two bottom lines to register the solution schema and to tell Rhubarb that you want to use MySQL as a database.
 
 ```php
 protected function initialise()
 {
     parent::initialise();
-    
+
+    $this->developerMode = true;
     if(file_exists(APPLICATION_ROOT_DIR . "/settings/site.config.php")){
         include_once(APPLICATION_ROOT_DIR . "/settings/site.config.php");
-    }
+        }
     
     \Rhubarb\Stem\Schema\SolutionSchema::registerSchema("YourApplicationSolutionSchema", \Your\WebApp\Models\YourApplicationSolutionSchema::class);
     \Rhubarb\Stem\Repositories\Repository::setDefaultRepositoryClassName(\Rhubarb\Stem\Repositories\MySql\MySql::class);
 }
 ```
 
-Now ssh into vagrant using `vagrant ssh` and do the following:
+ssh into vagrant using `vagrant ssh` and do the following:
 
 ```bash
-cd /vagrant 
+cd /vagrant
 vendor/bin/custard stem:update-schemas
 ```
 
@@ -248,33 +244,30 @@ to give us PhpDoc comments to improve intellisense.
 
 ```bash
 vendor/bin/custard stem:document-model
-0
 ```
 Select your schema `0` and press enter
 You will find comments have been added to `Post.php`, and a Post table has been created in your vagrant database.
 
-If you are connecting to the database with HeidiSQL,Sequel Pro etc you will find the vagrant database in this example
-running on `localhost:3307` with username `vagrant` and password `vagrant`. We have chosen port 3307 so that a local 
-database will not be affected.
+> If you are connecting to the database with HeidiSQL, SequelPro etc you will find the vagrant database in this example
+> running on `localhost:3307` with username `vagrant` and password `vagrant`. We have chosen port 3307 so that a local 
+> mySQL database will not be affected.
+> Details of ports can be found in the `Vagrantfile` and database details in `vagrant/provision.sh` should you need to 
+> modify these to avoid ports colliding etc.
 
-Details of ports can be found in the `Vagrantfile` and database details in `vagrant/provision.sh` should you need to 
-modify these to avoid ports colliding etc.
-
-# Display Posts from database
-Using your database viewer of choice, manually add a few new posts in the database with a title and some lorem ipsum 
+# Display Posts from the database
+Using your database viewer of choice, manually add a few new posts in the database with a title and some [lorem ipsum](https://lipsum.com/) 
 text for the content or whatever you want.
 
-We will now display these posts on the HomePage.
+We will now display these posts.
 
 Open `IndexView.php`.
 
-In the `printViewContent()` method, lets create a variable of all of the posts and loop over them and print each of them 
+In the `printViewContent()` method, let's create a variable of all of the posts and loop over them and print each of them 
 out.
 
 ```php
 protected function printViewContent()
 {
-    parent::printViewContent();
     ?>
     <h1>Rhubarb Blog</h1>
     <?php
@@ -290,23 +283,27 @@ protected function printViewContent()
 ```
 
 # CRUD (Create Read Update Delete) Posts
-first you will need to add a few dependencies:
+You will need to add a few dependencies:
 ```bash
 composer require rhubarbphp/module-leaf-crud
 composer require rhubarbphp/module-leaf-common-controls
 composer require rhubarbphp/module-leaf-table
 ```
+
 in `src/Leaves` create a new directory called `Posts`
+
 Create the following 4 files: `PostsCollection.php`, `PostsCollectionView.php`, `PostsItem.php` and `PostsItemView.php`
 
-They each need a namespace: `namespace: Your\WebApp\Leaves\Posts` and they each need a class with the same as their file name
-
-## Table of Posts
+They each need a namespace: `namespace Your\WebApp\Leaves\Posts;` and they each need a class with the same as their file name
 
 `PostsCollection` and `PostItem` both ned to extend `\Rhubarb\Leaf\Crud\Leaves\CrudLeaf`.
-You will need to return the correct View class name for each of these.
-`PostCollectionView` and `PostItemView` both need to extend `\Rhubarb\Leaf\Crud\Leaves\CrudView`. You don't need to 
-override createModel this time until you need to.
+You will need to return the correct View class name for each of these (Same as we did when we created the `Index` Leaf).
+`PostCollectionView` and `PostItemView` both need to extend `\Rhubarb\Leaf\Crud\Leaves\CrudView`. 
+
+> `createModel()` does not need to be overridden this time, however, if you need to raise custom events from the `View` 
+> you will need to do so. It must extend `Rhubarb\Leaf\Crud\Leaves\CrudModel`.
+
+## Table of Posts
 
 In `PostCollectionView` override the `createSubleaves()` method as follows.
 
@@ -326,14 +323,13 @@ protected function createSubLeaves()
 }
 ```
 
-The first thing that happens is we use `registerSubLeaf()` this can take multiple leaves at a time separated by a comma.
-We create a Table and set it's collection to `Post::all()`, the page size to 50 and the presenter name to "PostsTable"
-We assign our Table Leaf to `$table` and then set the columns to an array of what we want to display.
-The first column in the table we want to display is the Post `Title`. This is case sensitive and must be exactly as
-is in `Post.php`. 
-To show the parsing feature, I have put the link to the edit page as the second column in the table. Note that {PostID} 
-is inside curly braces. This will be parsed into the `PostID` for the current row that is being displayed.
+The first thing that we did is we use the `registerSubLeaf()` method which can take multiple Leaf classes at a time separated by a comma.
+We create a `Table` and set it's `Collection` to `Post::all()`, the page size to 50 and the Leaf name to "PostsTable".
+We assign our `Table` Leaf to `$table` and then set the columns to an array of what we want to display.
+The first column in the table we want to display is the Post `Title`. This is case sensitive and must be exactly as is in `Post.php`.
 
+> To show the parsing feature, I have put the link to the edit page as the second column in the table. Note that {PostID} 
+> is inside curly braces. This will be parsed into the `PostID` for the current row that is being displayed.
 
 We then need to print out this table in `printViewContent()` as well as a link to the add page
 
@@ -350,10 +346,11 @@ protected function printViewContent()
 ## Create, Update & Delete Posts
 In `PostsItemView.php` again override `createSubLeaves()` and `printViewContent()`
 
-In non-`CrudView`s, we would manually create a new `TextBox` leaf etc however, Rhubarb can work out the best html element
-to display our database content. All we need to do is pass in a string of each of the columns that we want to be able
-to access to edit. If you want something more custom, you can still do this here but remember to set it's name to the 
-column name. The parent call to createSubLeaves() creates a `Save`, `Cancel` and `Delete` button for us.
+> In non-`CrudView`s, we would manually create a new `TextBox` leaf, however, Rhubarb can guess the correct HTML element
+> to display our database content based on the type of column. All we need to do is pass in a string of each of the 
+> columns that we want to be able to access to edit. If you want something more custom, you can still do this here 
+> but remember to set its name to the column name. The parent call to createSubLeaves() 
+> creates a `Save`, `Cancel` and `Delete` button for us.
 
 Copy this in to save time:
 
@@ -361,10 +358,10 @@ Copy this in to save time:
 protected function createSubLeaves()
 {
     parent::createSubLeaves();
-    $this->registerSubLeaf(
-    "Title",
-    "Content"
-);
+        $this->registerSubLeaf(
+        "Title",
+        "Content"
+    );
 }
 
 protected function printViewContent()
@@ -399,27 +396,201 @@ protected function registerUrlHandlers()
 }
 ```
 
-If you visit http://localhost:8080/posts/ you should now see a link to add a post, a table with two titles and the Posts
-that you created earlier. You can add and delete posts from here.
+If you visit [http://localhost:8080/posts/](http://localhost:8080/posts/) you should now see a link to add a post, 
+a table with two titles and the Posts that you created earlier. You can add and delete posts from here.
 
-# Static files (CSS & Images)
-The design conscious among you may be wondering about the location of the `<head>` tag to reference a css file etc, 
-also where to put a css file. 
+> There is a custard command to create crud pages, `vendor/bin/custard leaf:create-crud-leaf`. You need to 
+> Register the CrudModule in YourApplication.php for this command to be available.
 
-Static files go in the `static` directory in the project root. In this directory you will find `css/base.css` where you
-can add custom styles. Lets add a font family to the existing body:
+# ViewBridges
 
-```css
-body {
-    margin: 0;
-    font-family: sans-serif;
+> ViewBridges are Javascript files that interact with a Leaf and it's subleaves. 
+> They allow us to attach events to subleaves that be handled and also call events back on our Leaf on the Server. 
+
+Let's be fancy, on our Edit Post page, how about we save the Title whenever the user has finished typing. The save button will still send the title but we want to have to do that.
+
+In your `Posts` directory, add a new file called `PostsItemViewbridge.js`. In this file, we need to create our viewbridge.
+
+```js
+ViewBridge.create(
+    "PostsItemViewbridge",
+    function () {
+        return {
+            attachEvents: function () {
+                // TODO: Attach events.
+            }
+        }
+    }
+);
+```
+
+What this does is: 
+* Create the Viewbridge for the page
+* Give it a name (PostsItemViewbridge)
+* Define a function called `attachEvents` that will be called when the page has loaded. This is where we can put the events that we mentioned earlier. 
+
+## Client Side Event Handlers
+
+The first thing that we need to do is find the Viewbridge of the subleaf that we created called "Title". I.e. the Title text box.
+
+In attachEvents, add the extra code below between `// Added:` and `// end of added`.
+
+```js
+ViewBridge.create(
+    "PostsItemViewbridge",
+    function () {
+        return {
+            attachEvents: function () {
+                // Added:
+                // A reference to our viewbridge
+                var self = this;
+                // The Subleaf (TextBox) Title that we created in our PostsItemView
+                var title = self.findChildViewBridge("Title");
+                // Run this method when The value of Title changes 
+                title.attachClientEventHandler("ValueChanged",
+                function (element, value) {
+                    // Alert to the user that the title is what was just typed
+                    alert("The title is: " + value);
+                }
+            );
+                // end of added
+
+            }
+        }
+    }
+);
+```
+## Registering a ViewBridge for a Leaf
+
+Now, we need to tell the `PostItemView` that it should deploy and use `PostItemViewbridge`. 
+
+> We use `LeafDeploymentPackage` to take our Viewbridge JavaScript file and move it to a folder in `deployed/` and also to add the reference to the file in <head>.
+
+In `PostItemView` override `getViewBridgeName()` and `getDeploymentPackage()`. 
+
+```
+
+protected function getViewBridgeName()
+{
+    // The name of the ViewBridge defined in PostsItemViewbridge.js
+    return "PostsItemViewbridge";
+}
+
+public function getDeploymentPackage()
+{
+    // The path to the ViewBridge file.
+    return new LeafDeploymentPackage(__DIR__ . "/PostsItemViewbridge.js");
 }
 ```
 
-Open `src/Layouts/DefaultLayout.php` and add the reference to the css file in the `<head>` like this
+Go to [http://localhost:8080/posts/1/](http://localhost:8080/posts/1/), change the title and cilck out of the box and you should see an alert with the title.
 
-```html
-<link rel="stylesheet" href="/static/app.css">`
+## Server Events
+    
+> A server event (AKA ajax call / XMLHttpRequest) is simply a way to run a method on the Leaf back on the server triggered by an event on the web page, 
+> for example, our ValueChanged event. 
+
+Update your ViewBridge with the code between the `// Added:` and `// End of Added.` comments. Read the annotations to see what's happening. 
+
+```js
+ViewBridge.create(
+  "PostsItemViewbridge",
+  function () {
+    return {
+      attachEvents: function () {
+        // A reference to our viewbridge
+        var self = this;
+        // The Subleaf (TextBox) Title that we created in our PostsItemView
+        var title = self.findChildViewBridge("Title");
+        // Run this method when The value of Title changes
+        title.attachClientEventHandler("ValueChanged",
+          function (element, value) {
+            
+            // Added:
+            // Usually you display a spinner at this point to let the user know something is happening / loading
+            self.raiseServerEvent(
+              "TitleChanged", // Name of the event (minus 'Event' at the end)
+              value, // The new title
+              // Function to run if we are successful
+              function (messageBackFromTheServer) {
+                alert(messageBackFromTheServer);
+                // Usually you would hide the spinner in this function.
+              },
+              // Function to run if we are not successful
+              function () {
+                alert("Something went wrong")
+                // Ususally you would hide the spinner and display an error message
+              }
+            );
+            // End of Added.
+            
+          }
+        );
+      }
+    }
+  }
+);
 ```
 
-Images can be referenced from the same folder.
+In `PostItem`, we now need to define a custom LeafModel to use. In the `Posts` directory, create a new PHP class called `PostsItemModel` which 
+extends `CrudModel`.
+
+In the constructor we are going to instantiate our event, the event will be referenced as a public field on the model. See below:
+
+```php
+class PostsItemModel extends \Rhubarb\Leaf\Crud\Leaves\CrudModel
+{
+    // Notice that the event name ends with the word "Event" but the viewbridge should not state this.
+    public $TitleChangedEvent;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->TitleChangedEvent = new \Rhubarb\Crown\Events\Event();
+    }
+}
+```
+In `PostItem`, override `createModel()` and return a new Instance of `PostsItemModel`. Now override `onModelCreated()` and add the following: 
+
+```php
+    protected function createModel()
+    {
+        return new PostsItemModel();
+    }
+    
+    /**
+     * Add this to improve auto complete
+     * @var $model PostsItemModel
+     */
+    protected $model;
+
+    protected function onModelCreated()
+    {
+        // This is important to make sure the existing events, for example the savePressedEvent still runs
+        parent::onModelCreated();
+        // Here we attach a handler to our event, and give it the function to run if it is raised.
+        // This type of function is known as a callback or an anonymous function
+        $this->model->TitleChangedEvent->attachHandler(
+
+            function ($newTitle) {
+                // $newTitle comes from our ViewBridge, where we passed "value" after the name of the event in the ViewBridge
+                /** @var \Your\WebApp\Models\Post $post */
+                $post = $this->model->restModel;
+
+                // We don't want to save the title if the Post has not been saved before
+                if ($post->isNewRecord() == false) {
+                    $post->Title = $newTitle;
+                    $post->save();
+                    $messageBackFromTheServer = "Title updated";
+                } else {
+                    $messageBackFromTheServer = "I'm a new title, I'm not saved yet.";
+                }
+                
+                return $messageBackFromTheServer;
+            }
+
+        );
+    }
+```
+ 
+Now when the title changes and you refresh the page, the title will stay the same without needing to press save.

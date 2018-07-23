@@ -65,3 +65,6 @@ vagrant up
 We're using [vagrant](http://vagrantup.com/) to host Apache so you can now simply visit
 [http://localhost:8080/](http://localhost:8080/)
 
+## Breaking the ice - hello world tutorial
+
+[Building a blog](/tutorial/blog)
