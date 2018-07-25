@@ -442,10 +442,8 @@ ViewBridge.create(
         return {
             attachEvents: function () {
                 // Added:
-                // A reference to our viewbridge
-                var self = this;
                 // The Subleaf (TextBox) Title that we created in our PostsItemView
-                var title = self.findChildViewBridge("Title");
+                var title = this.findChildViewBridge("Title");
                 // Run this method when The value of Title changes 
                 title.attachClientEventHandler("ValueChanged",
                 function (element, value) {
@@ -453,9 +451,9 @@ ViewBridge.create(
                     alert("The title is: " + value);
                 }
             );
-                // end of added
-
-            }
+            // bind() ensures that the variable called "this" still references our ViewBridge in this method
+            }.bind(this)
+            // end of added
         }
     }
 );
@@ -498,17 +496,15 @@ ViewBridge.create(
   function () {
     return {
       attachEvents: function () {
-        // A reference to our viewbridge
-        var self = this;
         // The Subleaf (TextBox) Title that we created in our PostsItemView
-        var title = self.findChildViewBridge("Title");
+        var title = this.findChildViewBridge("Title");
         // Run this method when The value of Title changes
         title.attachClientEventHandler("ValueChanged",
           function (element, value) {
             
             // Added:
             // Usually you display a spinner at this point to let the user know something is happening / loading
-            self.raiseServerEvent(
+            this.raiseServerEvent(
               "TitleChanged", // Name of the event (minus 'Event' at the end)
               value, // The new title
               // Function to run if we are successful
@@ -524,7 +520,8 @@ ViewBridge.create(
             );
             // End of Added.
             
-          }
+            // bind() ensures that the variable called "this" still references our ViewBridge in this method
+          }.bind(this)
         );
       }
     }
