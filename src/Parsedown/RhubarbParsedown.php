@@ -237,7 +237,7 @@ class RhubarbParsedown extends \ParsedownExtra
                     $content = array_slice($content, $from, $to - $from);
                 }
 
-                $Element["text"] = implode("", $content);
+                $Element["text"] = htmlentities(implode("", $content));
                 $request = Application::current()->request();
                 $Block['element']['attributes']['data-url'] = $this->generateGitHubUrl($file, $request->urlPath);
 //                $Block['element']['attributes']['data-url'] = "/view/" . $request->uri . "/" . $file;//github url
