@@ -1,0 +1,40 @@
+version: 0.0
+os: linux
+files:
+  - source: src
+    destination: /var/www/src
+  - source: docs
+    destination: /var/www/docs
+  - source: static
+    destination: /var/www/static
+  - source: vendor
+    destination: /var/www/vendor
+  - source: boot-custard.php
+    destination: /var/www/
+  - source: site.config.php
+    destination: /var/www/settings/
+  - source: nginx/nginx.conf
+    destination: /etc/nginx/
+  - source: nginx/virtual.conf
+    destination: /etc/nginx/conf.d/
+  - source: php/php.ini
+    destination: /etc/
+  - source: php/www.conf
+    destination: /etc/php-fpm.d/
+hooks:
+  BeforeInstall:
+    - location: install_dependencies.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: post_install.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: start_server.sh
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: stop_server.sh
+      timeout: 300
+      runas: root

@@ -1,0 +1,23 @@
+language: php
+
+before_deploy:
+  - composer install --no-dev --ignore-platform-reqs
+  - mkdir build
+  - cp -r src docs vendor static settings deploy/* build/
+  - mkdir build/deployed
+
+  - zip -r build *
+
+deploy:
+  - provider: s3
+    access_key_id: "AKIAI7B27YRXYIL6SQOQ"
+    secret_access_key: "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"
+    bucket: "rhubarb-website-builds"
+
+  - provider: codedeploy
+    access_key_id: "AKIAI7B27YRXYIL6SQOQ"
+    secret_access_key: "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"
+    bucket: "rhubarb-website-builds"
+    key: build.zip
+    application: RhubarbWesite
+    deployment_group: RhubarbWebsiteGroup
