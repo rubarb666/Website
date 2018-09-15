@@ -29,5 +29,5 @@ deploy:
     secret_access_key: "A5mCkQl/bOzqyyQMhL51Ij288jn6crFoJenukvvO"
     bucket: "rhubarb-website-builds"
     key: build.zip
-    application: RhubarbWesite
+    application: RhubarbWebsite
     deployment_group: RhubarbWebsiteGroup
