@@ -6,7 +6,7 @@ php:
 before_deploy:
   - composer install --no-dev --ignore-platform-reqs
   - mkdir build
-  - cp -r src docs vendor static settings deploy/* build/
+  - cp -r src docs vendor static settings codedeploy/* build/
   - mkdir build/deployed
 
   - zip -r build *
