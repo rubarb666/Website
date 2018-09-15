@@ -5,7 +5,7 @@ php:
 
 script: true
 
-before_deploy:
+after_success:
   - composer install --no-dev --ignore-platform-reqs
   - mkdir build
   - cp -r src docs vendor static settings codedeploy/* build/
@@ -19,7 +19,7 @@ deploy:
   - provider: s3
     access_key_id: "AKIAI7B27YRXYIL6SQOQ"
     secret_access_key: "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"
-    region: eu-west-1
+    region: eu-west-2
     local_dir: build
     bucket: "rhubarb-website-builds"
     skip_cleanup: true
