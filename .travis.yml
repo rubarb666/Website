@@ -32,3 +32,4 @@ deploy:
     region: eu-west-2
     application: RhubarbWebsite
     deployment_group: RhubarbWebsiteGroup
+    wait-until-deployed: true
