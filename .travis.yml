@@ -10,7 +10,9 @@ after_success:
   - mkdir build
   - cp -r src docs vendor static settings codedeploy/* build/
   - mkdir build/deployed
-  - zip -r build *
+  - cd build && zip -r build *
+  - mv build.zip ../build.zip
+  - cd ../
   - rm build -Rf
   - mkdir build
   - mv build.zip build/
