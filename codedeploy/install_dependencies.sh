@@ -8,7 +8,8 @@ if [[ -n  `pgrep httpd` ]]; then
 fi
 
 amazon-linux-extras install nginx1.12
-yum install -y php72-fpm php72-common php72-opcache php72-mbstring php72-mysqlnd php72-pdo php72-xml php72-cli php72-mcrypt
+amazon-linux-extras install php7.2
+yum install -y php-fpm php-common php-opcache php-mbstring php-mysqlnd php-pdo php-xml php-cli php-mcrypt
 
 # clear existing files (or else install will fail)
 rm -f /etc/nginx/nginx.conf
