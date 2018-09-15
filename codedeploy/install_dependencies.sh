@@ -20,4 +20,4 @@ rm -rf /var/www
 mkdir -p /var/www/settings/
 chown -R nginx: /var/www
 chown -R nginx: /var/log/php-fpm
-chown root:nginx /var/lib/php/7.1/session/
+chown root:nginx /var/lib/php/session/
