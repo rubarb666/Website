@@ -1,5 +1,8 @@
 language: php
 
+php:
+  - '7.2'
+
 before_deploy:
   - composer install --no-dev --ignore-platform-reqs
   - mkdir build
@@ -7,6 +10,8 @@ before_deploy:
   - mkdir build/deployed
 
   - zip -r build *
+
+script:
 
 deploy:
   - provider: s3
