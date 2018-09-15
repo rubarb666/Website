@@ -11,7 +11,7 @@ before_deploy:
 
   - zip -r build *
 
-script:
+script: true
 
 deploy:
   - provider: s3
