@@ -9,10 +9,6 @@ files:
     destination: /var/www/static
   - source: vendor
     destination: /var/www/vendor
-  - source: boot-custard.php
-    destination: /var/www/
-  - source: site.config.php
-    destination: /var/www/settings/
   - source: nginx/nginx.conf
     destination: /etc/nginx/
   - source: nginx/virtual.conf
