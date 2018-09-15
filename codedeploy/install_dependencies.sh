@@ -9,7 +9,7 @@ fi
 
 amazon-linux-extras install nginx1.12
 amazon-linux-extras install php7.2
-yum install -y php-fpm php-common php-opcache php-mbstring php-mysqlnd php-pdo php-xml php-cli php-mcrypt
+yum install -y php-fpm php-common php-opcache php-mbstring php-mysqlnd php-pdo php-xml php-cli
 
 # clear existing files (or else install will fail)
 rm -f /etc/nginx/nginx.conf
