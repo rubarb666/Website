@@ -31,15 +31,15 @@ class ModuleUpdatedWebhookSinkUrlHandler extends UrlHandler
             // Parse the body
             $payload = $request->getPayload();
 
-            if ($payload->ref !== "/refs/heads/master"){
+            if ($payload['ref'] !== "/refs/heads/master"){
                 goto respond;
             }
 
-            if (stripos($payload->repository->full_name, 'rhubarbphp/' ) !== 0){
+            if (stripos($payload['repository->full_name'], 'rhubarbphp/' ) !== 0){
                 goto respond;
             }
 
-            $this->updateRepos($payload->repository->full_name);
+            $this->updateRepos($payload['repository']['full_name']);
         }
 
 respond:
