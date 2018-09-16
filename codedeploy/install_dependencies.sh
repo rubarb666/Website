@@ -12,9 +12,11 @@ amazon-linux-extras install php7.2
 yum install -y git php-fpm php-common php-opcache php-mbstring php-mysqlnd php-pdo php-xml php-cli
 
 # Composer required for manual updates
-curl -sS https://getcomposer.org/installer | php
-mv composer.phar /usr/local/bin/composer
-ln -s /usr/local/bin/composer /usr/bin/composer
+if [ ! -f "/usr/local/bin/composer" ]; then
+    curl -sS https://getcomposer.org/installer | php
+    mv composer.phar /usr/local/bin/composer
+    ln -s /usr/local/bin/composer /usr/bin/composer
+fi
 
 # clear existing files (or else install will fail)
 rm -f /etc/nginx/nginx.conf
