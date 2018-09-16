@@ -2,13 +2,13 @@ version: 0.0
 os: linux
 files:
   - source: src
-    destination: /var/www/src
+    destination: /var/deploying/src
   - source: docs
-    destination: /var/www/docs
+    destination: /var/deploying/docs
   - source: static
-    destination: /var/www/static
+    destination: /var/deploying/static
   - source: vendor
-    destination: /var/www/vendor
+    destination: /var/deploying/vendor
   - source: nginx/nginx.conf
     destination: /etc/nginx/
   - source: nginx/virtual.conf

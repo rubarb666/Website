@@ -21,7 +21,13 @@ rm -f /etc/nginx/nginx.conf
 rm -f /etc/nginx/conf.d/virtual.conf
 rm -f /etc/php.ini
 rm -f /etc/php-fpm.d/www.conf
-rm -rf /var/www
+rm -f /var/deploying
+
+if [ ! -d "/var/deploying" ]; then
+    mkdir /var/deploying
+fi
+
+chown -R nginx: /var/deploying
 mkdir -p /var/www/settings/
 chown -R nginx: /var/www
 chown -R nginx: /var/log/php-fpm
