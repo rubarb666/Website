@@ -12,7 +12,9 @@ class RhubarbWebsiteApplication extends Application
     {
         parent::initialise();
 
-        include_once(__DIR__.'/../settings/site.config.php');
+        if (file_exists(__DIR__.'/../settings/site.config.php')) {
+            include_once(__DIR__ . '/../settings/site.config.php');
+        }
     }
 
 
