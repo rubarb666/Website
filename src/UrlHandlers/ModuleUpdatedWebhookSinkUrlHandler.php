@@ -31,11 +31,11 @@ class ModuleUpdatedWebhookSinkUrlHandler extends UrlHandler
             // Parse the body
             $payload = $request->getPayload();
 
-            if ($payload['ref'] !== "/refs/heads/master"){
+            if ($payload['ref'] !== "refs/heads/master"){
                 goto respond;
             }
 
-            if (stripos($payload['repository->full_name'], 'rhubarbphp/' ) !== 0){
+            if (stripos($payload['repository']['full_name'], 'rhubarbphp/' ) !== 0){
                 goto respond;
             }
 
@@ -48,7 +48,7 @@ respond:
 
     private function updateRepos($reposName)
     {
-        $reposPath = APPLICATION_ROOT_DIR.'/docs/modules/'.$reposName;
+        $reposPath = APPLICATION_ROOT_DIR.'/docs/modules/'.str_replace('RhubarbPHP/','', $reposName);
 
         if (!file_exists($reposPath)){
             exec('git clone https://github.com/'.$reposName.' '.$reposPath);
