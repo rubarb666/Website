@@ -23,9 +23,7 @@ rm -f /etc/php.ini
 rm -f /etc/php-fpm.d/www.conf
 rm -f /var/deploying
 
-if [ ! -d "/var/deploying" ]; then
-    mkdir /var/deploying
-fi
+mkdir /var/deploying
 
 chown -R nginx: /var/deploying
 mkdir -p /var/www/settings/

@@ -48,7 +48,7 @@ respond:
 
     private function updateRepos($reposName)
     {
-        $reposPath = APPLICATION_ROOT_DIR.'/docs/modules/'.str_replace('RhubarbPHP/','', $reposName);
+        $reposPath = APPLICATION_ROOT_DIR.'/docs/modules/'.strtolower(str_replace('RhubarbPHP/','', $reposName));
 
         if (!file_exists($reposPath)){
             exec('git clone https://github.com/'.$reposName.' '.$reposPath);
