@@ -24,6 +24,9 @@ class ModuleUpdatedWebhookSinkUrlHandler extends UrlHandler
     {
         $response = new JsonResponse();
 
+        // Lets be nice and always give github a response.
+        $response->setContent(true);
+
         /**
          * @var JsonRequest $request
          */
@@ -50,13 +53,14 @@ respond:
     {
         $reposPath = APPLICATION_ROOT_DIR.'/docs/modules/'.strtolower(str_replace('RhubarbPHP/','', $reposName));
 
+        chdir($reposPath);
+
         if (!file_exists($reposPath)){
             exec('git clone https://github.com/'.$reposName.' '.$reposPath);
         } else {
-            exec('git --work-tree='.$reposPath.' pull');
+            exec('git pull');
         }
 
-        chdir($reposPath);
         exec('composer install --no-dev --ignore-platform-reqs');
     }
 }
