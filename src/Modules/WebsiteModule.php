@@ -15,6 +15,7 @@ use Rhubarb\Website\Models\Contact;
 use Rhubarb\Website\Models\Organisation;
 use Rhubarb\Website\RestResources\OrganisationResource;
 use Rhubarb\Website\UrlHandlers\MarkdownUrlHandler;
+use Rhubarb\Website\UrlHandlers\ModuleUpdatedWebhookSinkUrlHandler;
 
 class WebsiteModule extends Module
 {
@@ -24,7 +25,9 @@ class WebsiteModule extends Module
 
         $this->addUrlHandlers(
             [
-                "/" => new MarkdownUrlHandler(),
+                "/" => new MarkdownUrlHandler([
+                    "github" => new ModuleUpdatedWebhookSinkUrlHandler()
+                ]),
             ]
         );
     }
