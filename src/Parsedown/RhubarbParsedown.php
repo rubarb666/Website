@@ -36,7 +36,7 @@ class RhubarbParsedown extends \ParsedownExtra
     }
 
 
-    public static function getHtmlForExampleDirectory($scanPath)
+    public static function getHtmlForExampleDirectory($scanPath, $excludeFileNames = [])
     {
         $directory = scandir($scanPath);
 
@@ -50,6 +50,10 @@ class RhubarbParsedown extends \ParsedownExtra
             }
 
             if (!is_file($scanPath . "/" . $dir)) {
+                continue;
+            }
+
+            if (in_array($dir, $excludeFileNames)){
                 continue;
             }
 
@@ -156,7 +160,7 @@ class RhubarbParsedown extends \ParsedownExtra
 
                 if ($response instanceof HtmlResponse) {
                     $html = $response->getContent();
-                    $code = RhubarbParsedown::getHtmlForExampleDirectory(dirname($demoPath));
+                    $code = RhubarbParsedown::getHtmlForExampleDirectory(dirname($demoPath), ["Boot.php"]);
                     $html .= $code;
                     $html = '<div class="c-example">' . $html . '</div>';
                     return $html;
