@@ -36,7 +36,7 @@ class RhubarbParsedown extends \ParsedownExtra
     }
 
 
-    public static function getHtmlForExampleDirectory($scanPath, $excludeFileNames = [])
+    public static function getHtmlForExampleDirectory($scanPath, $excludeFileNames = [], $filesToDisplay = [])
     {
         $directory = scandir($scanPath);
 
@@ -55,6 +55,12 @@ class RhubarbParsedown extends \ParsedownExtra
 
             if (in_array($dir, $excludeFileNames)){
                 continue;
+            }
+
+            if (count($filesToDisplay) > 0){
+                if (!in_array($dir, $filesToDisplay)){
+                    continue;
+                }
             }
 
             $tabId = preg_replace("/\\W/", "", strtolower($dir));
@@ -103,7 +109,7 @@ class RhubarbParsedown extends \ParsedownExtra
         return $tabUl;
     }
 
-    public static function getHtmlForDemo($demoPath, $request = null)
+    public static function getHtmlForDemo($demoPath, $request = null, $filesToDisplay = [])
     {
         if (file_exists($demoPath)) {
 
@@ -160,7 +166,7 @@ class RhubarbParsedown extends \ParsedownExtra
 
                 if ($response instanceof HtmlResponse) {
                     $html = $response->getContent();
-                    $code = RhubarbParsedown::getHtmlForExampleDirectory(dirname($demoPath), ["Boot.php"]);
+                    $code = RhubarbParsedown::getHtmlForExampleDirectory(dirname($demoPath), ["Boot.php"], $filesToDisplay);
                     $html .= $code;
                     $html = '<div class="c-example">' . $html . '</div>';
                     return $html;
@@ -190,7 +196,10 @@ class RhubarbParsedown extends \ParsedownExtra
 
         if (preg_match('/^[' . $Line['text'][0] . ']{3,}[ ]*demo[[]([^]]+)[]]/', $Line['text'], $match)) {
             $scanPath = $this->relativeDir . '/' . $match[1];
-            $html = self::getHtmlForDemo($scanPath, Request::current());
+
+            $parts = explode(",", $scanPath);
+
+            $html = self::getHtmlForDemo($parts[0], Request::current(), array_slice($parts, 1));
 
             return array(
                 'char' => $Line['text'][0],
