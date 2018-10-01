@@ -61,6 +61,6 @@ respond:
             exec('git pull');
         }
 
-        exec('composer install --no-dev --ignore-platform-reqs');
+        exec('composer install --ignore-platform-reqs');
     }
 }
