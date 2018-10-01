@@ -82,7 +82,7 @@ class RhubarbParsedown extends \ParsedownExtra
                 "id" => $tabId,
                 "html" => "<div class='c-tab js-tab' id='$tabId'>
                                     <div class='c-tab__content'>
-                                    <pre " . implode(" ", $attributes) . "><code>" . trim($element["text"]["text"]) . "</code>
+                                    <pre " . implode(" ", $attributes) . "><code>" . htmlentities(trim($element["text"]["text"])) . "</code>
                                     </pre></div>
                                 </div>"
             ];
@@ -243,14 +243,18 @@ class RhubarbParsedown extends \ParsedownExtra
                 $file = $match[1];
                 $content = file($this->relativeDir . '/' . $file);
 
-                if (preg_match("/lines[[](\\d+)(-(\\d+))?[]]/", $Line["text"], $match)) {
+                if (preg_match("/lines[[](\\d+)(-(-?\\d+))?[]]/", $Line["text"], $match)) {
                     $from = $match[1];
                     $to = (!isset($match[3])) ? sizeof($content) : $match[3];
 
-                    $content = array_slice($content, $from, $to - $from);
+                    if ($to>0){
+                        $to = $to - $from + 1;
+                    }
+
+                    $content = array_slice($content, $from, $to);
                 }
 
-                $Element["text"] = htmlentities(implode("", $content));
+                $Element["text"] = implode("", $content);
                 $request = Application::current()->request();
                 $Block['element']['attributes']['data-url'] = $this->generateGitHubUrl($file, $request->urlPath);
 //                $Block['element']['attributes']['data-url'] = "/view/" . $request->uri . "/" . $file;//github url
