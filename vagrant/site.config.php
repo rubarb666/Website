@@ -5,6 +5,7 @@ namespace Rhubarb\Website;
 use Monolog\Handler\ChromePHPHandler;
 use Monolog\Logger;
 use Rhubarb\Crown\Application;
+use Rhubarb\Crown\Exceptions\Handlers\ExceptionHandler;
 use Rhubarb\Crown\Logging\Log;
 use Rhubarb\Crown\Logging\MonologLog;
 
@@ -14,3 +15,7 @@ $logger = new Logger("rhubarb");
 $logger->pushHandler( new ChromePHPHandler() );
 
 Log::AttachLog( new MonologLog(Log::ALL, $logger) );
+
+#ExceptionHandler::disableExceptionTrapping();
+
+#error_reporting(E_ERROR);

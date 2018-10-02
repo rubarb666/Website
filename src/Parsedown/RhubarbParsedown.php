@@ -21,6 +21,25 @@ class RhubarbParsedown extends \ParsedownExtra
         $this->relativeDir = $relativeDir;
     }
 
+
+    protected function extractElement(array $Component)
+    {
+        if ( ! isset($Component['element']))
+        {
+            if (isset($Component['markup']))
+            {
+                $Component['element'] = array('rawHtml' => $Component['markup']);
+            }
+            else
+            {
+                $Component['element'] = array();
+            }
+        }
+
+        return $Component['element'];
+    }
+
+
     function text($text)
     {
         while(preg_match('/[[]packagist:([^]]+)[]]/', $text, $match)){
