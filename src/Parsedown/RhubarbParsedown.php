@@ -245,6 +245,10 @@ class RhubarbParsedown extends \ParsedownExtra
                 if ($language == "bash"){
                     $Element['attributes']['class'] = $Element['attributes']['class']." command-line";
                 }
+
+                if ($language == "mermaid"){
+                    $Element['attributes']['class'] = $Element['attributes']['class']." mermaid";
+                }
             }
 
             $Block = array(

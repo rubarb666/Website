@@ -255,3 +255,12 @@ pre.line-numbers > code {
 	content: attr(data-prompt);
 }
 
+:not(pre) > code[class*="language-mermaid"],
+pre[class*="language-mermaid"] {
+	background: white;
+	max-height: none;
+}
+
+code.mermaid {
+	padding: 0;
+}

@@ -3,6 +3,7 @@
 namespace Rhubarb\Website\UrlHandlers;
 
 use ParsedownExtra;
+use Rhubarb\Crown\Html\ResourceLoader;
 use Rhubarb\Crown\Logging\Log;
 use Rhubarb\Crown\Request\Request;
 use Rhubarb\Crown\Response\HtmlResponse;
@@ -23,6 +24,32 @@ class MarkdownUrlHandler extends UrlHandler
      */
     protected function generateResponseForRequest($request = null)
     {
+        ResourceLoader::addScriptCode("
+        
+        mermaid.initialize(
+        {
+            startOnLoad:true,
+            sequence: {
+                diagramMarginX: \"0\",
+                diagramMarginY: \"0\"
+                }
+        });
+        
+        setTimeout(function(){
+            var diagrams = document.querySelectorAll('.mermaid svg');
+            for(var i = 0; i < diagrams.length; i++){
+                var svg = diagrams[i];
+                var bbox = svg.getBBox();
+                var aspect = bbox.width / bbox.height;
+                svg.setAttribute(\"viewBox\", (bbox.x-10)+\" \"+(bbox.y-10)+\" \"+(bbox.width+20)+\" \"+(bbox.height+20));
+                svg.setAttribute(\"width\", \"100%\");
+                
+              
+                svg.setAttribute(\"height\",(svg.clientWidth / aspect) + \"px\");
+            }
+        }, 400);
+        ",["https://unpkg.com/mermaid@8.0.0-rc.8/dist/mermaid.js"]);
+
         $url = $request->urlPath;
 
         if ($url[strlen($url) - 1] == "/") {
