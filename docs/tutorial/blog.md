@@ -4,19 +4,23 @@ Tutorial: Building a blog
 You will need to install the following globally:
 * git
 * Composer
-* Vagrant. 
-Vagrant requires you to also have installed Oracle Virtual Box
-
+* docker and docker-compose
+ 
 You should then run the following commands from the project root to get started
 ```bash
 git clone https://github.com/RhubarbPHP/Bootstrap.WebApp.git
 cd Bootstrap.WebApp
 composer install #Download PHP Dependencies
-vagrant up #Start Virtual Machine
+docker-compose up #Start Virtual Machine
+./custard.sh stem:seed-data #Seed some test blog articles.
 ```
-Note that vagrant uses port 8080 which can sometimes conflict with the ports that other applications such as Skype use. 
 
-You will notice that a vendor directory has been created, this is where all of thethird party dependencies are stored. 
+Note that docker sets up the site to run on port 8080 which can sometimes conflict with the
+ports that other applications such as Skype use. 
+
+You will notice that a vendor directory has been created, this is where all of the third party
+dependencies are stored.
+ 
 This is where you will find `vendor/bin` which contains all of the executables.
 
 # Where is the home page?
