@@ -21,20 +21,20 @@ ports that other applications such as Skype use.
 You will notice that a vendor directory has been created, this is where all of the third party
 dependencies are stored.
  
-This is where you will find `vendor/bin` which contains all of the executables.
+This is contains all of the executables.
 
 # Where is the home page?
 If you open your browser at localhost:8080 you will find the "Welcome to Compost Corner!" start page.
 
 Rhubarb uses a Model-View-Presenter pattern so, in `src/Leaves/Index` you will find a Leaf (Presenter), a Model and 
-View: Index, IndexModel and Index View.
+View: Index, IndexModel and IndexView.
 
 Open IndexView.php and change "Welcome to Compost Corner!" to the obligatory text " Hello, World!".
 
 You will find that the home page text has changed.
 
 In `Index.php` you will notice that the Leaf class has been extended and that two methods:
-`getViewClass()` and `createModel()` have been overridden. You must extend these 
+`getViewClass()` and `createModel()` have been overridden. You must implement these abstract
 methods and return what they are expecting every time. 
 
 `getViewClass()` expects a string to be returned of the View class that you have created.
@@ -68,8 +68,8 @@ class AboutUs extends Leaf
 }
 ```
 
-Those of you using an IDE will notice that the class declaration is showing an error because we need to override two 
-methods. Lets leave that until we create the other two classes so we can use them here.
+Those of you using an IDE will notice that the class declaration is showing an error because we need to 
+implement/override two methods. Lets leave that until we create the other two classes so we can use them here.
 
 In `AboutUsModel.php` add the same namespace as before and your class declaration should be as follows:
 
@@ -77,7 +77,7 @@ In `AboutUsModel.php` add the same namespace as before and your class declaratio
 
 You can simplify this with a use statement.
 
-In `AboutUs.php` override the `createModel()` method and return a new `AboutUsModel()`
+In `AboutUs.php` implement/override the `createModel()` method and return a new `AboutUsModel()`
 
 ```php
 protected function createModel()
@@ -92,7 +92,7 @@ In `AboutUsView.php` add the namespace as before, and add the class declaration 
 
 `class AboutUsView extends \Rhubarb\Leaf\Views\View`
 
-In this class for now, override `printViewContent()` so that we will have something to display
+In this class for now, implement/override `printViewContent()` so that we will have something to display
 ```php
 protected function printViewContent()
 {
@@ -105,7 +105,8 @@ protected function printViewContent()
 
 You can also use `print "Your content";` if you prefer, instead of opening and closing php.
 
-In `AboutUs.php` we can now override that last method: `getViewClass()`. We need to return the class name of our view class.
+In `AboutUs.php` we can now implement/override that last method: `getViewClass()`. We need to return the class name 
+of our view class.
 ```php
 protected function getViewClass()
 {
