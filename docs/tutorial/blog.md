@@ -179,10 +179,10 @@ In `createSchema()` set it up to look like this:
 ```php
 protected function createSchema()
 {
-    $schema = new \Rhubarb\Stem\Schema\ModelSchema("Post");
+    $schema = new \Rhubarb\Stem\Schema\ModelSchema("tblPost");
     
     $schema->addColumn(
-        new \Rhubarb\Stem\Schema\Columns\AutoIncrementColumn("PostID"),
+        new \Rhubarb\Stem\Schema\Columns\AutoIncrementColumn("PostId"),
         new \Rhubarb\Stem\Schema\Columns\StringColumn("Title", 50),
         new \Rhubarb\Stem\Schema\Columns\LongStringColumn("Content")
     );
