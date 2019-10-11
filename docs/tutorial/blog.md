@@ -24,12 +24,12 @@ dependencies are stored.
 This is where you will find `vendor/bin` which contains all of the executables.
 
 # Where is the home page?
-If you open your browser at localhost:8080 you will find the "You're up and running!" start page.
+If you open your browser at localhost:8080 you will find the "Welcome to Compost Corner!" start page.
 
 Rhubarb uses a Model-View-Presenter pattern so, in `src/Leaves/Index` you will find a Leaf (Presenter), a Model and 
 View: Index, IndexModel and Index View.
 
-Open IndexView.php and change "You're up and running!" to the obligatory text " Hello, World!".
+Open IndexView.php and change "Welcome to Compost Corner!" to the obligatory text " Hello, World!".
 
 You will find that the home page text has changed.
 
@@ -142,18 +142,16 @@ You will add all of your new Pages to this array. All page names should end with
 `http://localhost:8080/about-us/` is the url where we will now find the page.
 
 ## If that seemed like a lot of work
-Rhubarb uses custard commands to speed up the process of a lot of repetitive tasks.
+For those of you using JetBrains PhpStorm IDE:<br>
+There is a plugin called 'Compost' that can speed up the process.
 
-Lets make a quick directory that we can remove in a moment.
+It can be found by searching in PhpStorms Preferences/Plugins marketplace. Don't worry, it's free.
 
-Create a directory as follows:
-`src/Leaves/Delete`
-then `cd` to the `Delete` Directory
+Once installed and PhpStorm is restarted, the option to make a new Rhubarb Leaf and Model are available through the 
+normal process of making any new class or file.
 
-then 
-`../../../vendor/bin/custard leaf:create-leaf`
-type in `Delete` or whatever you want your leaf to be called then press enter and it will create a Leaf, Model and View
-with a lot of helpful comments. You can delete this directory unless you want to keep it for reference.
+If we create a new Rhubarb Leaf , the 'Add a new Leaf set' window appears. This will auto-name and create the Model, 
+View and ViewBridge (if required) based on the Leaf name. The new files will include a lot of helpful comments. 
 
 # Databases & tables
 
