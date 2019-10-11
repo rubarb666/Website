@@ -143,7 +143,7 @@ You will add all of your new Pages to this array. All page names should end with
 `http://localhost:8080/about-us/` is the url where we will now find the page.
 
 ## If that seemed like a lot of work
-For those of you using JetBrains PhpStorm IDE:<br>
+For those of you using JetBrains PhpStorm IDE (last checked - v2019.1):<br>
 There is a plugin called 'Compost' that can speed up the process.
 
 It can be found by searching in PhpStorms Preferences/Plugins marketplace. Don't worry, it's free.
