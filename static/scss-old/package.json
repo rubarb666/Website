@@ -4,7 +4,7 @@
   "description": "Build script for converting SCSS to CSS",
   "main": "js/app.js",
   "dependencies": {
-    "node-sass": "^3.4.2"
+    "node-sass": "^4.14.1"
   },
   "scripts": {
     "sass": "node sass.js"
